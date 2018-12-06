@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Sven.Weber</authors>
+    <owners>BD Rowa Germany GmbH</owners>
+    <projectUrl>https://dwdeu089nuget01.bdx.com/files/docs/RowaLogDoku_0.1.4.pdf</projectUrl>
+    <iconUrl>http://dwdeu089nuget01.bdx.com/files/BDIcon.ico</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Minor Bugfix in Cleanup Dispose</releaseNotes>
+  </metadata>
+  <files />
+</package>
