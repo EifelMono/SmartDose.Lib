@@ -40,9 +40,10 @@ namespace ConnectedService
             List = 2
         }
 
-        public QueryBuilder(ServiceClientBase client)
+        public QueryBuilder(ServiceClientBase client, bool withDebugInfo = false)
         {
             Client = client;
+            WithDebugInfo = withDebugInfo;
         }
 
         protected ServiceClientBase Client { get; set; }
@@ -61,6 +62,15 @@ namespace ConnectedService
         protected int Page { get; set; } = -1;
         protected int PageSize { get; set; } = -1;
 
+        protected bool _WithDebugInfo { get; set; } = false;
+        protected bool WithDebugInfo
+        {
+            get => AllWithDebugInfo ? AllWithDebugInfo : _WithDebugInfo;
+            set => _WithDebugInfo = value;
+        }
+
+        public static bool AllWithDebugInfo { get; set; } = false;
+
         // Use deconstructor while protected properties 
         public (string WhereAsJson,
             string OrderByAsJson,
@@ -69,13 +79,14 @@ namespace ConnectedService
             QueryRequestResultAs ResultAs,
             Type ModelType,
             int Page,
-            int PageSize) GetValues()
-            => (WhereAsJson, OrderByAsJson, OrderByAsc, OrderByAs, ResultAs, ModelType, Page, PageSize);
+            int PageSize,
+            bool WithDebugInfo) GetValues()
+            => (WhereAsJson, OrderByAsJson, OrderByAsc, OrderByAs, ResultAs, ModelType, Page, PageSize, WithDebugInfo);
     }
 
     public class QueryBuilder<TModel> : QueryBuilder where TModel : class
     {
-        public QueryBuilder(ServiceClientBase client) : base(client)
+        public QueryBuilder(ServiceClientBase client, bool withDebugInfo = false) : base(client, withDebugInfo)
         {
             ModelType = typeof(TModel);
         }
@@ -111,6 +122,12 @@ namespace ConnectedService
             return this;
         }
 
+        public QueryBuilder<TModel> AllWithDebugInfo(bool withDebugInfo)
+        {
+            WithDebugInfo = withDebugInfo;
+            return this;
+        }
+
         protected async Task<ServiceResult<TResult>> ExecuteAsync<TResult>() where TResult : class
         {
             var executeServiceResult = await Client.ExecuteQueryBuilderAsync(this).ConfigureAwait(false);
@@ -138,5 +155,7 @@ namespace ConnectedService
             ResultAs = QueryRequestResultAs.Item;
             return await ExecuteAsync<TModel>().ConfigureAwait(false);
         }
+
+
     }
 }

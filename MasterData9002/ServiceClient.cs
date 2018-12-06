@@ -53,11 +53,23 @@ namespace MasterData9002
 
         protected override void AssignClientCallbacks(bool on)
         {
+            switch (on)
+            {
+                case true:
+                    break;
+                case false:
+                    break;
+            }
         }
 
         #endregion
 
         #region Wrapped Client Callbacks
+
+        public void CanisterLocationChanged(string canisterRfid, Location location)
+        {
+            throw new NotImplementedException();
+        }
 
         public event Action<List<Customer>, bool> OnSetCustomer;
         public void SetCustomers(List<Customer> customers, bool initialSyncronization)
@@ -80,10 +92,7 @@ namespace MasterData9002
             throw new NotImplementedException();
         }
 
-        public void CanisterLocationChanged(string canisterRfid, Location location)
-        {
-            throw new NotImplementedException();
-        }
+
 
         public void SetManufacturers(List<Manufacturer> manufacturers, bool initialSyncronization)
         {

@@ -229,7 +229,7 @@ namespace ConnectedService
         }
 
 #if UseQuery
-        protected async Task<TResult> CatcherAsync<TResult>(Func<Task<TResult>> func) where TResult : ServiceResult, new()
+        protected async Task<TResult> CatcherServiceResultAsync<TResult>(Func<Task<TResult>> func) where TResult : ServiceResult, new()
         {
             try
             {
@@ -243,6 +243,19 @@ namespace ConnectedService
             }
         }
 #endif
+        protected async Task<TResult> CatcherAsync<TResult>(Func<Task<TResult>> func)
+        {
+            try
+            {
+                return await func().ConfigureAwait(false);
+            }
+            catch (Exception ex)
+            {
+                if (ThrowOnConnectionError)
+                    throw ex;
+                return default(TResult);
+            }
+        }
 
         protected async Task CatcherAsync(Func<Task> func)
         {
@@ -269,18 +282,18 @@ namespace ConnectedService
                     throw ex;
             }
         }
-#endregion
+        #endregion
 
-#region Query
+        #region Query
 #if UseQuery
 
         public abstract Task<ServiceResult> ExecuteQueryBuilderAsync(QueryBuilder queryBuilder);
 
-        public QueryBuilder<T> NewQuery<T>() where T : class
+        public QueryBuilder<T> NewQuery<T>(bool withDebugInfo= false) where T : class
         {
-            return new QueryBuilder<T>(this) { };
+            return new QueryBuilder<T>(this, withDebugInfo) { };
         }
 #endif
-#endregion
+        #endregion
     }
 }

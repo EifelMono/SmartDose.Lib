@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Threading.Tasks;
@@ -35,7 +36,7 @@ namespace MasterData10000
             => QueryAsync(queryRequest).Result;
 
         public async Task<ServiceResultQueryResponse> QueryAsync(QueryRequest queryRequest)
-            => await CatcherAsync(() => Client.QueryAsync(queryRequest)).ConfigureAwait(false);
+            => await CatcherServiceResultAsync(() => Client.QueryAsync(queryRequest)).ConfigureAwait(false);
 
         public async override Task<ServiceResult> ExecuteQueryBuilderAsync(QueryBuilder queryBuilder)
         {
@@ -51,6 +52,7 @@ namespace MasterData10000
                 Page = queryBuildValues.Page,
                 PageSize = queryBuildValues.PageSize,
                 ResultAs = (QueryRequestResultAs)queryBuildValues.ResultAs,
+                WithDebugInfo = queryBuildValues.WithDebugInfo,
             };
             var serviceResult = await QueryAsync(queryRequest).ConfigureAwait(false);
             var newServiceResult = serviceResult.CastByClone<ServiceResult<string>>();
@@ -63,22 +65,22 @@ namespace MasterData10000
 
         public async override Task OpenAsync()
         {
-            await (CatcherAsyncIgnore(() => Client.OpenAsync()).ConfigureAwait(false));
+            await CatcherAsyncIgnore(() => Client.OpenAsync()).ConfigureAwait(false);
         }
 
         public async override Task CloseAsync()
         {
-            await (CatcherAsyncIgnore(() => Client.CloseAsync()).ConfigureAwait(false));
+            await CatcherAsyncIgnore(() => Client.CloseAsync()).ConfigureAwait(false);
         }
 
         public async override Task SubscribeForCallbacksAsync()
         {
-            await (CatcherAsyncIgnore(() => Client.SubscribeForCallbacksAsync()).ConfigureAwait(false));
+            await CatcherAsyncIgnore(() => Client.SubscribeForCallbacksAsync()).ConfigureAwait(false);
         }
 
         public async override Task UnsubscribeForCallbacksAsync()
         {
-            await (CatcherAsyncIgnore(() => Client.UnsubscribeForCallbacksAsync()).ConfigureAwait(false));
+            await CatcherAsyncIgnore(() => Client.UnsubscribeForCallbacksAsync()).ConfigureAwait(false);
         }
 
         protected override void AssignClientCallbacks(bool on)
@@ -87,9 +89,12 @@ namespace MasterData10000
             {
                 case true:
                     Client.MedicinesChangedReceived += MedicinesChanged;
+                    Client.MedicinesDeletedReceived += MedicinesDeleted;
+
                     break;
                 case false:
                     Client.MedicinesChangedReceived -= MedicinesChanged;
+                    Client.MedicinesDeletedReceived -= MedicinesDeleted;
                     break;
             }
         }
@@ -98,46 +103,59 @@ namespace MasterData10000
         #region Wrapped Client Callbacks
 
         public event Action<List<Medicine>> OnMedicinesChanged;
-        protected void MedicinesChanged(object sender, MedicinesChangedReceivedEventArgs args)
-            => MedicinesChanged(args.medicines);
         public void MedicinesChanged(List<Medicine> medicines)
             => OnMedicinesChanged?.Invoke(medicines);
+        protected void MedicinesChanged(object sender, MedicinesChangedReceivedEventArgs args)
+            => MedicinesChanged(args.medicines);
+
 
         public event Action<List<string>> OnMedicinesDeleted;
         public void MedicinesDeleted(List<string> medicineIdentifiers)
         {
             OnMedicinesDeleted?.Invoke(medicineIdentifiers);
         }
+        protected void MedicinesDeleted(object sender, MedicinesDeletedReceivedEventArgs args)
+            => MedicinesDeleted(args.medicineIdentifiers);
         #endregion
 
         #region Wrapped Client Methods 
 
         #region Old Stuff
-        public Task<Medicine> GetMedicineByIdentifierAsync(string medicineIdentifier)
-        {
-            throw new NotImplementedException();
-        }
+        public Medicine GetMedicineByIdentifierA(string medicineIdentifier)
+            => GetMedicineByIdentifierAsync(medicineIdentifier).Result;
+        public async Task<Medicine> GetMedicineByIdentifierAsync(string medicineIdentifier)
+            => await CatcherAsync(() => Client.GetMedicineByIdentifierAsync(medicineIdentifier))
+                    .ConfigureAwait(false);
         #endregion
 
+        #region Medicine
         public ServiceResultLong MedicinesGetIdByIdentifier(string medicineIdentifier)
             => MedicinesGetIdByIdentifierAsync(medicineIdentifier).Result;
 
         public async Task<ServiceResultLong> MedicinesGetIdByIdentifierAsync(string medicineIdentifier)
-            => await CatcherAsync(() => Client.MedicinesGetIdByIdentifierAsync(medicineIdentifier))
+            => await CatcherServiceResultAsync(() => Client.MedicinesGetIdByIdentifierAsync(medicineIdentifier))
                     .ConfigureAwait(false);
 
+        public ServiceResultBool MedicinesDeleteByIdentifier(string medicineIdentifier)
+             => MedicinesDeleteByIdentifierAsync(medicineIdentifier).Result;
         public async Task<ServiceResultBool> MedicinesDeleteByIdentifierAsync(string medicineIdentifier)
-             => await CatcherAsync(() => Client.MedicinesDeleteByIdentifierAsync(medicineIdentifier))
+             => await CatcherServiceResultAsync(() => Client.MedicinesDeleteByIdentifierAsync(medicineIdentifier))
                     .ConfigureAwait(false);
 
+        public ServiceResultMedicine MedicinesGetMedcineByIdentifier(string medicineIdentifier)
+            => MedicinesGetMedcineByIdentifierAsync(medicineIdentifier).Result;
         public async Task<ServiceResultMedicine> MedicinesGetMedcineByIdentifierAsync(string medicineIdentifier)
-            => await CatcherAsync(() => Client.MedicinesGetMedcineByIdentifierAsync(medicineIdentifier))
+            => await CatcherServiceResultAsync(() => Client.MedicinesGetMedcineByIdentifierAsync(medicineIdentifier))
                     .ConfigureAwait(false);
 
+        public ServiceResultMedicineList MedicinesGetMedcinesByIdentifiers(List<string> medicineIdentifiers, int page, int pageSize)
+            => MedicinesGetMedcinesByIdentifiersAsync(medicineIdentifiers, page, pageSize).Result;
         public async Task<ServiceResultMedicineList> MedicinesGetMedcinesByIdentifiersAsync(List<string> medicineIdentifiers, int page, int pageSize)
-            => await CatcherAsync(() => Client.MedicinesGetMedcinesByIdentifiersAsync(medicineIdentifiers, page, pageSize))
+            => await CatcherServiceResultAsync(() => Client.MedicinesGetMedcinesByIdentifiersAsync(medicineIdentifiers, page, pageSize))
                     .ConfigureAwait(false);
+        #endregion
 
+        #region Canister
         public Task<ServiceResultLong> CanistersGetIdByIdentifierAsync(string identifier)
         {
             throw new NotImplementedException();
@@ -157,7 +175,9 @@ namespace MasterData10000
         {
             throw new NotImplementedException();
         }
+        #endregion
 
+        #region Customer
         public Task<ServiceResultLong> CustomersGetIdByIdentifierAsync(string customerIdentifier)
         {
             throw new NotImplementedException();
@@ -177,7 +197,9 @@ namespace MasterData10000
         {
             throw new NotImplementedException();
         }
+        #endregion
 
+        #region DestinationFacilities
         public Task<ServiceResultLong> DestinationFacilitiesGetIdByIdentifierAsync(string destinationFacilityIdentifier)
         {
             throw new NotImplementedException();
@@ -197,6 +219,9 @@ namespace MasterData10000
         {
             throw new NotImplementedException();
         }
+        #endregion
+
+        #region Manufacturers
 
         public Task<ServiceResultLong> ManufacturersGetIdByIdentifierAsync(string manufacturerIdentifier)
         {
@@ -217,7 +242,9 @@ namespace MasterData10000
         {
             throw new NotImplementedException();
         }
+        #endregion
 
+        #region Patients
         public Task<ServiceResultLong> PatientsGetIdByIdentifierAsync(string patientIdentifier)
         {
             throw new NotImplementedException();
@@ -237,6 +264,9 @@ namespace MasterData10000
         {
             throw new NotImplementedException();
         }
+        #endregion
+
+        #region Trays
 
         public Task<ServiceResultLong> TraysGetIdByIdentifierAsync(string identifier)
         {
@@ -257,6 +287,8 @@ namespace MasterData10000
         {
             throw new NotImplementedException();
         }
+        #endregion
+
         #endregion
 
 

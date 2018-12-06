@@ -1813,6 +1813,8 @@ namespace MasterData10000
         
         private string WhereAsJsonField;
         
+        private bool WithDebugInfoField;
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ModelName
         {
@@ -1927,6 +1929,19 @@ namespace MasterData10000
             set
             {
                 this.WhereAsJsonField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool WithDebugInfo
+        {
+            get
+            {
+                return this.WithDebugInfoField;
+            }
+            set
+            {
+                this.WithDebugInfoField = value;
             }
         }
     }
