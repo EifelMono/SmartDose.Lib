@@ -51,9 +51,99 @@ namespace MasterData9002
             await (CatcherAsyncIgnore(() => Client.UnsubscribeForCallbacksAsync()).ConfigureAwait(false));
         }
 
+        protected override void AssignClientCallbacks(bool on)
+        {
+        }
+
         #endregion
 
-        #region Wrapped Client Calls 
+        #region Wrapped Client Callbacks
+
+        public event Action<List<Customer>, bool> OnSetCustomer;
+        public void SetCustomers(List<Customer> customers, bool initialSyncronization)
+        {
+            OnSetCustomer?.Invoke(customers, initialSyncronization);
+        }
+
+        public void DeleteCustomers(List<long> customerIds)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetCanisters(List<Canister> canisters, bool initialSyncronization)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteCanisters(List<long> canisterIds)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CanisterLocationChanged(string canisterRfid, Location location)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetManufacturers(List<Manufacturer> manufacturers, bool initialSyncronization)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteManufacturers(List<long> manufacturerIds)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetDestinationFacilities(List<DestinationFacility> destinationFacilitys, bool initialSyncronization)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteDestinationFacilities(List<long> destinationFacilityIds)
+        {
+            throw new NotImplementedException();
+        }
+
+        public event Action<List<Medicine>, bool> OnSetMedicines;
+        public void SetMedicines(List<Medicine> medicines, bool initialSyncronization)
+        {
+            OnSetMedicines?.Invoke(medicines, initialSyncronization);
+        }
+
+        public void DeleteMedicines(List<long> medicineIds)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetTrays(List<Tray> trays, bool initialSyncronization)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteTrays(List<long> trayIds)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetLabelDesigns(List<LabelDesign> labelDesigns, bool initialSyncronization)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteLabelDesigns(List<long> labelDesignIds)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetGlobalSettings(List<GlobalConfiguration> masterDataHandlingSettings)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        #region Wrapped Client Methods
         public Task<List<Customer>> GetCustomersAsync(List<SearchFilter> searchFilter, SortFilter sortFilter, PageFilter pageFilter)
         {
             throw new NotImplementedException();
@@ -236,90 +326,5 @@ namespace MasterData9002
 
         #endregion
 
-        #region Wrapped Callbacks
-
-        public event Action<List<Customer>, bool> OnSetCustomer;
-        public void SetCustomers(List<Customer> customers, bool initialSyncronization)
-        {
-            OnSetCustomer?.Invoke(customers, initialSyncronization);
-        }
-
-        public void DeleteCustomers(List<long> customerIds)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetCanisters(List<Canister> canisters, bool initialSyncronization)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteCanisters(List<long> canisterIds)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void CanisterLocationChanged(string canisterRfid, Location location)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetManufacturers(List<Manufacturer> manufacturers, bool initialSyncronization)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteManufacturers(List<long> manufacturerIds)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetDestinationFacilities(List<DestinationFacility> destinationFacilitys, bool initialSyncronization)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteDestinationFacilities(List<long> destinationFacilityIds)
-        {
-            throw new NotImplementedException();
-        }
-
-        public event Action<List<Medicine>, bool> OnSetMedicines;
-        public void SetMedicines(List<Medicine> medicines, bool initialSyncronization)
-        {
-            OnSetMedicines?.Invoke(medicines, initialSyncronization);
-        }
-
-        public void DeleteMedicines(List<long> medicineIds)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetTrays(List<Tray> trays, bool initialSyncronization)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteTrays(List<long> trayIds)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetLabelDesigns(List<LabelDesign> labelDesigns, bool initialSyncronization)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteLabelDesigns(List<long> labelDesignIds)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetGlobalSettings(List<GlobalConfiguration> masterDataHandlingSettings)
-        {
-            throw new NotImplementedException();
-        }
-
-        #endregion
     }
 }

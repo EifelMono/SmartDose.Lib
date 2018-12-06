@@ -109,9 +109,13 @@ namespace ConnectedService
             => QueuedEvent.New(ClientEvent.Closing);
         private void Client_Closed(object sender, EventArgs e)
             => QueuedEvent.New(ClientEvent.Closed);
-#endregion
+        #endregion
 
-#region Client Run
+        #region Assign Callbacks
+        protected abstract void AssignClientCallbacks(bool on);
+        #endregion
+
+        #region Client Run
         public bool IsConnected { get; set; } = false;
         protected virtual void Run()
         {
@@ -178,7 +182,7 @@ namespace ConnectedService
         {
             CreateClient();
             AssignClientEvents(true);
-            // InstallEvents();
+            AssignClientCallbacks(true);
             OpenAsync();
             if (withSubscribe)
                 SubscribeForCallbacksAsync().Wait();
@@ -189,7 +193,7 @@ namespace ConnectedService
             IsConnected = false;
             UnsubscribeForCallbacksAsync().Wait();
             CloseAsync();
-            // UninstallEvents();
+            AssignClientCallbacks(false);
             AssignClientEvents(false);
         }
 #endregion

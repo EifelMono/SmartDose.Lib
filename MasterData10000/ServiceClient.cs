@@ -81,9 +81,36 @@ namespace MasterData10000
             await (CatcherAsyncIgnore(() => Client.UnsubscribeForCallbacksAsync()).ConfigureAwait(false));
         }
 
+        protected override void AssignClientCallbacks(bool on)
+        {
+            switch (on)
+            {
+                case true:
+                    Client.MedicinesChangedReceived += MedicinesChanged;
+                    break;
+                case false:
+                    Client.MedicinesChangedReceived -= MedicinesChanged;
+                    break;
+            }
+        }
         #endregion
 
-        #region Wrapped Client Calls 
+        #region Wrapped Client Callbacks
+
+        public event Action<List<Medicine>> OnMedicinesChanged;
+        protected void MedicinesChanged(object sender, MedicinesChangedReceivedEventArgs args)
+            => MedicinesChanged(args.medicines);
+        public void MedicinesChanged(List<Medicine> medicines)
+            => OnMedicinesChanged?.Invoke(medicines);
+
+        public event Action<List<string>> OnMedicinesDeleted;
+        public void MedicinesDeleted(List<string> medicineIdentifiers)
+        {
+            OnMedicinesDeleted?.Invoke(medicineIdentifiers);
+        }
+        #endregion
+
+        #region Wrapped Client Methods 
 
         #region Old Stuff
         public Task<Medicine> GetMedicineByIdentifierAsync(string medicineIdentifier)
@@ -110,12 +137,6 @@ namespace MasterData10000
         public async Task<ServiceResultMedicineList> MedicinesGetMedcinesByIdentifiersAsync(List<string> medicineIdentifiers, int page, int pageSize)
             => await CatcherAsync(() => Client.MedicinesGetMedcinesByIdentifiersAsync(medicineIdentifiers, page, pageSize))
                     .ConfigureAwait(false);
-
-      
-
-
-
-      
 
         public Task<ServiceResultLong> CanistersGetIdByIdentifierAsync(string identifier)
         {
@@ -238,20 +259,6 @@ namespace MasterData10000
         }
         #endregion
 
-        #region Wrapped Callbacks
 
-        public event Action<List<Medicine>> OnMedicinesChanged;
-
-        public void MedicinesChanged(List<Medicine> medicines)
-        {
-            OnMedicinesChanged?.Invoke(medicines);
-        }
-
-        public event Action<List<string>> OnMedicinesDeleted;
-        public void MedicinesDeleted(List<string> medicineIdentifiers)
-        {
-            OnMedicinesDeleted?.Invoke(medicineIdentifiers);
-        }
-        #endregion
     }
 }
