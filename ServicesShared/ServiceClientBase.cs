@@ -1,12 +1,24 @@
-﻿using System;
+﻿#define UseQuery
+#if MasterData9002
+#undef UseQuery
+#endif
+using System;
 using System.ServiceModel;
 using System.Threading.Tasks;
 using RowaMore;
 using RowaMore.Extensions;
 
+#if MasterData10000
+namespace MasterData10000
+#elif Settings10000
+namespace Settings10000
+#elif MasterData9002
 namespace MasterData9002
+#else
+namespace ConnectedService
+#endif
 {
-    public  abstract class ServiceClientBase : IDisposable
+    public abstract class ServiceClientBase : IDisposable
     {
         public TimeSpan WaitOnFault { get; set; } = TimeSpan.FromSeconds(1);
         public string EndpointAddress { get; protected set; }
@@ -29,7 +41,7 @@ namespace MasterData9002
                 QueuedEvent.New(ClientEvent.Dispose);
         }
 
-        #region Client
+#region Client
         public ICommunicationObject Client { get; set; }
 
         public enum ClientEvent
@@ -51,7 +63,7 @@ namespace MasterData9002
 
         public abstract void CreateClient();
 
-        #region Client Abstract 
+#region Client Abstract 
         public abstract Task OpenAsync();
 
         public abstract Task CloseAsync();
@@ -59,9 +71,9 @@ namespace MasterData9002
         public abstract Task SubscribeForCallbacksAsync();
 
         public abstract Task UnsubscribeForCallbacksAsync();
-        #endregion
+#endregion
 
-        #region Client Events
+#region Client Events
 
         public event Action<ClientEvent> OnClientEvent;
         protected void AssignClientEvents(bool on)
@@ -97,12 +109,10 @@ namespace MasterData9002
             => QueuedEvent.New(ClientEvent.Closing);
         private void Client_Closed(object sender, EventArgs e)
             => QueuedEvent.New(ClientEvent.Closed);
-        #endregion
+#endregion
 
-        #region Client Run
-        public bool IsConnected{ get; set; } = false;
-        public object ServiceResultStatus { get; private set; }
-
+#region Client Run
+        public bool IsConnected { get; set; } = false;
         protected virtual void Run()
         {
             Task.Run(async () =>
@@ -115,7 +125,7 @@ namespace MasterData9002
                     };
                     var inFault = false;
                     var running = true;
-                    RunOpen();
+                    RunOpen(withSubscribe: true);
                     while (running)
                     {
                         if (await QueuedEvent.Next() is var nextEvent && nextEvent.Ok)
@@ -129,15 +139,17 @@ namespace MasterData9002
                                     break;
                                 case ClientEvent.Opened:
                                     IsConnected = true;
+                                    // await SubscribeForCallbacksAsync();
                                     break;
                                 case ClientEvent.Restart:
                                 case ClientEvent.Faulted:
                                     if (!inFault)
                                     {
                                         inFault = true;
+                                        Client.Abort();
                                         RunClose();
                                         await Task.Delay(WaitOnFault.Milliseconds);
-                                        RunOpen();
+                                        RunOpen(withSubscribe: true);
                                         inFault = false;
                                     }
                                     break;
@@ -162,13 +174,14 @@ namespace MasterData9002
             });
         }
 
-        protected void RunOpen()
+        protected void RunOpen(bool withSubscribe)
         {
             CreateClient();
             AssignClientEvents(true);
             // InstallEvents();
             OpenAsync();
-            SubscribeForCallbacksAsync().Wait();
+            if (withSubscribe)
+                SubscribeForCallbacksAsync().Wait();
         }
 
         protected void RunClose()
@@ -179,10 +192,10 @@ namespace MasterData9002
             // UninstallEvents();
             AssignClientEvents(false);
         }
-        #endregion
-        #endregion
+#endregion
+#endregion
 
-        #region SafeExecuter Catcher
+#region SafeExecuter Catcher
 
         protected void Catcher(Action action)
         {
@@ -211,19 +224,21 @@ namespace MasterData9002
             });
         }
 
-        //protected async Task<TResult> CatcherAsync<TResult>(Func<Task<TResult>> func) where TResult : ServiceResult, new()
-        //{
-        //    try
-        //    {
-        //        return await func().ConfigureAwait(false);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        if (ThrowOnConnectionError)
-        //            throw ex;
-        //        return new TResult { Exception = ex, Status = ServiceResultStatus.ErrorConnection };
-        //    }
-        //}
+#if UseQuery
+        protected async Task<TResult> CatcherAsync<TResult>(Func<Task<TResult>> func) where TResult : ServiceResult, new()
+        {
+            try
+            {
+                return await func().ConfigureAwait(false);
+            }
+            catch (Exception ex)
+            {
+                if (ThrowOnConnectionError)
+                    throw ex;
+                return new TResult { Exception = ex, Status = ServiceResultStatus.ErrorConnection };
+            }
+        }
+#endif
 
         protected async Task CatcherAsync(Func<Task> func)
         {
@@ -250,6 +265,18 @@ namespace MasterData9002
                     throw ex;
             }
         }
-        #endregion
+#endregion
+
+#region Query
+#if UseQuery
+
+        public abstract Task<ServiceResult> ExecuteQueryBuilderAsync(QueryBuilder queryBuilder);
+
+        public QueryBuilder<T> NewQuery<T>() where T : class
+        {
+            return new QueryBuilder<T>(this) { };
+        }
+#endif
+#endregion
     }
 }

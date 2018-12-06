@@ -3,7 +3,23 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;108</NoWarn>
+    <DefineConstants>TRACE;MasterData9002</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;108</NoWarn>
+    <DefineConstants>MasterData9002</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\ServicesShared\ServiceClientBase.cs" Link="ServiceShared\ServiceClientBase.cs" />
+    <Compile Include="..\ServicesShared\SearchFilter.cs" Link="ServiceShared\SearchFilter.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="RowaMore" Version="1.0.0" />
@@ -16,11 +32,6 @@
 
   <PropertyGroup>
     <DefaultItemExcludes>Artifacts\**</DefaultItemExcludes>
-    <LangVersion>7.3</LangVersion>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <NoWarn>1701;1702;108</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -34,6 +45,8 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services" />
   </ItemGroup>
+
+
 
 
 </Project>

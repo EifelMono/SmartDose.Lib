@@ -9,11 +9,11 @@
     "Namespace": "MasterData10000",
     "SelectedAccessLevelForGeneratedClass": "Public",
     "GenerateMessageContract": false,
-    "ReuseTypesinReferencedAssemblies": false,
+    "ReuseTypesinReferencedAssemblies": true,
     "ReuseTypesinAllReferencedAssemblies": true,
     "CollectionTypeReference": {
-      "Item1": "System.Array",
-      "Item2": "System.Runtime.dll"
+      "Item1": "System.Collections.Generic.List`1",
+      "Item2": "System.Collections.dll"
     },
     "DictionaryCollectionTypeReference": {
       "Item1": "System.Collections.Generic.Dictionary`2",

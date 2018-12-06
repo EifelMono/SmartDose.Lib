@@ -13,7 +13,9 @@ namespace ProgramWcfConsoleTest
     {
         public static async Task Run()
         {
-            using (var serviceClient = new ServiceClient("net.tcp://localhost:10000/MasterData/"))
+            var endPoint = "net.tcp://localhost:10000/MasterData/";
+            Console.WriteLine(endPoint);
+            using (var serviceClient = new ServiceClient(endPoint))
             {
                 serviceClient.OnClientEvent += (e) =>
                 {
@@ -28,16 +30,28 @@ namespace ProgramWcfConsoleTest
                 }
                 Console.WriteLine("Connected");
 
+                serviceClient.OnMedicinesChanged += (listOfMedicines) =>
+                {
+                    Console.WriteLine("Medicine changed");
+                };
+
                 Console.WriteLine("g => MedicinesGetMedcineByIdentifierAsync(\"1\")");
                 Console.WriteLine("m,n,l => Query Medicine l=list");
                 Console.WriteLine("c => Query Customer");
+                Console.WriteLine("t => test medicine query");
                 Console.WriteLine("e => exit");
                 bool running = true;
                 while (running)
                 {
-                    var key = Console.ReadKey();
+                    ConsoleKeyInfo key = Console.ReadKey();
                     switch (key.KeyChar)
                     {
+                        case 'a':
+                            await serviceClient.SubscribeForCallbacksAsync();
+                            break;
+                        case 'b':
+                            await serviceClient.UnsubscribeForCallbacksAsync();
+                            break;
                         case 'e':
                         case 'E':
                             running = false;
@@ -200,6 +214,20 @@ namespace ProgramWcfConsoleTest
                                 }
                                 else
                                     Console.WriteLine($"Query Customer Error Result='{med.Status}' ({med.StatusAsInt})");
+                                break;
+                            }
+                        case 't':
+                        case 'T':
+                            {
+                                Console.WriteLine("Query Medicine");
+                                if (await serviceClient
+                                            .NewQuery<Medicine>()
+                                            .FirstOrDefaultAsync(m => m.Name == "med1") is var med && med.IsOk)
+                                {
+                                    Console.WriteLine($"Query medicine Data={med.Data.ToJson()}");
+                                }
+                                else
+                                    Console.WriteLine($"Query medicine Error Result='{med.Status}' ({med.StatusAsInt})");
                                 break;
                             }
                     }

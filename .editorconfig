@@ -11,9 +11,6 @@ insert_final_newline = true
 indent_style = space
 indent_size = 4
 
-[project.json]
-indent_size = 2
-
 # C# files
 [*.cs]
 # New line preferences
@@ -38,10 +35,10 @@ dotnet_style_qualification_for_property = false:suggestion
 dotnet_style_qualification_for_method = false:suggestion
 dotnet_style_qualification_for_event = false:suggestion
 
-# only use var when it's obvious what the variable type is
-csharp_style_var_for_built_in_types = false:none
-csharp_style_var_when_type_is_apparent = false:none
-csharp_style_var_elsewhere = false:suggestion
+# Prefer "var" everywhere
+csharp_style_var_for_built_in_types = true:suggestion
+csharp_style_var_when_type_is_apparent = true:suggestion
+csharp_style_var_elsewhere = true:suggestion
 
 # use language keywords instead of BCL types
 dotnet_style_predefined_type_for_locals_parameters_members = true:suggestion
@@ -137,9 +134,6 @@ csharp_space_between_square_brackets = false
 [*.{csproj,vcxproj,vcxproj.filters,proj,nativeproj,locproj}]
 indent_size = 2
 
-# Xml build files
-[*.builds]
-indent_size = 2
 
 # Xml files
 [*.{xml,stylecop,resx,ruleset}]

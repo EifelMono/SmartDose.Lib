@@ -6,7 +6,15 @@ using Newtonsoft.Json;
 using Serialize.Linq.Extensions;
 using RowaMore.Extensions;
 
+#if MasterData10000
 namespace MasterData10000
+#elif Settings10000
+namespace Settings10000
+#elif MasterData9002
+namespace MasterData9002
+#else
+namespace ConnectedService
+#endif
 {
     public class QueryBuilder
     {

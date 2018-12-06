@@ -74,9 +74,12 @@ namespace MasterData9002
             throw new NotImplementedException();
         }
 
-        public Task<List<Medicine>> GetMedicinesAsync(List<SearchFilter> searchFilter, SortFilter sortFilter, PageFilter pageFilter)
+        public List<Medicine> GetMedicines(List<SearchFilter> searchFilter, SortFilter sortFilter = null, PageFilter pageFilter = null)
+            => GetMedicinesAsync(searchFilter, sortFilter, pageFilter).Result;
+
+        public async Task<List<Medicine>> GetMedicinesAsync(List<SearchFilter> searchFilter, SortFilter sortFilter = null, PageFilter pageFilter = null)
         {
-            throw new NotImplementedException();
+            return await Client.GetMedicinesAsync(searchFilter, sortFilter, pageFilter).ConfigureAwait(false);
         }
 
         public Task<List<MedicineOverview>> GetMedicineOverviewAsync(List<SearchFilter> searchFilter, SortFilter sortFilter, PageFilter pageFilter)
@@ -235,9 +238,10 @@ namespace MasterData9002
 
         #region Wrapped Callbacks
 
+        public event Action<List<Customer>, bool> OnSetCustomer;
         public void SetCustomers(List<Customer> customers, bool initialSyncronization)
         {
-            throw new NotImplementedException();
+            OnSetCustomer?.Invoke(customers, initialSyncronization);
         }
 
         public void DeleteCustomers(List<long> customerIds)
@@ -280,9 +284,10 @@ namespace MasterData9002
             throw new NotImplementedException();
         }
 
+        public event Action<List<Medicine>, bool> OnSetMedicines;
         public void SetMedicines(List<Medicine> medicines, bool initialSyncronization)
         {
-            throw new NotImplementedException();
+            OnSetMedicines?.Invoke(medicines, initialSyncronization);
         }
 
         public void DeleteMedicines(List<long> medicineIds)

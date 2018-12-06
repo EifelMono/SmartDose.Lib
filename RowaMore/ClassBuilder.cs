@@ -39,7 +39,7 @@ namespace RowaMore
         public ClassBuilderProperty() : base()
         {
             Type = typeof(T);
-            Value = default(T);
+            Value = default;
             InitializePropertyWithValue = false;
         }
 

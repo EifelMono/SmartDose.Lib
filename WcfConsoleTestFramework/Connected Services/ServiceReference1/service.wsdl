@@ -1,0 +1,678 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MasterDataService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IMasterDataService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.Model.Faults" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.Model" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMasterDataService_SubscribeForCallbacks_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubscribeForCallbacks" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_SubscribeForCallbacks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubscribeForCallbacksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_UnsubscribeForCallbacks_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnsubscribeForCallbacks" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_UnsubscribeForCallbacks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnsubscribeForCallbacksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_GetMedicineByIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMedicineByIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_GetMedicineByIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMedicineByIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_GetMedicineByIdentifier_InvalidArgumentFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.Model.Faults" name="detail" element="q1:InvalidArgumentFault" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_Query_InputMessage">
+    <wsdl:part name="parameters" element="tns:Query" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_Query_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_CanistersGetIdByIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:CanistersGetIdByIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_CanistersGetIdByIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CanistersGetIdByIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_CanistersDeleteByIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:CanistersDeleteByIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_CanistersDeleteByIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CanistersDeleteByIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_CanistersGetCanisterByIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:CanistersGetCanisterByIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_CanistersGetCanisterByIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CanistersGetCanisterByIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_CanistersGetCanistersByIdentifiers_InputMessage">
+    <wsdl:part name="parameters" element="tns:CanistersGetCanistersByIdentifiers" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_CanistersGetCanistersByIdentifiers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CanistersGetCanistersByIdentifiersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_CustomersGetIdByIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:CustomersGetIdByIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_CustomersGetIdByIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CustomersGetIdByIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_CustomersDeleteByIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:CustomersDeleteByIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_CustomersDeleteByIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CustomersDeleteByIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_CustomersGetCustomerByIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:CustomersGetCustomerByIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_CustomersGetCustomerByIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CustomersGetCustomerByIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_CustomersGetCustomersByIdentifiers_InputMessage">
+    <wsdl:part name="parameters" element="tns:CustomersGetCustomersByIdentifiers" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_CustomersGetCustomersByIdentifiers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CustomersGetCustomersByIdentifiersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_DestinationFacilitiesGetIdByIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:DestinationFacilitiesGetIdByIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_DestinationFacilitiesGetIdByIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DestinationFacilitiesGetIdByIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_DestinationFacilitiesDeleteByIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:DestinationFacilitiesDeleteByIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_DestinationFacilitiesDeleteByIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DestinationFacilitiesDeleteByIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_DestinationFacilitiesGetDestinationFacilityByIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:DestinationFacilitiesGetDestinationFacilityByIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_DestinationFacilitiesGetDestinationFacilityByIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DestinationFacilitiesGetDestinationFacilityByIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_DestinationFacilitiesGetDestinationFacilitiesByIdentifiers_InputMessage">
+    <wsdl:part name="parameters" element="tns:DestinationFacilitiesGetDestinationFacilitiesByIdentifiers" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_DestinationFacilitiesGetDestinationFacilitiesByIdentifiers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DestinationFacilitiesGetDestinationFacilitiesByIdentifiersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_ManufacturersGetIdByIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:ManufacturersGetIdByIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_ManufacturersGetIdByIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ManufacturersGetIdByIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_ManufacturersDeleteByIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:ManufacturersDeleteByIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_ManufacturersDeleteByIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ManufacturersDeleteByIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_ManufacturersGetManufacturerByIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:ManufacturersGetManufacturerByIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_ManufacturersGetManufacturerByIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ManufacturersGetManufacturerByIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_ManufacturersGetManufacturersByIdentifiers_InputMessage">
+    <wsdl:part name="parameters" element="tns:ManufacturersGetManufacturersByIdentifiers" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_ManufacturersGetManufacturersByIdentifiers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ManufacturersGetManufacturersByIdentifiersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_MedicinesGetIdByIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:MedicinesGetIdByIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_MedicinesGetIdByIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MedicinesGetIdByIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_MedicinesDeleteByIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:MedicinesDeleteByIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_MedicinesDeleteByIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MedicinesDeleteByIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_MedicinesGetMedcineByIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:MedicinesGetMedcineByIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_MedicinesGetMedcineByIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MedicinesGetMedcineByIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_MedicinesGetMedcinesByIdentifiers_InputMessage">
+    <wsdl:part name="parameters" element="tns:MedicinesGetMedcinesByIdentifiers" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_MedicinesGetMedcinesByIdentifiers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MedicinesGetMedcinesByIdentifiersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_PatientsGetIdByIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:PatientsGetIdByIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_PatientsGetIdByIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PatientsGetIdByIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_PatientsDeleteByIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:PatientsDeleteByIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_PatientsDeleteByIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PatientsDeleteByIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_PatientsGetPatientByIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:PatientsGetPatientByIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_PatientsGetPatientByIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PatientsGetPatientByIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_PatientsGetPatientsByIdentifiers_InputMessage">
+    <wsdl:part name="parameters" element="tns:PatientsGetPatientsByIdentifiers" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_PatientsGetPatientsByIdentifiers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PatientsGetPatientsByIdentifiersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_TraysGetIdByIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:TraysGetIdByIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_TraysGetIdByIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TraysGetIdByIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_TraysDeleteByIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:TraysDeleteByIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_TraysDeleteByIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TraysDeleteByIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_TraysGetTrayByIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:TraysGetTrayByIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_TraysGetTrayByIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TraysGetTrayByIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_TraysGetTraysByIdentifiers_InputMessage">
+    <wsdl:part name="parameters" element="tns:TraysGetTraysByIdentifiers" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_TraysGetTraysByIdentifiers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TraysGetTraysByIdentifiersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_MedicinesChanged_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:MedicinesChanged" />
+  </wsdl:message>
+  <wsdl:message name="IMasterDataService_MedicinesDeleted_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:MedicinesDeleted" />
+  </wsdl:message>
+  <wsdl:portType name="IMasterDataService">
+    <wsdl:operation name="SubscribeForCallbacks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientCallbackService/SubscribeForCallbacks" message="tns:IMasterDataService_SubscribeForCallbacks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientCallbackService/SubscribeForCallbacksResponse" message="tns:IMasterDataService_SubscribeForCallbacks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnsubscribeForCallbacks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientCallbackService/UnsubscribeForCallbacks" message="tns:IMasterDataService_UnsubscribeForCallbacks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientCallbackService/UnsubscribeForCallbacksResponse" message="tns:IMasterDataService_UnsubscribeForCallbacks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicineByIdentifier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/GetMedicineByIdentifier" message="tns:IMasterDataService_GetMedicineByIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/GetMedicineByIdentifierResponse" message="tns:IMasterDataService_GetMedicineByIdentifier_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMasterDataService/GetMedicineByIdentifierInvalidArgumentFaultFault" name="InvalidArgumentFaultFault" message="tns:IMasterDataService_GetMedicineByIdentifier_InvalidArgumentFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Query">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/Query" message="tns:IMasterDataService_Query_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/QueryResponse" message="tns:IMasterDataService_Query_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CanistersGetIdByIdentifier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/CanistersGetIdByIdentifier" message="tns:IMasterDataService_CanistersGetIdByIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/CanistersGetIdByIdentifierResponse" message="tns:IMasterDataService_CanistersGetIdByIdentifier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CanistersDeleteByIdentifier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/CanistersDeleteByIdentifier" message="tns:IMasterDataService_CanistersDeleteByIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/CanistersDeleteByIdentifierResponse" message="tns:IMasterDataService_CanistersDeleteByIdentifier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CanistersGetCanisterByIdentifier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/CanistersGetCanisterByIdentifier" message="tns:IMasterDataService_CanistersGetCanisterByIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/CanistersGetCanisterByIdentifierResponse" message="tns:IMasterDataService_CanistersGetCanisterByIdentifier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CanistersGetCanistersByIdentifiers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/CanistersGetCanistersByIdentifiers" message="tns:IMasterDataService_CanistersGetCanistersByIdentifiers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/CanistersGetCanistersByIdentifiersResponse" message="tns:IMasterDataService_CanistersGetCanistersByIdentifiers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomersGetIdByIdentifier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/CustomersGetIdByIdentifier" message="tns:IMasterDataService_CustomersGetIdByIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/CustomersGetIdByIdentifierResponse" message="tns:IMasterDataService_CustomersGetIdByIdentifier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomersDeleteByIdentifier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/CustomersDeleteByIdentifier" message="tns:IMasterDataService_CustomersDeleteByIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/CustomersDeleteByIdentifierResponse" message="tns:IMasterDataService_CustomersDeleteByIdentifier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomersGetCustomerByIdentifier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/CustomersGetCustomerByIdentifier" message="tns:IMasterDataService_CustomersGetCustomerByIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/CustomersGetCustomerByIdentifierResponse" message="tns:IMasterDataService_CustomersGetCustomerByIdentifier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomersGetCustomersByIdentifiers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/CustomersGetCustomersByIdentifiers" message="tns:IMasterDataService_CustomersGetCustomersByIdentifiers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/CustomersGetCustomersByIdentifiersResponse" message="tns:IMasterDataService_CustomersGetCustomersByIdentifiers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DestinationFacilitiesGetIdByIdentifier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/DestinationFacilitiesGetIdByIdentifier" message="tns:IMasterDataService_DestinationFacilitiesGetIdByIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/DestinationFacilitiesGetIdByIdentifierResponse" message="tns:IMasterDataService_DestinationFacilitiesGetIdByIdentifier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DestinationFacilitiesDeleteByIdentifier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/DestinationFacilitiesDeleteByIdentifier" message="tns:IMasterDataService_DestinationFacilitiesDeleteByIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/DestinationFacilitiesDeleteByIdentifierResponse" message="tns:IMasterDataService_DestinationFacilitiesDeleteByIdentifier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DestinationFacilitiesGetDestinationFacilityByIdentifier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/DestinationFacilitiesGetDestinationFacilityByIdentifier" message="tns:IMasterDataService_DestinationFacilitiesGetDestinationFacilityByIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/DestinationFacilitiesGetDestinationFacilityByIdentifierResponse" message="tns:IMasterDataService_DestinationFacilitiesGetDestinationFacilityByIdentifier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DestinationFacilitiesGetDestinationFacilitiesByIdentifiers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/DestinationFacilitiesGetDestinationFacilitiesByIdentifiers" message="tns:IMasterDataService_DestinationFacilitiesGetDestinationFacilitiesByIdentifiers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/DestinationFacilitiesGetDestinationFacilitiesByIdentifiersResponse" message="tns:IMasterDataService_DestinationFacilitiesGetDestinationFacilitiesByIdentifiers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ManufacturersGetIdByIdentifier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/ManufacturersGetIdByIdentifier" message="tns:IMasterDataService_ManufacturersGetIdByIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/ManufacturersGetIdByIdentifierResponse" message="tns:IMasterDataService_ManufacturersGetIdByIdentifier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ManufacturersDeleteByIdentifier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/ManufacturersDeleteByIdentifier" message="tns:IMasterDataService_ManufacturersDeleteByIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/ManufacturersDeleteByIdentifierResponse" message="tns:IMasterDataService_ManufacturersDeleteByIdentifier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ManufacturersGetManufacturerByIdentifier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/ManufacturersGetManufacturerByIdentifier" message="tns:IMasterDataService_ManufacturersGetManufacturerByIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/ManufacturersGetManufacturerByIdentifierResponse" message="tns:IMasterDataService_ManufacturersGetManufacturerByIdentifier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ManufacturersGetManufacturersByIdentifiers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/ManufacturersGetManufacturersByIdentifiers" message="tns:IMasterDataService_ManufacturersGetManufacturersByIdentifiers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/ManufacturersGetManufacturersByIdentifiersResponse" message="tns:IMasterDataService_ManufacturersGetManufacturersByIdentifiers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MedicinesGetIdByIdentifier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/MedicinesGetIdByIdentifier" message="tns:IMasterDataService_MedicinesGetIdByIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/MedicinesGetIdByIdentifierResponse" message="tns:IMasterDataService_MedicinesGetIdByIdentifier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MedicinesDeleteByIdentifier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/MedicinesDeleteByIdentifier" message="tns:IMasterDataService_MedicinesDeleteByIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/MedicinesDeleteByIdentifierResponse" message="tns:IMasterDataService_MedicinesDeleteByIdentifier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MedicinesGetMedcineByIdentifier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/MedicinesGetMedcineByIdentifier" message="tns:IMasterDataService_MedicinesGetMedcineByIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/MedicinesGetMedcineByIdentifierResponse" message="tns:IMasterDataService_MedicinesGetMedcineByIdentifier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MedicinesGetMedcinesByIdentifiers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/MedicinesGetMedcinesByIdentifiers" message="tns:IMasterDataService_MedicinesGetMedcinesByIdentifiers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/MedicinesGetMedcinesByIdentifiersResponse" message="tns:IMasterDataService_MedicinesGetMedcinesByIdentifiers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PatientsGetIdByIdentifier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/PatientsGetIdByIdentifier" message="tns:IMasterDataService_PatientsGetIdByIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/PatientsGetIdByIdentifierResponse" message="tns:IMasterDataService_PatientsGetIdByIdentifier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PatientsDeleteByIdentifier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/PatientsDeleteByIdentifier" message="tns:IMasterDataService_PatientsDeleteByIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/PatientsDeleteByIdentifierResponse" message="tns:IMasterDataService_PatientsDeleteByIdentifier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PatientsGetPatientByIdentifier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/PatientsGetPatientByIdentifier" message="tns:IMasterDataService_PatientsGetPatientByIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/PatientsGetPatientByIdentifierResponse" message="tns:IMasterDataService_PatientsGetPatientByIdentifier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PatientsGetPatientsByIdentifiers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/PatientsGetPatientsByIdentifiers" message="tns:IMasterDataService_PatientsGetPatientsByIdentifiers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/PatientsGetPatientsByIdentifiersResponse" message="tns:IMasterDataService_PatientsGetPatientsByIdentifiers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TraysGetIdByIdentifier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/TraysGetIdByIdentifier" message="tns:IMasterDataService_TraysGetIdByIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/TraysGetIdByIdentifierResponse" message="tns:IMasterDataService_TraysGetIdByIdentifier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TraysDeleteByIdentifier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/TraysDeleteByIdentifier" message="tns:IMasterDataService_TraysDeleteByIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/TraysDeleteByIdentifierResponse" message="tns:IMasterDataService_TraysDeleteByIdentifier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TraysGetTrayByIdentifier">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/TraysGetTrayByIdentifier" message="tns:IMasterDataService_TraysGetTrayByIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/TraysGetTrayByIdentifierResponse" message="tns:IMasterDataService_TraysGetTrayByIdentifier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TraysGetTraysByIdentifiers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterDataService/TraysGetTraysByIdentifiers" message="tns:IMasterDataService_TraysGetTraysByIdentifiers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/TraysGetTraysByIdentifiersResponse" message="tns:IMasterDataService_TraysGetTraysByIdentifiers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MedicinesChanged">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/MedicinesChanged" message="tns:IMasterDataService_MedicinesChanged_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MedicinesDeleted">
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterDataService/MedicinesDeleted" message="tns:IMasterDataService_MedicinesDeleted_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IMasterDataService" type="tns:IMasterDataService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IMasterDataService_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="SubscribeForCallbacks">
+      <soap12:operation soapAction="http://tempuri.org/IClientCallbackService/SubscribeForCallbacks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnsubscribeForCallbacks">
+      <soap12:operation soapAction="http://tempuri.org/IClientCallbackService/UnsubscribeForCallbacks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMedicineByIdentifier">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/GetMedicineByIdentifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidArgumentFaultFault">
+        <soap12:fault use="literal" name="InvalidArgumentFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Query">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/Query" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CanistersGetIdByIdentifier">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/CanistersGetIdByIdentifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CanistersDeleteByIdentifier">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/CanistersDeleteByIdentifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CanistersGetCanisterByIdentifier">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/CanistersGetCanisterByIdentifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CanistersGetCanistersByIdentifiers">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/CanistersGetCanistersByIdentifiers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomersGetIdByIdentifier">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/CustomersGetIdByIdentifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomersDeleteByIdentifier">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/CustomersDeleteByIdentifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomersGetCustomerByIdentifier">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/CustomersGetCustomerByIdentifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomersGetCustomersByIdentifiers">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/CustomersGetCustomersByIdentifiers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DestinationFacilitiesGetIdByIdentifier">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/DestinationFacilitiesGetIdByIdentifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DestinationFacilitiesDeleteByIdentifier">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/DestinationFacilitiesDeleteByIdentifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DestinationFacilitiesGetDestinationFacilityByIdentifier">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/DestinationFacilitiesGetDestinationFacilityByIdentifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DestinationFacilitiesGetDestinationFacilitiesByIdentifiers">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/DestinationFacilitiesGetDestinationFacilitiesByIdentifiers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManufacturersGetIdByIdentifier">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/ManufacturersGetIdByIdentifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManufacturersDeleteByIdentifier">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/ManufacturersDeleteByIdentifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManufacturersGetManufacturerByIdentifier">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/ManufacturersGetManufacturerByIdentifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManufacturersGetManufacturersByIdentifiers">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/ManufacturersGetManufacturersByIdentifiers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MedicinesGetIdByIdentifier">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/MedicinesGetIdByIdentifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MedicinesDeleteByIdentifier">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/MedicinesDeleteByIdentifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MedicinesGetMedcineByIdentifier">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/MedicinesGetMedcineByIdentifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MedicinesGetMedcinesByIdentifiers">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/MedicinesGetMedcinesByIdentifiers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PatientsGetIdByIdentifier">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/PatientsGetIdByIdentifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PatientsDeleteByIdentifier">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/PatientsDeleteByIdentifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PatientsGetPatientByIdentifier">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/PatientsGetPatientByIdentifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PatientsGetPatientsByIdentifiers">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/PatientsGetPatientsByIdentifiers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraysGetIdByIdentifier">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/TraysGetIdByIdentifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraysDeleteByIdentifier">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/TraysDeleteByIdentifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraysGetTrayByIdentifier">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/TraysGetTrayByIdentifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraysGetTraysByIdentifiers">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/TraysGetTraysByIdentifiers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MedicinesChanged">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/MedicinesChanged" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MedicinesDeleted">
+      <soap12:operation soapAction="http://tempuri.org/IMasterDataService/MedicinesDeleted" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MasterDataService">
+    <wsdl:port name="NetTcpBinding_IMasterDataService" binding="tns:NetTcpBinding_IMasterDataService">
+      <soap12:address location="net.tcp://lwdeu08dtk2ph2:10000/MasterData/" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://lwdeu08dtk2ph2:10000/MasterData/</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

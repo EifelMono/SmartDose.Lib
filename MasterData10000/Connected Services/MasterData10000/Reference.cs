@@ -620,7 +620,7 @@ namespace MasterData10000
         
         private string CommentField;
         
-        private MasterData10000.ContactPerson[] ContactPersonsField;
+        private System.Collections.Generic.List<MasterData10000.ContactPerson> ContactPersonsField;
         
         private string CountryField;
         
@@ -683,7 +683,7 @@ namespace MasterData10000
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData10000.ContactPerson[] ContactPersons
+        public System.Collections.Generic.List<MasterData10000.ContactPerson> ContactPersons
         {
             get
             {
@@ -808,7 +808,7 @@ namespace MasterData10000
         
         private string DescriptionField;
         
-        private MasterData10000.LabelDesign[] LabelDesignsField;
+        private System.Collections.Generic.List<MasterData10000.LabelDesign> LabelDesignsField;
         
         private string NameField;
         
@@ -826,7 +826,7 @@ namespace MasterData10000
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData10000.LabelDesign[] LabelDesigns
+        public System.Collections.Generic.List<MasterData10000.LabelDesign> LabelDesigns
         {
             get
             {
@@ -1426,7 +1426,7 @@ namespace MasterData10000
         
         private MasterData10000.Manufacturer ManufacturerField;
         
-        private MasterData10000.MedicinePicture[] MedicinePicturesField;
+        private System.Collections.Generic.List<MasterData10000.MedicinePicture> MedicinePicturesField;
         
         private string NameField;
         
@@ -1434,11 +1434,11 @@ namespace MasterData10000
         
         private MasterData10000.PouchMode PouchModeField;
         
-        private MasterData10000.MedicinePrintDetail[] PrintDetailsField;
+        private System.Collections.Generic.List<MasterData10000.MedicinePrintDetail> PrintDetailsField;
         
         private MasterData10000.MedicineSpecialHandling SpecialHandlingField;
         
-        private MasterData10000.MedicineSynonym[] SynonymIdsField;
+        private System.Collections.Generic.List<MasterData10000.MedicineSynonym> SynonymIdsField;
         
         private bool TrayFillOnlyField;
         
@@ -1482,7 +1482,7 @@ namespace MasterData10000
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData10000.MedicinePicture[] MedicinePictures
+        public System.Collections.Generic.List<MasterData10000.MedicinePicture> MedicinePictures
         {
             get
             {
@@ -1534,7 +1534,7 @@ namespace MasterData10000
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData10000.MedicinePrintDetail[] PrintDetails
+        public System.Collections.Generic.List<MasterData10000.MedicinePrintDetail> PrintDetails
         {
             get
             {
@@ -1560,7 +1560,7 @@ namespace MasterData10000
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData10000.MedicineSynonym[] SynonymIds
+        public System.Collections.Generic.List<MasterData10000.MedicineSynonym> SynonymIds
         {
             get
             {
@@ -2177,10 +2177,10 @@ namespace MasterData10000
     public partial class ServiceResultOfArrayOfCanisterrcNVL4w7 : MasterData10000.ServiceResult
     {
         
-        private MasterData10000.Canister[] DataField;
+        private System.Collections.Generic.List<MasterData10000.Canister> DataField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData10000.Canister[] Data
+        public System.Collections.Generic.List<MasterData10000.Canister> Data
         {
             get
             {
@@ -2237,10 +2237,10 @@ namespace MasterData10000
     public partial class ServiceResultOfArrayOfCustomerrcNVL4w7 : MasterData10000.ServiceResult
     {
         
-        private MasterData10000.Customer[] DataField;
+        private System.Collections.Generic.List<MasterData10000.Customer> DataField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData10000.Customer[] Data
+        public System.Collections.Generic.List<MasterData10000.Customer> Data
         {
             get
             {
@@ -2297,10 +2297,10 @@ namespace MasterData10000
     public partial class ServiceResultOfArrayOfDestinationFacilityrcNVL4w7 : MasterData10000.ServiceResult
     {
         
-        private MasterData10000.DestinationFacility[] DataField;
+        private System.Collections.Generic.List<MasterData10000.DestinationFacility> DataField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData10000.DestinationFacility[] Data
+        public System.Collections.Generic.List<MasterData10000.DestinationFacility> Data
         {
             get
             {
@@ -2357,10 +2357,10 @@ namespace MasterData10000
     public partial class ServiceResultOfArrayOfManufacturerrcNVL4w7 : MasterData10000.ServiceResult
     {
         
-        private MasterData10000.Manufacturer[] DataField;
+        private System.Collections.Generic.List<MasterData10000.Manufacturer> DataField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData10000.Manufacturer[] Data
+        public System.Collections.Generic.List<MasterData10000.Manufacturer> Data
         {
             get
             {
@@ -2417,10 +2417,10 @@ namespace MasterData10000
     public partial class ServiceResultOfArrayOfMedicinercNVL4w7 : MasterData10000.ServiceResult
     {
         
-        private MasterData10000.Medicine[] DataField;
+        private System.Collections.Generic.List<MasterData10000.Medicine> DataField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData10000.Medicine[] Data
+        public System.Collections.Generic.List<MasterData10000.Medicine> Data
         {
             get
             {
@@ -2477,10 +2477,10 @@ namespace MasterData10000
     public partial class ServiceResultOfArrayOfPatientrcNVL4w7 : MasterData10000.ServiceResult
     {
         
-        private MasterData10000.Patient[] DataField;
+        private System.Collections.Generic.List<MasterData10000.Patient> DataField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData10000.Patient[] Data
+        public System.Collections.Generic.List<MasterData10000.Patient> Data
         {
             get
             {
@@ -2537,10 +2537,10 @@ namespace MasterData10000
     public partial class ServiceResultOfArrayOfTrayrcNVL4w7 : MasterData10000.ServiceResult
     {
         
-        private MasterData10000.Tray[] DataField;
+        private System.Collections.Generic.List<MasterData10000.Tray> DataField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData10000.Tray[] Data
+        public System.Collections.Generic.List<MasterData10000.Tray> Data
         {
             get
             {
@@ -2687,7 +2687,7 @@ namespace MasterData10000
         System.Threading.Tasks.Task<MasterData10000.ServiceResultCanister> CanistersGetCanisterByIdentifierAsync(string identifier);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/CanistersGetCanistersByIdentifiers", ReplyAction="http://tempuri.org/IMasterDataService/CanistersGetCanistersByIdentifiersResponse")]
-        System.Threading.Tasks.Task<MasterData10000.ServiceResultCanisterList> CanistersGetCanistersByIdentifiersAsync(string[] identifiers, int page, int pageSize);
+        System.Threading.Tasks.Task<MasterData10000.ServiceResultCanisterList> CanistersGetCanistersByIdentifiersAsync(System.Collections.Generic.List<string> identifiers, int page, int pageSize);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/CustomersGetIdByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/CustomersGetIdByIdentifierResponse")]
         System.Threading.Tasks.Task<MasterData10000.ServiceResultLong> CustomersGetIdByIdentifierAsync(string customerIdentifier);
@@ -2699,7 +2699,7 @@ namespace MasterData10000
         System.Threading.Tasks.Task<MasterData10000.ServiceResultCustomer> CustomersGetCustomerByIdentifierAsync(string customerIdentifier);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/CustomersGetCustomersByIdentifiers", ReplyAction="http://tempuri.org/IMasterDataService/CustomersGetCustomersByIdentifiersResponse")]
-        System.Threading.Tasks.Task<MasterData10000.ServiceResultCustomerList> CustomersGetCustomersByIdentifiersAsync(string[] customerIdentifiers, int page, int pageSize);
+        System.Threading.Tasks.Task<MasterData10000.ServiceResultCustomerList> CustomersGetCustomersByIdentifiersAsync(System.Collections.Generic.List<string> customerIdentifiers, int page, int pageSize);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/DestinationFacilitiesGetIdByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/DestinationFacilitiesGetIdByIdentifierRespo" +
             "nse")]
@@ -2717,7 +2717,7 @@ namespace MasterData10000
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/DestinationFacilitiesGetDestinationFaciliti" +
             "esByIdentifiers", ReplyAction="http://tempuri.org/IMasterDataService/DestinationFacilitiesGetDestinationFaciliti" +
             "esByIdentifiersResponse")]
-        System.Threading.Tasks.Task<MasterData10000.ServiceResultDestinationFacilityList> DestinationFacilitiesGetDestinationFacilitiesByIdentifiersAsync(string[] destinationFacilityIdentifiers, int page, int pageSize);
+        System.Threading.Tasks.Task<MasterData10000.ServiceResultDestinationFacilityList> DestinationFacilitiesGetDestinationFacilitiesByIdentifiersAsync(System.Collections.Generic.List<string> destinationFacilityIdentifiers, int page, int pageSize);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/ManufacturersGetIdByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/ManufacturersGetIdByIdentifierResponse")]
         System.Threading.Tasks.Task<MasterData10000.ServiceResultLong> ManufacturersGetIdByIdentifierAsync(string manufacturerIdentifier);
@@ -2731,7 +2731,7 @@ namespace MasterData10000
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/ManufacturersGetManufacturersByIdentifiers", ReplyAction="http://tempuri.org/IMasterDataService/ManufacturersGetManufacturersByIdentifiersR" +
             "esponse")]
-        System.Threading.Tasks.Task<MasterData10000.ServiceResultManufacturerList> ManufacturersGetManufacturersByIdentifiersAsync(string[] manufacturerIdentifiers, int page, int pageSize);
+        System.Threading.Tasks.Task<MasterData10000.ServiceResultManufacturerList> ManufacturersGetManufacturersByIdentifiersAsync(System.Collections.Generic.List<string> manufacturerIdentifiers, int page, int pageSize);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/MedicinesGetIdByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/MedicinesGetIdByIdentifierResponse")]
         System.Threading.Tasks.Task<MasterData10000.ServiceResultLong> MedicinesGetIdByIdentifierAsync(string medicineIdentifier);
@@ -2743,7 +2743,7 @@ namespace MasterData10000
         System.Threading.Tasks.Task<MasterData10000.ServiceResultMedicine> MedicinesGetMedcineByIdentifierAsync(string medicineIdentifier);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/MedicinesGetMedcinesByIdentifiers", ReplyAction="http://tempuri.org/IMasterDataService/MedicinesGetMedcinesByIdentifiersResponse")]
-        System.Threading.Tasks.Task<MasterData10000.ServiceResultMedicineList> MedicinesGetMedcinesByIdentifiersAsync(string[] medicineIdentifiers, int page, int pageSize);
+        System.Threading.Tasks.Task<MasterData10000.ServiceResultMedicineList> MedicinesGetMedcinesByIdentifiersAsync(System.Collections.Generic.List<string> medicineIdentifiers, int page, int pageSize);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/PatientsGetIdByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/PatientsGetIdByIdentifierResponse")]
         System.Threading.Tasks.Task<MasterData10000.ServiceResultLong> PatientsGetIdByIdentifierAsync(string patientIdentifier);
@@ -2755,7 +2755,7 @@ namespace MasterData10000
         System.Threading.Tasks.Task<MasterData10000.ServiceResultPatient> PatientsGetPatientByIdentifierAsync(string patientIdentifier);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/PatientsGetPatientsByIdentifiers", ReplyAction="http://tempuri.org/IMasterDataService/PatientsGetPatientsByIdentifiersResponse")]
-        System.Threading.Tasks.Task<MasterData10000.ServiceResultPatientList> PatientsGetPatientsByIdentifiersAsync(string[] patientIdentifiers, int page, int pageSize);
+        System.Threading.Tasks.Task<MasterData10000.ServiceResultPatientList> PatientsGetPatientsByIdentifiersAsync(System.Collections.Generic.List<string> patientIdentifiers, int page, int pageSize);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/TraysGetIdByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/TraysGetIdByIdentifierResponse")]
         System.Threading.Tasks.Task<MasterData10000.ServiceResultLong> TraysGetIdByIdentifierAsync(string identifier);
@@ -2767,7 +2767,7 @@ namespace MasterData10000
         System.Threading.Tasks.Task<MasterData10000.ServiceResultTray> TraysGetTrayByIdentifierAsync(string identifier);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/TraysGetTraysByIdentifiers", ReplyAction="http://tempuri.org/IMasterDataService/TraysGetTraysByIdentifiersResponse")]
-        System.Threading.Tasks.Task<MasterData10000.ServiceResultTrayList> TraysGetTraysByIdentifiersAsync(string[] identifiers, int page, int pageSize);
+        System.Threading.Tasks.Task<MasterData10000.ServiceResultTrayList> TraysGetTraysByIdentifiersAsync(System.Collections.Generic.List<string> identifiers, int page, int pageSize);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
@@ -2775,10 +2775,10 @@ namespace MasterData10000
     {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMasterDataService/MedicinesChanged")]
-        void MedicinesChanged(MasterData10000.Medicine[] medicines);
+        void MedicinesChanged(System.Collections.Generic.List<MasterData10000.Medicine> medicines);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMasterDataService/MedicinesDeleted")]
-        void MedicinesDeleted(string[] medicineIdentifiers);
+        void MedicinesDeleted(System.Collections.Generic.List<string> medicineIdentifiers);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
@@ -2866,7 +2866,7 @@ namespace MasterData10000
             return base.Channel.CanistersGetCanisterByIdentifierAsync(identifier);
         }
         
-        public System.Threading.Tasks.Task<MasterData10000.ServiceResultCanisterList> CanistersGetCanistersByIdentifiersAsync(string[] identifiers, int page, int pageSize)
+        public System.Threading.Tasks.Task<MasterData10000.ServiceResultCanisterList> CanistersGetCanistersByIdentifiersAsync(System.Collections.Generic.List<string> identifiers, int page, int pageSize)
         {
             return base.Channel.CanistersGetCanistersByIdentifiersAsync(identifiers, page, pageSize);
         }
@@ -2886,7 +2886,7 @@ namespace MasterData10000
             return base.Channel.CustomersGetCustomerByIdentifierAsync(customerIdentifier);
         }
         
-        public System.Threading.Tasks.Task<MasterData10000.ServiceResultCustomerList> CustomersGetCustomersByIdentifiersAsync(string[] customerIdentifiers, int page, int pageSize)
+        public System.Threading.Tasks.Task<MasterData10000.ServiceResultCustomerList> CustomersGetCustomersByIdentifiersAsync(System.Collections.Generic.List<string> customerIdentifiers, int page, int pageSize)
         {
             return base.Channel.CustomersGetCustomersByIdentifiersAsync(customerIdentifiers, page, pageSize);
         }
@@ -2906,7 +2906,7 @@ namespace MasterData10000
             return base.Channel.DestinationFacilitiesGetDestinationFacilityByIdentifierAsync(destinationFacilityIdentifier);
         }
         
-        public System.Threading.Tasks.Task<MasterData10000.ServiceResultDestinationFacilityList> DestinationFacilitiesGetDestinationFacilitiesByIdentifiersAsync(string[] destinationFacilityIdentifiers, int page, int pageSize)
+        public System.Threading.Tasks.Task<MasterData10000.ServiceResultDestinationFacilityList> DestinationFacilitiesGetDestinationFacilitiesByIdentifiersAsync(System.Collections.Generic.List<string> destinationFacilityIdentifiers, int page, int pageSize)
         {
             return base.Channel.DestinationFacilitiesGetDestinationFacilitiesByIdentifiersAsync(destinationFacilityIdentifiers, page, pageSize);
         }
@@ -2926,7 +2926,7 @@ namespace MasterData10000
             return base.Channel.ManufacturersGetManufacturerByIdentifierAsync(manufacturerIdentifier);
         }
         
-        public System.Threading.Tasks.Task<MasterData10000.ServiceResultManufacturerList> ManufacturersGetManufacturersByIdentifiersAsync(string[] manufacturerIdentifiers, int page, int pageSize)
+        public System.Threading.Tasks.Task<MasterData10000.ServiceResultManufacturerList> ManufacturersGetManufacturersByIdentifiersAsync(System.Collections.Generic.List<string> manufacturerIdentifiers, int page, int pageSize)
         {
             return base.Channel.ManufacturersGetManufacturersByIdentifiersAsync(manufacturerIdentifiers, page, pageSize);
         }
@@ -2946,7 +2946,7 @@ namespace MasterData10000
             return base.Channel.MedicinesGetMedcineByIdentifierAsync(medicineIdentifier);
         }
         
-        public System.Threading.Tasks.Task<MasterData10000.ServiceResultMedicineList> MedicinesGetMedcinesByIdentifiersAsync(string[] medicineIdentifiers, int page, int pageSize)
+        public System.Threading.Tasks.Task<MasterData10000.ServiceResultMedicineList> MedicinesGetMedcinesByIdentifiersAsync(System.Collections.Generic.List<string> medicineIdentifiers, int page, int pageSize)
         {
             return base.Channel.MedicinesGetMedcinesByIdentifiersAsync(medicineIdentifiers, page, pageSize);
         }
@@ -2966,7 +2966,7 @@ namespace MasterData10000
             return base.Channel.PatientsGetPatientByIdentifierAsync(patientIdentifier);
         }
         
-        public System.Threading.Tasks.Task<MasterData10000.ServiceResultPatientList> PatientsGetPatientsByIdentifiersAsync(string[] patientIdentifiers, int page, int pageSize)
+        public System.Threading.Tasks.Task<MasterData10000.ServiceResultPatientList> PatientsGetPatientsByIdentifiersAsync(System.Collections.Generic.List<string> patientIdentifiers, int page, int pageSize)
         {
             return base.Channel.PatientsGetPatientsByIdentifiersAsync(patientIdentifiers, page, pageSize);
         }
@@ -2986,7 +2986,7 @@ namespace MasterData10000
             return base.Channel.TraysGetTrayByIdentifierAsync(identifier);
         }
         
-        public System.Threading.Tasks.Task<MasterData10000.ServiceResultTrayList> TraysGetTraysByIdentifiersAsync(string[] identifiers, int page, int pageSize)
+        public System.Threading.Tasks.Task<MasterData10000.ServiceResultTrayList> TraysGetTraysByIdentifiersAsync(System.Collections.Generic.List<string> identifiers, int page, int pageSize)
         {
             return base.Channel.TraysGetTraysByIdentifiersAsync(identifiers, page, pageSize);
         }
@@ -3052,12 +3052,12 @@ namespace MasterData10000
             this.results = results;
         }
         
-        public MasterData10000.Medicine[] medicines
+        public System.Collections.Generic.List<MasterData10000.Medicine> medicines
         {
             get
             {
                 base.RaiseExceptionIfNecessary();
-                return ((MasterData10000.Medicine[])(this.results[0]));
+                return ((System.Collections.Generic.List<MasterData10000.Medicine>)(this.results[0]));
             }
         }
     }
@@ -3073,12 +3073,12 @@ namespace MasterData10000
             this.results = results;
         }
         
-        public string[] medicineIdentifiers
+        public System.Collections.Generic.List<string> medicineIdentifiers
         {
             get
             {
                 base.RaiseExceptionIfNecessary();
-                return ((string[])(this.results[0]));
+                return ((System.Collections.Generic.List<string>)(this.results[0]));
             }
         }
     }
@@ -3151,13 +3151,13 @@ namespace MasterData10000
                 this.proxy = proxy;
             }
             
-            public void MedicinesChanged(MasterData10000.Medicine[] medicines)
+            public void MedicinesChanged(System.Collections.Generic.List<MasterData10000.Medicine> medicines)
             {
                 this.proxy.OnMedicinesChangedReceived(new object[] {
                             medicines});
             }
             
-            public void MedicinesDeleted(string[] medicineIdentifiers)
+            public void MedicinesDeleted(System.Collections.Generic.List<string> medicineIdentifiers)
             {
                 this.proxy.OnMedicinesDeletedReceived(new object[] {
                             medicineIdentifiers});

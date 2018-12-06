@@ -1,4 +1,10 @@
-﻿namespace MasterData10000
+﻿#if MasterData10000
+namespace MasterData10000
+#elif MasterData9002
+namespace MasterData9002
+#else
+namespace ConnectedService
+#endif
 {
     public partial class ServiceResult : object
     {
@@ -8,8 +14,8 @@
               StatusAsInt = StatusAsInt,
               Status = Status,
               Message = Message,
-              Exception= Exception,
-              Debug= Debug,
+              Exception = Exception,
+              Debug = Debug,
               Data = Data,
           };
 

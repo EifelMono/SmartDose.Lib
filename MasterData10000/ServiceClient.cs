@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Threading.Tasks;
@@ -106,9 +107,15 @@ namespace MasterData10000
             => await CatcherAsync(() => Client.MedicinesGetMedcineByIdentifierAsync(medicineIdentifier))
                     .ConfigureAwait(false);
 
-        public async Task<ServiceResultMedicineList> MedicinesGetMedcinesByIdentifiersAsync(string[] medicineIdentifiers, int page, int pageSize)
+        public async Task<ServiceResultMedicineList> MedicinesGetMedcinesByIdentifiersAsync(List<string> medicineIdentifiers, int page, int pageSize)
             => await CatcherAsync(() => Client.MedicinesGetMedcinesByIdentifiersAsync(medicineIdentifiers, page, pageSize))
                     .ConfigureAwait(false);
+
+      
+
+
+
+      
 
         public Task<ServiceResultLong> CanistersGetIdByIdentifierAsync(string identifier)
         {
@@ -125,7 +132,7 @@ namespace MasterData10000
             throw new NotImplementedException();
         }
 
-        public Task<ServiceResultCanisterList> CanistersGetCanistersByIdentifiersAsync(string[] identifiers, int page, int pageSize)
+        public Task<ServiceResultCanisterList> CanistersGetCanistersByIdentifiersAsync(List<string> identifiers, int page, int pageSize)
         {
             throw new NotImplementedException();
         }
@@ -145,7 +152,7 @@ namespace MasterData10000
             throw new NotImplementedException();
         }
 
-        public Task<ServiceResultCustomerList> CustomersGetCustomersByIdentifiersAsync(string[] customerIdentifiers, int page, int pageSize)
+        public Task<ServiceResultCustomerList> CustomersGetCustomersByIdentifiersAsync(List<string> customerIdentifiers, int page, int pageSize)
         {
             throw new NotImplementedException();
         }
@@ -165,7 +172,7 @@ namespace MasterData10000
             throw new NotImplementedException();
         }
 
-        public Task<ServiceResultDestinationFacilityList> DestinationFacilitiesGetDestinationFacilitiesByIdentifiersAsync(string[] destinationFacilityIdentifiers, int page, int pageSize)
+        public Task<ServiceResultDestinationFacilityList> DestinationFacilitiesGetDestinationFacilitiesByIdentifiersAsync(List<string> destinationFacilityIdentifiers, int page, int pageSize)
         {
             throw new NotImplementedException();
         }
@@ -185,7 +192,7 @@ namespace MasterData10000
             throw new NotImplementedException();
         }
 
-        public Task<ServiceResultManufacturerList> ManufacturersGetManufacturersByIdentifiersAsync(string[] manufacturerIdentifiers, int page, int pageSize)
+        public Task<ServiceResultManufacturerList> ManufacturersGetManufacturersByIdentifiersAsync(List<string> manufacturerIdentifiers, int page, int pageSize)
         {
             throw new NotImplementedException();
         }
@@ -205,7 +212,7 @@ namespace MasterData10000
             throw new NotImplementedException();
         }
 
-        public Task<ServiceResultPatientList> PatientsGetPatientsByIdentifiersAsync(string[] patientIdentifiers, int page, int pageSize)
+        public Task<ServiceResultPatientList> PatientsGetPatientsByIdentifiersAsync(List<string> patientIdentifiers, int page, int pageSize)
         {
             throw new NotImplementedException();
         }
@@ -225,7 +232,7 @@ namespace MasterData10000
             throw new NotImplementedException();
         }
 
-        public Task<ServiceResultTrayList> TraysGetTraysByIdentifiersAsync(string[] identifiers, int page, int pageSize)
+        public Task<ServiceResultTrayList> TraysGetTraysByIdentifiersAsync(List<string> identifiers, int page, int pageSize)
         {
             throw new NotImplementedException();
         }
@@ -233,14 +240,18 @@ namespace MasterData10000
 
         #region Wrapped Callbacks
 
-        public event Action<Medicine[]> OnMedicinesChanged;
-        public virtual void MedicinesChanged(Medicine[] medicines)
-            => CatcherAsTask(() => OnMedicinesChanged?.Invoke(medicines));
+        public event Action<List<Medicine>> OnMedicinesChanged;
 
+        public void MedicinesChanged(List<Medicine> medicines)
+        {
+            OnMedicinesChanged?.Invoke(medicines);
+        }
 
-        public event Action<string[]> OnMedicinesDeleted;
-        public virtual void MedicinesDeleted(string[] medicineIdentifiers)
-            => CatcherAsTask(() => OnMedicinesDeleted?.Invoke(medicineIdentifiers));
+        public event Action<List<string>> OnMedicinesDeleted;
+        public void MedicinesDeleted(List<string> medicineIdentifiers)
+        {
+            OnMedicinesDeleted?.Invoke(medicineIdentifiers);
+        }
         #endregion
     }
 }
