@@ -131,11 +131,18 @@ Task("MasterData10000")
    BuildCsproj("./MasterData10000", "./MasterData10000.csproj");
 });
 
+Task("MasterData9002")
+.Does(() => {
+   BuildCsproj("./MasterData9002", "./MasterData9002.csproj");
+});
+
+
 Task("Default")
 .IsDependentOn("RowaLog")
 .IsDependentOn("RowaWcf")
 .IsDependentOn("RowaMore")
 .IsDependentOn("MasterData10000")
+.IsDependentOn("MasterData9002")
 .Does(() => {
    Information("Building");
 });

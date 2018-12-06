@@ -32,12 +32,12 @@ namespace MasterData10000
             List = 2
         }
 
-        public QueryBuilder(MasterDataClient client) 
+        public QueryBuilder(ServiceClientBase client)
         {
             Client = client;
         }
 
-        protected MasterDataClient Client { get; set; }
+        protected ServiceClientBase Client { get; set; }
 
         protected string WhereAsJson { get; set; } = string.Empty;
         protected string OrderByAsJson { get; set; } = string.Empty;
@@ -67,14 +67,15 @@ namespace MasterData10000
 
     public class QueryBuilder<TModel> : QueryBuilder where TModel : class
     {
-        public QueryBuilder(MasterDataClient client) : base(client)
+        public QueryBuilder(ServiceClientBase client) : base(client)
         {
             ModelType = typeof(TModel);
         }
 
         public QueryBuilder<TModel> Where(Expression<Func<TModel, bool>> whereExpression)
         {
-            WhereAsJson = whereExpression.ToJson();
+            if (whereExpression != null)
+                WhereAsJson = whereExpression.ToJson();
             return this;
         }
 
@@ -111,14 +112,21 @@ namespace MasterData10000
             return returnResult;
         }
 
+        public ServiceResult<List<TModel>> ToList()
+            => ToListAsync().Result;
+
         public async Task<ServiceResult<List<TModel>>> ToListAsync()
         {
             ResultAs = QueryRequestResultAs.List;
             return await ExecuteAsync<List<TModel>>().ConfigureAwait(false);
         }
 
-        public async Task<ServiceResult<TModel>> FirstOrDefaultAsync()
+        public ServiceResult<TModel> FirstOrDefault(Expression<Func<TModel, bool>> whereExpression = null)
+            => FirstOrDefaultAsync(whereExpression).Result;
+
+        public async Task<ServiceResult<TModel>> FirstOrDefaultAsync(Expression<Func<TModel, bool>> whereExpression = null)
         {
+            Where(whereExpression);
             ResultAs = QueryRequestResultAs.Item;
             return await ExecuteAsync<TModel>().ConfigureAwait(false);
         }
