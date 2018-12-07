@@ -46,7 +46,7 @@ namespace ConnectedService
         => thisValue.AddSearchFilters(SearchFilter.New(name, value, ComparisonType.EqualTo, ConcatenationType.And));
         #endregion
 
-        #region AddXxxxxxxxx
+        #region Add by name
 
         #region Identifier
         private const string IdentifierName = "Identifier";

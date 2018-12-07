@@ -1,6 +1,6 @@
-﻿#define UseQuery
+﻿#define UseModel
 #if MasterData9002
-#undef UseQuery
+#undef UseModel
 #endif
 using System;
 using System.ServiceModel;
@@ -41,7 +41,7 @@ namespace ConnectedService
                 QueuedEvent.New(ClientEvent.Dispose);
         }
 
-#region Client
+        #region Client
         public ICommunicationObject Client { get; set; }
 
         public enum ClientEvent
@@ -63,7 +63,7 @@ namespace ConnectedService
 
         public abstract void CreateClient();
 
-#region Client Abstract 
+        #region Client Abstract 
         public abstract Task OpenAsync();
 
         public abstract Task CloseAsync();
@@ -71,9 +71,9 @@ namespace ConnectedService
         public abstract Task SubscribeForCallbacksAsync();
 
         public abstract Task UnsubscribeForCallbacksAsync();
-#endregion
+        #endregion
 
-#region Client Events
+        #region Client Events
 
         public event Action<ClientEvent> OnClientEvent;
         protected void AssignClientEvents(bool on)
@@ -196,10 +196,10 @@ namespace ConnectedService
             AssignClientCallbacks(false);
             AssignClientEvents(false);
         }
-#endregion
-#endregion
+        #endregion
+        #endregion
 
-#region SafeExecuter Catcher
+        #region SafeExecuter Catcher
 
         protected void Catcher(Action action)
         {
@@ -228,7 +228,7 @@ namespace ConnectedService
             });
         }
 
-#if UseQuery
+#if UseModel
         protected async Task<TResult> CatcherServiceResultAsync<TResult>(Func<Task<TResult>> func) where TResult : ServiceResult, new()
         {
             try
@@ -284,15 +284,26 @@ namespace ConnectedService
         }
         #endregion
 
+        #region Model
+#if UseModel
         #region Query
-#if UseQuery
+        internal abstract Task<ServiceResult> ExecuteQueryAsync(QueryBuilder queryBuilder);
 
-        public abstract Task<ServiceResult> ExecuteQueryBuilderAsync(QueryBuilder queryBuilder);
-
-        public QueryBuilder<T> NewQuery<T>(bool withDebugInfo= false) where T : class
+        public QueryBuilder<T> ModelQuery<T>() where T : class
         {
-            return new QueryBuilder<T>(this, withDebugInfo) { };
+            return new QueryBuilder<T>(this) { };
         }
+        #endregion
+
+        #region IdentifierToId
+        internal abstract Task<ServiceResult<long>> ExecuteIdentifierToIdAsync(string identifier, string modelName, string modelNamespace);
+
+        public ServiceResult<long> ModelIdentifierToId<T>(string identifier) where T : class
+            => ModelIdentifierToIdAsync<T>(identifier).Result;
+
+        public async Task<ServiceResult<long>> ModelIdentifierToIdAsync<T>(string identifier) where T : class
+            => await ExecuteIdentifierToIdAsync(identifier, typeof(T).Name, typeof(T).Namespace).ConfigureAwait(false);
+        #endregion
 #endif
         #endregion
     }

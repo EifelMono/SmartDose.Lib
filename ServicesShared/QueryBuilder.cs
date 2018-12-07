@@ -40,10 +40,9 @@ namespace ConnectedService
             List = 2
         }
 
-        public QueryBuilder(ServiceClientBase client, bool withDebugInfo = false)
+        public QueryBuilder(ServiceClientBase client)
         {
             Client = client;
-            WithDebugInfo = withDebugInfo;
         }
 
         protected ServiceClientBase Client { get; set; }
@@ -62,14 +61,18 @@ namespace ConnectedService
         protected int Page { get; set; } = -1;
         protected int PageSize { get; set; } = -1;
 
-        protected bool _WithDebugInfo { get; set; } = false;
-        protected bool WithDebugInfo
+        protected bool TableOnlyFlag { get; set; } = false;
+        protected bool _DebugInfoFlag { get; set; } = false;
+        protected bool DebugInfoFlag
         {
-            get => AllWithDebugInfo ? AllWithDebugInfo : _WithDebugInfo;
-            set => _WithDebugInfo = value;
+            get => DebugInfoAllFlag ? DebugInfoAllFlag : _DebugInfoFlag;
+            set => _DebugInfoFlag = value;
         }
 
-        public static bool AllWithDebugInfo { get; set; } = false;
+        private static bool DebugInfoAllFlag { get; set; } = false;
+
+        public static void SwitchDebugInfoAll(bool flag)
+            => DebugInfoAllFlag = flag;
 
         // Use deconstructor while protected properties 
         public (string WhereAsJson,
@@ -80,13 +83,14 @@ namespace ConnectedService
             Type ModelType,
             int Page,
             int PageSize,
-            bool WithDebugInfo) GetValues()
-            => (WhereAsJson, OrderByAsJson, OrderByAsc, OrderByAs, ResultAs, ModelType, Page, PageSize, WithDebugInfo);
+            bool TableOnlyFlag,
+            bool DebugInfoFlag) GetValues()
+            => (WhereAsJson, OrderByAsJson, OrderByAsc, OrderByAs, ResultAs, ModelType, Page, PageSize, TableOnlyFlag, DebugInfoFlag);
     }
 
     public class QueryBuilder<TModel> : QueryBuilder where TModel : class
     {
-        public QueryBuilder(ServiceClientBase client, bool withDebugInfo = false) : base(client, withDebugInfo)
+        public QueryBuilder(ServiceClientBase client) : base(client)
         {
             ModelType = typeof(TModel);
         }
@@ -122,15 +126,27 @@ namespace ConnectedService
             return this;
         }
 
-        public QueryBuilder<TModel> AllWithDebugInfo(bool withDebugInfo)
+        public QueryBuilder<TModel> UseTableOnly(bool tableOnlyFlag=true)
         {
-            WithDebugInfo = withDebugInfo;
+            TableOnlyFlag = tableOnlyFlag;
+            return this;
+        }
+
+        public QueryBuilder<TModel> UseDebugInfo(bool debugInfoFlag=true)
+        {
+            DebugInfoFlag = debugInfoFlag;
+            return this;
+        }
+
+        public QueryBuilder<TModel> UseDebugInfoAll(bool debugInfoAllFlag)
+        {
+            SwitchDebugInfoAll(debugInfoAllFlag);
             return this;
         }
 
         protected async Task<ServiceResult<TResult>> ExecuteAsync<TResult>() where TResult : class
         {
-            var executeServiceResult = await Client.ExecuteQueryBuilderAsync(this).ConfigureAwait(false);
+            var executeServiceResult = await Client.ExecuteQueryAsync(this).ConfigureAwait(false);
             var returnResult = executeServiceResult.CastByClone<ServiceResult<TResult>>();
             if (executeServiceResult.IsOk)
                 returnResult.Data = (executeServiceResult.Data as string).UnZipString().ToObjectFromJson<TResult>();

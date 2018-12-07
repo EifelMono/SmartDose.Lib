@@ -38,7 +38,7 @@ namespace MasterData10000
         public async Task<ServiceResultQueryResponse> QueryAsync(QueryRequest queryRequest)
             => await CatcherServiceResultAsync(() => Client.QueryAsync(queryRequest)).ConfigureAwait(false);
 
-        public async override Task<ServiceResult> ExecuteQueryBuilderAsync(QueryBuilder queryBuilder)
+        internal async override Task<ServiceResult> ExecuteQueryAsync(QueryBuilder queryBuilder)
         {
             var queryBuildValues = queryBuilder.GetValues();
             var queryRequest = new QueryRequest
@@ -52,13 +52,30 @@ namespace MasterData10000
                 Page = queryBuildValues.Page,
                 PageSize = queryBuildValues.PageSize,
                 ResultAs = (QueryRequestResultAs)queryBuildValues.ResultAs,
-                WithDebugInfo = queryBuildValues.WithDebugInfo,
+                TableOnlyFlag = queryBuildValues.TableOnlyFlag,
+                DebugInfoFlag = queryBuildValues.DebugInfoFlag,
             };
             var serviceResult = await QueryAsync(queryRequest).ConfigureAwait(false);
             var newServiceResult = serviceResult.CastByClone<ServiceResult<string>>();
             newServiceResult.Data = serviceResult?.Data?.ZippedJsonData;
             return newServiceResult;
         }
+        #endregion
+
+        #region IdentifierToId
+        public ServiceResultLong IdentifierToId(IdentifierToIdRequest identifierToIdRequest)
+            => IdentifierToIdAsync(identifierToIdRequest).Result;
+
+        public async Task<ServiceResultLong> IdentifierToIdAsync(IdentifierToIdRequest identifierToIdRequest)
+               => await CatcherServiceResultAsync(() => Client.IdentifierToIdAsync(identifierToIdRequest)).ConfigureAwait(false);
+
+        internal async override Task<ServiceResult<long>> ExecuteIdentifierToIdAsync(string identifier, string modelName, string modelNamespace)
+            => (await IdentifierToIdAsync(new IdentifierToIdRequest
+            {
+                ModelName = modelName,
+                ModelNamespace = modelNamespace,
+                Identifier = identifier
+            }).ConfigureAwait(false)).CastByClone<ServiceResult<long>>();
         #endregion
 
         #region Wrapped abstract Client Calls
@@ -129,13 +146,6 @@ namespace MasterData10000
         #endregion
 
         #region Medicine
-        public ServiceResultLong MedicinesGetIdByIdentifier(string medicineIdentifier)
-            => MedicinesGetIdByIdentifierAsync(medicineIdentifier).Result;
-
-        public async Task<ServiceResultLong> MedicinesGetIdByIdentifierAsync(string medicineIdentifier)
-            => await CatcherServiceResultAsync(() => Client.MedicinesGetIdByIdentifierAsync(medicineIdentifier))
-                    .ConfigureAwait(false);
-
         public ServiceResultBool MedicinesDeleteByIdentifier(string medicineIdentifier)
              => MedicinesDeleteByIdentifierAsync(medicineIdentifier).Result;
         public async Task<ServiceResultBool> MedicinesDeleteByIdentifierAsync(string medicineIdentifier)
@@ -147,150 +157,92 @@ namespace MasterData10000
         public async Task<ServiceResultMedicine> MedicinesGetMedcineByIdentifierAsync(string medicineIdentifier)
             => await CatcherServiceResultAsync(() => Client.MedicinesGetMedcineByIdentifierAsync(medicineIdentifier))
                     .ConfigureAwait(false);
-
-        public ServiceResultMedicineList MedicinesGetMedcinesByIdentifiers(List<string> medicineIdentifiers, int page, int pageSize)
-            => MedicinesGetMedcinesByIdentifiersAsync(medicineIdentifiers, page, pageSize).Result;
-        public async Task<ServiceResultMedicineList> MedicinesGetMedcinesByIdentifiersAsync(List<string> medicineIdentifiers, int page, int pageSize)
-            => await CatcherServiceResultAsync(() => Client.MedicinesGetMedcinesByIdentifiersAsync(medicineIdentifiers, page, pageSize))
-                    .ConfigureAwait(false);
         #endregion
 
         #region Canister
-        public Task<ServiceResultLong> CanistersGetIdByIdentifierAsync(string identifier)
-        {
-            throw new NotImplementedException();
-        }
+        public ServiceResultBool CanistersDeleteByIdentifier(string CanisterIdentifier)
+            => CanistersDeleteByIdentifierAsync(CanisterIdentifier).Result;
+        public async Task<ServiceResultBool> CanistersDeleteByIdentifierAsync(string CanisterIdentifier)
+             => await CatcherServiceResultAsync(() => Client.CanistersDeleteByIdentifierAsync(CanisterIdentifier))
+                    .ConfigureAwait(false);
 
-        public Task<ServiceResultBool> CanistersDeleteByIdentifierAsync(string identifier)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ServiceResultCanister> CanistersGetCanisterByIdentifierAsync(string identifier)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ServiceResultCanisterList> CanistersGetCanistersByIdentifiersAsync(List<string> identifiers, int page, int pageSize)
-        {
-            throw new NotImplementedException();
-        }
+        public ServiceResultCanister CanistersGetCanisterByIdentifier(string CanisterIdentifier)
+            => CanistersGetCanisterByIdentifierAsync(CanisterIdentifier).Result;
+        public async Task<ServiceResultCanister> CanistersGetCanisterByIdentifierAsync(string CanisterIdentifier)
+            => await CatcherServiceResultAsync(() => Client.CanistersGetCanisterByIdentifierAsync(CanisterIdentifier))
+                    .ConfigureAwait(false);
         #endregion
 
         #region Customer
-        public Task<ServiceResultLong> CustomersGetIdByIdentifierAsync(string customerIdentifier)
-        {
-            throw new NotImplementedException();
-        }
+        public ServiceResultBool CustomersDeleteByIdentifier(string CustomerIdentifier)
+            => CustomersDeleteByIdentifierAsync(CustomerIdentifier).Result;
+        public async Task<ServiceResultBool> CustomersDeleteByIdentifierAsync(string CustomerIdentifier)
+             => await CatcherServiceResultAsync(() => Client.CustomersDeleteByIdentifierAsync(CustomerIdentifier))
+                    .ConfigureAwait(false);
 
-        public Task<ServiceResultBool> CustomersDeleteByIdentifierAsync(string customerIdentifier)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ServiceResultCustomer> CustomersGetCustomerByIdentifierAsync(string customerIdentifier)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ServiceResultCustomerList> CustomersGetCustomersByIdentifiersAsync(List<string> customerIdentifiers, int page, int pageSize)
-        {
-            throw new NotImplementedException();
-        }
+        public ServiceResultCustomer CustomersGetCustomerByIdentifier(string CustomerIdentifier)
+            => CustomersGetCustomerByIdentifierAsync(CustomerIdentifier).Result;
+        public async Task<ServiceResultCustomer> CustomersGetCustomerByIdentifierAsync(string CustomerIdentifier)
+            => await CatcherServiceResultAsync(() => Client.CustomersGetCustomerByIdentifierAsync(CustomerIdentifier))
+                    .ConfigureAwait(false);
         #endregion
 
         #region DestinationFacilities
-        public Task<ServiceResultLong> DestinationFacilitiesGetIdByIdentifierAsync(string destinationFacilityIdentifier)
-        {
-            throw new NotImplementedException();
-        }
+        public ServiceResultBool DestinationFacilitiesDeleteByIdentifier(string DestinationFacilityIdentifier)
+           => DestinationFacilitiesDeleteByIdentifierAsync(DestinationFacilityIdentifier).Result;
+        public async Task<ServiceResultBool> DestinationFacilitiesDeleteByIdentifierAsync(string DestinationFacilityIdentifier)
+            => await CatcherServiceResultAsync(() => Client.DestinationFacilitiesDeleteByIdentifierAsync(DestinationFacilityIdentifier))
+                    .ConfigureAwait(false);
 
-        public Task<ServiceResultBool> DestinationFacilitiesDeleteByIdentifierAsync(string destinationFacilityIdentifier)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ServiceResultDestinationFacility> DestinationFacilitiesGetDestinationFacilityByIdentifierAsync(string destinationFacilityIdentifier)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ServiceResultDestinationFacilityList> DestinationFacilitiesGetDestinationFacilitiesByIdentifiersAsync(List<string> destinationFacilityIdentifiers, int page, int pageSize)
-        {
-            throw new NotImplementedException();
-        }
+        public ServiceResultDestinationFacility DestinationFacilitiesGetDestinationFacilityByIdentifier(string DestinationFacilityIdentifier)
+            => DestinationFacilitiesGetDestinationFacilityByIdentifierAsync(DestinationFacilityIdentifier).Result;
+        public async Task<ServiceResultDestinationFacility> DestinationFacilitiesGetDestinationFacilityByIdentifierAsync(string DestinationFacilityIdentifier)
+            => await CatcherServiceResultAsync(() => Client.DestinationFacilitiesGetDestinationFacilityByIdentifierAsync(DestinationFacilityIdentifier))
+                    .ConfigureAwait(false);
         #endregion
 
         #region Manufacturers
+        public ServiceResultBool ManufacturersDeleteByIdentifier(string ManufacturerIdentifier)
+                 => ManufacturersDeleteByIdentifierAsync(ManufacturerIdentifier).Result;
+        public async Task<ServiceResultBool> ManufacturersDeleteByIdentifierAsync(string ManufacturerIdentifier)
+             => await CatcherServiceResultAsync(() => Client.ManufacturersDeleteByIdentifierAsync(ManufacturerIdentifier))
+                    .ConfigureAwait(false);
 
-        public Task<ServiceResultLong> ManufacturersGetIdByIdentifierAsync(string manufacturerIdentifier)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ServiceResultBool> ManufacturersDeleteByIdentifierAsync(string manufacturerIdentifier)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ServiceResultManufacturer> ManufacturersGetManufacturerByIdentifierAsync(string manufacturerIdentifier)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ServiceResultManufacturerList> ManufacturersGetManufacturersByIdentifiersAsync(List<string> manufacturerIdentifiers, int page, int pageSize)
-        {
-            throw new NotImplementedException();
-        }
+        public ServiceResultManufacturer ManufacturersGetManufacturerByIdentifier(string ManufacturerIdentifier)
+            => ManufacturersGetManufacturerByIdentifierAsync(ManufacturerIdentifier).Result;
+        public async Task<ServiceResultManufacturer> ManufacturersGetManufacturerByIdentifierAsync(string ManufacturerIdentifier)
+            => await CatcherServiceResultAsync(() => Client.ManufacturersGetManufacturerByIdentifierAsync(ManufacturerIdentifier))
+                    .ConfigureAwait(false);
         #endregion
 
         #region Patients
-        public Task<ServiceResultLong> PatientsGetIdByIdentifierAsync(string patientIdentifier)
-        {
-            throw new NotImplementedException();
-        }
+        public ServiceResultBool PatientsDeleteByIdentifier(string PatientIdentifier)
+              => PatientsDeleteByIdentifierAsync(PatientIdentifier).Result;
+        public async Task<ServiceResultBool> PatientsDeleteByIdentifierAsync(string PatientIdentifier)
+             => await CatcherServiceResultAsync(() => Client.PatientsDeleteByIdentifierAsync(PatientIdentifier))
+                    .ConfigureAwait(false);
 
-        public Task<ServiceResultBool> PatientsDeleteByIdentifierAsync(string patientIdentifier)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ServiceResultPatient> PatientsGetPatientByIdentifierAsync(string patientIdentifier)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ServiceResultPatientList> PatientsGetPatientsByIdentifiersAsync(List<string> patientIdentifiers, int page, int pageSize)
-        {
-            throw new NotImplementedException();
-        }
+        public ServiceResultPatient PatientsGetPatientByIdentifier(string PatientIdentifier)
+            => PatientsGetPatientByIdentifierAsync(PatientIdentifier).Result;
+        public async Task<ServiceResultPatient> PatientsGetPatientByIdentifierAsync(string PatientIdentifier)
+            => await CatcherServiceResultAsync(() => Client.PatientsGetPatientByIdentifierAsync(PatientIdentifier))
+                    .ConfigureAwait(false);
         #endregion
 
         #region Trays
+        public ServiceResultBool TraysDeleteByIdentifier(string TrayIdentifier)
+              => TraysDeleteByIdentifierAsync(TrayIdentifier).Result;
+        public async Task<ServiceResultBool> TraysDeleteByIdentifierAsync(string TrayIdentifier)
+             => await CatcherServiceResultAsync(() => Client.TraysDeleteByIdentifierAsync(TrayIdentifier))
+                    .ConfigureAwait(false);
 
-        public Task<ServiceResultLong> TraysGetIdByIdentifierAsync(string identifier)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ServiceResultBool> TraysDeleteByIdentifierAsync(string identifier)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ServiceResultTray> TraysGetTrayByIdentifierAsync(string identifier)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ServiceResultTrayList> TraysGetTraysByIdentifiersAsync(List<string> identifiers, int page, int pageSize)
-        {
-            throw new NotImplementedException();
-        }
+        public ServiceResultTray TraysGetTrayByIdentifier(string TrayIdentifier)
+            => TraysGetTrayByIdentifierAsync(TrayIdentifier).Result;
+        public async Task<ServiceResultTray> TraysGetTrayByIdentifierAsync(string TrayIdentifier)
+            => await CatcherServiceResultAsync(() => Client.TraysGetTrayByIdentifierAsync(TrayIdentifier))
+                    .ConfigureAwait(false);
         #endregion
 
         #endregion
-
-
     }
 }

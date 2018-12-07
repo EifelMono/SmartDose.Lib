@@ -1791,29 +1791,15 @@ namespace MasterData10000
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="QueryRequest", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    public partial class QueryRequest : object
+    [System.Runtime.Serialization.DataContractAttribute(Name="ModelRequest", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.IdentifierToIdRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.QueryRequest))]
+    public partial class ModelRequest : object
     {
         
         private string ModelNameField;
         
         private string ModelNamespaceField;
-        
-        private MasterData10000.QueryRequestOrderByAs OrderByAsField;
-        
-        private string OrderByAsJsonField;
-        
-        private bool OrderByAscField;
-        
-        private int PageField;
-        
-        private int PageSizeField;
-        
-        private MasterData10000.QueryRequestResultAs ResultAsField;
-        
-        private string WhereAsJsonField;
-        
-        private bool WithDebugInfoField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ModelName
@@ -1838,6 +1824,66 @@ namespace MasterData10000
             set
             {
                 this.ModelNamespaceField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="IdentifierToIdRequest", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
+    public partial class IdentifierToIdRequest : MasterData10000.ModelRequest
+    {
+        
+        private string IdentifierField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Identifier
+        {
+            get
+            {
+                return this.IdentifierField;
+            }
+            set
+            {
+                this.IdentifierField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="QueryRequest", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
+    public partial class QueryRequest : MasterData10000.ModelRequest
+    {
+        
+        private bool DebugInfoFlagField;
+        
+        private MasterData10000.QueryRequestOrderByAs OrderByAsField;
+        
+        private string OrderByAsJsonField;
+        
+        private bool OrderByAscField;
+        
+        private int PageField;
+        
+        private int PageSizeField;
+        
+        private MasterData10000.QueryRequestResultAs ResultAsField;
+        
+        private bool TableOnlyFlagField;
+        
+        private string WhereAsJsonField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool DebugInfoFlag
+        {
+            get
+            {
+                return this.DebugInfoFlagField;
+            }
+            set
+            {
+                this.DebugInfoFlagField = value;
             }
         }
         
@@ -1920,6 +1966,19 @@ namespace MasterData10000
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool TableOnlyFlag
+        {
+            get
+            {
+                return this.TableOnlyFlagField;
+            }
+            set
+            {
+                this.TableOnlyFlagField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string WhereAsJson
         {
             get
@@ -1929,19 +1988,6 @@ namespace MasterData10000
             set
             {
                 this.WhereAsJsonField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool WithDebugInfo
-        {
-            get
-            {
-                return this.WithDebugInfoField;
-            }
-            set
-            {
-                this.WithDebugInfoField = value;
             }
         }
     }
@@ -1988,32 +2034,18 @@ namespace MasterData10000
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultBool))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultOfCanisterrcNVL4w7))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultCanister))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultOfArrayOfCanisterrcNVL4w7))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultCanisterList))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultOfCustomerrcNVL4w7))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultCustomer))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultOfArrayOfCustomerrcNVL4w7))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultCustomerList))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultOfDestinationFacilityrcNVL4w7))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultDestinationFacility))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultOfArrayOfDestinationFacilityrcNVL4w7))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultDestinationFacilityList))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultOfManufacturerrcNVL4w7))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultManufacturer))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultOfArrayOfManufacturerrcNVL4w7))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultManufacturerList))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultOfMedicinercNVL4w7))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultMedicine))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultOfArrayOfMedicinercNVL4w7))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultMedicineList))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultOfPatientrcNVL4w7))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultPatient))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultOfArrayOfPatientrcNVL4w7))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultPatientList))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultOfTrayrcNVL4w7))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultTray))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultOfArrayOfTrayrcNVL4w7))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultTrayList))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultOfQueryResponsekCLKJ5ur))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultQueryResponse))]
     public partial class ServiceResult : object
@@ -2187,36 +2219,6 @@ namespace MasterData10000
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultOfArrayOfCanisterrcNVL4w7", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultCanisterList))]
-    public partial class ServiceResultOfArrayOfCanisterrcNVL4w7 : MasterData10000.ServiceResult
-    {
-        
-        private System.Collections.Generic.List<MasterData10000.Canister> DataField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<MasterData10000.Canister> Data
-        {
-            get
-            {
-                return this.DataField;
-            }
-            set
-            {
-                this.DataField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultCanisterList", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    public partial class ServiceResultCanisterList : MasterData10000.ServiceResultOfArrayOfCanisterrcNVL4w7
-    {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultOfCustomerrcNVL4w7", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultCustomer))]
     public partial class ServiceResultOfCustomerrcNVL4w7 : MasterData10000.ServiceResult
@@ -2242,36 +2244,6 @@ namespace MasterData10000
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultCustomer", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
     public partial class ServiceResultCustomer : MasterData10000.ServiceResultOfCustomerrcNVL4w7
-    {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultOfArrayOfCustomerrcNVL4w7", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultCustomerList))]
-    public partial class ServiceResultOfArrayOfCustomerrcNVL4w7 : MasterData10000.ServiceResult
-    {
-        
-        private System.Collections.Generic.List<MasterData10000.Customer> DataField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<MasterData10000.Customer> Data
-        {
-            get
-            {
-                return this.DataField;
-            }
-            set
-            {
-                this.DataField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultCustomerList", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    public partial class ServiceResultCustomerList : MasterData10000.ServiceResultOfArrayOfCustomerrcNVL4w7
     {
     }
     
@@ -2307,36 +2279,6 @@ namespace MasterData10000
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultOfArrayOfDestinationFacilityrcNVL4w7", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultDestinationFacilityList))]
-    public partial class ServiceResultOfArrayOfDestinationFacilityrcNVL4w7 : MasterData10000.ServiceResult
-    {
-        
-        private System.Collections.Generic.List<MasterData10000.DestinationFacility> DataField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<MasterData10000.DestinationFacility> Data
-        {
-            get
-            {
-                return this.DataField;
-            }
-            set
-            {
-                this.DataField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultDestinationFacilityList", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    public partial class ServiceResultDestinationFacilityList : MasterData10000.ServiceResultOfArrayOfDestinationFacilityrcNVL4w7
-    {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultOfManufacturerrcNVL4w7", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultManufacturer))]
     public partial class ServiceResultOfManufacturerrcNVL4w7 : MasterData10000.ServiceResult
@@ -2362,36 +2304,6 @@ namespace MasterData10000
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultManufacturer", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
     public partial class ServiceResultManufacturer : MasterData10000.ServiceResultOfManufacturerrcNVL4w7
-    {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultOfArrayOfManufacturerrcNVL4w7", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultManufacturerList))]
-    public partial class ServiceResultOfArrayOfManufacturerrcNVL4w7 : MasterData10000.ServiceResult
-    {
-        
-        private System.Collections.Generic.List<MasterData10000.Manufacturer> DataField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<MasterData10000.Manufacturer> Data
-        {
-            get
-            {
-                return this.DataField;
-            }
-            set
-            {
-                this.DataField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultManufacturerList", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    public partial class ServiceResultManufacturerList : MasterData10000.ServiceResultOfArrayOfManufacturerrcNVL4w7
     {
     }
     
@@ -2427,36 +2339,6 @@ namespace MasterData10000
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultOfArrayOfMedicinercNVL4w7", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultMedicineList))]
-    public partial class ServiceResultOfArrayOfMedicinercNVL4w7 : MasterData10000.ServiceResult
-    {
-        
-        private System.Collections.Generic.List<MasterData10000.Medicine> DataField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<MasterData10000.Medicine> Data
-        {
-            get
-            {
-                return this.DataField;
-            }
-            set
-            {
-                this.DataField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultMedicineList", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    public partial class ServiceResultMedicineList : MasterData10000.ServiceResultOfArrayOfMedicinercNVL4w7
-    {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultOfPatientrcNVL4w7", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultPatient))]
     public partial class ServiceResultOfPatientrcNVL4w7 : MasterData10000.ServiceResult
@@ -2487,36 +2369,6 @@ namespace MasterData10000
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultOfArrayOfPatientrcNVL4w7", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultPatientList))]
-    public partial class ServiceResultOfArrayOfPatientrcNVL4w7 : MasterData10000.ServiceResult
-    {
-        
-        private System.Collections.Generic.List<MasterData10000.Patient> DataField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<MasterData10000.Patient> Data
-        {
-            get
-            {
-                return this.DataField;
-            }
-            set
-            {
-                this.DataField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultPatientList", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    public partial class ServiceResultPatientList : MasterData10000.ServiceResultOfArrayOfPatientrcNVL4w7
-    {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultOfTrayrcNVL4w7", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultTray))]
     public partial class ServiceResultOfTrayrcNVL4w7 : MasterData10000.ServiceResult
@@ -2542,36 +2394,6 @@ namespace MasterData10000
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultTray", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
     public partial class ServiceResultTray : MasterData10000.ServiceResultOfTrayrcNVL4w7
-    {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultOfArrayOfTrayrcNVL4w7", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultTrayList))]
-    public partial class ServiceResultOfArrayOfTrayrcNVL4w7 : MasterData10000.ServiceResult
-    {
-        
-        private System.Collections.Generic.List<MasterData10000.Tray> DataField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<MasterData10000.Tray> Data
-        {
-            get
-            {
-                return this.DataField;
-            }
-            set
-            {
-                this.DataField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultTrayList", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    public partial class ServiceResultTrayList : MasterData10000.ServiceResultOfArrayOfTrayrcNVL4w7
     {
     }
     
@@ -2692,8 +2514,8 @@ namespace MasterData10000
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/Query", ReplyAction="http://tempuri.org/IMasterDataService/QueryResponse")]
         System.Threading.Tasks.Task<MasterData10000.ServiceResultQueryResponse> QueryAsync(MasterData10000.QueryRequest queryRequest);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/CanistersGetIdByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/CanistersGetIdByIdentifierResponse")]
-        System.Threading.Tasks.Task<MasterData10000.ServiceResultLong> CanistersGetIdByIdentifierAsync(string identifier);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/IdentifierToId", ReplyAction="http://tempuri.org/IMasterDataService/IdentifierToIdResponse")]
+        System.Threading.Tasks.Task<MasterData10000.ServiceResultLong> IdentifierToIdAsync(MasterData10000.IdentifierToIdRequest identifierToIdRequest);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/CanistersDeleteByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/CanistersDeleteByIdentifierResponse")]
         System.Threading.Tasks.Task<MasterData10000.ServiceResultBool> CanistersDeleteByIdentifierAsync(string identifier);
@@ -2701,24 +2523,11 @@ namespace MasterData10000
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/CanistersGetCanisterByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/CanistersGetCanisterByIdentifierResponse")]
         System.Threading.Tasks.Task<MasterData10000.ServiceResultCanister> CanistersGetCanisterByIdentifierAsync(string identifier);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/CanistersGetCanistersByIdentifiers", ReplyAction="http://tempuri.org/IMasterDataService/CanistersGetCanistersByIdentifiersResponse")]
-        System.Threading.Tasks.Task<MasterData10000.ServiceResultCanisterList> CanistersGetCanistersByIdentifiersAsync(System.Collections.Generic.List<string> identifiers, int page, int pageSize);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/CustomersGetIdByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/CustomersGetIdByIdentifierResponse")]
-        System.Threading.Tasks.Task<MasterData10000.ServiceResultLong> CustomersGetIdByIdentifierAsync(string customerIdentifier);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/CustomersDeleteByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/CustomersDeleteByIdentifierResponse")]
         System.Threading.Tasks.Task<MasterData10000.ServiceResultBool> CustomersDeleteByIdentifierAsync(string customerIdentifier);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/CustomersGetCustomerByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/CustomersGetCustomerByIdentifierResponse")]
         System.Threading.Tasks.Task<MasterData10000.ServiceResultCustomer> CustomersGetCustomerByIdentifierAsync(string customerIdentifier);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/CustomersGetCustomersByIdentifiers", ReplyAction="http://tempuri.org/IMasterDataService/CustomersGetCustomersByIdentifiersResponse")]
-        System.Threading.Tasks.Task<MasterData10000.ServiceResultCustomerList> CustomersGetCustomersByIdentifiersAsync(System.Collections.Generic.List<string> customerIdentifiers, int page, int pageSize);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/DestinationFacilitiesGetIdByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/DestinationFacilitiesGetIdByIdentifierRespo" +
-            "nse")]
-        System.Threading.Tasks.Task<MasterData10000.ServiceResultLong> DestinationFacilitiesGetIdByIdentifierAsync(string destinationFacilityIdentifier);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/DestinationFacilitiesDeleteByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/DestinationFacilitiesDeleteByIdentifierResp" +
             "onse")]
@@ -2729,14 +2538,6 @@ namespace MasterData10000
             "ByIdentifierResponse")]
         System.Threading.Tasks.Task<MasterData10000.ServiceResultDestinationFacility> DestinationFacilitiesGetDestinationFacilityByIdentifierAsync(string destinationFacilityIdentifier);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/DestinationFacilitiesGetDestinationFaciliti" +
-            "esByIdentifiers", ReplyAction="http://tempuri.org/IMasterDataService/DestinationFacilitiesGetDestinationFaciliti" +
-            "esByIdentifiersResponse")]
-        System.Threading.Tasks.Task<MasterData10000.ServiceResultDestinationFacilityList> DestinationFacilitiesGetDestinationFacilitiesByIdentifiersAsync(System.Collections.Generic.List<string> destinationFacilityIdentifiers, int page, int pageSize);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/ManufacturersGetIdByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/ManufacturersGetIdByIdentifierResponse")]
-        System.Threading.Tasks.Task<MasterData10000.ServiceResultLong> ManufacturersGetIdByIdentifierAsync(string manufacturerIdentifier);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/ManufacturersDeleteByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/ManufacturersDeleteByIdentifierResponse")]
         System.Threading.Tasks.Task<MasterData10000.ServiceResultBool> ManufacturersDeleteByIdentifierAsync(string manufacturerIdentifier);
         
@@ -2744,24 +2545,11 @@ namespace MasterData10000
             "ponse")]
         System.Threading.Tasks.Task<MasterData10000.ServiceResultManufacturer> ManufacturersGetManufacturerByIdentifierAsync(string manufacturerIdentifier);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/ManufacturersGetManufacturersByIdentifiers", ReplyAction="http://tempuri.org/IMasterDataService/ManufacturersGetManufacturersByIdentifiersR" +
-            "esponse")]
-        System.Threading.Tasks.Task<MasterData10000.ServiceResultManufacturerList> ManufacturersGetManufacturersByIdentifiersAsync(System.Collections.Generic.List<string> manufacturerIdentifiers, int page, int pageSize);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/MedicinesGetIdByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/MedicinesGetIdByIdentifierResponse")]
-        System.Threading.Tasks.Task<MasterData10000.ServiceResultLong> MedicinesGetIdByIdentifierAsync(string medicineIdentifier);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/MedicinesDeleteByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/MedicinesDeleteByIdentifierResponse")]
         System.Threading.Tasks.Task<MasterData10000.ServiceResultBool> MedicinesDeleteByIdentifierAsync(string medicineIdentifier);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/MedicinesGetMedcineByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/MedicinesGetMedcineByIdentifierResponse")]
         System.Threading.Tasks.Task<MasterData10000.ServiceResultMedicine> MedicinesGetMedcineByIdentifierAsync(string medicineIdentifier);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/MedicinesGetMedcinesByIdentifiers", ReplyAction="http://tempuri.org/IMasterDataService/MedicinesGetMedcinesByIdentifiersResponse")]
-        System.Threading.Tasks.Task<MasterData10000.ServiceResultMedicineList> MedicinesGetMedcinesByIdentifiersAsync(System.Collections.Generic.List<string> medicineIdentifiers, int page, int pageSize);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/PatientsGetIdByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/PatientsGetIdByIdentifierResponse")]
-        System.Threading.Tasks.Task<MasterData10000.ServiceResultLong> PatientsGetIdByIdentifierAsync(string patientIdentifier);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/PatientsDeleteByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/PatientsDeleteByIdentifierResponse")]
         System.Threading.Tasks.Task<MasterData10000.ServiceResultBool> PatientsDeleteByIdentifierAsync(string patientIdentifier);
@@ -2769,20 +2557,11 @@ namespace MasterData10000
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/PatientsGetPatientByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/PatientsGetPatientByIdentifierResponse")]
         System.Threading.Tasks.Task<MasterData10000.ServiceResultPatient> PatientsGetPatientByIdentifierAsync(string patientIdentifier);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/PatientsGetPatientsByIdentifiers", ReplyAction="http://tempuri.org/IMasterDataService/PatientsGetPatientsByIdentifiersResponse")]
-        System.Threading.Tasks.Task<MasterData10000.ServiceResultPatientList> PatientsGetPatientsByIdentifiersAsync(System.Collections.Generic.List<string> patientIdentifiers, int page, int pageSize);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/TraysGetIdByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/TraysGetIdByIdentifierResponse")]
-        System.Threading.Tasks.Task<MasterData10000.ServiceResultLong> TraysGetIdByIdentifierAsync(string identifier);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/TraysDeleteByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/TraysDeleteByIdentifierResponse")]
         System.Threading.Tasks.Task<MasterData10000.ServiceResultBool> TraysDeleteByIdentifierAsync(string identifier);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/TraysGetTrayByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/TraysGetTrayByIdentifierResponse")]
         System.Threading.Tasks.Task<MasterData10000.ServiceResultTray> TraysGetTrayByIdentifierAsync(string identifier);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/TraysGetTraysByIdentifiers", ReplyAction="http://tempuri.org/IMasterDataService/TraysGetTraysByIdentifiersResponse")]
-        System.Threading.Tasks.Task<MasterData10000.ServiceResultTrayList> TraysGetTraysByIdentifiersAsync(System.Collections.Generic.List<string> identifiers, int page, int pageSize);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
@@ -2866,9 +2645,9 @@ namespace MasterData10000
             return base.Channel.QueryAsync(queryRequest);
         }
         
-        public System.Threading.Tasks.Task<MasterData10000.ServiceResultLong> CanistersGetIdByIdentifierAsync(string identifier)
+        public System.Threading.Tasks.Task<MasterData10000.ServiceResultLong> IdentifierToIdAsync(MasterData10000.IdentifierToIdRequest identifierToIdRequest)
         {
-            return base.Channel.CanistersGetIdByIdentifierAsync(identifier);
+            return base.Channel.IdentifierToIdAsync(identifierToIdRequest);
         }
         
         public System.Threading.Tasks.Task<MasterData10000.ServiceResultBool> CanistersDeleteByIdentifierAsync(string identifier)
@@ -2881,16 +2660,6 @@ namespace MasterData10000
             return base.Channel.CanistersGetCanisterByIdentifierAsync(identifier);
         }
         
-        public System.Threading.Tasks.Task<MasterData10000.ServiceResultCanisterList> CanistersGetCanistersByIdentifiersAsync(System.Collections.Generic.List<string> identifiers, int page, int pageSize)
-        {
-            return base.Channel.CanistersGetCanistersByIdentifiersAsync(identifiers, page, pageSize);
-        }
-        
-        public System.Threading.Tasks.Task<MasterData10000.ServiceResultLong> CustomersGetIdByIdentifierAsync(string customerIdentifier)
-        {
-            return base.Channel.CustomersGetIdByIdentifierAsync(customerIdentifier);
-        }
-        
         public System.Threading.Tasks.Task<MasterData10000.ServiceResultBool> CustomersDeleteByIdentifierAsync(string customerIdentifier)
         {
             return base.Channel.CustomersDeleteByIdentifierAsync(customerIdentifier);
@@ -2899,16 +2668,6 @@ namespace MasterData10000
         public System.Threading.Tasks.Task<MasterData10000.ServiceResultCustomer> CustomersGetCustomerByIdentifierAsync(string customerIdentifier)
         {
             return base.Channel.CustomersGetCustomerByIdentifierAsync(customerIdentifier);
-        }
-        
-        public System.Threading.Tasks.Task<MasterData10000.ServiceResultCustomerList> CustomersGetCustomersByIdentifiersAsync(System.Collections.Generic.List<string> customerIdentifiers, int page, int pageSize)
-        {
-            return base.Channel.CustomersGetCustomersByIdentifiersAsync(customerIdentifiers, page, pageSize);
-        }
-        
-        public System.Threading.Tasks.Task<MasterData10000.ServiceResultLong> DestinationFacilitiesGetIdByIdentifierAsync(string destinationFacilityIdentifier)
-        {
-            return base.Channel.DestinationFacilitiesGetIdByIdentifierAsync(destinationFacilityIdentifier);
         }
         
         public System.Threading.Tasks.Task<MasterData10000.ServiceResultBool> DestinationFacilitiesDeleteByIdentifierAsync(string destinationFacilityIdentifier)
@@ -2921,16 +2680,6 @@ namespace MasterData10000
             return base.Channel.DestinationFacilitiesGetDestinationFacilityByIdentifierAsync(destinationFacilityIdentifier);
         }
         
-        public System.Threading.Tasks.Task<MasterData10000.ServiceResultDestinationFacilityList> DestinationFacilitiesGetDestinationFacilitiesByIdentifiersAsync(System.Collections.Generic.List<string> destinationFacilityIdentifiers, int page, int pageSize)
-        {
-            return base.Channel.DestinationFacilitiesGetDestinationFacilitiesByIdentifiersAsync(destinationFacilityIdentifiers, page, pageSize);
-        }
-        
-        public System.Threading.Tasks.Task<MasterData10000.ServiceResultLong> ManufacturersGetIdByIdentifierAsync(string manufacturerIdentifier)
-        {
-            return base.Channel.ManufacturersGetIdByIdentifierAsync(manufacturerIdentifier);
-        }
-        
         public System.Threading.Tasks.Task<MasterData10000.ServiceResultBool> ManufacturersDeleteByIdentifierAsync(string manufacturerIdentifier)
         {
             return base.Channel.ManufacturersDeleteByIdentifierAsync(manufacturerIdentifier);
@@ -2939,16 +2688,6 @@ namespace MasterData10000
         public System.Threading.Tasks.Task<MasterData10000.ServiceResultManufacturer> ManufacturersGetManufacturerByIdentifierAsync(string manufacturerIdentifier)
         {
             return base.Channel.ManufacturersGetManufacturerByIdentifierAsync(manufacturerIdentifier);
-        }
-        
-        public System.Threading.Tasks.Task<MasterData10000.ServiceResultManufacturerList> ManufacturersGetManufacturersByIdentifiersAsync(System.Collections.Generic.List<string> manufacturerIdentifiers, int page, int pageSize)
-        {
-            return base.Channel.ManufacturersGetManufacturersByIdentifiersAsync(manufacturerIdentifiers, page, pageSize);
-        }
-        
-        public System.Threading.Tasks.Task<MasterData10000.ServiceResultLong> MedicinesGetIdByIdentifierAsync(string medicineIdentifier)
-        {
-            return base.Channel.MedicinesGetIdByIdentifierAsync(medicineIdentifier);
         }
         
         public System.Threading.Tasks.Task<MasterData10000.ServiceResultBool> MedicinesDeleteByIdentifierAsync(string medicineIdentifier)
@@ -2961,16 +2700,6 @@ namespace MasterData10000
             return base.Channel.MedicinesGetMedcineByIdentifierAsync(medicineIdentifier);
         }
         
-        public System.Threading.Tasks.Task<MasterData10000.ServiceResultMedicineList> MedicinesGetMedcinesByIdentifiersAsync(System.Collections.Generic.List<string> medicineIdentifiers, int page, int pageSize)
-        {
-            return base.Channel.MedicinesGetMedcinesByIdentifiersAsync(medicineIdentifiers, page, pageSize);
-        }
-        
-        public System.Threading.Tasks.Task<MasterData10000.ServiceResultLong> PatientsGetIdByIdentifierAsync(string patientIdentifier)
-        {
-            return base.Channel.PatientsGetIdByIdentifierAsync(patientIdentifier);
-        }
-        
         public System.Threading.Tasks.Task<MasterData10000.ServiceResultBool> PatientsDeleteByIdentifierAsync(string patientIdentifier)
         {
             return base.Channel.PatientsDeleteByIdentifierAsync(patientIdentifier);
@@ -2981,16 +2710,6 @@ namespace MasterData10000
             return base.Channel.PatientsGetPatientByIdentifierAsync(patientIdentifier);
         }
         
-        public System.Threading.Tasks.Task<MasterData10000.ServiceResultPatientList> PatientsGetPatientsByIdentifiersAsync(System.Collections.Generic.List<string> patientIdentifiers, int page, int pageSize)
-        {
-            return base.Channel.PatientsGetPatientsByIdentifiersAsync(patientIdentifiers, page, pageSize);
-        }
-        
-        public System.Threading.Tasks.Task<MasterData10000.ServiceResultLong> TraysGetIdByIdentifierAsync(string identifier)
-        {
-            return base.Channel.TraysGetIdByIdentifierAsync(identifier);
-        }
-        
         public System.Threading.Tasks.Task<MasterData10000.ServiceResultBool> TraysDeleteByIdentifierAsync(string identifier)
         {
             return base.Channel.TraysDeleteByIdentifierAsync(identifier);
@@ -2999,11 +2718,6 @@ namespace MasterData10000
         public System.Threading.Tasks.Task<MasterData10000.ServiceResultTray> TraysGetTrayByIdentifierAsync(string identifier)
         {
             return base.Channel.TraysGetTrayByIdentifierAsync(identifier);
-        }
-        
-        public System.Threading.Tasks.Task<MasterData10000.ServiceResultTrayList> TraysGetTraysByIdentifiersAsync(System.Collections.Generic.List<string> identifiers, int page, int pageSize)
-        {
-            return base.Channel.TraysGetTraysByIdentifiersAsync(identifiers, page, pageSize);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync()
