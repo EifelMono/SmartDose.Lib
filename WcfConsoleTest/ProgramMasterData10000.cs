@@ -254,7 +254,7 @@ namespace ProgramWcfConsoleTest
                                         Console.WriteLine($"Query medicine Error Result='{med.Status}' ({med.StatusAsInt})");
 
                                     if (await serviceClient
-                                               .ModelIdentifierToIdAsync<Medicine>(med.Data.Identifier) is var id1 && id1.IsOk)
+                                               .ExecuteModelIdentifierToIdAsync<Medicine>(med.Data.Identifier) is var id1 && id1.IsOk)
                                         Console.WriteLine($"IdentifierToId id {med.Data.Id} found for {med.Data.Identifier}");
                                     else
                                         Console.WriteLine($"IdentifierToId id not found for {med.Data.Identifier} Error Result='{id1.Status}' ({id1.StatusAsInt})");

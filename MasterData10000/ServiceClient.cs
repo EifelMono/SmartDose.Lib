@@ -40,7 +40,7 @@ namespace MasterData10000
         public async Task<ServiceResultQueryResponse> QueryAsync(QueryRequest queryRequest)
             => await CatcherServiceResultAsync(() => Client.QueryAsync(queryRequest)).ConfigureAwait(false);
 
-        internal async override Task<ServiceResult> ExecuteQueryAsync(QueryBuilder queryBuilder)
+        public async override Task<ServiceResult> ExecuteModelQueryAsync(QueryBuilder queryBuilder)
         {
             var queryBuildValues = queryBuilder.GetValues();
             var queryRequest = new QueryRequest
@@ -72,7 +72,7 @@ namespace MasterData10000
         public async Task<ServiceResultBool> DeleteAsync(DeleteRequest deleteRequest)
             => await CatcherServiceResultAsync(() => Client.DeleteAsync(deleteRequest)).ConfigureAwait(false);
 
-        internal async override Task<ServiceResult<bool>> ExecuteDeleteAsync(DeleteBuilder deleteBuilder)
+        public async override Task<ServiceResult<bool>> ExecuteModelDeleteAsync(DeleteBuilder deleteBuilder)
         {
             var deleteBuildValues = deleteBuilder.GetValues();
             var deleteRequest = new DeleteRequest
@@ -94,7 +94,7 @@ namespace MasterData10000
         public async Task<ServiceResultLong> IdentifierToIdAsync(IdentifierToIdRequest identifierToIdRequest)
                => await CatcherServiceResultAsync(() => Client.IdentifierToIdAsync(identifierToIdRequest)).ConfigureAwait(false);
 
-        internal async override Task<ServiceResult<long>> ExecuteIdentifierToIdAsync(string identifier, string modelName, string modelNamespace)
+        public async override Task<ServiceResult<long>> ExecuteModelIdentifierToIdAsync(string identifier, string modelName, string modelNamespace)
             => (await IdentifierToIdAsync(new IdentifierToIdRequest
             {
                 ModelName = modelName,

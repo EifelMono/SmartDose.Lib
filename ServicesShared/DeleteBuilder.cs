@@ -16,31 +16,15 @@ namespace MasterData9002
 namespace ServicesShared
 #endif
 {
-    public class DeleteBuilder
+    public class DeleteBuilder: ModelBuilder
     {
-        public DeleteBuilder(ServiceClientBase client)
+        public DeleteBuilder(IServiceClient client): base(client)
         {
-            Client = client;
         }
-
-        protected ServiceClientBase Client { get; set; }
 
         protected string WhereAsJson { get; set; } = string.Empty;
 
-        protected Type ModelType { get; set; }
-
         protected bool TableOnlyFlag { get; set; } = false;
-        protected bool _DebugInfoFlag { get; set; } = false;
-        protected bool DebugInfoFlag
-        {
-            get => DebugInfoAllFlag ? DebugInfoAllFlag : _DebugInfoFlag;
-            set => _DebugInfoFlag = value;
-        }
-
-        private static bool DebugInfoAllFlag { get; set; } = false;
-
-        public static void SwitchDebugInfoAll(bool flag)
-            => DebugInfoAllFlag = flag;
 
         // Use deconstructor while protected properties 
         public (string WhereAsJson,
@@ -52,7 +36,7 @@ namespace ServicesShared
 
     public class DeleteBuilder<TModel> : DeleteBuilder where TModel : class
     {
-        public DeleteBuilder(ServiceClientBase client) : base(client)
+        public DeleteBuilder(IServiceClient client) : base(client)
         {
             ModelType = typeof(TModel);
         }
@@ -90,7 +74,7 @@ namespace ServicesShared
         public async Task<ServiceResult<bool>> ExecuteAsync(Expression<Func<TModel, bool>> whereExpression = null)
         {
             Where(whereExpression);
-            return await Client.ExecuteDeleteAsync(this).ConfigureAwait(false);
+            return await Client.ExecuteModelDeleteAsync(this).ConfigureAwait(false);
         }
     }
 }

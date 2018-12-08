@@ -14,16 +14,15 @@ namespace ServicesShared
 {
     public class ModelBuilder
     {
-        public ModelBuilder(ServiceClientBase client)
+        public ModelBuilder(IServiceClient client)
         {
             Client = client;
         }
 
-        protected ServiceClientBase Client { get; set; }
+        protected IServiceClient Client { get; set; }
 
         protected Type ModelType { get; set; }
 
-        protected bool TableOnlyFlag { get; set; } = false;
         protected bool _DebugInfoFlag { get; set; } = false;
         protected bool DebugInfoFlag
         {
@@ -35,5 +34,22 @@ namespace ServicesShared
 
         public static void SwitchDebugInfoAll(bool flag)
             => DebugInfoAllFlag = flag;
+    }
+
+    public class ModelBuilder<TModel> : ModelBuilder where TModel : class
+    {
+        public ModelBuilder(IServiceClient client) : base(client)
+        {
+            ModelType = typeof(TModel);
+        }
+
+        public QueryBuilder<TModel> Query()
+        {
+            return new QueryBuilder<TModel>(Client);
+        }
+        public DeleteBuilder<TModel> Delete()
+        {
+            return new DeleteBuilder<TModel>(Client);
+        }
     }
 }

@@ -17,6 +17,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="..\ServicesShared\IServiceClient.cs" Link="ServiceShared\IServiceClient.cs" />
     <Compile Include="..\ServicesShared\ServiceClientBase.cs" Link="ServiceShared\ServiceClientBase.cs" />
     <Compile Include="..\ServicesShared\SearchFilter.cs" Link="ServiceShared\SearchFilter.cs" />
   </ItemGroup>

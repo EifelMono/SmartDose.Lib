@@ -16,7 +16,7 @@ namespace MasterData9002
 namespace ServicesShared
 #endif
 {
-    public class QueryBuilder
+    public class QueryBuilder: ModelBuilder
     {
         public enum QueryRequestOrderByAs
         {
@@ -40,12 +40,9 @@ namespace ServicesShared
             List = 2
         }
 
-        public QueryBuilder(ServiceClientBase client)
+        public QueryBuilder(IServiceClient client): base(client)
         {
-            Client = client;
         }
-
-        protected ServiceClientBase Client { get; set; }
 
         protected string WhereAsJson { get; set; } = string.Empty;
         protected string OrderByAsJson { get; set; } = string.Empty;
@@ -56,23 +53,10 @@ namespace ServicesShared
 
         protected QueryRequestResultAs ResultAs { get; set; } = QueryRequestResultAs.None;
 
-        protected Type ModelType { get; set; }
-
         protected int Page { get; set; } = -1;
         protected int PageSize { get; set; } = -1;
 
         protected bool TableOnlyFlag { get; set; } = false;
-        protected bool _DebugInfoFlag { get; set; } = false;
-        protected bool DebugInfoFlag
-        {
-            get => DebugInfoAllFlag ? DebugInfoAllFlag : _DebugInfoFlag;
-            set => _DebugInfoFlag = value;
-        }
-
-        private static bool DebugInfoAllFlag { get; set; } = false;
-
-        public static void SwitchDebugInfoAll(bool flag)
-            => DebugInfoAllFlag = flag;
 
         // Use deconstructor while protected properties 
         public (string WhereAsJson,
@@ -90,7 +74,7 @@ namespace ServicesShared
 
     public class QueryBuilder<TModel> : QueryBuilder where TModel : class
     {
-        public QueryBuilder(ServiceClientBase client) : base(client)
+        public QueryBuilder(IServiceClient client) : base(client)
         {
             ModelType = typeof(TModel);
         }
@@ -146,7 +130,7 @@ namespace ServicesShared
 
         protected async Task<ServiceResult<TResult>> ExecuteAsync<TResult>() where TResult : class
         {
-            var executeServiceResult = await Client.ExecuteQueryAsync(this).ConfigureAwait(false);
+            var executeServiceResult = await Client.ExecuteModelQueryAsync(this).ConfigureAwait(false);
             var returnResult = executeServiceResult.CastByClone<ServiceResult<TResult>>();
             if (executeServiceResult.IsOk)
                 returnResult.Data = (executeServiceResult.Data as string).UnZipString().ToObjectFromJson<TResult>();
@@ -171,7 +155,5 @@ namespace ServicesShared
             ResultAs = QueryRequestResultAs.Item;
             return await ExecuteAsync<TModel>().ConfigureAwait(false);
         }
-
-
     }
 }

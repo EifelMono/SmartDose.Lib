@@ -10,6 +10,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)DeleteBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IServiceClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IServiceResult.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ModelBuilder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)QueryBuilder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SearchFilter.cs" />

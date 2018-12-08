@@ -18,7 +18,7 @@ namespace MasterData9002
 namespace ServicesShared
 #endif
 {
-    public abstract class ServiceClientBase : IDisposable
+    public abstract class ServiceClientBase : IDisposable, IServiceClient
     {
         public TimeSpan WaitOnFault { get; set; } = TimeSpan.FromSeconds(1);
         public string EndpointAddress { get; protected set; }
@@ -286,8 +286,16 @@ namespace ServicesShared
 
         #region Model
 #if UseModel
+        public ModelBuilder<T> Model<T>() where T : class
+        {
+            return new ModelBuilder<T>(this) { };
+        }
+
         #region Query
-        internal abstract Task<ServiceResult> ExecuteQueryAsync(QueryBuilder queryBuilder);
+        public virtual Task<ServiceResult> ExecuteModelQueryAsync(QueryBuilder queryBuilder)
+        {
+            throw new NotImplementedException();
+        }
 
         public QueryBuilder<T> ModelQuery<T>() where T : class
         {
@@ -295,23 +303,28 @@ namespace ServicesShared
         }
         #endregion
 
-        #region IdentifierToId
-        internal abstract Task<ServiceResult<long>> ExecuteIdentifierToIdAsync(string identifier, string modelName, string modelNamespace);
-
-        public ServiceResult<long> ModelIdentifierToId<T>(string identifier) where T : class
-            => ModelIdentifierToIdAsync<T>(identifier).Result;
-
-        public async Task<ServiceResult<long>> ModelIdentifierToIdAsync<T>(string identifier) where T : class
-            => await ExecuteIdentifierToIdAsync(identifier, typeof(T).Name, typeof(T).Namespace).ConfigureAwait(false);
-        #endregion
-
-        #region Query
-        internal abstract Task<ServiceResult<bool>> ExecuteDeleteAsync(DeleteBuilder deleteBuilder);
+        #region Delete
+        public virtual Task<ServiceResult<bool>> ExecuteModelDeleteAsync(DeleteBuilder deleteBuilder)
+        {
+            throw new NotImplementedException();
+        }
 
         public DeleteBuilder<T> ModelDelete<T>() where T : class
         {
             return new DeleteBuilder<T>(this) { };
         }
+        #endregion
+
+        #region IdentifierToId
+        public virtual Task<ServiceResult<long>> ExecuteModelIdentifierToIdAsync(string identifier, string modelName, string modelNamespace)
+        {
+            throw new NotImplementedException();
+        }
+        public ServiceResult<long> ModelIdentifierToId<T>(string identifier) where T : class
+            => ExecuteModelIdentifierToIdAsync<T>(identifier).Result;
+
+        public async Task<ServiceResult<long>> ExecuteModelIdentifierToIdAsync<T>(string identifier) where T : class
+            => await ExecuteModelIdentifierToIdAsync(identifier, typeof(T).Name, typeof(T).Namespace).ConfigureAwait(false);
         #endregion
 #endif
         #endregion
