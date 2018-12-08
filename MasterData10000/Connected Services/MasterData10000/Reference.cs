@@ -1792,9 +1792,9 @@ namespace MasterData10000
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ModelRequest", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.DeleteRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.IdentifierToIdRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.QueryRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ModelDeleteRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ModelIdentifierToIdRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ModelQueryRequest))]
     public partial class ModelRequest : object
     {
         
@@ -1831,8 +1831,8 @@ namespace MasterData10000
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DeleteRequest", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    public partial class DeleteRequest : MasterData10000.ModelRequest
+    [System.Runtime.Serialization.DataContractAttribute(Name="ModelDeleteRequest", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
+    public partial class ModelDeleteRequest : MasterData10000.ModelRequest
     {
         
         private bool DebugInfoFlagField;
@@ -1883,8 +1883,8 @@ namespace MasterData10000
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="IdentifierToIdRequest", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    public partial class IdentifierToIdRequest : MasterData10000.ModelRequest
+    [System.Runtime.Serialization.DataContractAttribute(Name="ModelIdentifierToIdRequest", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
+    public partial class ModelIdentifierToIdRequest : MasterData10000.ModelRequest
     {
         
         private string IdentifierField;
@@ -1905,8 +1905,8 @@ namespace MasterData10000
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="QueryRequest", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    public partial class QueryRequest : MasterData10000.ModelRequest
+    [System.Runtime.Serialization.DataContractAttribute(Name="ModelQueryRequest", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
+    public partial class ModelQueryRequest : MasterData10000.ModelRequest
     {
         
         private bool DebugInfoFlagField;
@@ -2099,8 +2099,8 @@ namespace MasterData10000
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultPatient))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultOfTrayrcNVL4w7))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultTray))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultOfQueryResponsekCLKJ5ur))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultQueryResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultOfModelQueryResponsekCLKJ5ur))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultModelQueryResponse))]
     public partial class ServiceResult : object
     {
         
@@ -2452,15 +2452,15 @@ namespace MasterData10000
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultOfQueryResponsekCLKJ5ur", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultQueryResponse))]
-    public partial class ServiceResultOfQueryResponsekCLKJ5ur : MasterData10000.ServiceResult
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultOfModelQueryResponsekCLKJ5ur", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData10000.ServiceResultModelQueryResponse))]
+    public partial class ServiceResultOfModelQueryResponsekCLKJ5ur : MasterData10000.ServiceResult
     {
         
-        private MasterData10000.QueryResponse DataField;
+        private MasterData10000.ModelQueryResponse DataField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData10000.QueryResponse Data
+        public MasterData10000.ModelQueryResponse Data
         {
             get
             {
@@ -2475,8 +2475,8 @@ namespace MasterData10000
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultQueryResponse", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    public partial class ServiceResultQueryResponse : MasterData10000.ServiceResultOfQueryResponsekCLKJ5ur
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultModelQueryResponse", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
+    public partial class ServiceResultModelQueryResponse : MasterData10000.ServiceResultOfModelQueryResponsekCLKJ5ur
     {
     }
     
@@ -2527,8 +2527,8 @@ namespace MasterData10000
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="QueryResponse", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    public partial class QueryResponse : object
+    [System.Runtime.Serialization.DataContractAttribute(Name="ModelQueryResponse", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
+    public partial class ModelQueryResponse : object
     {
         
         private string ZippedJsonDataField;
@@ -2564,14 +2564,14 @@ namespace MasterData10000
             "")]
         System.Threading.Tasks.Task<MasterData10000.Medicine> GetMedicineByIdentifierAsync(string medicineIdentifier);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/Query", ReplyAction="http://tempuri.org/IMasterDataService/QueryResponse")]
-        System.Threading.Tasks.Task<MasterData10000.ServiceResultQueryResponse> QueryAsync(MasterData10000.QueryRequest queryRequest);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/ModelQuery", ReplyAction="http://tempuri.org/IMasterDataService/ModelQueryResponse")]
+        System.Threading.Tasks.Task<MasterData10000.ServiceResultModelQueryResponse> ModelQueryAsync(MasterData10000.ModelQueryRequest modelQueryRequest);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/Delete", ReplyAction="http://tempuri.org/IMasterDataService/DeleteResponse")]
-        System.Threading.Tasks.Task<MasterData10000.ServiceResultBool> DeleteAsync(MasterData10000.DeleteRequest deleteRequest);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/ModelDelete", ReplyAction="http://tempuri.org/IMasterDataService/ModelDeleteResponse")]
+        System.Threading.Tasks.Task<MasterData10000.ServiceResultBool> ModelDeleteAsync(MasterData10000.ModelDeleteRequest modelDeleteRequest);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/IdentifierToId", ReplyAction="http://tempuri.org/IMasterDataService/IdentifierToIdResponse")]
-        System.Threading.Tasks.Task<MasterData10000.ServiceResultLong> IdentifierToIdAsync(MasterData10000.IdentifierToIdRequest identifierToIdRequest);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/ModelIdentifierToId", ReplyAction="http://tempuri.org/IMasterDataService/ModelIdentifierToIdResponse")]
+        System.Threading.Tasks.Task<MasterData10000.ServiceResultLong> ModelIdentifierToIdAsync(MasterData10000.ModelIdentifierToIdRequest modelIdentifierToIdRequest);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/CanistersDeleteByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/CanistersDeleteByIdentifierResponse")]
         System.Threading.Tasks.Task<MasterData10000.ServiceResultBool> CanistersDeleteByIdentifierAsync(string identifier);
@@ -2696,19 +2696,19 @@ namespace MasterData10000
             return base.Channel.GetMedicineByIdentifierAsync(medicineIdentifier);
         }
         
-        public System.Threading.Tasks.Task<MasterData10000.ServiceResultQueryResponse> QueryAsync(MasterData10000.QueryRequest queryRequest)
+        public System.Threading.Tasks.Task<MasterData10000.ServiceResultModelQueryResponse> ModelQueryAsync(MasterData10000.ModelQueryRequest modelQueryRequest)
         {
-            return base.Channel.QueryAsync(queryRequest);
+            return base.Channel.ModelQueryAsync(modelQueryRequest);
         }
         
-        public System.Threading.Tasks.Task<MasterData10000.ServiceResultBool> DeleteAsync(MasterData10000.DeleteRequest deleteRequest)
+        public System.Threading.Tasks.Task<MasterData10000.ServiceResultBool> ModelDeleteAsync(MasterData10000.ModelDeleteRequest modelDeleteRequest)
         {
-            return base.Channel.DeleteAsync(deleteRequest);
+            return base.Channel.ModelDeleteAsync(modelDeleteRequest);
         }
         
-        public System.Threading.Tasks.Task<MasterData10000.ServiceResultLong> IdentifierToIdAsync(MasterData10000.IdentifierToIdRequest identifierToIdRequest)
+        public System.Threading.Tasks.Task<MasterData10000.ServiceResultLong> ModelIdentifierToIdAsync(MasterData10000.ModelIdentifierToIdRequest modelIdentifierToIdRequest)
         {
-            return base.Channel.IdentifierToIdAsync(identifierToIdRequest);
+            return base.Channel.ModelIdentifierToIdAsync(modelIdentifierToIdRequest);
         }
         
         public System.Threading.Tasks.Task<MasterData10000.ServiceResultBool> CanistersDeleteByIdentifierAsync(string identifier)

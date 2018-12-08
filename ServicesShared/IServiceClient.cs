@@ -19,6 +19,15 @@ namespace ServicesShared
 {
     public interface IServiceClient
     {
+        void CreateClient();
+
+        Task OpenAsync();
+
+        Task CloseAsync();
+
+        Task SubscribeForCallbacksAsync();
+
+        Task UnsubscribeForCallbacksAsync();
 #if UseModel
         Task<ServiceResult> ExecuteModelQueryAsync(QueryBuilder queryBuilder);
 

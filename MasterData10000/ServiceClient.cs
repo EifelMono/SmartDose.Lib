@@ -34,16 +34,16 @@ namespace MasterData10000
 
         #region Query
 
-        public ServiceResultQueryResponse Query(QueryRequest queryRequest)
-            => QueryAsync(queryRequest).Result;
+        public ServiceResultModelQueryResponse ModelQuery(ModelQueryRequest modeQueryRequest)
+            => ModelQueryAsync(modeQueryRequest).Result;
 
-        public async Task<ServiceResultQueryResponse> QueryAsync(QueryRequest queryRequest)
-            => await CatcherServiceResultAsync(() => Client.QueryAsync(queryRequest)).ConfigureAwait(false);
+        public async Task<ServiceResultModelQueryResponse> ModelQueryAsync(ModelQueryRequest modeQueryRequest)
+            => await CatcherServiceResultAsync(() => Client.ModelQueryAsync(modeQueryRequest)).ConfigureAwait(false);
 
         public async override Task<ServiceResult> ExecuteModelQueryAsync(QueryBuilder queryBuilder)
         {
             var queryBuildValues = queryBuilder.GetValues();
-            var queryRequest = new QueryRequest
+            var queryRequest = new ModelQueryRequest
             {
                 ModelName = queryBuildValues.ModelType.Name,
                 ModelNamespace = queryBuildValues.ModelType.Namespace,
@@ -57,7 +57,7 @@ namespace MasterData10000
                 TableOnlyFlag = queryBuildValues.TableOnlyFlag,
                 DebugInfoFlag = queryBuildValues.DebugInfoFlag,
             };
-            var serviceResult = await QueryAsync(queryRequest).ConfigureAwait(false);
+            var serviceResult = await ModelQueryAsync(queryRequest).ConfigureAwait(false);
             var newServiceResult = serviceResult.CastByClone<ServiceResult<string>>();
             newServiceResult.Data = serviceResult?.Data?.ZippedJsonData;
             return newServiceResult;
@@ -66,16 +66,16 @@ namespace MasterData10000
 
         #region Delete
 
-        public ServiceResultBool Delete(DeleteRequest deleteRequest)
-            => DeleteAsync(deleteRequest).Result;
+        public ServiceResultBool ModelDelete(ModelDeleteRequest modelDeleteRequest)
+            => ModelDeleteAsync(modelDeleteRequest).Result;
 
-        public async Task<ServiceResultBool> DeleteAsync(DeleteRequest deleteRequest)
-            => await CatcherServiceResultAsync(() => Client.DeleteAsync(deleteRequest)).ConfigureAwait(false);
+        public async Task<ServiceResultBool> ModelDeleteAsync(ModelDeleteRequest modelDeleteRequest)
+            => await CatcherServiceResultAsync(() => Client.ModelDeleteAsync(modelDeleteRequest)).ConfigureAwait(false);
 
         public async override Task<ServiceResult<bool>> ExecuteModelDeleteAsync(DeleteBuilder deleteBuilder)
         {
             var deleteBuildValues = deleteBuilder.GetValues();
-            var deleteRequest = new DeleteRequest
+            var deleteRequest = new ModelDeleteRequest
             {
                 ModelName = deleteBuildValues.ModelType.Name,
                 ModelNamespace = deleteBuildValues.ModelType.Namespace,
@@ -83,19 +83,19 @@ namespace MasterData10000
                 TableOnlyFlag = deleteBuildValues.TableOnlyFlag,
                 DebugInfoFlag = deleteBuildValues.DebugInfoFlag,
             };
-            return (await DeleteAsync(deleteRequest).ConfigureAwait(false)).CastByClone<ServiceResult<bool>>();
+            return (await ModelDeleteAsync(deleteRequest).ConfigureAwait(false)).CastByClone<ServiceResult<bool>>();
         }
         #endregion
 
         #region IdentifierToId
-        public ServiceResultLong IdentifierToId(IdentifierToIdRequest identifierToIdRequest)
-            => IdentifierToIdAsync(identifierToIdRequest).Result;
+        public ServiceResultLong IdentifierToId(ModelIdentifierToIdRequest modelIdentifierToIdRequest)
+            => ModelIdentifierToIdAsync(modelIdentifierToIdRequest).Result;
 
-        public async Task<ServiceResultLong> IdentifierToIdAsync(IdentifierToIdRequest identifierToIdRequest)
-               => await CatcherServiceResultAsync(() => Client.IdentifierToIdAsync(identifierToIdRequest)).ConfigureAwait(false);
+        public async Task<ServiceResultLong> ModelIdentifierToIdAsync(ModelIdentifierToIdRequest modelIdentifierToIdRequest)
+               => await CatcherServiceResultAsync(() => Client.ModelIdentifierToIdAsync(modelIdentifierToIdRequest)).ConfigureAwait(false);
 
         public async override Task<ServiceResult<long>> ExecuteModelIdentifierToIdAsync(string identifier, string modelName, string modelNamespace)
-            => (await IdentifierToIdAsync(new IdentifierToIdRequest
+            => (await ModelIdentifierToIdAsync(new ModelIdentifierToIdRequest
             {
                 ModelName = modelName,
                 ModelNamespace = modelNamespace,

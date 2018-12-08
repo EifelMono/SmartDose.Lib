@@ -61,16 +61,17 @@ namespace ServicesShared
         }
         public QueuedEvent<ClientEvent> QueuedEvent { get; set; } = new QueuedEvent<ClientEvent>();
 
-        public abstract void CreateClient();
-
+        public virtual void CreateClient() 
+            => throw new NotImplementedException();
         #region Client Abstract 
-        public abstract Task OpenAsync();
-
-        public abstract Task CloseAsync();
-
-        public abstract Task SubscribeForCallbacksAsync();
-
-        public abstract Task UnsubscribeForCallbacksAsync();
+        public virtual Task OpenAsync() 
+            => throw new NotImplementedException();
+        public virtual Task CloseAsync() 
+            => throw new NotImplementedException();
+        public virtual Task SubscribeForCallbacksAsync() 
+            => throw new NotImplementedException();
+        public virtual Task UnsubscribeForCallbacksAsync() 
+            => throw new NotImplementedException();
         #endregion
 
         #region Client Events
@@ -292,10 +293,8 @@ namespace ServicesShared
         }
 
         #region Query
-        public virtual Task<ServiceResult> ExecuteModelQueryAsync(QueryBuilder queryBuilder)
-        {
-            throw new NotImplementedException();
-        }
+        public virtual Task<ServiceResult> ExecuteModelQueryAsync(QueryBuilder queryBuilder) 
+            => throw new NotImplementedException();
 
         public QueryBuilder<T> ModelQuery<T>() where T : class
         {
@@ -305,9 +304,7 @@ namespace ServicesShared
 
         #region Delete
         public virtual Task<ServiceResult<bool>> ExecuteModelDeleteAsync(DeleteBuilder deleteBuilder)
-        {
-            throw new NotImplementedException();
-        }
+            => throw new NotImplementedException();
 
         public DeleteBuilder<T> ModelDelete<T>() where T : class
         {
@@ -317,9 +314,8 @@ namespace ServicesShared
 
         #region IdentifierToId
         public virtual Task<ServiceResult<long>> ExecuteModelIdentifierToIdAsync(string identifier, string modelName, string modelNamespace)
-        {
-            throw new NotImplementedException();
-        }
+            => throw new NotImplementedException();
+        
         public ServiceResult<long> ModelIdentifierToId<T>(string identifier) where T : class
             => ExecuteModelIdentifierToIdAsync<T>(identifier).Result;
 
