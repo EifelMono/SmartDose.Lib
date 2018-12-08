@@ -47,6 +47,7 @@ namespace ProgramWcfConsoleTest
                     var key = Console.ReadKey();
                     if (!serviceClient.IsConnected)
                         Console.WriteLine("Not Connected");
+                    // var x= serviceClient.Model<Medicine>().Delete().
                     else
                         switch (key.KeyChar)
                         {
@@ -254,7 +255,9 @@ namespace ProgramWcfConsoleTest
                                         Console.WriteLine($"Query medicine Error Result='{med.Status}' ({med.StatusAsInt})");
 
                                     if (await serviceClient
-                                               .ExecuteModelIdentifierToIdAsync<Medicine>(med.Data.Identifier) is var id1 && id1.IsOk)
+                                                .Model<Medicine>()
+                                                .IdentifierToId()
+                                                .FirstOrDefaultAsync(med.Data.Identifier) is var id1 && id1.IsOk)
                                         Console.WriteLine($"IdentifierToId id {med.Data.Id} found for {med.Data.Identifier}");
                                     else
                                         Console.WriteLine($"IdentifierToId id not found for {med.Data.Identifier} Error Result='{id1.Status}' ({id1.StatusAsInt})");

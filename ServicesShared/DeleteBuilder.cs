@@ -22,16 +22,17 @@ namespace ServicesShared
         {
         }
 
-        protected string WhereAsJson { get; set; } = string.Empty;
-
         protected bool TableOnlyFlag { get; set; } = false;
 
+        protected string WhereAsJson { get; set; } = string.Empty;
+
         // Use deconstructor while protected properties 
-        public (string WhereAsJson,
-            Type ModelType,
+        public (Type ModelType,
+            bool DebugInfoFlag,
             bool TableOnlyFlag,
-            bool DebugInfoFlag) GetValues()
-                => (WhereAsJson, ModelType, TableOnlyFlag, DebugInfoFlag);
+            string WhereAsJson
+            ) GetValues()
+                => (ModelType, DebugInfoFlag, TableOnlyFlag, WhereAsJson);
     }
 
     public class DeleteBuilder<TModel> : DeleteBuilder where TModel : class
@@ -65,7 +66,6 @@ namespace ServicesShared
             SwitchDebugInfoAll(debugInfoAllFlag);
             return this;
         }
-
 
         public ServiceResult<bool> Execute(Expression<Func<TModel, bool>> whereExpression = null) 
             => ExecuteAsync(whereExpression).Result;

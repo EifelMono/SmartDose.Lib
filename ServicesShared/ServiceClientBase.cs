@@ -313,14 +313,15 @@ namespace ServicesShared
         #endregion
 
         #region IdentifierToId
-        public virtual Task<ServiceResult<long>> ExecuteModelIdentifierToIdAsync(string identifier, string modelName, string modelNamespace)
+
+        public virtual Task<ServiceResult<long>> ExecuteModelIdentifierToIdAsync(IdentifierToIdBuilder identifierToIdBuilder)
             => throw new NotImplementedException();
         
-        public ServiceResult<long> ModelIdentifierToId<T>(string identifier) where T : class
-            => ExecuteModelIdentifierToIdAsync<T>(identifier).Result;
-
-        public async Task<ServiceResult<long>> ExecuteModelIdentifierToIdAsync<T>(string identifier) where T : class
-            => await ExecuteModelIdentifierToIdAsync(identifier, typeof(T).Name, typeof(T).Namespace).ConfigureAwait(false);
+        public IdentifierToIdBuilder<T> ModelIdentifierToId<T>() where T : class
+        {
+            return new IdentifierToIdBuilder<T>(this) { };
+        }
+      
         #endregion
 #endif
         #endregion

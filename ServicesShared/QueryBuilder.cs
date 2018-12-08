@@ -16,7 +16,7 @@ namespace MasterData9002
 namespace ServicesShared
 #endif
 {
-    public class QueryBuilder: ModelBuilder
+    public class QueryBuilder : ModelBuilder
     {
         public enum QueryRequestOrderByAs
         {
@@ -40,15 +40,16 @@ namespace ServicesShared
             List = 2
         }
 
-        public QueryBuilder(IServiceClient client): base(client)
+        public QueryBuilder(IServiceClient client) : base(client)
         {
         }
+
+        protected bool TableOnlyFlag { get; set; } = false;
 
         protected string WhereAsJson { get; set; } = string.Empty;
         protected string OrderByAsJson { get; set; } = string.Empty;
 
         protected bool OrderByAsc { get; set; } = true;
-
         protected QueryRequestOrderByAs OrderByAs { get; set; } = QueryRequestOrderByAs.None;
 
         protected QueryRequestResultAs ResultAs { get; set; } = QueryRequestResultAs.None;
@@ -56,20 +57,19 @@ namespace ServicesShared
         protected int Page { get; set; } = -1;
         protected int PageSize { get; set; } = -1;
 
-        protected bool TableOnlyFlag { get; set; } = false;
-
         // Use deconstructor while protected properties 
-        public (string WhereAsJson,
+        public (Type ModelType,
+            bool DebugInfoFlag,
+            bool TableOnlyFlag,
+            string WhereAsJson,
             string OrderByAsJson,
             bool OrderByAsc,
             QueryRequestOrderByAs OrderByAs,
             QueryRequestResultAs ResultAs,
-            Type ModelType,
             int Page,
-            int PageSize,
-            bool TableOnlyFlag,
-            bool DebugInfoFlag) GetValues()
-            => (WhereAsJson, OrderByAsJson, OrderByAsc, OrderByAs, ResultAs, ModelType, Page, PageSize, TableOnlyFlag, DebugInfoFlag);
+            int PageSize
+            ) GetValues()
+            => (ModelType, DebugInfoFlag, TableOnlyFlag, WhereAsJson, OrderByAsJson, OrderByAsc, OrderByAs, ResultAs, Page, PageSize);
     }
 
     public class QueryBuilder<TModel> : QueryBuilder where TModel : class
@@ -110,13 +110,13 @@ namespace ServicesShared
             return this;
         }
 
-        public QueryBuilder<TModel> UseTableOnly(bool tableOnlyFlag=true)
+        public QueryBuilder<TModel> UseTableOnly(bool tableOnlyFlag = true)
         {
             TableOnlyFlag = tableOnlyFlag;
             return this;
         }
 
-        public QueryBuilder<TModel> UseDebugInfo(bool debugInfoFlag=true)
+        public QueryBuilder<TModel> UseDebugInfo(bool debugInfoFlag = true)
         {
             DebugInfoFlag = debugInfoFlag;
             return this;

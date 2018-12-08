@@ -1798,9 +1798,24 @@ namespace MasterData10000
     public partial class ModelRequest : object
     {
         
+        private bool DebugInfoFlagField;
+        
         private string ModelNameField;
         
         private string ModelNamespaceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool DebugInfoFlag
+        {
+            get
+            {
+                return this.DebugInfoFlagField;
+            }
+            set
+            {
+                this.DebugInfoFlagField = value;
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ModelName
@@ -1835,24 +1850,9 @@ namespace MasterData10000
     public partial class ModelDeleteRequest : MasterData10000.ModelRequest
     {
         
-        private bool DebugInfoFlagField;
-        
         private bool TableOnlyFlagField;
         
         private string WhereAsJsonField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool DebugInfoFlag
-        {
-            get
-            {
-                return this.DebugInfoFlagField;
-            }
-            set
-            {
-                this.DebugInfoFlagField = value;
-            }
-        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public bool TableOnlyFlag
@@ -1909,8 +1909,6 @@ namespace MasterData10000
     public partial class ModelQueryRequest : MasterData10000.ModelRequest
     {
         
-        private bool DebugInfoFlagField;
-        
         private MasterData10000.QueryRequestOrderByAs OrderByAsField;
         
         private string OrderByAsJsonField;
@@ -1926,19 +1924,6 @@ namespace MasterData10000
         private bool TableOnlyFlagField;
         
         private string WhereAsJsonField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool DebugInfoFlag
-        {
-            get
-            {
-                return this.DebugInfoFlagField;
-            }
-            set
-            {
-                this.DebugInfoFlagField = value;
-            }
-        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public MasterData10000.QueryRequestOrderByAs OrderByAs

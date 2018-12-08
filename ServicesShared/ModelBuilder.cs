@@ -51,5 +51,10 @@ namespace ServicesShared
         {
             return new DeleteBuilder<TModel>(Client);
         }
+
+        public IdentifierToIdBuilder<TModel> IdentifierToId()
+        {
+            return new IdentifierToIdBuilder<TModel>(Client);
+        }
     }
 }

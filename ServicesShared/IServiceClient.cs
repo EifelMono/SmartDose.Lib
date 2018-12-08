@@ -28,12 +28,13 @@ namespace ServicesShared
         Task SubscribeForCallbacksAsync();
 
         Task UnsubscribeForCallbacksAsync();
+
 #if UseModel
         Task<ServiceResult> ExecuteModelQueryAsync(QueryBuilder queryBuilder);
 
         Task<ServiceResult<bool>> ExecuteModelDeleteAsync(DeleteBuilder deleteBuilder);
 
-        Task<ServiceResult<long>> ExecuteModelIdentifierToIdAsync(string identifier, string modelName, string modelNamespace);
+        Task<ServiceResult<long>> ExecuteModelIdentifierToIdAsync(IdentifierToIdBuilder identifierToIdBuilder);
 #endif
     }
 }

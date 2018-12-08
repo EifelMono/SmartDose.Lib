@@ -42,20 +42,20 @@ namespace MasterData10000
 
         public async override Task<ServiceResult> ExecuteModelQueryAsync(QueryBuilder queryBuilder)
         {
-            var queryBuildValues = queryBuilder.GetValues();
+            var buildValues = queryBuilder.GetValues();
             var queryRequest = new ModelQueryRequest
             {
-                ModelName = queryBuildValues.ModelType.Name,
-                ModelNamespace = queryBuildValues.ModelType.Namespace,
-                WhereAsJson = queryBuildValues.WhereAsJson,
-                OrderByAsJson = queryBuildValues.OrderByAsJson,
-                OrderByAsc = queryBuildValues.OrderByAsc,
-                OrderByAs = (QueryRequestOrderByAs)queryBuildValues.OrderByAs,
-                Page = queryBuildValues.Page,
-                PageSize = queryBuildValues.PageSize,
-                ResultAs = (QueryRequestResultAs)queryBuildValues.ResultAs,
-                TableOnlyFlag = queryBuildValues.TableOnlyFlag,
-                DebugInfoFlag = queryBuildValues.DebugInfoFlag,
+                ModelName = buildValues.ModelType.Name,
+                ModelNamespace = buildValues.ModelType.Namespace,
+                DebugInfoFlag = buildValues.DebugInfoFlag,
+                TableOnlyFlag = buildValues.TableOnlyFlag,
+                WhereAsJson = buildValues.WhereAsJson,
+                OrderByAsJson = buildValues.OrderByAsJson,
+                OrderByAsc = buildValues.OrderByAsc,
+                OrderByAs = (QueryRequestOrderByAs)buildValues.OrderByAs,
+                Page = buildValues.Page,
+                PageSize = buildValues.PageSize,
+                ResultAs = (QueryRequestResultAs)buildValues.ResultAs,
             };
             var serviceResult = await ModelQueryAsync(queryRequest).ConfigureAwait(false);
             var newServiceResult = serviceResult.CastByClone<ServiceResult<string>>();
@@ -74,14 +74,14 @@ namespace MasterData10000
 
         public async override Task<ServiceResult<bool>> ExecuteModelDeleteAsync(DeleteBuilder deleteBuilder)
         {
-            var deleteBuildValues = deleteBuilder.GetValues();
+            var buildValues = deleteBuilder.GetValues();
             var deleteRequest = new ModelDeleteRequest
             {
-                ModelName = deleteBuildValues.ModelType.Name,
-                ModelNamespace = deleteBuildValues.ModelType.Namespace,
-                WhereAsJson = deleteBuildValues.WhereAsJson,
-                TableOnlyFlag = deleteBuildValues.TableOnlyFlag,
-                DebugInfoFlag = deleteBuildValues.DebugInfoFlag,
+                ModelName = buildValues.ModelType.Name,
+                ModelNamespace = buildValues.ModelType.Namespace,
+                DebugInfoFlag = buildValues.DebugInfoFlag,
+                TableOnlyFlag = buildValues.TableOnlyFlag,
+                WhereAsJson = buildValues.WhereAsJson,
             };
             return (await ModelDeleteAsync(deleteRequest).ConfigureAwait(false)).CastByClone<ServiceResult<bool>>();
         }
@@ -94,13 +94,18 @@ namespace MasterData10000
         public async Task<ServiceResultLong> ModelIdentifierToIdAsync(ModelIdentifierToIdRequest modelIdentifierToIdRequest)
                => await CatcherServiceResultAsync(() => Client.ModelIdentifierToIdAsync(modelIdentifierToIdRequest)).ConfigureAwait(false);
 
-        public async override Task<ServiceResult<long>> ExecuteModelIdentifierToIdAsync(string identifier, string modelName, string modelNamespace)
-            => (await ModelIdentifierToIdAsync(new ModelIdentifierToIdRequest
+        public async override Task<ServiceResult<long>> ExecuteModelIdentifierToIdAsync(IdentifierToIdBuilder identifierToIdBuilder)
+        {
+            var buildValues = identifierToIdBuilder.GetValues();
+            var identifierToIdRequest = new ModelIdentifierToIdRequest
             {
-                ModelName = modelName,
-                ModelNamespace = modelNamespace,
-                Identifier = identifier
-            }).ConfigureAwait(false)).CastByClone<ServiceResult<long>>();
+                ModelName = buildValues.ModelType.Name,
+                ModelNamespace = buildValues.ModelType.Namespace,
+                DebugInfoFlag = buildValues.DebugInfoFlag,
+                Identifier = buildValues.Identifier,
+            };
+            return (await ModelIdentifierToIdAsync(identifierToIdRequest).ConfigureAwait(false)).CastByClone<ServiceResult<long>>();
+        }
         #endregion
 
         #endregion
