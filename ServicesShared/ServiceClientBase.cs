@@ -15,7 +15,7 @@ namespace Settings10000
 #elif MasterData9002
 namespace MasterData9002
 #else
-namespace ConnectedService
+namespace ServicesShared
 #endif
 {
     public abstract class ServiceClientBase : IDisposable
@@ -303,6 +303,15 @@ namespace ConnectedService
 
         public async Task<ServiceResult<long>> ModelIdentifierToIdAsync<T>(string identifier) where T : class
             => await ExecuteIdentifierToIdAsync(identifier, typeof(T).Name, typeof(T).Namespace).ConfigureAwait(false);
+        #endregion
+
+        #region Query
+        internal abstract Task<ServiceResult<bool>> ExecuteDeleteAsync(DeleteBuilder deleteBuilder);
+
+        public DeleteBuilder<T> ModelDelete<T>() where T : class
+        {
+            return new DeleteBuilder<T>(this) { };
+        }
         #endregion
 #endif
         #endregion

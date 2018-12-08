@@ -13,7 +13,7 @@ namespace Settings10000
 #elif MasterData9002
 namespace MasterData9002
 #else
-namespace ConnectedService
+namespace ServicesShared
 #endif
 {
     public class QueryBuilder

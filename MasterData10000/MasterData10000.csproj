@@ -17,6 +17,7 @@
   </PropertyGroup>
   
   <ItemGroup>
+    <Compile Include="..\ServicesShared\DeleteBuilder.cs" Link="ServiceShared\DeleteBuilder.cs" />
     <Compile Include="..\ServicesShared\QueryBuilder.cs" Link="ServiceShared\QueryBuilder.cs" />
     <Compile Include="..\ServicesShared\ServiceClientBase.cs" Link="ServiceShared\ServiceClientBase.cs" />
     <Compile Include="..\ServicesShared\ServiceResult.cs" Link="ServiceShared\ServiceResult.cs" />

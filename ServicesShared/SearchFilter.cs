@@ -5,7 +5,7 @@ using System.Text;
 #if MasterData9002
 namespace MasterData9002
 #else
-namespace ConnectedService
+namespace ServicesShared
 #endif
 {
     public partial class SearchFilter

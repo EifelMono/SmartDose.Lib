@@ -27,8 +27,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WcfConsoleTest", "WcfConsol
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ServicesShared", "ServicesShared\ServicesShared.shproj", "{CCAA4975-2FDF-4A7C-B3A0-0EB979596BF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfConsoleTestFramework", "WcfConsoleTestFramework\WcfConsoleTestFramework.csproj", "{72D18D3B-6C2F-45DB-9406-F42938111686}"
-EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		ServicesShared\ServicesShared.projitems*{ccaa4975-2fdf-4a7c-b3a0-0eb979596bf5}*SharedItemsImports = 13
@@ -62,10 +60,6 @@ Global
 		{A8B3000C-6927-4694-89C5-716874762BBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8B3000C-6927-4694-89C5-716874762BBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8B3000C-6927-4694-89C5-716874762BBF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{72D18D3B-6C2F-45DB-9406-F42938111686}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{72D18D3B-6C2F-45DB-9406-F42938111686}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{72D18D3B-6C2F-45DB-9406-F42938111686}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{72D18D3B-6C2F-45DB-9406-F42938111686}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,7 +72,6 @@ Global
 		{B47C617F-8766-4EA7-A796-C9FC4A443F9A} = {79E3836D-4562-4C90-8A09-B6AD916A3959}
 		{A8B3000C-6927-4694-89C5-716874762BBF} = {79E3836D-4562-4C90-8A09-B6AD916A3959}
 		{CCAA4975-2FDF-4A7C-B3A0-0EB979596BF5} = {79E3836D-4562-4C90-8A09-B6AD916A3959}
-		{72D18D3B-6C2F-45DB-9406-F42938111686} = {79E3836D-4562-4C90-8A09-B6AD916A3959}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5BE9002B-C4D6-48B2-8A0B-3A11A0E950C3}

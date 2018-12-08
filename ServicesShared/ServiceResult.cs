@@ -3,7 +3,7 @@ namespace MasterData10000
 #elif MasterData9002
 namespace MasterData9002
 #else
-namespace ConnectedService
+namespace ServicesShared
 #endif
 {
     public partial class ServiceResult : object

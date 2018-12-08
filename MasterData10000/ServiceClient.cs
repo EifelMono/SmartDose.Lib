@@ -30,6 +30,8 @@ namespace MasterData10000
             Client = new MasterDataServiceClient(binding, new EndpointAddress(EndpointAddress));
         }
 
+        #region Model
+
         #region Query
 
         public ServiceResultQueryResponse Query(QueryRequest queryRequest)
@@ -62,6 +64,29 @@ namespace MasterData10000
         }
         #endregion
 
+        #region Delete
+
+        public ServiceResultBool Delete(DeleteRequest deleteRequest)
+            => DeleteAsync(deleteRequest).Result;
+
+        public async Task<ServiceResultBool> DeleteAsync(DeleteRequest deleteRequest)
+            => await CatcherServiceResultAsync(() => Client.DeleteAsync(deleteRequest)).ConfigureAwait(false);
+
+        internal async override Task<ServiceResult<bool>> ExecuteDeleteAsync(DeleteBuilder deleteBuilder)
+        {
+            var deleteBuildValues = deleteBuilder.GetValues();
+            var deleteRequest = new DeleteRequest
+            {
+                ModelName = deleteBuildValues.ModelType.Name,
+                ModelNamespace = deleteBuildValues.ModelType.Namespace,
+                WhereAsJson = deleteBuildValues.WhereAsJson,
+                TableOnlyFlag = deleteBuildValues.TableOnlyFlag,
+                DebugInfoFlag = deleteBuildValues.DebugInfoFlag,
+            };
+            return (await DeleteAsync(deleteRequest).ConfigureAwait(false)).CastByClone<ServiceResult<bool>>();
+        }
+        #endregion
+
         #region IdentifierToId
         public ServiceResultLong IdentifierToId(IdentifierToIdRequest identifierToIdRequest)
             => IdentifierToIdAsync(identifierToIdRequest).Result;
@@ -76,6 +101,8 @@ namespace MasterData10000
                 ModelNamespace = modelNamespace,
                 Identifier = identifier
             }).ConfigureAwait(false)).CastByClone<ServiceResult<long>>();
+        #endregion
+
         #endregion
 
         #region Wrapped abstract Client Calls

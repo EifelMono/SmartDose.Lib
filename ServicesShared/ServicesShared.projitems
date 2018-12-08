@@ -9,6 +9,8 @@
     <Import_RootNamespace>ServicesShared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)DeleteBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ModelBuilder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)QueryBuilder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SearchFilter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ServiceClientBase.cs" />
