@@ -16,9 +16,9 @@ namespace MasterData9002
 namespace ServicesShared
 #endif
 {
-    public class IdentifierToIdBuilder : ModelBuilder
+    public class ReadIdOverIdentifierBuilder : ModelBuilder
     {
-        public IdentifierToIdBuilder(IServiceClient client) : base(client)
+        public ReadIdOverIdentifierBuilder(IServiceClient client) : base(client)
         {
         }
 
@@ -31,14 +31,14 @@ namespace ServicesShared
                 => (ModelType, DebugInfoFlag, Identifier);
     }
 
-    public class IdentifierToIdBuilder<TModel> : IdentifierToIdBuilder where TModel : class
+    public class ReadIdOverIdentifierBuilder<TModel> : ReadIdOverIdentifierBuilder where TModel : class
     {
-        public IdentifierToIdBuilder(IServiceClient client) : base(client)
+        public ReadIdOverIdentifierBuilder(IServiceClient client) : base(client)
         {
             ModelType = typeof(TModel);
         }
 
-        public IdentifierToIdBuilder<TModel> Where(string identifier)
+        public ReadIdOverIdentifierBuilder<TModel> Where(string identifier)
         {
             if (identifier != null)
                 Identifier = identifier;
@@ -51,7 +51,7 @@ namespace ServicesShared
         public async Task<ServiceResult<long>> FirstOrDefaultAsync(string identifier = null)
         {
             Where(identifier);
-            return await Client.ExecuteModelIdentifierToIdAsync(this).ConfigureAwait(false);
+            return await Client.ExecuteModelReadIdOverIdentifierAsync(this).ConfigureAwait(false);
         }
     }
 }

@@ -292,13 +292,13 @@ namespace ServicesShared
             return new ModelBuilder<T>(this) { };
         }
 
-        #region Query
-        public virtual Task<ServiceResult> ExecuteModelQueryAsync(QueryBuilder queryBuilder) 
+        #region Read
+        public virtual Task<ServiceResult> ExecuteModelReadAsync(ReadBuilder readBuilder) 
             => throw new NotImplementedException();
 
-        public QueryBuilder<T> ModelQuery<T>() where T : class
+        public ReadBuilder<T> ModelRead<T>() where T : class
         {
-            return new QueryBuilder<T>(this) { };
+            return new ReadBuilder<T>(this) { };
         }
         #endregion
 
@@ -312,14 +312,14 @@ namespace ServicesShared
         }
         #endregion
 
-        #region IdentifierToId
+        #region ReadIdOverIdentifier
 
-        public virtual Task<ServiceResult<long>> ExecuteModelIdentifierToIdAsync(IdentifierToIdBuilder identifierToIdBuilder)
+        public virtual Task<ServiceResult<long>> ExecuteModelReadIdOverIdentifierAsync(ReadIdOverIdentifierBuilder readIdOverIdentifierBuilder)
             => throw new NotImplementedException();
         
-        public IdentifierToIdBuilder<T> ModelIdentifierToId<T>() where T : class
+        public ReadIdOverIdentifierBuilder<T> ModelReadIdOverIdentifier<T>() where T : class
         {
-            return new IdentifierToIdBuilder<T>(this) { };
+            return new ReadIdOverIdentifierBuilder<T>(this) { };
         }
       
         #endregion

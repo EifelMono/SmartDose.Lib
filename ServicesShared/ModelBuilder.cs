@@ -43,18 +43,18 @@ namespace ServicesShared
             ModelType = typeof(TModel);
         }
 
-        public QueryBuilder<TModel> Query()
+        public ReadBuilder<TModel> Read()
         {
-            return new QueryBuilder<TModel>(Client);
+            return new ReadBuilder<TModel>(Client);
         }
         public DeleteBuilder<TModel> Delete()
         {
             return new DeleteBuilder<TModel>(Client);
         }
 
-        public IdentifierToIdBuilder<TModel> IdentifierToId()
+        public ReadIdOverIdentifierBuilder<TModel> ReadIdOverIdentifier()
         {
-            return new IdentifierToIdBuilder<TModel>(Client);
+            return new ReadIdOverIdentifierBuilder<TModel>(Client);
         }
     }
 }

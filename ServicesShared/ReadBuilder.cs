@@ -16,9 +16,9 @@ namespace MasterData9002
 namespace ServicesShared
 #endif
 {
-    public class QueryBuilder : ModelBuilder
+    public class ReadBuilder : ModelBuilder
     {
-        public enum QueryRequestOrderByAs
+        public enum ReadRequestOrderByAs
         {
             None = 0,
             Int = 1,
@@ -26,21 +26,21 @@ namespace ServicesShared
             Long = 3
         }
 
-        protected static Dictionary<Type, QueryRequestOrderByAs> QueryRequestOrderByAsDictory = new Dictionary<Type, QueryRequestOrderByAs>
+        protected static Dictionary<Type, ReadRequestOrderByAs> ReadRequestOrderByAsDictory = new Dictionary<Type, ReadRequestOrderByAs>
         {
-            [typeof(int)] = QueryRequestOrderByAs.Int,
-            [typeof(string)] = QueryRequestOrderByAs.String,
-            [typeof(long)] = QueryRequestOrderByAs.Long,
+            [typeof(int)] = ReadRequestOrderByAs.Int,
+            [typeof(string)] = ReadRequestOrderByAs.String,
+            [typeof(long)] = ReadRequestOrderByAs.Long,
         };
 
-        public enum QueryRequestResultAs
+        public enum ReadRequestResultAs
         {
             None = 0,
             Item = 1,
             List = 2
         }
 
-        public QueryBuilder(IServiceClient client) : base(client)
+        public ReadBuilder(IServiceClient client) : base(client)
         {
         }
 
@@ -50,9 +50,9 @@ namespace ServicesShared
         protected string OrderByAsJson { get; set; } = string.Empty;
 
         protected bool OrderByAsc { get; set; } = true;
-        protected QueryRequestOrderByAs OrderByAs { get; set; } = QueryRequestOrderByAs.None;
+        protected ReadRequestOrderByAs OrderByAs { get; set; } = ReadRequestOrderByAs.None;
 
-        protected QueryRequestResultAs ResultAs { get; set; } = QueryRequestResultAs.None;
+        protected ReadRequestResultAs ResultAs { get; set; } = ReadRequestResultAs.None;
 
         protected int Page { get; set; } = -1;
         protected int PageSize { get; set; } = -1;
@@ -64,65 +64,65 @@ namespace ServicesShared
             string WhereAsJson,
             string OrderByAsJson,
             bool OrderByAsc,
-            QueryRequestOrderByAs OrderByAs,
-            QueryRequestResultAs ResultAs,
+            ReadRequestOrderByAs OrderByAs,
+            ReadRequestResultAs ResultAs,
             int Page,
             int PageSize
             ) GetValues()
             => (ModelType, DebugInfoFlag, TableOnlyFlag, WhereAsJson, OrderByAsJson, OrderByAsc, OrderByAs, ResultAs, Page, PageSize);
     }
 
-    public class QueryBuilder<TModel> : QueryBuilder where TModel : class
+    public class ReadBuilder<TModel> : ReadBuilder where TModel : class
     {
-        public QueryBuilder(IServiceClient client) : base(client)
+        public ReadBuilder(IServiceClient client) : base(client)
         {
             ModelType = typeof(TModel);
         }
 
-        public QueryBuilder<TModel> Where(Expression<Func<TModel, bool>> whereExpression)
+        public ReadBuilder<TModel> Where(Expression<Func<TModel, bool>> whereExpression)
         {
             if (whereExpression != null)
                 WhereAsJson = whereExpression.ToJson();
             return this;
         }
 
-        protected QueryBuilder<TModel> InternalOrderBy<T>(Expression<Func<TModel, T>> orderByExpression, bool asc)
+        protected ReadBuilder<TModel> InternalOrderBy<T>(Expression<Func<TModel, T>> orderByExpression, bool asc)
         {
             OrderByAsJson = orderByExpression.ToJson();
             OrderByAsc = asc;
-            OrderByAs = QueryRequestOrderByAs.None;
-            if (QueryRequestOrderByAsDictory.ContainsKey(typeof(T)))
-                OrderByAs = QueryRequestOrderByAsDictory[typeof(T)];
+            OrderByAs = ReadRequestOrderByAs.None;
+            if (ReadRequestOrderByAsDictory.ContainsKey(typeof(T)))
+                OrderByAs = ReadRequestOrderByAsDictory[typeof(T)];
             else
                 throw new NotImplementedException($"type {typeof(T).Name} not implemented");
             return this;
         }
-        public QueryBuilder<TModel> OrderBy<T>(Expression<Func<TModel, T>> orderByExpression)
+        public ReadBuilder<TModel> OrderBy<T>(Expression<Func<TModel, T>> orderByExpression)
             => InternalOrderBy(orderByExpression, asc: true);
 
-        public QueryBuilder<TModel> OrderByDescending<T>(Expression<Func<TModel, T>> orderByExpression)
+        public ReadBuilder<TModel> OrderByDescending<T>(Expression<Func<TModel, T>> orderByExpression)
             => InternalOrderBy(orderByExpression, asc: false);
 
-        public QueryBuilder<TModel> Paging(int page = -1, int pageSize = -1)
+        public ReadBuilder<TModel> Paging(int page = -1, int pageSize = -1)
         {
             Page = page;
             PageSize = pageSize;
             return this;
         }
 
-        public QueryBuilder<TModel> UseTableOnly(bool tableOnlyFlag = true)
+        public ReadBuilder<TModel> UseTableOnly(bool tableOnlyFlag = true)
         {
             TableOnlyFlag = tableOnlyFlag;
             return this;
         }
 
-        public QueryBuilder<TModel> UseDebugInfo(bool debugInfoFlag = true)
+        public ReadBuilder<TModel> UseDebugInfo(bool debugInfoFlag = true)
         {
             DebugInfoFlag = debugInfoFlag;
             return this;
         }
 
-        public QueryBuilder<TModel> UseDebugInfoAll(bool debugInfoAllFlag)
+        public ReadBuilder<TModel> UseDebugInfoAll(bool debugInfoAllFlag)
         {
             SwitchDebugInfoAll(debugInfoAllFlag);
             return this;
@@ -130,7 +130,7 @@ namespace ServicesShared
 
         protected async Task<ServiceResult<TResult>> ExecuteAsync<TResult>() where TResult : class
         {
-            var executeServiceResult = await Client.ExecuteModelQueryAsync(this).ConfigureAwait(false);
+            var executeServiceResult = await Client.ExecuteModelReadAsync(this).ConfigureAwait(false);
             var returnResult = executeServiceResult.CastByClone<ServiceResult<TResult>>();
             if (executeServiceResult.IsOk)
                 returnResult.Data = (executeServiceResult.Data as string).UnZipString().ToObjectFromJson<TResult>();
@@ -142,7 +142,7 @@ namespace ServicesShared
 
         public async Task<ServiceResult<List<TModel>>> ToListAsync()
         {
-            ResultAs = QueryRequestResultAs.List;
+            ResultAs = ReadRequestResultAs.List;
             return await ExecuteAsync<List<TModel>>().ConfigureAwait(false);
         }
 
@@ -152,7 +152,7 @@ namespace ServicesShared
         public async Task<ServiceResult<TModel>> FirstOrDefaultAsync(Expression<Func<TModel, bool>> whereExpression = null)
         {
             Where(whereExpression);
-            ResultAs = QueryRequestResultAs.Item;
+            ResultAs = ReadRequestResultAs.Item;
             return await ExecuteAsync<TModel>().ConfigureAwait(false);
         }
     }

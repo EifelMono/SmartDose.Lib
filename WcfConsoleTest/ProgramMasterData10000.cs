@@ -14,7 +14,7 @@ namespace ProgramWcfConsoleTest
             Console.WriteLine(endPoint);
             using (var serviceClient = new ServiceClient(endPoint))
             {
-                QueryBuilder.SwitchDebugInfoAll(true);
+                ReadBuilder.SwitchDebugInfoAll(true);
 
                 serviceClient.OnClientEvent += (e) =>
                 {
@@ -56,11 +56,11 @@ namespace ProgramWcfConsoleTest
                                 {
                                     Console.WriteLine("Test Debug");
                                     var meda = await serviceClient
-                                        .ModelQuery<Medicine>()
+                                        .ModelRead<Medicine>()
                                         .FirstOrDefaultAsync(m => m.Name == "med1");
                                     Console.WriteLine($"Query medicine result={meda.ToJson()}");
                                     var medb = await serviceClient
-                                        .ModelQuery<Medicine>()
+                                        .ModelRead<Medicine>()
                                         .UseTableOnly()
                                         .FirstOrDefaultAsync(m => m.Name == "med1");
                                     Console.WriteLine($"Query medicine result={medb.ToJson()}");
@@ -92,7 +92,7 @@ namespace ProgramWcfConsoleTest
                                     {
                                         Console.WriteLine("--Query Medicines A* ");
                                         if (await serviceClient
-                                                    .ModelQuery<Medicine>()
+                                                    .ModelRead<Medicine>()
                                                     .Where(m => m.Name.StartsWith("A"))
                                                     .ToListAsync() is var medList && medList.IsOk)
                                         {
@@ -106,7 +106,7 @@ namespace ProgramWcfConsoleTest
                                     {
                                         Console.WriteLine("--Query Medicines A* Paging(2,2) (no orderby internal by key)");
                                         if (await serviceClient
-                                                    .ModelQuery<Medicine>()
+                                                    .ModelRead<Medicine>()
                                                     .Where(m => m.Name.StartsWith("A"))
                                                     .Paging(2, 2)
                                                     .ToListAsync() is var medList && medList.IsOk)
@@ -121,7 +121,7 @@ namespace ProgramWcfConsoleTest
                                     {
                                         Console.WriteLine("--Query Medicines orderby Identifier");
                                         if (await serviceClient
-                                                    .ModelQuery<Medicine>()
+                                                    .ModelRead<Medicine>()
                                                     .Where(m => m.Name.StartsWith("A"))
                                                     .OrderBy(m => m.Identifier)
                                                     .ToListAsync() is var medList && medList.IsOk)
@@ -136,7 +136,7 @@ namespace ProgramWcfConsoleTest
                                     {
                                         Console.WriteLine("--Query Medicines orderbydescending Identifier");
                                         if (await serviceClient
-                                                    .ModelQuery<Medicine>()
+                                                    .ModelRead<Medicine>()
                                                     .Where(m => m.Name.StartsWith("A"))
                                                     .OrderByDescending(m => m.Identifier)
                                                     .ToListAsync() is var medList && medList.IsOk)
@@ -151,7 +151,7 @@ namespace ProgramWcfConsoleTest
                                     {
                                         Console.WriteLine("--Query Medicines orderby Identifier Paging");
                                         if (await serviceClient
-                                                    .ModelQuery<Medicine>()
+                                                    .ModelRead<Medicine>()
                                                     .Where(m => m.Manufacturer.Name.StartsWith("A"))
                                                     .OrderBy(m => m.Manufacturer.Name)
                                                     .Paging(1, 2)
@@ -172,7 +172,7 @@ namespace ProgramWcfConsoleTest
                                     {
                                         Console.WriteLine("Query Medicine med1");
                                         if (await serviceClient
-                                                    .ModelQuery<Medicine>()
+                                                    .ModelRead<Medicine>()
                                                     .Where(m => m.Name == "med1")
                                                     .FirstOrDefaultAsync() is var med && med.IsOk)
                                         {
@@ -185,7 +185,7 @@ namespace ProgramWcfConsoleTest
                                     {
                                         Console.WriteLine("Query Medicine 900004106");
                                         if (await serviceClient
-                                                    .ModelQuery<Medicine>()
+                                                    .ModelRead<Medicine>()
                                                     .Where(m => m.Identifier == "900004106")
                                                     .FirstOrDefaultAsync() is var med && med.IsOk)
                                         {
@@ -202,7 +202,7 @@ namespace ProgramWcfConsoleTest
                                     var value = "ddasdddd";
                                     Console.WriteLine("Query Medicine");
                                     if (await serviceClient
-                                                .ModelQuery<Medicine>()
+                                                .ModelRead<Medicine>()
                                                 .Where(m => m.Name == value)
                                                 .OrderBy(m => m.Manufacturer.Name == value)
                                                 .FirstOrDefaultAsync() is var med && med.IsOk)
@@ -218,7 +218,7 @@ namespace ProgramWcfConsoleTest
                                 {
                                     Console.WriteLine("Query Customer");
                                     if (await serviceClient
-                                                .ModelQuery<Customer>()
+                                                .ModelRead<Customer>()
                                                 .Where(m => m.Name == "2dd")
                                                 .FirstOrDefaultAsync() is var med && med.IsOk)
                                     {
@@ -233,7 +233,7 @@ namespace ProgramWcfConsoleTest
                                 {
                                     Console.WriteLine("Query Medicine");
                                     if (await serviceClient
-                                                .ModelQuery<Medicine>()
+                                                .ModelRead<Medicine>()
                                                 .Where(m => m.Manufacturer.Name == "Andreas")
                                                 .FirstOrDefaultAsync() is var med && med.IsOk)
                                     {
@@ -248,7 +248,7 @@ namespace ProgramWcfConsoleTest
                                 {
                                     Console.WriteLine("Query Medicine");
                                     if (await serviceClient
-                                                .ModelQuery<Medicine>()
+                                                .ModelRead<Medicine>()
                                                 .FirstOrDefaultAsync(m => m.Name == "med1") is var med && med.IsOk)
                                         Console.WriteLine($"Query medicine Data={med.Data.ToJson()}");
                                     else
@@ -256,7 +256,7 @@ namespace ProgramWcfConsoleTest
 
                                     if (await serviceClient
                                                 .Model<Medicine>()
-                                                .IdentifierToId()
+                                                .ReadIdOverIdentifier()
                                                 .FirstOrDefaultAsync(med.Data.Identifier) is var id1 && id1.IsOk)
                                         Console.WriteLine($"IdentifierToId id {med.Data.Id} found for {med.Data.Identifier}");
                                     else

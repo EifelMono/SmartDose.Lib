@@ -30,11 +30,11 @@ namespace ServicesShared
         Task UnsubscribeForCallbacksAsync();
 
 #if UseModel
-        Task<ServiceResult> ExecuteModelQueryAsync(QueryBuilder queryBuilder);
+        Task<ServiceResult> ExecuteModelReadAsync(ReadBuilder readBuilder);
 
         Task<ServiceResult<bool>> ExecuteModelDeleteAsync(DeleteBuilder deleteBuilder);
 
-        Task<ServiceResult<long>> ExecuteModelIdentifierToIdAsync(IdentifierToIdBuilder identifierToIdBuilder);
+        Task<ServiceResult<long>> ExecuteModelReadIdOverIdentifierAsync(ReadIdOverIdentifierBuilder readIdOverIdentifierBuilder);
 #endif
     }
 }

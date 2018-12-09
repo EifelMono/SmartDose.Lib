@@ -32,18 +32,18 @@ namespace MasterData10000
 
         #region Model
 
-        #region Query
+        #region Read
 
-        public ServiceResultModelQueryResponse ModelQuery(ModelQueryRequest modeQueryRequest)
-            => ModelQueryAsync(modeQueryRequest).Result;
+        public ServiceResultModelReadResponse ModelRead(ModelReadRequest modelReadRequest)
+            => ModelReadAsync(modelReadRequest).Result;
 
-        public async Task<ServiceResultModelQueryResponse> ModelQueryAsync(ModelQueryRequest modeQueryRequest)
-            => await CatcherServiceResultAsync(() => Client.ModelQueryAsync(modeQueryRequest)).ConfigureAwait(false);
+        public async Task<ServiceResultModelReadResponse> ModelReadAsync(ModelReadRequest modelReadRequest)
+            => await CatcherServiceResultAsync(() => Client.ModelReadAsync(modelReadRequest)).ConfigureAwait(false);
 
-        public async override Task<ServiceResult> ExecuteModelQueryAsync(QueryBuilder queryBuilder)
+        public async override Task<ServiceResult> ExecuteModelReadAsync(ReadBuilder readBuilder)
         {
-            var buildValues = queryBuilder.GetValues();
-            var queryRequest = new ModelQueryRequest
+            var buildValues = readBuilder.GetValues();
+            var request = new ModelReadRequest
             {
                 ModelName = buildValues.ModelType.Name,
                 ModelNamespace = buildValues.ModelType.Namespace,
@@ -52,12 +52,12 @@ namespace MasterData10000
                 WhereAsJson = buildValues.WhereAsJson,
                 OrderByAsJson = buildValues.OrderByAsJson,
                 OrderByAsc = buildValues.OrderByAsc,
-                OrderByAs = (QueryRequestOrderByAs)buildValues.OrderByAs,
+                OrderByAs = (ReadRequestOrderByAs)buildValues.OrderByAs,
                 Page = buildValues.Page,
                 PageSize = buildValues.PageSize,
-                ResultAs = (QueryRequestResultAs)buildValues.ResultAs,
+                ResultAs = (ReadRequestResultAs)buildValues.ResultAs,
             };
-            var serviceResult = await ModelQueryAsync(queryRequest).ConfigureAwait(false);
+            var serviceResult = await ModelReadAsync(request).ConfigureAwait(false);
             var newServiceResult = serviceResult.CastByClone<ServiceResult<string>>();
             newServiceResult.Data = serviceResult?.Data?.ZippedJsonData;
             return newServiceResult;
@@ -75,7 +75,7 @@ namespace MasterData10000
         public async override Task<ServiceResult<bool>> ExecuteModelDeleteAsync(DeleteBuilder deleteBuilder)
         {
             var buildValues = deleteBuilder.GetValues();
-            var deleteRequest = new ModelDeleteRequest
+            var request = new ModelDeleteRequest
             {
                 ModelName = buildValues.ModelType.Name,
                 ModelNamespace = buildValues.ModelType.Namespace,
@@ -83,28 +83,28 @@ namespace MasterData10000
                 TableOnlyFlag = buildValues.TableOnlyFlag,
                 WhereAsJson = buildValues.WhereAsJson,
             };
-            return (await ModelDeleteAsync(deleteRequest).ConfigureAwait(false)).CastByClone<ServiceResult<bool>>();
+            return (await ModelDeleteAsync(request).ConfigureAwait(false)).CastByClone<ServiceResult<bool>>();
         }
         #endregion
 
         #region IdentifierToId
-        public ServiceResultLong IdentifierToId(ModelIdentifierToIdRequest modelIdentifierToIdRequest)
-            => ModelIdentifierToIdAsync(modelIdentifierToIdRequest).Result;
+        public ServiceResultLong ModelReadIdOverIdentifier(ModelReadIdOverIdentifierRequest modelReadIdOverIdentifierRequest)
+            => ModelReadIdOverIdentifierAsync(modelReadIdOverIdentifierRequest).Result;
 
-        public async Task<ServiceResultLong> ModelIdentifierToIdAsync(ModelIdentifierToIdRequest modelIdentifierToIdRequest)
-               => await CatcherServiceResultAsync(() => Client.ModelIdentifierToIdAsync(modelIdentifierToIdRequest)).ConfigureAwait(false);
+        public async Task<ServiceResultLong> ModelReadIdOverIdentifierAsync(ModelReadIdOverIdentifierRequest modelReadIdOverIdentifierRequest)
+               => await CatcherServiceResultAsync(() => Client.ModelReadIdOverIdentifierAsync(modelReadIdOverIdentifierRequest)).ConfigureAwait(false);
 
-        public async override Task<ServiceResult<long>> ExecuteModelIdentifierToIdAsync(IdentifierToIdBuilder identifierToIdBuilder)
+        public async override Task<ServiceResult<long>> ExecuteModelReadIdOverIdentifierAsync(ReadIdOverIdentifierBuilder readIdOverIdentifierBuilder)
         {
-            var buildValues = identifierToIdBuilder.GetValues();
-            var identifierToIdRequest = new ModelIdentifierToIdRequest
+            var buildValues = readIdOverIdentifierBuilder.GetValues();
+            var request = new ModelReadIdOverIdentifierRequest
             {
                 ModelName = buildValues.ModelType.Name,
                 ModelNamespace = buildValues.ModelType.Namespace,
                 DebugInfoFlag = buildValues.DebugInfoFlag,
                 Identifier = buildValues.Identifier,
             };
-            return (await ModelIdentifierToIdAsync(identifierToIdRequest).ConfigureAwait(false)).CastByClone<ServiceResult<long>>();
+            return (await ModelReadIdOverIdentifierAsync(request).ConfigureAwait(false)).CastByClone<ServiceResult<long>>();
         }
         #endregion
 
