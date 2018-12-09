@@ -5,32 +5,24 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <LangVersion>7.3</LangVersion>
   </PropertyGroup>
-
+  
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;108</NoWarn>
-    <DefineConstants>TRACE;MasterData9002</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <NoWarn>1701;1702;108</NoWarn>
-    <DefineConstants>MasterData9002</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\ServicesShared\IServiceClient.cs" Link="ServiceShared\IServiceClient.cs" />
-    <Compile Include="..\ServicesShared\ServiceClientBase.cs" Link="ServiceShared\ServiceClientBase.cs" />
-    <Compile Include="..\ServicesShared\SearchFilter.cs" Link="ServiceShared\SearchFilter.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="RowaLog" Version="1.3.0.8" />
     <PackageReference Include="RowaLog" Version="1.3.0.8" />
     <PackageReference Include="RowaMore" Version="1.0.0" />
-    <PackageReference Include="Serialize.Linq" Version="1.7.3.1" />
     <PackageReference Include="System.ServiceModel.Duplex" Version="4.5.3" />
     <PackageReference Include="System.ServiceModel.Http" Version="4.5.3" />
     <PackageReference Include="System.ServiceModel.NetTcp" Version="4.5.3" />
     <PackageReference Include="System.ServiceModel.Security" Version="4.5.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="Serialize.Linq" Version="1.7.3.1" />
   </ItemGroup>
 
   <PropertyGroup>
@@ -39,10 +31,6 @@
 
   <ItemGroup>
     <Reference Include="System.ServiceModel" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services" />
   </ItemGroup>
 
 </Project>
