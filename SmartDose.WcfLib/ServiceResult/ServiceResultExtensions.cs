@@ -13,7 +13,7 @@ namespace SmartDose.WcfLib
         public static bool IsError(this IServiceResult thisValue)
             => thisValue == null ? false : thisValue.Status < 0;
 
-        public static T CastByClone<T>(this IServiceResult thisValue) where T : IServiceResult, new()
+        public static T CastByClone<T>(this IServiceResult thisValue, bool withData = true) where T : IServiceResult, new()
            => new T
            {
                Status = thisValue.Status,
@@ -21,7 +21,7 @@ namespace SmartDose.WcfLib
                Message = thisValue.Message,
                Exception = thisValue.Exception,
                Debug = thisValue.Debug,
-               Data = thisValue.Data,
+               Data = withData ? thisValue.Data : default,
            };
     }
 }

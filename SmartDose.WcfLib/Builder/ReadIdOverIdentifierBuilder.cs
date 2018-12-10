@@ -15,6 +15,7 @@ namespace SmartDose.WcfLib
         }
 
         protected string Identifier { get; set; }
+
         // Use deconstructor while protected properties 
         public (Type ModelType,
             bool DebugInfoFlag,
@@ -30,20 +31,46 @@ namespace SmartDose.WcfLib
             ModelType = typeof(TModel);
         }
 
+        #region Model
+        public ReadIdOverIdentifierBuilder<TModel> SetDebugInfoFlagAll(bool debugInfoFlagAll)
+        {
+            SetDebugInfoFlagAll(debugInfoFlagAll);
+            return this;
+        }
+        public ReadIdOverIdentifierBuilder<TModel> SetDebugInfoFlag(bool debugInfoFlag)
+        {
+            DebugInfoFlag = debugInfoFlag;
+            return this;
+        }
+
+        public ReadIdOverIdentifierBuilder<TModel> SetTableOnlyFlag(bool tableOnlyFlag)
+        {
+            TableOnlyFlag = tableOnlyFlag;
+            return this;
+        }
+        #endregion
+
+        #region Where
+
         public ReadIdOverIdentifierBuilder<TModel> Where(string identifier)
         {
             if (identifier != null)
                 Identifier = identifier;
             return this;
         }
+        #endregion
 
-        public IServiceResult<long> FirstOrDefault(string identifier= null)
-            => FirstOrDefaultAsync(identifier).Result;
+        #region Execute
 
-        public async Task<IServiceResult<long>> FirstOrDefaultAsync(string identifier = null)
+        public IServiceResult<long> ExecuteFirstOrDefault(string identifier = null)
+            => ExecuteFirstOrDefaultAsync(identifier).Result;
+
+        public async Task<IServiceResult<long>> ExecuteFirstOrDefaultAsync(string identifier = null)
         {
             Where(identifier);
             return await Client.ExecuteModelReadIdOverIdentifierAsync(this).ConfigureAwait(false);
         }
+
+        #endregion
     }
 }

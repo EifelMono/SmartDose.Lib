@@ -8,15 +8,13 @@ using RowaMore.Extensions;
 
 namespace SmartDose.WcfLib
 {
-    public class DeleteBuilder: ModelBuilder
+    public class DeleteBuilder : ModelBuilder
     {
-        public DeleteBuilder(IServiceClientModel client): base(client)
+        public DeleteBuilder(IServiceClientModel client) : base(client)
         {
         }
 
-        protected bool TableOnlyFlag { get; set; } = false;
-
-        protected string WhereAsJson { get; set; } = string.Empty;
+        public string WhereAsJson { get; set; }
 
         // Use deconstructor while protected properties 
         public (Type ModelType,
@@ -34,6 +32,27 @@ namespace SmartDose.WcfLib
             ModelType = typeof(TModel);
         }
 
+        #region Model
+        public DeleteBuilder<TModel> SetDebugInfoFlagAll(bool debugInfoFlagAll)
+        {
+            SetDebugInfoFlagAll(debugInfoFlagAll);
+            return this;
+        }
+        public DeleteBuilder<TModel> SetDebugInfoFlag(bool debugInfoFlag)
+        {
+            DebugInfoFlag = debugInfoFlag;
+            return this;
+        }
+
+        public DeleteBuilder<TModel> SetTableOnlyFlag(bool tableOnlyFlag)
+        {
+            TableOnlyFlag = tableOnlyFlag;
+            return this;
+        }
+        #endregion
+
+        #region Where
+
         public DeleteBuilder<TModel> Where(Expression<Func<TModel, bool>> whereExpression)
         {
             if (whereExpression != null)
@@ -41,25 +60,11 @@ namespace SmartDose.WcfLib
             return this;
         }
 
-        public DeleteBuilder<TModel> UseTableOnly(bool tableOnlyFlag = true)
-        {
-            TableOnlyFlag = tableOnlyFlag;
-            return this;
-        }
+        #endregion
 
-        public DeleteBuilder<TModel> UseDebugInfo(bool debugInfoFlag = true)
-        {
-            DebugInfoFlag = debugInfoFlag;
-            return this;
-        }
+        #region Execute
 
-        public DeleteBuilder<TModel> UseDebugInfoAll(bool debugInfoAllFlag)
-        {
-            SwitchDebugInfoFlagAll(debugInfoAllFlag);
-            return this;
-        }
-
-        public IServiceResult<bool> Execute(Expression<Func<TModel, bool>> whereExpression = null) 
+        public IServiceResult<bool> Execute(Expression<Func<TModel, bool>> whereExpression = null)
             => ExecuteAsync(whereExpression).Result;
 
         public async Task<IServiceResult<bool>> ExecuteAsync(Expression<Func<TModel, bool>> whereExpression = null)
@@ -67,5 +72,7 @@ namespace SmartDose.WcfLib
             Where(whereExpression);
             return await Client.ExecuteModelDeleteAsync(this).ConfigureAwait(false);
         }
+
+        #endregion
     }
 }

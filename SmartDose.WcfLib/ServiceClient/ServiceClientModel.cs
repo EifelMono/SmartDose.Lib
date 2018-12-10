@@ -12,9 +12,9 @@ namespace SmartDose.WcfLib
         {
         }
 
-        public ModelBuilder<T> Model<T>() where T : class
+        public ModelBuilderStart<T> Model<T>() where T : class
         {
-            return new ModelBuilder<T>(this) { };
+            return new ModelBuilderStart<T>(this) { };
         }
 
         #region Create

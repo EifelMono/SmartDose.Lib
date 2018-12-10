@@ -62,10 +62,7 @@ namespace SmartDose.WcfLib
                     methodInfo = Client.GetType().GetMethod(methodeName);
                 await ((dynamic)methodInfo?.Invoke(Client, null)).ConfigureAwait(false);
             }
-            catch (Exception ex)
-            {
-                ex.LogException();
-            }
+            catch { }
         }
         protected MethodInfo OpenAsyncMethod { get; set; } = null;
         public async virtual Task OpenAsync()

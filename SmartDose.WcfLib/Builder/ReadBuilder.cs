@@ -10,21 +10,6 @@ namespace SmartDose.WcfLib
 {
     public class ReadBuilder : ModelBuilder
     {
-        public enum ReadRequestOrderByAs
-        {
-            None = 0,
-            Int = 1,
-            String = 2,
-            Long = 3
-        }
-
-        protected static Dictionary<Type, ReadRequestOrderByAs> ReadRequestOrderByAsDictory = new Dictionary<Type, ReadRequestOrderByAs>
-        {
-            [typeof(int)] = ReadRequestOrderByAs.Int,
-            [typeof(string)] = ReadRequestOrderByAs.String,
-            [typeof(long)] = ReadRequestOrderByAs.Long,
-        };
-
         public enum ReadRequestResultAs
         {
             None = 0,
@@ -36,15 +21,17 @@ namespace SmartDose.WcfLib
         {
         }
 
-        protected bool TableOnlyFlag { get; set; } = false;
-
         protected string WhereAsJson { get; set; } = string.Empty;
+
         protected string OrderByAsJson { get; set; } = string.Empty;
-
+        protected Type OrderByType { get; set; } = null;
         protected bool OrderByAsc { get; set; } = true;
-        protected ReadRequestOrderByAs OrderByAs { get; set; } = ReadRequestOrderByAs.None;
 
-        protected ReadRequestResultAs ResultAs { get; set; } = ReadRequestResultAs.None;
+        protected string SelectAsJson { get; set; } = string.Empty;
+
+        protected Type SelectType { get; set; } = null;
+
+        protected Type ResultType { get; set; } = null;
 
         protected int Page { get; set; } = -1;
         protected int PageSize { get; set; } = -1;
@@ -55,13 +42,21 @@ namespace SmartDose.WcfLib
             bool TableOnlyFlag,
             string WhereAsJson,
             string OrderByAsJson,
+            Type OrderByType,
             bool OrderByAsc,
-            ReadRequestOrderByAs OrderByAs,
-            ReadRequestResultAs ResultAs,
+            string SelectAsJson,
+            Type SelectType,
             int Page,
-            int PageSize
+            int PageSize,
+            Type ResutType
             ) GetValues()
-            => (ModelType, DebugInfoFlag, TableOnlyFlag, WhereAsJson, OrderByAsJson, OrderByAsc, OrderByAs, ResultAs, Page, PageSize);
+            => (ModelType, DebugInfoFlag, TableOnlyFlag,
+                WhereAsJson,
+                OrderByAsJson, OrderByType, OrderByAsc,
+                SelectAsJson,
+                SelectType,
+                Page, PageSize,
+                ResultType);
     }
 
     public class ReadBuilder<TModel> : ReadBuilder where TModel : class
@@ -71,6 +66,27 @@ namespace SmartDose.WcfLib
             ModelType = typeof(TModel);
         }
 
+        #region Model
+        public ReadBuilder<TModel> SetDebugInfoFlagAll(bool debugInfoFlagAll)
+        {
+            SetDebugInfoFlagAll(debugInfoFlagAll);
+            return this;
+        }
+        public ReadBuilder<TModel> SetDebugInfoFlag(bool debugInfoFlag)
+        {
+            DebugInfoFlag = debugInfoFlag;
+            return this;
+        }
+
+        public ReadBuilder<TModel> SetTableOnlyFlag(bool tableOnlyFlag)
+        {
+            TableOnlyFlag = tableOnlyFlag;
+            return this;
+        }
+        #endregion
+
+        #region Where
+
         public ReadBuilder<TModel> Where(Expression<Func<TModel, bool>> whereExpression)
         {
             if (whereExpression != null)
@@ -78,15 +94,15 @@ namespace SmartDose.WcfLib
             return this;
         }
 
+        #endregion
+
+        #region OrderBy
+
         protected ReadBuilder<TModel> InternalOrderBy<T>(Expression<Func<TModel, T>> orderByExpression, bool asc)
         {
             OrderByAsJson = orderByExpression.ToJson();
+            OrderByType = typeof(T);
             OrderByAsc = asc;
-            OrderByAs = ReadRequestOrderByAs.None;
-            if (ReadRequestOrderByAsDictory.ContainsKey(typeof(T)))
-                OrderByAs = ReadRequestOrderByAsDictory[typeof(T)];
-            else
-                throw new NotImplementedException($"type {typeof(T).Name} not implemented");
             return this;
         }
         public ReadBuilder<TModel> OrderBy<T>(Expression<Func<TModel, T>> orderByExpression)
@@ -95,6 +111,19 @@ namespace SmartDose.WcfLib
         public ReadBuilder<TModel> OrderByDescending<T>(Expression<Func<TModel, T>> orderByExpression)
             => InternalOrderBy(orderByExpression, asc: false);
 
+        #endregion
+
+        #region Select
+        public ReadBuilder<TModel> Select<T>(Expression<Func<TModel, T>> selectExpression)
+        {
+            SelectAsJson = selectExpression.ToJson();
+            SelectType = typeof(T);
+            return this;
+        }
+        #endregion
+
+        #region Paging
+
         public ReadBuilder<TModel> Paging(int page = -1, int pageSize = -1)
         {
             Page = page;
@@ -102,49 +131,37 @@ namespace SmartDose.WcfLib
             return this;
         }
 
-        public ReadBuilder<TModel> UseTableOnly(bool tableOnlyFlag = true)
-        {
-            TableOnlyFlag = tableOnlyFlag;
-            return this;
-        }
+        #endregion
 
-        public ReadBuilder<TModel> UseDebugInfo(bool debugInfoFlag = true)
-        {
-            DebugInfoFlag = debugInfoFlag;
-            return this;
-        }
-        public ReadBuilder<TModel> UseDebugInfoAll(bool debugInfoAllFlag)
-        {
-            SwitchDebugInfoFlagAll(debugInfoAllFlag);
-            return this;
-        }
-
+        #region Execute
         protected async Task<IServiceResult<TResult>> ExecuteAsync<TResult>() where TResult : class
         {
             var executeServiceResult = await Client.ExecuteModelReadAsync(this).ConfigureAwait(false);
-            var returnResult = new ServiceResult<TResult>();
+            var returnResult = executeServiceResult.CastByClone<ServiceResult<TResult>>(withData: false);
             if (executeServiceResult.Status == 0)
                 returnResult.Data = (executeServiceResult.Data as string).UnZipString().ToObjectFromJson<TResult>();
             return returnResult;
         }
 
-        public IServiceResult<List<TModel>> ToList()
-            => ToListAsync().Result;
+        public IServiceResult<List<TModel>> ExceuteToList()
+            => ExceuteToListAsync().Result;
 
-        public async Task<IServiceResult<List<TModel>>> ToListAsync()
+        public async Task<IServiceResult<List<TModel>>> ExceuteToListAsync()
         {
-            ResultAs = ReadRequestResultAs.List;
+            ResultType = typeof(List<TModel>);
             return await ExecuteAsync<List<TModel>>().ConfigureAwait(false);
         }
 
-        public IServiceResult<TModel> FirstOrDefault(Expression<Func<TModel, bool>> whereExpression = null)
-            => FirstOrDefaultAsync(whereExpression).Result;
+        public IServiceResult<TModel> ExceuteFirstOrDefault(Expression<Func<TModel, bool>> whereExpression = null)
+            => ExceuteFirstOrDefaultAsync(whereExpression).Result;
 
-        public async Task<IServiceResult<TModel>> FirstOrDefaultAsync(Expression<Func<TModel, bool>> whereExpression = null)
+        public async Task<IServiceResult<TModel>> ExceuteFirstOrDefaultAsync(Expression<Func<TModel, bool>> whereExpression = null)
         {
             Where(whereExpression);
-            ResultAs = ReadRequestResultAs.Item;
+            ResultType = typeof(TModel);
             return await ExecuteAsync<TModel>().ConfigureAwait(false);
         }
+
+        #endregion
     }
 }

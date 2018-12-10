@@ -19,6 +19,10 @@
     <ProjectReference Include="..\SmartDose.WcfLib\SmartDose.WcfLib.csproj" />
   </ItemGroup>
 
+  <PropertyGroup>
+    <DefaultItemExcludes>Artifacts\**</DefaultItemExcludes>
+  </PropertyGroup>
+
   <ItemGroup>
     <WCFMetadata Include="Connected Services" />
   </ItemGroup>

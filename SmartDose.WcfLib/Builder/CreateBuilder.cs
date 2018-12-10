@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace SmartDose.WcfLib
 {
@@ -9,8 +10,6 @@ namespace SmartDose.WcfLib
         public CreateBuilder(IServiceClientModel client) : base(client)
         {
         }
-
-        protected bool TableOnlyFlag { get; set; } = false;
 
         // Use deconstructor while protected properties 
         public (Type ModelType,
@@ -26,5 +25,36 @@ namespace SmartDose.WcfLib
         {
             ModelType = typeof(TModel);
         }
+
+        #region Model
+        public CreateBuilder<TModel> SetDebugInfoFlagAll(bool debugInfoFlagAll)
+        {
+            SetDebugInfoFlagAll(debugInfoFlagAll);
+            return this;
+        }
+        public CreateBuilder<TModel> SetDebugInfoFlag(bool debugInfoFlag)
+        {
+            DebugInfoFlag = debugInfoFlag;
+            return this;
+        }
+
+        public CreateBuilder<TModel> SetTableOnlyFlag(bool tableOnlyFlag)
+        {
+            TableOnlyFlag = tableOnlyFlag;
+            return this;
+        }
+        #endregion
+
+        #region Execute
+
+        public IServiceResult Execute()
+            => ExecuteAsync().Result;
+
+        public async Task<IServiceResult> ExecuteAsync()
+        {
+            return await Client.ExecuteModelCreateAsync(this).ConfigureAwait(false);
+        }
+
+        #endregion
     }
 }

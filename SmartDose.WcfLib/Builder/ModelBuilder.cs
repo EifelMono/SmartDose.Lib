@@ -15,6 +15,13 @@ namespace SmartDose.WcfLib
 
         protected Type ModelType { get; set; }
 
+        #region Debug
+
+        private static bool DebugInfoFlagAll { get; set; } = false;
+
+        public static void SetDebugInfoFlagAll(bool on)
+            => DebugInfoFlagAll = on;
+
         protected bool _DebugInfoFlag { get; set; } = false;
         protected bool DebugInfoFlag
         {
@@ -22,32 +29,8 @@ namespace SmartDose.WcfLib
             set => _DebugInfoFlag = value;
         }
 
-        private static bool DebugInfoFlagAll { get; set; } = false;
+        #endregion
 
-        public static void SwitchDebugInfoFlagAll(bool on)
-            => DebugInfoFlagAll = on;
-    }
-
-    public class ModelBuilder<TModel> : ModelBuilder where TModel : class
-    {
-        public ModelBuilder(IServiceClientModel client) : base(client)
-        {
-            ModelType = typeof(TModel);
-        }
-
-        public CreateBuilder<TModel> Create()
-            => new CreateBuilder<TModel>(Client);
-
-        public DeleteBuilder<TModel> Delete()
-            => new DeleteBuilder<TModel>(Client);
-
-        public ReadBuilder<TModel> Read()
-            => new ReadBuilder<TModel>(Client);
-
-        public ReadIdOverIdentifierBuilder<TModel> ReadIdOverIdentifier()
-            => new ReadIdOverIdentifierBuilder<TModel>(Client);
-
-        public UpdateBuilder<TModel> Update()
-            => new UpdateBuilder<TModel>(Client);
+        protected bool TableOnlyFlag { get; set; } = false;
     }
 }

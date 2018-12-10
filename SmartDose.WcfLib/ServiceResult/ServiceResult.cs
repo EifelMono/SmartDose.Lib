@@ -16,11 +16,11 @@ namespace SmartDose.WcfLib
 
         public object Data { get; set; }
 
-        public bool IsOk => Status == 0;
+        public bool IsOk => Status == ServiceResultStatus.Ok;
 
-        public bool IsOkBut => (int)Status >= (int)ServiceResultStatus.Ok;
+        public bool IsOkPlus => Status >= ServiceResultStatus.Ok;
 
-        public bool IsError => (int)Status < (int)ServiceResultStatus.Ok;
+        public bool IsError => Status < ServiceResultStatus.Ok;
     }
 
     public class ServiceResult<TData> : ServiceResult, IServiceResult<TData>

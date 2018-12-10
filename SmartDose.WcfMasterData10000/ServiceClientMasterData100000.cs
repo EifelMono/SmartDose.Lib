@@ -64,8 +64,11 @@ namespace SmartDose.WcfMasterData10000
             var buildValues = createBuilder.GetValues();
             var request = new ModelCreateRequest
             {
-                ModelName = buildValues.ModelType.Name,
-                ModelNamespace = buildValues.ModelType.Namespace,
+                ModelType = new ModelClassType
+                {
+                    Name = buildValues.ModelType.Name,
+                    Namespace = buildValues.ModelType.Namespace
+                },
                 DebugInfoFlag = buildValues.DebugInfoFlag,
                 TableOnlyFlag = buildValues.TableOnlyFlag
             };
@@ -89,8 +92,11 @@ namespace SmartDose.WcfMasterData10000
             var buildValues = deleteBuilder.GetValues();
             var request = new ModelDeleteRequest
             {
-                ModelName = buildValues.ModelType.Name,
-                ModelNamespace = buildValues.ModelType.Namespace,
+                ModelType = new ModelClassType
+                {
+                    Name = buildValues.ModelType.Name,
+                    Namespace = buildValues.ModelType.Namespace
+                },
                 DebugInfoFlag = buildValues.DebugInfoFlag,
                 TableOnlyFlag = buildValues.TableOnlyFlag,
                 WhereAsJson = buildValues.WhereAsJson,
@@ -111,17 +117,34 @@ namespace SmartDose.WcfMasterData10000
             var buildValues = readBuilder.GetValues();
             var request = new ModelReadRequest
             {
-                ModelName = buildValues.ModelType.Name,
-                ModelNamespace = buildValues.ModelType.Namespace,
+                ModelType = new ModelClassType
+                {
+                    Name = buildValues.ModelType?.Name ?? "",
+                    Namespace = buildValues.ModelType?.Namespace ?? ""
+                },
                 DebugInfoFlag = buildValues.DebugInfoFlag,
                 TableOnlyFlag = buildValues.TableOnlyFlag,
                 WhereAsJson = buildValues.WhereAsJson,
                 OrderByAsJson = buildValues.OrderByAsJson,
+                OrderByType = new ModelClassType
+                {
+                    Name = buildValues.OrderByType?.Name ?? "",
+                    Namespace = buildValues.OrderByType?.Namespace ?? ""
+                },
                 OrderByAsc = buildValues.OrderByAsc,
-                OrderByAs = (ReadRequestOrderByAs)buildValues.OrderByAs,
+                SelectAsJson = buildValues.SelectAsJson,
+                SelectType = new ModelClassType
+                {
+                    Name = buildValues.SelectType?.Name ?? "",
+                    Namespace = buildValues.SelectType?.Namespace ?? ""
+                },
                 Page = buildValues.Page,
                 PageSize = buildValues.PageSize,
-                ResultAs = (ReadRequestResultAs)buildValues.ResultAs,
+                ResultType = new ModelClassType
+                {
+                    Name = buildValues.ResutType?.Name ?? "",
+                    Namespace = buildValues.ResutType?.Namespace ?? ""
+                },
             };
             var serviceResult = await ModelReadAsync(request).ConfigureAwait(false);
             var newServiceResult = serviceResult.CastByClone<ServiceResult<string>>();
@@ -142,8 +165,11 @@ namespace SmartDose.WcfMasterData10000
             var buildValues = readIdOverIdentifierBuilder.GetValues();
             var request = new ModelReadIdOverIdentifierRequest
             {
-                ModelName = buildValues.ModelType.Name,
-                ModelNamespace = buildValues.ModelType.Namespace,
+                ModelType = new ModelClassType
+                {
+                    Name = buildValues.ModelType.Name,
+                    Namespace = buildValues.ModelType.Namespace
+                },
                 DebugInfoFlag = buildValues.DebugInfoFlag,
                 Identifier = buildValues.Identifier,
             };
@@ -164,10 +190,13 @@ namespace SmartDose.WcfMasterData10000
             var buildValues = updateBuilder.GetValues();
             var request = new ModelUpdateRequest
             {
-                ModelName = buildValues.ModelType.Name,
-                ModelNamespace = buildValues.ModelType.Namespace,
+                ModelType = new ModelClassType
+                {
+                    Name = buildValues.ModelType.Name,
+                    Namespace = buildValues.ModelType.Namespace
+                },
                 DebugInfoFlag = buildValues.DebugInfoFlag,
-                TableOnlyFlag= buildValues.TableOnlyFlag
+                TableOnlyFlag = buildValues.TableOnlyFlag
             };
             var serviceResult = await ModelUpdateAsync(request).ConfigureAwait(false);
             var newServiceResult = serviceResult.CastByClone<ServiceResult<string>>();

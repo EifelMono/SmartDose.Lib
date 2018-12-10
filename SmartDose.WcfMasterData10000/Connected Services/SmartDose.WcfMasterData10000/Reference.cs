@@ -1802,9 +1802,9 @@ namespace SmartDose.WcfMasterData10000
         
         private bool DebugInfoFlagField;
         
-        private string ModelNameField;
+        private SmartDose.WcfMasterData10000.ModelClassType ModelTypeField;
         
-        private string ModelNamespaceField;
+        private bool TableOnlyFlagField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public bool DebugInfoFlag
@@ -1820,41 +1820,17 @@ namespace SmartDose.WcfMasterData10000
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ModelName
+        public SmartDose.WcfMasterData10000.ModelClassType ModelType
         {
             get
             {
-                return this.ModelNameField;
+                return this.ModelTypeField;
             }
             set
             {
-                this.ModelNameField = value;
+                this.ModelTypeField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ModelNamespace
-        {
-            get
-            {
-                return this.ModelNamespaceField;
-            }
-            set
-            {
-                this.ModelNamespaceField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ModelDeleteRequest", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    public partial class ModelDeleteRequest : SmartDose.WcfMasterData10000.ModelRequest
-    {
-        
-        private bool TableOnlyFlagField;
-        
-        private string WhereAsJsonField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public bool TableOnlyFlag
@@ -1868,6 +1844,52 @@ namespace SmartDose.WcfMasterData10000
                 this.TableOnlyFlagField = value;
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ModelClassType", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
+    public partial class ModelClassType : object
+    {
+        
+        private string NameField;
+        
+        private string NamespaceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name
+        {
+            get
+            {
+                return this.NameField;
+            }
+            set
+            {
+                this.NameField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Namespace
+        {
+            get
+            {
+                return this.NamespaceField;
+            }
+            set
+            {
+                this.NamespaceField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ModelDeleteRequest", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
+    public partial class ModelDeleteRequest : SmartDose.WcfMasterData10000.ModelRequest
+    {
+        
+        private string WhereAsJsonField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string WhereAsJson
@@ -1889,34 +1911,23 @@ namespace SmartDose.WcfMasterData10000
     public partial class ModelReadRequest : SmartDose.WcfMasterData10000.ModelRequest
     {
         
-        private SmartDose.WcfMasterData10000.ReadRequestOrderByAs OrderByAsField;
-        
         private string OrderByAsJsonField;
         
         private bool OrderByAscField;
+        
+        private SmartDose.WcfMasterData10000.ModelClassType OrderByTypeField;
         
         private int PageField;
         
         private int PageSizeField;
         
-        private SmartDose.WcfMasterData10000.ReadRequestResultAs ResultAsField;
+        private SmartDose.WcfMasterData10000.ModelClassType ResultTypeField;
         
-        private bool TableOnlyFlagField;
+        private string SelectAsJsonField;
+        
+        private SmartDose.WcfMasterData10000.ModelClassType SelectTypeField;
         
         private string WhereAsJsonField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SmartDose.WcfMasterData10000.ReadRequestOrderByAs OrderByAs
-        {
-            get
-            {
-                return this.OrderByAsField;
-            }
-            set
-            {
-                this.OrderByAsField = value;
-            }
-        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string OrderByAsJson
@@ -1941,6 +1952,19 @@ namespace SmartDose.WcfMasterData10000
             set
             {
                 this.OrderByAscField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SmartDose.WcfMasterData10000.ModelClassType OrderByType
+        {
+            get
+            {
+                return this.OrderByTypeField;
+            }
+            set
+            {
+                this.OrderByTypeField = value;
             }
         }
         
@@ -1971,28 +1995,41 @@ namespace SmartDose.WcfMasterData10000
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SmartDose.WcfMasterData10000.ReadRequestResultAs ResultAs
+        public SmartDose.WcfMasterData10000.ModelClassType ResultType
         {
             get
             {
-                return this.ResultAsField;
+                return this.ResultTypeField;
             }
             set
             {
-                this.ResultAsField = value;
+                this.ResultTypeField = value;
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool TableOnlyFlag
+        public string SelectAsJson
         {
             get
             {
-                return this.TableOnlyFlagField;
+                return this.SelectAsJsonField;
             }
             set
             {
-                this.TableOnlyFlagField = value;
+                this.SelectAsJsonField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SmartDose.WcfMasterData10000.ModelClassType SelectType
+        {
+            get
+            {
+                return this.SelectTypeField;
+            }
+            set
+            {
+                this.SelectTypeField = value;
             }
         }
         
@@ -2037,21 +2074,6 @@ namespace SmartDose.WcfMasterData10000
     [System.Runtime.Serialization.DataContractAttribute(Name="ModelUpdateRequest", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
     public partial class ModelUpdateRequest : SmartDose.WcfMasterData10000.ModelRequest
     {
-        
-        private bool TableOnlyFlagField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool TableOnlyFlag
-        {
-            get
-            {
-                return this.TableOnlyFlagField;
-            }
-            set
-            {
-                this.TableOnlyFlagField = value;
-            }
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2059,54 +2081,6 @@ namespace SmartDose.WcfMasterData10000
     [System.Runtime.Serialization.DataContractAttribute(Name="ModelCreateRequest", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
     public partial class ModelCreateRequest : SmartDose.WcfMasterData10000.ModelRequest
     {
-        
-        private bool TableOnlyFlagField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool TableOnlyFlag
-        {
-            get
-            {
-                return this.TableOnlyFlagField;
-            }
-            set
-            {
-                this.TableOnlyFlagField = value;
-            }
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ReadRequestOrderByAs", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    public enum ReadRequestOrderByAs : int
-    {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        None = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Int = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        String = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Long = 3,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ReadRequestResultAs", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    public enum ReadRequestResultAs : int
-    {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        None = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Item = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        List = 2,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]

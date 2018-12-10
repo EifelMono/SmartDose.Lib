@@ -49,12 +49,6 @@ namespace ServicesShared
             return this;
         }
 
-        public DeleteBuilder<TModel> UseTableOnly(bool tableOnlyFlag = true)
-        {
-            TableOnlyFlag = tableOnlyFlag;
-            return this;
-        }
-
         public DeleteBuilder<TModel> UseDebugInfo(bool debugInfoFlag = true)
         {
             DebugInfoFlag = debugInfoFlag;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using RowaMore.Extensions;
 using SmartDose.WcfLib;
 using SmartDose.WcfMasterData10000;
@@ -7,13 +8,13 @@ namespace ConsoleApp1
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             var endPoint = "net.tcp://localhost:10000/MasterData/";
             Console.WriteLine(endPoint);
             using (var serviceClient = new ServiceClientMasterData100000(endPoint))
             {
-                ModelBuilder.SwitchDebugInfoFlagAll(on: true);
+                ModelBuilder.SetDebugInfoFlagAll(on: true);
 
                 serviceClient.OnClientEvent += (e) =>
                 {
@@ -32,17 +33,17 @@ namespace ConsoleApp1
                 {
                     Console.WriteLine("Medicine changed");
                 };
-                var x = serviceClient
+                var x = await serviceClient
                     .Model<Medicine>()
                     .Read()
-                    .FirstOrDefault(m => m.Name == "med1");
+                    .Where(m => m.Name.Contains("a"))
+                    .ExceuteToListAsync();
                 if (x.IsOk())
-                    Console.WriteLine(x.ToJson());
+                    Console.WriteLine(x.Data.ToJson());
                 else
                     Console.WriteLine("Error");
 
                 Console.ReadLine();
-
             }
         }
     }
