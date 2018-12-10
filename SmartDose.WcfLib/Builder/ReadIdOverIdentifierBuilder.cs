@@ -32,18 +32,18 @@ namespace SmartDose.WcfLib
         }
 
         #region Model
-        public ReadIdOverIdentifierBuilder<TModel> SetDebugInfoFlagAll(bool debugInfoFlagAll)
+        public ReadIdOverIdentifierBuilder<TModel> DebugInfoAll(bool debugInfoFlagAll)
         {
-            SetDebugInfoFlagAll(debugInfoFlagAll);
+            ModelBuilder.DebugInfoAll(debugInfoFlagAll);
             return this;
         }
-        public ReadIdOverIdentifierBuilder<TModel> SetDebugInfoFlag(bool debugInfoFlag)
+        public ReadIdOverIdentifierBuilder<TModel> DebugInfo(bool debugInfoFlag)
         {
             DebugInfoFlag = debugInfoFlag;
             return this;
         }
 
-        public ReadIdOverIdentifierBuilder<TModel> SetTableOnlyFlag(bool tableOnlyFlag)
+        public ReadIdOverIdentifierBuilder<TModel> TableOnly(bool tableOnlyFlag=true)
         {
             TableOnlyFlag = tableOnlyFlag;
             return this;

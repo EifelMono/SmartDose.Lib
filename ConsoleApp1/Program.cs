@@ -14,7 +14,7 @@ namespace ConsoleApp1
             Console.WriteLine(endPoint);
             using (var serviceClient = new ServiceClientMasterData100000(endPoint))
             {
-                ModelBuilder.SetDebugInfoFlagAll(on: true);
+                ModelBuilder.DebugInfoAll(on: true);
 
                 serviceClient.OnClientEvent += (e) =>
                 {
@@ -36,10 +36,20 @@ namespace ConsoleApp1
                 var x = await serviceClient
                     .Model<Medicine>()
                     .Read()
+                    .TableOnly()
                     .Where(m => m.Name.Contains("a"))
+                    // .Select(m => new { A = m.Id, B = m.Identifier })
+                    .Select(m => m.Id)
                     .ExceuteToListAsync();
                 if (x.IsOk())
+                {
                     Console.WriteLine(x.Data.ToJson());
+                    foreach (var xx in x.Data)
+                    {
+                        Console.WriteLine(xx.ToJson());
+                       // Console.WriteLine($"A={xx.A}, B={xx.B}");
+                    }
+                }
                 else
                     Console.WriteLine("Error");
 

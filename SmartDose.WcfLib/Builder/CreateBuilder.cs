@@ -27,18 +27,18 @@ namespace SmartDose.WcfLib
         }
 
         #region Model
-        public CreateBuilder<TModel> SetDebugInfoFlagAll(bool debugInfoFlagAll)
+        public CreateBuilder<TModel> DebugInfoAll(bool debugInfoFlagAll)
         {
-            SetDebugInfoFlagAll(debugInfoFlagAll);
+            ModelBuilder.DebugInfoAll(debugInfoFlagAll);
             return this;
         }
-        public CreateBuilder<TModel> SetDebugInfoFlag(bool debugInfoFlag)
+        public CreateBuilder<TModel> DebugInfo(bool debugInfoFlag)
         {
             DebugInfoFlag = debugInfoFlag;
             return this;
         }
 
-        public CreateBuilder<TModel> SetTableOnlyFlag(bool tableOnlyFlag)
+        public CreateBuilder<TModel> TableOnly(bool tableOnlyFlag=true)
         {
             TableOnlyFlag = tableOnlyFlag;
             return this;

@@ -10,13 +10,6 @@ namespace SmartDose.WcfLib
 {
     public class ReadBuilder : ModelBuilder
     {
-        public enum ReadRequestResultAs
-        {
-            None = 0,
-            Item = 1,
-            List = 2
-        }
-
         public ReadBuilder(IServiceClientModel client) : base(client)
         {
         }
@@ -28,13 +21,12 @@ namespace SmartDose.WcfLib
         protected bool OrderByAsc { get; set; } = true;
 
         protected string SelectAsJson { get; set; } = string.Empty;
-
         protected Type SelectType { get; set; } = null;
-
-        protected Type ResultType { get; set; } = null;
 
         protected int Page { get; set; } = -1;
         protected int PageSize { get; set; } = -1;
+
+        protected Type ResultType { get; set; } = null;
 
         // Use deconstructor while protected properties 
         public (Type ModelType,
@@ -59,7 +51,7 @@ namespace SmartDose.WcfLib
                 ResultType);
     }
 
-    public class ReadBuilder<TModel> : ReadBuilder where TModel : class
+    public class ReadBuilder<TModel> : ReadBuilder
     {
         public ReadBuilder(IServiceClientModel client) : base(client)
         {
@@ -67,18 +59,18 @@ namespace SmartDose.WcfLib
         }
 
         #region Model
-        public ReadBuilder<TModel> SetDebugInfoFlagAll(bool debugInfoFlagAll)
+        public ReadBuilder<TModel> DebugInfoAll(bool debugInfoFlagAll)
         {
-            SetDebugInfoFlagAll(debugInfoFlagAll);
+            ModelBuilder.DebugInfoAll(debugInfoFlagAll);
             return this;
         }
-        public ReadBuilder<TModel> SetDebugInfoFlag(bool debugInfoFlag)
+        public ReadBuilder<TModel> DebugInfo(bool debugInfoFlag)
         {
             DebugInfoFlag = debugInfoFlag;
             return this;
         }
 
-        public ReadBuilder<TModel> SetTableOnlyFlag(bool tableOnlyFlag)
+        public ReadBuilder<TModel> TableOnly(bool tableOnlyFlag=true)
         {
             TableOnlyFlag = tableOnlyFlag;
             return this;
@@ -114,27 +106,33 @@ namespace SmartDose.WcfLib
         #endregion
 
         #region Select
-        public ReadBuilder<TModel> Select<T>(Expression<Func<TModel, T>> selectExpression)
+        public ReadBuilder<T> Select<T>(Expression<Func<TModel, T>> selectExpression)
         {
-            SelectAsJson = selectExpression.ToJson();
-            SelectType = typeof(T);
-            return this;
+            var readSelectBuilder = new ReadBuilder<T>(Client);
+            readSelectBuilder.DebugInfoFlag = DebugInfoFlag;
+            readSelectBuilder.TableOnlyFlag = TableOnlyFlag;
+            readSelectBuilder.ModelType = ModelType;
+            readSelectBuilder.WhereAsJson = WhereAsJson;
+            readSelectBuilder.OrderByAsJson = OrderByAsJson;
+            readSelectBuilder.OrderByType = OrderByType;
+            readSelectBuilder.OrderByAsc = OrderByAsc;
+            readSelectBuilder.SelectAsJson = selectExpression.ToJson();
+            readSelectBuilder.SelectType = typeof(T);
+            return readSelectBuilder;
         }
         #endregion
 
         #region Paging
-
         public ReadBuilder<TModel> Paging(int page = -1, int pageSize = -1)
         {
             Page = page;
             PageSize = pageSize;
             return this;
         }
-
         #endregion
 
         #region Execute
-        protected async Task<IServiceResult<TResult>> ExecuteAsync<TResult>() where TResult : class
+        protected async Task<IServiceResult<TResult>> ExecuteAsync<TResult>()
         {
             var executeServiceResult = await Client.ExecuteModelReadAsync(this).ConfigureAwait(false);
             var returnResult = executeServiceResult.CastByClone<ServiceResult<TResult>>(withData: false);

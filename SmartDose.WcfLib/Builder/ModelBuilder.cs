@@ -19,7 +19,7 @@ namespace SmartDose.WcfLib
 
         private static bool DebugInfoFlagAll { get; set; } = false;
 
-        public static void SetDebugInfoFlagAll(bool on)
+        public static void DebugInfoAll(bool on)
             => DebugInfoFlagAll = on;
 
         protected bool _DebugInfoFlag { get; set; } = false;

@@ -33,18 +33,18 @@ namespace SmartDose.WcfLib
         }
 
         #region Model
-        public DeleteBuilder<TModel> SetDebugInfoFlagAll(bool debugInfoFlagAll)
+        public DeleteBuilder<TModel> DebugInfoAll(bool debugInfoFlagAll)
         {
-            SetDebugInfoFlagAll(debugInfoFlagAll);
+            ModelBuilder.DebugInfoAll(debugInfoFlagAll);
             return this;
         }
-        public DeleteBuilder<TModel> SetDebugInfoFlag(bool debugInfoFlag)
+        public DeleteBuilder<TModel> DebugInfo(bool debugInfoFlag)
         {
             DebugInfoFlag = debugInfoFlag;
             return this;
         }
 
-        public DeleteBuilder<TModel> SetTableOnlyFlag(bool tableOnlyFlag)
+        public DeleteBuilder<TModel> TableOnly(bool tableOnlyFlag=true)
         {
             TableOnlyFlag = tableOnlyFlag;
             return this;
