@@ -50,13 +50,13 @@ namespace SmartDose.WcfLib
         }
         public QueuedEvent<ClientEvent> QueuedEvent { get; set; } = new QueuedEvent<ClientEvent>();
 
-        public virtual void CreateClient() 
+        public virtual void CreateClient()
             => throw new NotImplementedException();
         #region Client Abstract 
         public abstract Task OpenAsync();
         public abstract Task CloseAsync();
         public abstract Task SubscribeForCallbacksAsync();
-        public abstract Task UnsubscribeForCallbacksAsync(); 
+        public abstract Task UnsubscribeForCallbacksAsync();
         #endregion
 
         #region Client Events

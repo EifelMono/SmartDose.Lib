@@ -45,5 +45,28 @@ namespace SmartDose.WcfLib
         }
 
         #endregion
+
+
+        #region Create
+
+        public abstract Task<IServiceResult> ExecuteModelCreateAsync(CreateBuilder createBuilder);
+
+        public CreateBuilder<T> ModelCreate<T>() where T : class
+        {
+            return new CreateBuilder<T>(this) { };
+        }
+
+        #endregion
+
+        #region Update
+
+        public abstract Task<IServiceResult> ExecuteModelUpdateAsync(UpdateBuilder UpdateBuilder);
+
+        public UpdateBuilder<T> ModelUpdate<T>() where T : class
+        {
+            return new UpdateBuilder<T>(this) { };
+        }
+
+        #endregion
     }
 }

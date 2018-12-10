@@ -9,5 +9,9 @@ namespace SmartDose.WcfLib
         Task<IServiceResult<bool>> ExecuteModelDeleteAsync(DeleteBuilder deleteBuilder);
 
         Task<IServiceResult<long>> ExecuteModelReadIdOverIdentifierAsync(ReadIdOverIdentifierBuilder readIdOverIdentifierBuilder);
+
+        Task<IServiceResult> ExecuteModelCreateAsync(CreateBuilder createBuilder);
+
+        Task<IServiceResult> ExecuteModelUpdateAsync(UpdateBuilder updateBuilder);
     }
 }
