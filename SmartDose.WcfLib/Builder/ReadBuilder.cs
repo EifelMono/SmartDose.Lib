@@ -123,10 +123,10 @@ namespace SmartDose.WcfLib
         protected async Task<IServiceResult<TResult>> ExecuteAsync<TResult>() where TResult : class
         {
             var executeServiceResult = await Client.ExecuteModelReadAsync(this).ConfigureAwait(false);
-            var returnResult = executeServiceResult;
+            var returnResult = new ServiceResult<TResult>();
             if (executeServiceResult.StatusAsInt == 0)
                 returnResult.Data = (executeServiceResult.Data as string).UnZipString().ToObjectFromJson<TResult>();
-            return returnResult.CastByIClone<ServiceResult<TResult>>() as IServiceResult<TResult>;
+            return returnResult;
         }
 
         public IServiceResult<List<TModel>> ToList()

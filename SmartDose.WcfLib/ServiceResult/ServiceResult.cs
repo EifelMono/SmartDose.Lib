@@ -2,7 +2,7 @@
 
 namespace SmartDose.WcfLib
 {
-    public class ServiceResult
+    public class ServiceResult : IServiceResult
     {
         public int StatusAsInt { get; set; }
 
@@ -40,11 +40,11 @@ namespace SmartDose.WcfLib
             };
     }
 
-    public class ServiceResult<T> : ServiceResult
+    public class ServiceResult<T> : ServiceResult, IServiceResult<T>
     {
         public ServiceResult()
         {
-            Data = default(T);
+            Data = default;
         }
 
         public new T Data { get => (T)base.Data; set => base.Data = value; }

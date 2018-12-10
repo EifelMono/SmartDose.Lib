@@ -110,7 +110,7 @@ namespace SmartDose.WcfMasterData10000
         public async Task<ServiceResultBool> ModelDeleteAsync(ModelDeleteRequest modelDeleteRequest)
             => await CatcherServiceResultAsync(() => Client.ModelDeleteAsync(modelDeleteRequest)).ConfigureAwait(false);
 
-        public async override Task<WcfLib.IServiceResult<bool>> ExecuteModelDeleteAsync(DeleteBuilder deleteBuilder)
+        public async override Task<IServiceResult<bool>> ExecuteModelDeleteAsync(DeleteBuilder deleteBuilder)
         {
             var buildValues = deleteBuilder.GetValues();
             var request = new ModelDeleteRequest

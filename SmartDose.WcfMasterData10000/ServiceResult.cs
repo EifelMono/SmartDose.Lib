@@ -16,9 +16,6 @@ namespace SmartDose.WcfMasterData10000
           };
 
         public object Data { get; set; }
-
-        public bool IsOk => Status == ServiceResultStatus.Ok;
-
     }
 
     public class ServiceResult<T> : ServiceResult, IServiceResult<T>

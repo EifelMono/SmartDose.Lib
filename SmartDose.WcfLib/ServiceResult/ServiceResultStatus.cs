@@ -24,6 +24,4 @@
         ErrorFailed = -14,
         #endregion
     }
-
-   
 }
