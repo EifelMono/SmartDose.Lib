@@ -69,82 +69,6 @@ namespace SmartDose.WcfMasterData10000
 
         #region ServiceClientModel
 
-        #region Read
-
-        public ServiceResultModelReadResponse ModelRead(ModelReadRequest modelReadRequest)
-            => ModelReadAsync(modelReadRequest).Result;
-
-        public async Task<ServiceResultModelReadResponse> ModelReadAsync(ModelReadRequest modelReadRequest)
-            => await CatcherServiceResultAsync(() => Client.ModelReadAsync(modelReadRequest)).ConfigureAwait(false);
-
-        public async override Task<WcfLib.IServiceResult> ExecuteModelReadAsync(ReadBuilder readBuilder)
-        {
-            var buildValues = readBuilder.GetValues();
-            var request = new ModelReadRequest
-            {
-                ModelName = buildValues.ModelType.Name,
-                ModelNamespace = buildValues.ModelType.Namespace,
-                DebugInfoFlag = buildValues.DebugInfoFlag,
-                TableOnlyFlag = buildValues.TableOnlyFlag,
-                WhereAsJson = buildValues.WhereAsJson,
-                OrderByAsJson = buildValues.OrderByAsJson,
-                OrderByAsc = buildValues.OrderByAsc,
-                OrderByAs = (ReadRequestOrderByAs)buildValues.OrderByAs,
-                Page = buildValues.Page,
-                PageSize = buildValues.PageSize,
-                ResultAs = (ReadRequestResultAs)buildValues.ResultAs,
-            };
-            var serviceResult = await ModelReadAsync(request).ConfigureAwait(false);
-            var newServiceResult = serviceResult.CastByClone<ServiceResult<string>>();
-            newServiceResult.Data = serviceResult?.Data?.ZippedJsonData;
-            return newServiceResult;
-        }
-        #endregion
-
-        #region Delete
-
-        public ServiceResultBool ModelDelete(ModelDeleteRequest modelDeleteRequest)
-            => ModelDeleteAsync(modelDeleteRequest).Result;
-
-        public async Task<ServiceResultBool> ModelDeleteAsync(ModelDeleteRequest modelDeleteRequest)
-            => await CatcherServiceResultAsync(() => Client.ModelDeleteAsync(modelDeleteRequest)).ConfigureAwait(false);
-
-        public async override Task<WcfLib.IServiceResult<bool>> ExecuteModelDeleteAsync(DeleteBuilder deleteBuilder)
-        {
-            var buildValues = deleteBuilder.GetValues();
-            var request = new ModelDeleteRequest
-            {
-                ModelName = buildValues.ModelType.Name,
-                ModelNamespace = buildValues.ModelType.Namespace,
-                DebugInfoFlag = buildValues.DebugInfoFlag,
-                TableOnlyFlag = buildValues.TableOnlyFlag,
-                WhereAsJson = buildValues.WhereAsJson,
-            };
-            return (await ModelDeleteAsync(request).ConfigureAwait(false)).CastByClone<ServiceResult<bool>>();
-        }
-        #endregion
-
-        #region IdentifierToId
-        public ServiceResultLong ModelReadIdOverIdentifier(ModelReadIdOverIdentifierRequest modelReadIdOverIdentifierRequest)
-            => ModelReadIdOverIdentifierAsync(modelReadIdOverIdentifierRequest).Result;
-
-        public async Task<ServiceResultLong> ModelReadIdOverIdentifierAsync(ModelReadIdOverIdentifierRequest modelReadIdOverIdentifierRequest)
-               => await CatcherServiceResultAsync(() => Client.ModelReadIdOverIdentifierAsync(modelReadIdOverIdentifierRequest)).ConfigureAwait(false);
-
-        public async override Task<WcfLib.IServiceResult<long>> ExecuteModelReadIdOverIdentifierAsync(ReadIdOverIdentifierBuilder readIdOverIdentifierBuilder)
-        {
-            var buildValues = readIdOverIdentifierBuilder.GetValues();
-            var request = new ModelReadIdOverIdentifierRequest
-            {
-                ModelName = buildValues.ModelType.Name,
-                ModelNamespace = buildValues.ModelType.Namespace,
-                DebugInfoFlag = buildValues.DebugInfoFlag,
-                Identifier = buildValues.Identifier,
-            };
-            return (await ModelReadIdOverIdentifierAsync(request).ConfigureAwait(false)).CastByClone<ServiceResult<long>>();
-        }
-        #endregion
-
         #region Create
 
         //public ServiceResultModelCreateResponse ModelCreate(ModelCreateRequest modelCreateRequest)
@@ -175,6 +99,81 @@ namespace SmartDose.WcfMasterData10000
             //var newServiceResult = serviceResult.CastByClone<ServiceResult<string>>();
             //newServiceResult.Data = serviceResult?.Data?.ZippedJsonData;
             //return newServiceResult;
+        }
+        #endregion
+
+        #region Delete
+
+        public ServiceResultBool ModelDelete(ModelDeleteRequest modelDeleteRequest)
+            => ModelDeleteAsync(modelDeleteRequest).Result;
+
+        public async Task<ServiceResultBool> ModelDeleteAsync(ModelDeleteRequest modelDeleteRequest)
+            => await CatcherServiceResultAsync(() => Client.ModelDeleteAsync(modelDeleteRequest)).ConfigureAwait(false);
+
+        public async override Task<WcfLib.IServiceResult<bool>> ExecuteModelDeleteAsync(DeleteBuilder deleteBuilder)
+        {
+            var buildValues = deleteBuilder.GetValues();
+            var request = new ModelDeleteRequest
+            {
+                ModelName = buildValues.ModelType.Name,
+                ModelNamespace = buildValues.ModelType.Namespace,
+                DebugInfoFlag = buildValues.DebugInfoFlag,
+                TableOnlyFlag = buildValues.TableOnlyFlag,
+                WhereAsJson = buildValues.WhereAsJson,
+            };
+            return (await ModelDeleteAsync(request).ConfigureAwait(false)).CastByClone<ServiceResult<bool>>();
+        }
+        #endregion
+
+        #region Read
+        public ServiceResultModelReadResponse ModelRead(ModelReadRequest modelReadRequest)
+            => ModelReadAsync(modelReadRequest).Result;
+
+        public async Task<ServiceResultModelReadResponse> ModelReadAsync(ModelReadRequest modelReadRequest)
+            => await CatcherServiceResultAsync(() => Client.ModelReadAsync(modelReadRequest)).ConfigureAwait(false);
+
+        public async override Task<IServiceResult> ExecuteModelReadAsync(ReadBuilder readBuilder)
+        {
+            var buildValues = readBuilder.GetValues();
+            var request = new ModelReadRequest
+            {
+                ModelName = buildValues.ModelType.Name,
+                ModelNamespace = buildValues.ModelType.Namespace,
+                DebugInfoFlag = buildValues.DebugInfoFlag,
+                TableOnlyFlag = buildValues.TableOnlyFlag,
+                WhereAsJson = buildValues.WhereAsJson,
+                OrderByAsJson = buildValues.OrderByAsJson,
+                OrderByAsc = buildValues.OrderByAsc,
+                OrderByAs = (ReadRequestOrderByAs)buildValues.OrderByAs,
+                Page = buildValues.Page,
+                PageSize = buildValues.PageSize,
+                ResultAs = (ReadRequestResultAs)buildValues.ResultAs,
+            };
+            var serviceResult = await ModelReadAsync(request).ConfigureAwait(false);
+            var newServiceResult = serviceResult.CastByClone<ServiceResult<string>>();
+            newServiceResult.Data = serviceResult?.Data?.ZippedJsonData;
+            return newServiceResult;
+        }
+        #endregion
+
+        #region ReadIdOverIdentifier
+        public ServiceResultLong ModelReadIdOverIdentifier(ModelReadIdOverIdentifierRequest modelReadIdOverIdentifierRequest)
+            => ModelReadIdOverIdentifierAsync(modelReadIdOverIdentifierRequest).Result;
+
+        public async Task<ServiceResultLong> ModelReadIdOverIdentifierAsync(ModelReadIdOverIdentifierRequest modelReadIdOverIdentifierRequest)
+               => await CatcherServiceResultAsync(() => Client.ModelReadIdOverIdentifierAsync(modelReadIdOverIdentifierRequest)).ConfigureAwait(false);
+
+        public async override Task<WcfLib.IServiceResult<long>> ExecuteModelReadIdOverIdentifierAsync(ReadIdOverIdentifierBuilder readIdOverIdentifierBuilder)
+        {
+            var buildValues = readIdOverIdentifierBuilder.GetValues();
+            var request = new ModelReadIdOverIdentifierRequest
+            {
+                ModelName = buildValues.ModelType.Name,
+                ModelNamespace = buildValues.ModelType.Namespace,
+                DebugInfoFlag = buildValues.DebugInfoFlag,
+                Identifier = buildValues.Identifier,
+            };
+            return (await ModelReadIdOverIdentifierAsync(request).ConfigureAwait(false)).CastByClone<ServiceResult<long>>();
         }
         #endregion
 
@@ -213,7 +212,7 @@ namespace SmartDose.WcfMasterData10000
 
         #endregion
 
-        #region CallBacks
+        #region Client CallBacks
         protected override void AssignClientCallbacks(bool on)
         {
             switch (on)
@@ -246,7 +245,7 @@ namespace SmartDose.WcfMasterData10000
             => MedicinesDeleted(args.medicineIdentifiers);
         #endregion
 
-        #region Wrapped Client Methods 
+        #region Client Methods 
 
         #region Old Stuff
         public Medicine GetMedicineByIdentifierA(string medicineIdentifier)

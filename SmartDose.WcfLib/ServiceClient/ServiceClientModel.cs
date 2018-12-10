@@ -17,13 +17,15 @@ namespace SmartDose.WcfLib
             return new ModelBuilder<T>(this) { };
         }
 
-        #region Read
-        public abstract Task<IServiceResult> ExecuteModelReadAsync(ReadBuilder readBuilder);
+        #region Create
 
-        public ReadBuilder<T> ModelRead<T>() where T : class
+        public abstract Task<IServiceResult> ExecuteModelCreateAsync(CreateBuilder createBuilder);
+
+        public CreateBuilder<T> ModelCreate<T>() where T : class
         {
-            return new ReadBuilder<T>(this) { };
+            return new CreateBuilder<T>(this) { };
         }
+
         #endregion
 
         #region Delete
@@ -35,25 +37,21 @@ namespace SmartDose.WcfLib
         }
         #endregion
 
-        #region ReadIdOverIdentifier
+        #region Read
+        public abstract Task<IServiceResult> ExecuteModelReadAsync(ReadBuilder readBuilder);
 
+        public ReadBuilder<T> ModelRead<T>() where T : class
+        {
+            return new ReadBuilder<T>(this) { };
+        }
+        #endregion
+
+        #region ReadIdOverIdentifier
         public abstract Task<IServiceResult<long>> ExecuteModelReadIdOverIdentifierAsync(ReadIdOverIdentifierBuilder readIdOverIdentifierBuilder);
 
         public ReadIdOverIdentifierBuilder<T> ModelReadIdOverIdentifier<T>() where T : class
         {
             return new ReadIdOverIdentifierBuilder<T>(this) { };
-        }
-
-        #endregion
-
-
-        #region Create
-
-        public abstract Task<IServiceResult> ExecuteModelCreateAsync(CreateBuilder createBuilder);
-
-        public CreateBuilder<T> ModelCreate<T>() where T : class
-        {
-            return new CreateBuilder<T>(this) { };
         }
 
         #endregion

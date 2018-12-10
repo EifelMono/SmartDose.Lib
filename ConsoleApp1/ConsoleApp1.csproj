@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SmartDose.WcfLib\SmartDose.WcfLib.csproj" />
     <ProjectReference Include="..\SmartDose.WcfMasterData10000\SmartDose.WcfMasterData10000.csproj" />
   </ItemGroup>
 

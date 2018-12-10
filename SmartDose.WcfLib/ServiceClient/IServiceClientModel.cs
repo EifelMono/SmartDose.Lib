@@ -4,13 +4,13 @@ namespace SmartDose.WcfLib
 {
     public interface IServiceClientModel
     {
-        Task<IServiceResult> ExecuteModelReadAsync(ReadBuilder readBuilder);
+        Task<IServiceResult> ExecuteModelCreateAsync(CreateBuilder createBuilder);
 
         Task<IServiceResult<bool>> ExecuteModelDeleteAsync(DeleteBuilder deleteBuilder);
 
-        Task<IServiceResult<long>> ExecuteModelReadIdOverIdentifierAsync(ReadIdOverIdentifierBuilder readIdOverIdentifierBuilder);
+        Task<IServiceResult> ExecuteModelReadAsync(ReadBuilder readBuilder);
 
-        Task<IServiceResult> ExecuteModelCreateAsync(CreateBuilder createBuilder);
+        Task<IServiceResult<long>> ExecuteModelReadIdOverIdentifierAsync(ReadIdOverIdentifierBuilder readIdOverIdentifierBuilder);
 
         Task<IServiceResult> ExecuteModelUpdateAsync(UpdateBuilder updateBuilder);
     }

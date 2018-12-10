@@ -126,7 +126,7 @@ namespace SmartDose.WcfLib
             var returnResult = executeServiceResult;
             if (executeServiceResult.StatusAsInt == 0)
                 returnResult.Data = (executeServiceResult.Data as string).UnZipString().ToObjectFromJson<TResult>();
-            return returnResult as IServiceResult<TResult>;
+            return returnResult.CastByIClone<ServiceResult<TResult>>() as IServiceResult<TResult>;
         }
 
         public IServiceResult<List<TModel>> ToList()

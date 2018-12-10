@@ -35,18 +35,19 @@ namespace SmartDose.WcfLib
             ModelType = typeof(TModel);
         }
 
-        public ReadBuilder<TModel> Read()
-        {
-            return new ReadBuilder<TModel>(Client);
-        }
+        public CreateBuilder<TModel> Create()
+            => new CreateBuilder<TModel>(Client);
+
         public DeleteBuilder<TModel> Delete()
-        {
-            return new DeleteBuilder<TModel>(Client);
-        }
+            => new DeleteBuilder<TModel>(Client);
+
+        public ReadBuilder<TModel> Read()
+            => new ReadBuilder<TModel>(Client);
 
         public ReadIdOverIdentifierBuilder<TModel> ReadIdOverIdentifier()
-        {
-            return new ReadIdOverIdentifierBuilder<TModel>(Client);
-        }
+            => new ReadIdOverIdentifierBuilder<TModel>(Client);
+
+        public UpdateBuilder<TModel> Update()
+            => new UpdateBuilder<TModel>(Client);
     }
 }
