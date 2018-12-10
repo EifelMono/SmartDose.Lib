@@ -1,6 +1,8 @@
-﻿namespace SmartDose.WcfMasterData10000
+﻿using SmartDose.WcfLib;
+
+namespace SmartDose.WcfMasterData10000
 {
-    public partial class ServiceResult : object
+    public partial class ServiceResult : object, IServiceResult
     {
         public T CastByClone<T>() where T : ServiceResult, new()
           => new T
@@ -16,9 +18,10 @@
         public object Data { get; set; }
 
         public bool IsOk => Status == ServiceResultStatus.Ok;
+
     }
 
-    public class ServiceResult<T> : ServiceResult
+    public class ServiceResult<T> : ServiceResult, IServiceResult<T>
     {
         public ServiceResult() : base()
         {

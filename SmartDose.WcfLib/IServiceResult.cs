@@ -4,30 +4,21 @@ using System.Text;
 
 namespace SmartDose.WcfLib
 {
-    public enum ServiceResultStatus
+    public interface IServiceResult
     {
-        #region Ok, OK
-        Ok = 0,
-        #endregion
+        int StatusAsInt { get; set; }
+        // ServiceResultStatus Status { get; set; }
+        string Message { get; set; }
 
-        #region Ok But
-        OkButDataIsNull = 10,
-        OkButItemNotFound = 11,
-        OkButListIsEmpty = 12,
-        #endregion
+        Exception Exception { get; set; }
 
-        #region Error
-        Error = -1,
-        ErrorException = -2,
-        ErrorConnection = -3,
-        ErrorNoEnumForInt = -4,
-        ErrorInvalidateArgs = -10,
-        ErrorCouldNotDelete = -11,
-        ErrorIdentifierNotFound = -12,
-        ErrorNothingFound = -13,
-        ErrorFailed = -14,
-        #endregion
+        string Debug { get; set; }
+
+        object Data { get; set; }
     }
 
-   
+    public interface IServiceResult<T>: IServiceResult
+    {
+        new T Data { get; set; }
+    }
 }

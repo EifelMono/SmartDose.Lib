@@ -137,12 +137,25 @@ Task("MasterData9002")
 });
 
 
+Task("SmartDose.WcfLib")
+.Does(() => {
+   BuildCsproj("./SmartDose.WcfLib", "./SmartDose.WcfLib.csproj");
+});
+
+Task("SmartDose.WcfMasterData10000")
+.Does(() => {
+   BuildCsproj("./SmartDose.WcfMasterData10000", "./SmartDose.WcfMasterData10000.csproj");
+});
+
+
 Task("Default")
 .IsDependentOn("RowaLog")
 .IsDependentOn("RowaWcf")
 .IsDependentOn("RowaMore")
 .IsDependentOn("MasterData10000")
 .IsDependentOn("MasterData9002")
+.IsDependentOn("SmartDose.WcfLib")
+.IsDependentOn("SmartDose.WcfMasterData10000")
 .Does(() => {
    Information("Building");
 });

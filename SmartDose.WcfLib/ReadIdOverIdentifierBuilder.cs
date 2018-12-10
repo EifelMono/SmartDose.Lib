@@ -37,10 +37,10 @@ namespace SmartDose.WcfLib
             return this;
         }
 
-        public ServiceResult<long> FirstOrDefault(string identifier= null)
+        public IServiceResult<long> FirstOrDefault(string identifier= null)
             => FirstOrDefaultAsync(identifier).Result;
 
-        public async Task<ServiceResult<long>> FirstOrDefaultAsync(string identifier = null)
+        public async Task<IServiceResult<long>> FirstOrDefaultAsync(string identifier = null)
         {
             Where(identifier);
             return await Client.ExecuteModelReadIdOverIdentifierAsync(this).ConfigureAwait(false);

@@ -59,11 +59,11 @@ namespace SmartDose.WcfLib
             return this;
         }
 
-        public ServiceResult<bool> Execute(Expression<Func<TModel, bool>> whereExpression = null) 
+        public IServiceResult<bool> Execute(Expression<Func<TModel, bool>> whereExpression = null) 
             => ExecuteAsync(whereExpression).Result;
 
 
-        public async Task<ServiceResult<bool>> ExecuteAsync(Expression<Func<TModel, bool>> whereExpression = null)
+        public async Task<IServiceResult<bool>> ExecuteAsync(Expression<Func<TModel, bool>> whereExpression = null)
         {
             Where(whereExpression);
             return await Client.ExecuteModelDeleteAsync(this).ConfigureAwait(false);

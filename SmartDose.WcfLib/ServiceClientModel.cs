@@ -18,7 +18,7 @@ namespace SmartDose.WcfLib
         }
 
         #region Read
-        public abstract Task<ServiceResult> ExecuteModelReadAsync(ReadBuilder readBuilder);
+        public abstract Task<IServiceResult> ExecuteModelReadAsync(ReadBuilder readBuilder);
 
         public ReadBuilder<T> ModelRead<T>() where T : class
         {
@@ -27,7 +27,7 @@ namespace SmartDose.WcfLib
         #endregion
 
         #region Delete
-        public abstract Task<ServiceResult<bool>> ExecuteModelDeleteAsync(DeleteBuilder deleteBuilder);
+        public abstract Task<IServiceResult<bool>> ExecuteModelDeleteAsync(DeleteBuilder deleteBuilder);
 
         public DeleteBuilder<T> ModelDelete<T>() where T : class
         {
@@ -37,7 +37,7 @@ namespace SmartDose.WcfLib
 
         #region ReadIdOverIdentifier
 
-        public abstract Task<ServiceResult<long>> ExecuteModelReadIdOverIdentifierAsync(ReadIdOverIdentifierBuilder readIdOverIdentifierBuilder);
+        public abstract Task<IServiceResult<long>> ExecuteModelReadIdOverIdentifierAsync(ReadIdOverIdentifierBuilder readIdOverIdentifierBuilder);
 
         public ReadIdOverIdentifierBuilder<T> ModelReadIdOverIdentifier<T>() where T : class
         {

@@ -214,19 +214,19 @@ namespace SmartDose.WcfLib
             });
         }
 
-        protected async Task<TResult> CatcherServiceResultAsync<TResult>(Func<Task<TResult>> func) where TResult : ServiceResult, new()
-        {
-            try
-            {
-                return await func().ConfigureAwait(false);
-            }
-            catch (Exception ex)
-            {
-                if (ThrowOnConnectionError)
-                    throw ex;
-                return new TResult { Exception = ex, Status = ServiceResultStatus.ErrorConnection };
-            }
-        }
+        //protected async Task<TResult> CatcherServiceResultAsync<TResult>(Func<Task<TResult>> func) where TResult : ServiceResult, new()
+        //{
+        //    try
+        //    {
+        //        return await func().ConfigureAwait(false);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        if (ThrowOnConnectionError)
+        //            throw ex;
+        //        return new TResult { Exception = ex, Status = ServiceResultStatus.ErrorConnection };
+        //    }
+        //}
         protected async Task<TResult> CatcherAsync<TResult>(Func<Task<TResult>> func)
         {
             try

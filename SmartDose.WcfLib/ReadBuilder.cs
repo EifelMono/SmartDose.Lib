@@ -120,28 +120,28 @@ namespace SmartDose.WcfLib
             return this;
         }
 
-        protected async Task<ServiceResult<TResult>> ExecuteAsync<TResult>() where TResult : class
+        protected async Task<IServiceResult<TResult>> ExecuteAsync<TResult>() where TResult : class
         {
             var executeServiceResult = await Client.ExecuteModelReadAsync(this).ConfigureAwait(false);
-            var returnResult = executeServiceResult.CastByClone<ServiceResult<TResult>>();
-            if (executeServiceResult.IsOk)
+            var returnResult = executeServiceResult;
+            if (executeServiceResult.StatusAsInt == 0)
                 returnResult.Data = (executeServiceResult.Data as string).UnZipString().ToObjectFromJson<TResult>();
-            return returnResult;
+            return returnResult as IServiceResult<TResult>;
         }
 
-        public ServiceResult<List<TModel>> ToList()
+        public IServiceResult<List<TModel>> ToList()
             => ToListAsync().Result;
 
-        public async Task<ServiceResult<List<TModel>>> ToListAsync()
+        public async Task<IServiceResult<List<TModel>>> ToListAsync()
         {
             ResultAs = ReadRequestResultAs.List;
             return await ExecuteAsync<List<TModel>>().ConfigureAwait(false);
         }
 
-        public ServiceResult<TModel> FirstOrDefault(Expression<Func<TModel, bool>> whereExpression = null)
+        public IServiceResult<TModel> FirstOrDefault(Expression<Func<TModel, bool>> whereExpression = null)
             => FirstOrDefaultAsync(whereExpression).Result;
 
-        public async Task<ServiceResult<TModel>> FirstOrDefaultAsync(Expression<Func<TModel, bool>> whereExpression = null)
+        public async Task<IServiceResult<TModel>> FirstOrDefaultAsync(Expression<Func<TModel, bool>> whereExpression = null)
         {
             Where(whereExpression);
             ResultAs = ReadRequestResultAs.Item;
