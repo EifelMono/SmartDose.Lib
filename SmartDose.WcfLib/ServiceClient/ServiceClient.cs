@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Reflection;
 using System.ServiceModel;
 using System.Threading.Tasks;
 using RowaMore;
@@ -53,10 +54,34 @@ namespace SmartDose.WcfLib
         public virtual void CreateClient()
             => throw new NotImplementedException();
         #region Client Abstract 
-        public abstract Task OpenAsync();
-        public abstract Task CloseAsync();
-        public abstract Task SubscribeForCallbacksAsync();
-        public abstract Task UnsubscribeForCallbacksAsync();
+        protected async Task CallAsyncMethode(MethodInfo methodInfo, string methodeName)
+        {
+            try
+            {
+                if (methodInfo == null)
+                    methodInfo = Client.GetType().GetMethod(methodeName);
+                await ((dynamic)methodInfo?.Invoke(Client, null)).ConfigureAwait(false);
+            }
+            catch (Exception ex)
+            {
+                ex.LogException();
+            }
+        }
+        protected MethodInfo OpenAsyncMethod { get; set; } = null;
+        public async virtual Task OpenAsync()
+            => await CallAsyncMethode(OpenAsyncMethod, nameof(OpenAsync)).ConfigureAwait(false);
+        protected MethodInfo CloseAsyncMethod { get; set; } = null;
+        public async virtual Task CloseAsync()
+            => await CallAsyncMethode(CloseAsyncMethod, nameof(CloseAsync)).ConfigureAwait(false);
+
+        protected MethodInfo SubscribeForCallbacksAsyncMethod { get; set; } = null;
+        public async virtual Task SubscribeForCallbacksAsync()
+              => await CallAsyncMethode(SubscribeForCallbacksAsyncMethod, nameof(SubscribeForCallbacksAsync)).ConfigureAwait(false);
+
+        protected MethodInfo UnsubscribeForCallbacksAsyncMethod { get; set; } = null;
+        public async virtual Task UnsubscribeForCallbacksAsync()
+                => await CallAsyncMethode(UnsubscribeForCallbacksAsyncMethod, nameof(UnsubscribeForCallbacksAsync)).ConfigureAwait(false);
+
         #endregion
 
         #region Client Events
@@ -115,7 +140,7 @@ namespace SmartDose.WcfLib
                     };
                     var inFault = false;
                     var running = true;
-                    RunOpen(withSubscribe: true);
+                    RunOpen();
                     while (running)
                     {
                         if (await QueuedEvent.Next() is var nextEvent && nextEvent.Ok)
@@ -129,7 +154,6 @@ namespace SmartDose.WcfLib
                                     break;
                                 case ClientEvent.Opened:
                                     IsConnected = true;
-                                    // await SubscribeForCallbacksAsync();
                                     break;
                                 case ClientEvent.Restart:
                                 case ClientEvent.Faulted:
@@ -139,7 +163,7 @@ namespace SmartDose.WcfLib
                                         Client.Abort();
                                         RunClose();
                                         await Task.Delay(WaitOnFault.Milliseconds);
-                                        RunOpen(withSubscribe: true);
+                                        RunOpen();
                                         inFault = false;
                                     }
                                     break;
@@ -164,21 +188,20 @@ namespace SmartDose.WcfLib
             });
         }
 
-        protected void RunOpen(bool withSubscribe)
+        protected void RunOpen()
         {
             CreateClient();
             AssignClientEvents(true);
             AssignClientCallbacks(true);
-            OpenAsync();
-            if (withSubscribe)
-                SubscribeForCallbacksAsync().Wait();
+            OpenAsync().Wait();
+            SubscribeForCallbacksAsync().Wait();
         }
 
         protected void RunClose()
         {
             IsConnected = false;
             UnsubscribeForCallbacksAsync().Wait();
-            CloseAsync();
+            CloseAsync().Wait();
             AssignClientCallbacks(false);
             AssignClientEvents(false);
         }

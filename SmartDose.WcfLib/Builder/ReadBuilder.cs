@@ -113,7 +113,6 @@ namespace SmartDose.WcfLib
             DebugInfoFlag = debugInfoFlag;
             return this;
         }
-
         public ReadBuilder<TModel> UseDebugInfoAll(bool debugInfoAllFlag)
         {
             SwitchDebugInfoFlagAll(debugInfoAllFlag);

@@ -10,11 +10,14 @@ namespace SmartDose.WcfLib
         {
         }
 
+        protected bool TableOnlyFlag { get; set; } = false;
+
         // Use deconstructor while protected properties 
         public (Type ModelType,
-            bool DebugInfoFlag
+            bool DebugInfoFlag,
+            bool TableOnlyFlag
             ) GetValues()
-                => (ModelType, DebugInfoFlag);
+                => (ModelType, DebugInfoFlag, TableOnlyFlag);
     }
 
     public class CreateBuilder<TModel> : CreateBuilder where TModel : class

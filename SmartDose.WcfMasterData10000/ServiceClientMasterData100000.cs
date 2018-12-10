@@ -46,25 +46,7 @@ namespace SmartDose.WcfMasterData10000
         }
 
         #region IServiceClient
-        public async override Task OpenAsync()
-        {
-            await CatcherAsyncIgnore(() => Client.OpenAsync()).ConfigureAwait(false);
-        }
-
-        public async override Task CloseAsync()
-        {
-            await CatcherAsyncIgnore(() => Client.CloseAsync()).ConfigureAwait(false);
-        }
-
-        public async override Task SubscribeForCallbacksAsync()
-        {
-            await CatcherAsyncIgnore(() => Client.SubscribeForCallbacksAsync()).ConfigureAwait(false);
-        }
-
-        public async override Task UnsubscribeForCallbacksAsync()
-        {
-            await CatcherAsyncIgnore(() => Client.UnsubscribeForCallbacksAsync()).ConfigureAwait(false);
-        }
+        // Down in SmartDose.WcfLib by Reflection
         #endregion
 
         #region ServiceClientModel
@@ -79,26 +61,18 @@ namespace SmartDose.WcfMasterData10000
 
         public async override Task<WcfLib.IServiceResult> ExecuteModelCreateAsync(CreateBuilder createBuilder)
         {
-            throw new NotImplementedException();
-            //var buildValues = createBuilder.GetValues();
-            //var request = new ModelCreateRequest
-            //{
-            //    ModelName = buildValues.ModelType.Name,
-            //    ModelNamespace = buildValues.ModelType.Namespace,
-            //    DebugInfoFlag = buildValues.DebugInfoFlag,
-            //    TableOnlyFlag = buildValues.TableOnlyFlag,
-            //    WhereAsJson = buildValues.WhereAsJson,
-            //    OrderByAsJson = buildValues.OrderByAsJson,
-            //    OrderByAsc = buildValues.OrderByAsc,
-            //    OrderByAs = (CreateRequestOrderByAs)buildValues.OrderByAs,
-            //    Page = buildValues.Page,
-            //    PageSize = buildValues.PageSize,
-            //    ResultAs = (CreateRequestResultAs)buildValues.ResultAs,
-            //};
-            //var serviceResult = await ModelCreateAsync(request).ConfigureAwait(false);
-            //var newServiceResult = serviceResult.CastByClone<ServiceResult<string>>();
-            //newServiceResult.Data = serviceResult?.Data?.ZippedJsonData;
-            //return newServiceResult;
+            var buildValues = createBuilder.GetValues();
+            var request = new ModelCreateRequest
+            {
+                ModelName = buildValues.ModelType.Name,
+                ModelNamespace = buildValues.ModelType.Namespace,
+                DebugInfoFlag = buildValues.DebugInfoFlag,
+                TableOnlyFlag = buildValues.TableOnlyFlag
+            };
+            var serviceResult = await ModelCreateAsync(request).ConfigureAwait(false);
+            var newServiceResult = serviceResult.CastByClone<ServiceResult<string>>();
+            newServiceResult.Data = serviceResult?.Data?.ZippedJsonData;
+            return newServiceResult;
         }
         #endregion
 
@@ -187,26 +161,18 @@ namespace SmartDose.WcfMasterData10000
 
         public async override Task<WcfLib.IServiceResult> ExecuteModelUpdateAsync(UpdateBuilder updateBuilder)
         {
-            throw new NotImplementedException();
-            //var buildValues = updateBuilder.GetValues();
-            //var request = new ModelUpdateRequest
-            //{
-            //    ModelName = buildValues.ModelType.Name,
-            //    ModelNamespace = buildValues.ModelType.Namespace,
-            //    DebugInfoFlag = buildValues.DebugInfoFlag,
-            //    TableOnlyFlag = buildValues.TableOnlyFlag,
-            //    WhereAsJson = buildValues.WhereAsJson,
-            //    OrderByAsJson = buildValues.OrderByAsJson,
-            //    OrderByAsc = buildValues.OrderByAsc,
-            //    OrderByAs = (UpdateRequestOrderByAs)buildValues.OrderByAs,
-            //    Page = buildValues.Page,
-            //    PageSize = buildValues.PageSize,
-            //    ResultAs = (UpdateRequestResultAs)buildValues.ResultAs,
-            //};
-            //var serviceResult = await ModelUpdateAsync(request).ConfigureAwait(false);
-            //var newServiceResult = serviceResult.CastByClone<ServiceResult<string>>();
-            //newServiceResult.Data = serviceResult?.Data?.ZippedJsonData;
-            //return newServiceResult;
+            var buildValues = updateBuilder.GetValues();
+            var request = new ModelUpdateRequest
+            {
+                ModelName = buildValues.ModelType.Name,
+                ModelNamespace = buildValues.ModelType.Namespace,
+                DebugInfoFlag = buildValues.DebugInfoFlag,
+                TableOnlyFlag= buildValues.TableOnlyFlag
+            };
+            var serviceResult = await ModelUpdateAsync(request).ConfigureAwait(false);
+            var newServiceResult = serviceResult.CastByClone<ServiceResult<string>>();
+            newServiceResult.Data = serviceResult?.Data?.ZippedJsonData;
+            return newServiceResult;
         }
         #endregion
 
