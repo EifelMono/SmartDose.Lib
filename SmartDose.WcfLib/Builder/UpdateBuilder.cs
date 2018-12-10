@@ -9,6 +9,12 @@ namespace SmartDose.WcfLib
         public UpdateBuilder(IServiceClientModel client) : base(client)
         {
         }
+
+        // Use deconstructor while protected properties 
+        public (Type ModelType,
+            bool DebugInfoFlag
+            ) GetValues()
+                => (ModelType, DebugInfoFlag);
     }
 
     public class UpdateBuilder<TModel> : UpdateBuilder where TModel : class

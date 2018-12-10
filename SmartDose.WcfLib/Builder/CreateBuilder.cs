@@ -9,6 +9,12 @@ namespace SmartDose.WcfLib
         public CreateBuilder(IServiceClientModel client) : base(client)
         {
         }
+
+        // Use deconstructor while protected properties 
+        public (Type ModelType,
+            bool DebugInfoFlag
+            ) GetValues()
+                => (ModelType, DebugInfoFlag);
     }
 
     public class CreateBuilder<TModel> : CreateBuilder where TModel : class

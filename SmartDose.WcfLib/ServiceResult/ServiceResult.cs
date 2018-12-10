@@ -2,9 +2,6 @@
 
 namespace SmartDose.WcfLib
 {
-
-   
-
     public class ServiceResult : IServiceResult
     {
         public int Status { get; set; }
@@ -24,26 +21,15 @@ namespace SmartDose.WcfLib
         public bool IsOkBut => (int)Status >= (int)ServiceResultStatus.Ok;
 
         public bool IsError => (int)Status < (int)ServiceResultStatus.Ok;
-
-        public T CastByClone<T>() where T : ServiceResult, new()
-            => new T
-            {
-                Status = Status,
-                StatusAsString = StatusAsString,
-                Message = Message,
-                Exception = Exception,
-                Debug = Debug,
-                Data = Data,
-            };
     }
 
-    public class ServiceResult<T> : ServiceResult, IServiceResult<T>
+    public class ServiceResult<TData> : ServiceResult, IServiceResult<TData>
     {
         public ServiceResult()
         {
             Data = default;
         }
 
-        public new T Data { get => (T)base.Data; set => base.Data = value; }
+        public new TData Data { get => (TData)base.Data; set => base.Data = value; }
     }
 }
