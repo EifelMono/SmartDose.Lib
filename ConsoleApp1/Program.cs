@@ -13,7 +13,7 @@ namespace ConsoleApp1
             Console.WriteLine(endPoint);
             using (var serviceClient = new ServiceClientMasterData100000(endPoint))
             {
-                ModelBuilder.SwitchDebugInfoAll(true);
+                ModelBuilder.SwitchDebugInfoFlagAll(on: true);
 
                 serviceClient.OnClientEvent += (e) =>
                 {

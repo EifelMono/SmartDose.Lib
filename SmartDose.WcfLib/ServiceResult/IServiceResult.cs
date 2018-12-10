@@ -6,8 +6,8 @@ namespace SmartDose.WcfLib
 {
     public interface IServiceResult
     {
-        int StatusAsInt { get; set; }
-        // ServiceResultStatus Status { get; set; }
+        int Status { get; set; }
+        string StatusAsString { get; set; }
         string Message { get; set; }
 
         Exception Exception { get; set; }

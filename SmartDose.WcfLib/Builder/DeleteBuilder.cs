@@ -55,13 +55,12 @@ namespace SmartDose.WcfLib
 
         public DeleteBuilder<TModel> UseDebugInfoAll(bool debugInfoAllFlag)
         {
-            SwitchDebugInfoAll(debugInfoAllFlag);
+            SwitchDebugInfoFlagAll(debugInfoAllFlag);
             return this;
         }
 
         public IServiceResult<bool> Execute(Expression<Func<TModel, bool>> whereExpression = null) 
             => ExecuteAsync(whereExpression).Result;
-
 
         public async Task<IServiceResult<bool>> ExecuteAsync(Expression<Func<TModel, bool>> whereExpression = null)
         {

@@ -1,27 +1,15 @@
 ﻿namespace SmartDose.WcfLib
 {
-    public enum ServiceResultStatus
+    public static class ServiceResultStatus
     {
         #region Ok, OK
-        Ok = 0,
-        #endregion
-
-        #region Ok But
-        OkButDataIsNull = 10,
-        OkButItemNotFound = 11,
-        OkButListIsEmpty = 12,
+        public static int Ok { get; set; } = 0;
         #endregion
 
         #region Error
-        Error = -1,
-        ErrorException = -2,
-        ErrorConnection = -3,
-        ErrorNoEnumForInt = -4,
-        ErrorInvalidateArgs = -10,
-        ErrorCouldNotDelete = -11,
-        ErrorIdentifierNotFound = -12,
-        ErrorNothingFound = -13,
-        ErrorFailed = -14,
+        public static int Error { get; set; } = -1;
+
+        public static int ErrorConnection { get; set; } = -2;
         #endregion
     }
 }

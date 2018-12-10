@@ -1793,8 +1793,10 @@ namespace SmartDose.WcfMasterData10000
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ModelRequest", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ModelDeleteRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ModelReadIdOverIdentifierRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ModelReadRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ModelReadIdOverIdentifierRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ModelUpdateRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ModelCreateRequest))]
     public partial class ModelRequest : object
     {
         
@@ -1877,28 +1879,6 @@ namespace SmartDose.WcfMasterData10000
             set
             {
                 this.WhereAsJsonField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ModelReadIdOverIdentifierRequest", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    public partial class ModelReadIdOverIdentifierRequest : SmartDose.WcfMasterData10000.ModelRequest
-    {
-        
-        private string IdentifierField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Identifier
-        {
-            get
-            {
-                return this.IdentifierField;
-            }
-            set
-            {
-                this.IdentifierField = value;
             }
         }
     }
@@ -2030,6 +2010,72 @@ namespace SmartDose.WcfMasterData10000
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ModelReadIdOverIdentifierRequest", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
+    public partial class ModelReadIdOverIdentifierRequest : SmartDose.WcfMasterData10000.ModelRequest
+    {
+        
+        private string IdentifierField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Identifier
+        {
+            get
+            {
+                return this.IdentifierField;
+            }
+            set
+            {
+                this.IdentifierField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ModelUpdateRequest", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
+    public partial class ModelUpdateRequest : SmartDose.WcfMasterData10000.ModelRequest
+    {
+        
+        private bool TableOnlyFlagField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool TableOnlyFlag
+        {
+            get
+            {
+                return this.TableOnlyFlagField;
+            }
+            set
+            {
+                this.TableOnlyFlagField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ModelCreateRequest", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
+    public partial class ModelCreateRequest : SmartDose.WcfMasterData10000.ModelRequest
+    {
+        
+        private bool TableOnlyFlagField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool TableOnlyFlag
+        {
+            get
+            {
+                return this.TableOnlyFlagField;
+            }
+            set
+            {
+                this.TableOnlyFlagField = value;
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ReadRequestOrderByAs", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
     public enum ReadRequestOrderByAs : int
@@ -2068,8 +2114,12 @@ namespace SmartDose.WcfMasterData10000
     [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResult", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ServiceResultOfboolean))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ServiceResultBool))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ServiceResultOfModelReadResponsekCLKJ5ur))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ServiceResultModelReadResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ServiceResultOflong))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ServiceResultLong))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ServiceResultOfModelUpdateResponsekCLKJ5ur))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ServiceResultModelUpdateResponse))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ServiceResultOfCanisterrcNVL4w7))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ServiceResultCanister))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ServiceResultOfCustomerrcNVL4w7))]
@@ -2084,8 +2134,8 @@ namespace SmartDose.WcfMasterData10000
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ServiceResultPatient))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ServiceResultOfTrayrcNVL4w7))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ServiceResultTray))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ServiceResultOfModelReadResponsekCLKJ5ur))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ServiceResultModelReadResponse))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ServiceResultOfModelCreateResponsekCLKJ5ur))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ServiceResultModelCreateResponse))]
     public partial class ServiceResult : object
     {
         
@@ -2095,9 +2145,9 @@ namespace SmartDose.WcfMasterData10000
         
         private string MessageField;
         
-        private SmartDose.WcfMasterData10000.ServiceResultStatus StatusField;
+        private int StatusField;
         
-        private int StatusAsIntField;
+        private string StatusAsStringField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Debug
@@ -2139,7 +2189,7 @@ namespace SmartDose.WcfMasterData10000
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SmartDose.WcfMasterData10000.ServiceResultStatus Status
+        public int Status
         {
             get
             {
@@ -2152,15 +2202,15 @@ namespace SmartDose.WcfMasterData10000
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int StatusAsInt
+        public string StatusAsString
         {
             get
             {
-                return this.StatusAsIntField;
+                return this.StatusAsStringField;
             }
             set
             {
-                this.StatusAsIntField = value;
+                this.StatusAsStringField = value;
             }
         }
     }
@@ -2197,6 +2247,36 @@ namespace SmartDose.WcfMasterData10000
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultOfModelReadResponsekCLKJ5ur", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ServiceResultModelReadResponse))]
+    public partial class ServiceResultOfModelReadResponsekCLKJ5ur : SmartDose.WcfMasterData10000.ServiceResult
+    {
+        
+        private SmartDose.WcfMasterData10000.ModelReadResponse DataField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SmartDose.WcfMasterData10000.ModelReadResponse Data
+        {
+            get
+            {
+                return this.DataField;
+            }
+            set
+            {
+                this.DataField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultModelReadResponse", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
+    public partial class ServiceResultModelReadResponse : SmartDose.WcfMasterData10000.ServiceResultOfModelReadResponsekCLKJ5ur
+    {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultOflong", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ServiceResultLong))]
     public partial class ServiceResultOflong : SmartDose.WcfMasterData10000.ServiceResult
@@ -2222,6 +2302,36 @@ namespace SmartDose.WcfMasterData10000
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultLong", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
     public partial class ServiceResultLong : SmartDose.WcfMasterData10000.ServiceResultOflong
+    {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultOfModelUpdateResponsekCLKJ5ur", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ServiceResultModelUpdateResponse))]
+    public partial class ServiceResultOfModelUpdateResponsekCLKJ5ur : SmartDose.WcfMasterData10000.ServiceResult
+    {
+        
+        private SmartDose.WcfMasterData10000.ModelUpdateResponse DataField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SmartDose.WcfMasterData10000.ModelUpdateResponse Data
+        {
+            get
+            {
+                return this.DataField;
+            }
+            set
+            {
+                this.DataField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultModelUpdateResponse", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
+    public partial class ServiceResultModelUpdateResponse : SmartDose.WcfMasterData10000.ServiceResultOfModelUpdateResponsekCLKJ5ur
     {
     }
     
@@ -2437,15 +2547,15 @@ namespace SmartDose.WcfMasterData10000
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultOfModelReadResponsekCLKJ5ur", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ServiceResultModelReadResponse))]
-    public partial class ServiceResultOfModelReadResponsekCLKJ5ur : SmartDose.WcfMasterData10000.ServiceResult
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultOfModelCreateResponsekCLKJ5ur", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData10000.ServiceResultModelCreateResponse))]
+    public partial class ServiceResultOfModelCreateResponsekCLKJ5ur : SmartDose.WcfMasterData10000.ServiceResult
     {
         
-        private SmartDose.WcfMasterData10000.ModelReadResponse DataField;
+        private SmartDose.WcfMasterData10000.ModelCreateResponse DataField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SmartDose.WcfMasterData10000.ModelReadResponse Data
+        public SmartDose.WcfMasterData10000.ModelCreateResponse Data
         {
             get
             {
@@ -2460,60 +2570,59 @@ namespace SmartDose.WcfMasterData10000
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultModelReadResponse", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    public partial class ServiceResultModelReadResponse : SmartDose.WcfMasterData10000.ServiceResultOfModelReadResponsekCLKJ5ur
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultModelCreateResponse", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
+    public partial class ServiceResultModelCreateResponse : SmartDose.WcfMasterData10000.ServiceResultOfModelCreateResponsekCLKJ5ur
     {
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceResultStatus", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
-    public enum ServiceResultStatus : int
+    [System.Runtime.Serialization.DataContractAttribute(Name="ModelCreateResponse", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
+    public partial class ModelCreateResponse : object
     {
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Ok = 0,
+        private string ZippedJsonDataField;
         
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        OkButDataIsNull = 10,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        OkButItemNotFound = 11,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        OkButListIsEmpty = 12,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Error = -1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ErrorException = -2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ErrorConnection = -3,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ErrorNoEnumForInt = -4,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ErrorInvalidateArgs = -10,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ErrorCouldNotDelete = -11,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ErrorIdentifierNotFound = -12,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ErrorNothingFound = -13,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ErrorFailed = -14,
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ZippedJsonData
+        {
+            get
+            {
+                return this.ZippedJsonDataField;
+            }
+            set
+            {
+                this.ZippedJsonDataField = value;
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ModelReadResponse", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
     public partial class ModelReadResponse : object
+    {
+        
+        private string ZippedJsonDataField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ZippedJsonData
+        {
+            get
+            {
+                return this.ZippedJsonDataField;
+            }
+            set
+            {
+                this.ZippedJsonDataField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ModelUpdateResponse", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces")]
+    public partial class ModelUpdateResponse : object
     {
         
         private string ZippedJsonDataField;
@@ -2549,14 +2658,20 @@ namespace SmartDose.WcfMasterData10000
             "")]
         System.Threading.Tasks.Task<SmartDose.WcfMasterData10000.Medicine> GetMedicineByIdentifierAsync(string medicineIdentifier);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/ModelRead", ReplyAction="http://tempuri.org/IMasterDataService/ModelReadResponse")]
-        System.Threading.Tasks.Task<SmartDose.WcfMasterData10000.ServiceResultModelReadResponse> ModelReadAsync(SmartDose.WcfMasterData10000.ModelReadRequest modelReadRequest);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/ModelCreate", ReplyAction="http://tempuri.org/IMasterDataService/ModelCreateResponse")]
+        System.Threading.Tasks.Task<SmartDose.WcfMasterData10000.ServiceResultModelCreateResponse> ModelCreateAsync(SmartDose.WcfMasterData10000.ModelCreateRequest modelCreateRequest);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/ModelDelete", ReplyAction="http://tempuri.org/IMasterDataService/ModelDeleteResponse")]
         System.Threading.Tasks.Task<SmartDose.WcfMasterData10000.ServiceResultBool> ModelDeleteAsync(SmartDose.WcfMasterData10000.ModelDeleteRequest modelDeleteRequest);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/ModelRead", ReplyAction="http://tempuri.org/IMasterDataService/ModelReadResponse")]
+        System.Threading.Tasks.Task<SmartDose.WcfMasterData10000.ServiceResultModelReadResponse> ModelReadAsync(SmartDose.WcfMasterData10000.ModelReadRequest modelReadRequest);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/ModelReadIdOverIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/ModelReadIdOverIdentifierResponse")]
         System.Threading.Tasks.Task<SmartDose.WcfMasterData10000.ServiceResultLong> ModelReadIdOverIdentifierAsync(SmartDose.WcfMasterData10000.ModelReadIdOverIdentifierRequest modelReadIdOverIdentifierRequest);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/ModelUpdate", ReplyAction="http://tempuri.org/IMasterDataService/ModelUpdateResponse")]
+        System.Threading.Tasks.Task<SmartDose.WcfMasterData10000.ServiceResultModelUpdateResponse> ModelUpdateAsync(SmartDose.WcfMasterData10000.ModelUpdateRequest modelUpdateRequest);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/CanistersDeleteByIdentifier", ReplyAction="http://tempuri.org/IMasterDataService/CanistersDeleteByIdentifierResponse")]
         System.Threading.Tasks.Task<SmartDose.WcfMasterData10000.ServiceResultBool> CanistersDeleteByIdentifierAsync(string identifier);
@@ -2681,9 +2796,9 @@ namespace SmartDose.WcfMasterData10000
             return base.Channel.GetMedicineByIdentifierAsync(medicineIdentifier);
         }
         
-        public System.Threading.Tasks.Task<SmartDose.WcfMasterData10000.ServiceResultModelReadResponse> ModelReadAsync(SmartDose.WcfMasterData10000.ModelReadRequest modelReadRequest)
+        public System.Threading.Tasks.Task<SmartDose.WcfMasterData10000.ServiceResultModelCreateResponse> ModelCreateAsync(SmartDose.WcfMasterData10000.ModelCreateRequest modelCreateRequest)
         {
-            return base.Channel.ModelReadAsync(modelReadRequest);
+            return base.Channel.ModelCreateAsync(modelCreateRequest);
         }
         
         public System.Threading.Tasks.Task<SmartDose.WcfMasterData10000.ServiceResultBool> ModelDeleteAsync(SmartDose.WcfMasterData10000.ModelDeleteRequest modelDeleteRequest)
@@ -2691,9 +2806,19 @@ namespace SmartDose.WcfMasterData10000
             return base.Channel.ModelDeleteAsync(modelDeleteRequest);
         }
         
+        public System.Threading.Tasks.Task<SmartDose.WcfMasterData10000.ServiceResultModelReadResponse> ModelReadAsync(SmartDose.WcfMasterData10000.ModelReadRequest modelReadRequest)
+        {
+            return base.Channel.ModelReadAsync(modelReadRequest);
+        }
+        
         public System.Threading.Tasks.Task<SmartDose.WcfMasterData10000.ServiceResultLong> ModelReadIdOverIdentifierAsync(SmartDose.WcfMasterData10000.ModelReadIdOverIdentifierRequest modelReadIdOverIdentifierRequest)
         {
             return base.Channel.ModelReadIdOverIdentifierAsync(modelReadIdOverIdentifierRequest);
+        }
+        
+        public System.Threading.Tasks.Task<SmartDose.WcfMasterData10000.ServiceResultModelUpdateResponse> ModelUpdateAsync(SmartDose.WcfMasterData10000.ModelUpdateRequest modelUpdateRequest)
+        {
+            return base.Channel.ModelUpdateAsync(modelUpdateRequest);
         }
         
         public System.Threading.Tasks.Task<SmartDose.WcfMasterData10000.ServiceResultBool> CanistersDeleteByIdentifierAsync(string identifier)

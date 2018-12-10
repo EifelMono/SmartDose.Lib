@@ -18,14 +18,14 @@ namespace SmartDose.WcfLib
         protected bool _DebugInfoFlag { get; set; } = false;
         protected bool DebugInfoFlag
         {
-            get => DebugInfoAllFlag ? DebugInfoAllFlag : _DebugInfoFlag;
+            get => DebugInfoFlagAll ? DebugInfoFlagAll : _DebugInfoFlag;
             set => _DebugInfoFlag = value;
         }
 
-        private static bool DebugInfoAllFlag { get; set; } = false;
+        private static bool DebugInfoFlagAll { get; set; } = false;
 
-        public static void SwitchDebugInfoAll(bool flag)
-            => DebugInfoAllFlag = flag;
+        public static void SwitchDebugInfoFlagAll(bool on)
+            => DebugInfoFlagAll = on;
     }
 
     public class ModelBuilder<TModel> : ModelBuilder where TModel : class

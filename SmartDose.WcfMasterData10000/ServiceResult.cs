@@ -7,8 +7,8 @@ namespace SmartDose.WcfMasterData10000
         public T CastByClone<T>() where T : ServiceResult, new()
           => new T
           {
-              StatusAsInt = StatusAsInt,
               Status = Status,
+              StatusAsString = StatusAsString,
               Message = Message,
               Exception = Exception,
               Debug = Debug,

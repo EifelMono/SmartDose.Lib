@@ -116,7 +116,7 @@ namespace SmartDose.WcfLib
 
         public ReadBuilder<TModel> UseDebugInfoAll(bool debugInfoAllFlag)
         {
-            SwitchDebugInfoAll(debugInfoAllFlag);
+            SwitchDebugInfoFlagAll(debugInfoAllFlag);
             return this;
         }
 
@@ -124,7 +124,7 @@ namespace SmartDose.WcfLib
         {
             var executeServiceResult = await Client.ExecuteModelReadAsync(this).ConfigureAwait(false);
             var returnResult = new ServiceResult<TResult>();
-            if (executeServiceResult.StatusAsInt == 0)
+            if (executeServiceResult.Status == 0)
                 returnResult.Data = (executeServiceResult.Data as string).UnZipString().ToObjectFromJson<TResult>();
             return returnResult;
         }

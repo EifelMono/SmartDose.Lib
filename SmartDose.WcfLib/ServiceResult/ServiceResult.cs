@@ -2,18 +2,15 @@
 
 namespace SmartDose.WcfLib
 {
+
+   
+
     public class ServiceResult : IServiceResult
     {
-        public int StatusAsInt { get; set; }
+        public int Status { get; set; }
 
-        public ServiceResultStatus Status
-        {
-            get =>
-                Enum.IsDefined(typeof(ServiceResultStatus), StatusAsInt)
-                    ? (ServiceResultStatus)StatusAsInt
-                    : ServiceResultStatus.ErrorNoEnumForInt;
-            set => StatusAsInt = (int)value;
-        }
+        public string StatusAsString { get; set; }
+
         public string Message { get; set; }
 
         public Exception Exception { get; set; }
@@ -22,7 +19,7 @@ namespace SmartDose.WcfLib
 
         public object Data { get; set; }
 
-        public bool IsOk => Status == ServiceResultStatus.Ok;
+        public bool IsOk => Status == 0;
 
         public bool IsOkBut => (int)Status >= (int)ServiceResultStatus.Ok;
 
@@ -31,8 +28,8 @@ namespace SmartDose.WcfLib
         public T CastByClone<T>() where T : ServiceResult, new()
             => new T
             {
-                StatusAsInt = StatusAsInt,
                 Status = Status,
+                StatusAsString = StatusAsString,
                 Message = Message,
                 Exception = Exception,
                 Debug = Debug,

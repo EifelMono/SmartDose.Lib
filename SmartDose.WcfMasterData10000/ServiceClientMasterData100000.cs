@@ -71,11 +71,11 @@ namespace SmartDose.WcfMasterData10000
 
         #region Create
 
-        //public ServiceResultModelCreateResponse ModelCreate(ModelCreateRequest modelCreateRequest)
-        //    => ModelCreateAsync(modelCreateRequest).Result;
+        public ServiceResultModelCreateResponse ModelCreate(ModelCreateRequest modelCreateRequest)
+            => ModelCreateAsync(modelCreateRequest).Result;
 
-        //public async Task<ServiceResultModelCreateResponse> ModelCreateAsync(ModelCreateRequest modelCreateRequest)
-        //    => await CatcherServiceResultAsync(() => Client.ModelCreateAsync(modelCreateRequest)).ConfigureAwait(false);
+        public async Task<ServiceResultModelCreateResponse> ModelCreateAsync(ModelCreateRequest modelCreateRequest)
+            => await CatcherServiceResultAsync(() => Client.ModelCreateAsync(modelCreateRequest)).ConfigureAwait(false);
 
         public async override Task<WcfLib.IServiceResult> ExecuteModelCreateAsync(CreateBuilder createBuilder)
         {
@@ -179,11 +179,11 @@ namespace SmartDose.WcfMasterData10000
 
         #region Update
 
-        //public ServiceResultModelUpdateResponse ModelUpdate(ModelUpdateRequest modelUpdateRequest)
-        //    => ModelUpdateAsync(modelUpdateRequest).Result;
+        public ServiceResultModelUpdateResponse ModelUpdate(ModelUpdateRequest modelUpdateRequest)
+            => ModelUpdateAsync(modelUpdateRequest).Result;
 
-        //public async Task<ServiceResultModelUpdateResponse> ModelUpdateAsync(ModelUpdateRequest modelUpdateRequest)
-        //    => await CatcherServiceResultAsync(() => Client.ModelUpdateAsync(modelUpdateRequest)).ConfigureAwait(false);
+        public async Task<ServiceResultModelUpdateResponse> ModelUpdateAsync(ModelUpdateRequest modelUpdateRequest)
+            => await CatcherServiceResultAsync(() => Client.ModelUpdateAsync(modelUpdateRequest)).ConfigureAwait(false);
 
         public async override Task<WcfLib.IServiceResult> ExecuteModelUpdateAsync(UpdateBuilder updateBuilder)
         {
