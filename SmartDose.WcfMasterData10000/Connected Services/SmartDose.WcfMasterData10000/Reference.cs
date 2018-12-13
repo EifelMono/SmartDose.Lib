@@ -1852,9 +1852,24 @@ namespace SmartDose.WcfMasterData10000
     public partial class ModelClassType : object
     {
         
+        private string ModuleField;
+        
         private string NameField;
         
         private string NamespaceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Module
+        {
+            get
+            {
+                return this.ModuleField;
+            }
+            set
+            {
+                this.ModuleField = value;
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name

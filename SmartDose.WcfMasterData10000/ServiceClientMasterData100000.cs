@@ -66,8 +66,9 @@ namespace SmartDose.WcfMasterData10000
             {
                 ModelType = new ModelClassType
                 {
-                    Name = buildValues.ModelType.Name,
-                    Namespace = buildValues.ModelType.Namespace
+                    Name = buildValues.ModelType?.Name ?? "",
+                    Namespace = buildValues.ModelType?.Namespace ?? "",
+                    Module = buildValues.ModelType?.Module?.Name ?? ""
                 },
                 DebugInfoFlag = buildValues.DebugInfoFlag,
                 TableOnlyFlag = buildValues.TableOnlyFlag
@@ -94,8 +95,9 @@ namespace SmartDose.WcfMasterData10000
             {
                 ModelType = new ModelClassType
                 {
-                    Name = buildValues.ModelType.Name,
-                    Namespace = buildValues.ModelType.Namespace
+                    Name = buildValues.ModelType?.Name ?? "",
+                    Namespace = buildValues.ModelType?.Namespace ?? "",
+                    Module = buildValues.ModelType?.Module?.Name ?? ""
                 },
                 DebugInfoFlag = buildValues.DebugInfoFlag,
                 TableOnlyFlag = buildValues.TableOnlyFlag,
@@ -120,7 +122,8 @@ namespace SmartDose.WcfMasterData10000
                 ModelType = new ModelClassType
                 {
                     Name = buildValues.ModelType?.Name ?? "",
-                    Namespace = buildValues.ModelType?.Namespace ?? ""
+                    Namespace = buildValues.ModelType?.Namespace ?? "",
+                    Module = buildValues.ModelType?.Module?.Name ?? ""
                 },
                 DebugInfoFlag = buildValues.DebugInfoFlag,
                 TableOnlyFlag = buildValues.TableOnlyFlag,
@@ -129,21 +132,24 @@ namespace SmartDose.WcfMasterData10000
                 OrderByType = new ModelClassType
                 {
                     Name = buildValues.OrderByType?.Name ?? "",
-                    Namespace = buildValues.OrderByType?.Namespace ?? ""
+                    Namespace = buildValues.OrderByType?.Namespace ?? "",
+                    Module = buildValues.OrderByType?.Module?.Name ?? ""
                 },
                 OrderByAsc = buildValues.OrderByAsc,
                 SelectAsJson = buildValues.SelectAsJson,
                 SelectType = new ModelClassType
                 {
                     Name = buildValues.SelectType?.Name ?? "",
-                    Namespace = buildValues.SelectType?.Namespace ?? ""
+                    Namespace = buildValues.SelectType?.Namespace ?? "",
+                    Module = buildValues.SelectType?.Module?.Name ?? ""
                 },
                 Page = buildValues.Page,
                 PageSize = buildValues.PageSize,
                 ResultType = new ModelClassType
                 {
                     Name = buildValues.ResutType?.Name ?? "",
-                    Namespace = buildValues.ResutType?.Namespace ?? ""
+                    Namespace = buildValues.ResutType?.Namespace ?? "",
+                    Module = buildValues.ResutType?.Module?.Name ?? ""
                 },
             };
             var serviceResult = await ModelReadAsync(request).ConfigureAwait(false);
@@ -167,8 +173,9 @@ namespace SmartDose.WcfMasterData10000
             {
                 ModelType = new ModelClassType
                 {
-                    Name = buildValues.ModelType.Name,
-                    Namespace = buildValues.ModelType.Namespace
+                    Name = buildValues.ModelType?.Name ?? "",
+                    Namespace = buildValues.ModelType?.Namespace ?? "",
+                    Module = buildValues.ModelType?.Module?.Name ?? ""
                 },
                 DebugInfoFlag = buildValues.DebugInfoFlag,
                 Identifier = buildValues.Identifier,
@@ -193,7 +200,8 @@ namespace SmartDose.WcfMasterData10000
                 ModelType = new ModelClassType
                 {
                     Name = buildValues.ModelType.Name,
-                    Namespace = buildValues.ModelType.Namespace
+                    Namespace = buildValues.ModelType.Namespace,
+                    Module = buildValues.ModelType.Module.Name
                 },
                 DebugInfoFlag = buildValues.DebugInfoFlag,
                 TableOnlyFlag = buildValues.TableOnlyFlag
