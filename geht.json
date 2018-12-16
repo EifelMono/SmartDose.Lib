@@ -1,0 +1,91 @@
+"<>f__AnonymousType0`2[
+    [System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],
+    [System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], 
+    ConsoleApp3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+    
+GetMembers()    
+[0]: {Int64 get_A()}
+[1]: {System.String get_B()}
+[2]: {Boolean Equals(System.Object)}
+[3]: {Int32 GetHashCode()}
+[4]: {System.String ToString()}
+[5]: {System.Type GetType()}
+[6]: {Void .ctor(Int64, System.String)}
+[7]: {Int64 A}
+[8]: {System.String B}    
+ 
+value.GetType()
+{Name = "<>f__AnonymousType0`2" FullName = "<>f__AnonymousType0`2[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}
+    Assembly: {ConsoleApp3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}
+    AssemblyQualifiedName: "<>f__AnonymousType0`2[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], ConsoleApp3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+    Attributes: Sealed | BeforeFieldInit
+    BaseType: {Name = "Object" FullName = "System.Object"}
+    ContainsGenericParameters: false
+    CustomAttributes: Count = 2
+    DeclaredConstructors: {System.Reflection.ConstructorInfo[1]}
+    DeclaredEvents: {System.Reflection.EventInfo[0]}
+    DeclaredFields: {System.Reflection.FieldInfo[2]}
+    DeclaredMembers: {System.Reflection.MemberInfo[10]}
+    DeclaredMethods: {System.Reflection.MethodInfo[5]}
+    DeclaredNestedTypes: {System.Reflection.TypeInfo.<get_DeclaredNestedTypes>d__23}
+    DeclaredProperties: {System.Reflection.PropertyInfo[2]}
+    DeclaringMethod: '((System.RuntimeType)value.GetType()).DeclaringMethod' threw an exception of type 'System.InvalidOperationException'
+    DeclaringType: null
+    FullName: "<>f__AnonymousType0`2[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+    GUID: {b4f541a7-d682-308f-9e26-53935f2c4347}
+    GenericParameterAttributes: '((System.RuntimeType)value.GetType()).GenericParameterAttributes' threw an exception of type 'System.InvalidOperationException'
+    GenericParameterPosition: '((System.RuntimeType)value.GetType()).GenericParameterPosition' threw an exception of type 'System.InvalidOperationException'
+    GenericTypeArguments: {System.Type[2]}
+    GenericTypeParameters: {System.Type[0]}
+    HasElementType: false
+    ImplementedInterfaces: {System.Type[0]}
+    IsAbstract: false
+    IsAnsiClass: true
+    IsArray: false
+    IsAutoClass: false
+    IsAutoLayout: true
+    IsByRef: false
+    IsCOMObject: false
+    IsClass: true
+    IsConstructedGenericType: true
+    IsContextful: false
+    IsEnum: false
+    IsExplicitLayout: false
+    IsGenericParameter: false
+    IsGenericType: true
+    IsGenericTypeDefinition: false
+    IsImport: false
+    IsInterface: false
+    IsLayoutSequential: false
+    IsMarshalByRef: false
+    IsNested: false
+    IsNestedAssembly: false
+    IsNestedFamANDAssem: false
+    IsNestedFamORAssem: false
+    IsNestedFamily: false
+    IsNestedPrivate: false
+    IsNestedPublic: false
+    IsNotPublic: true
+    IsPointer: false
+    IsPrimitive: false
+    IsPublic: false
+    IsSealed: true
+    IsSecurityCritical: true
+    IsSecuritySafeCritical: false
+    IsSecurityTransparent: false
+    IsSerializable: false
+    IsSpecialName: false
+    IsUnicodeClass: false
+    IsValueType: false
+    IsVisible: false
+    MemberType: TypeInfo
+    MetadataToken: 33554434
+    Module (System.Reflection.MemberInfo): {ConsoleApp3.exe}
+    Module: {ConsoleApp3.exe}
+    Name: "<>f__AnonymousType0`2"
+    Namespace: null
+    ReflectedType: null
+    StructLayoutAttribute: {System.Runtime.InteropServices.StructLayoutAttribute}
+    TypeHandle: {System.RuntimeTypeHandle}
+    TypeInitializer: null
+    UnderlyingSystemType: {Name = "<>f__AnonymousType0`2" FullName = "<>f__AnonymousType0`2[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}

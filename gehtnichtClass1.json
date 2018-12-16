@@ -1,0 +1,75 @@
+objectValue.GetType()
+{Name = "MyDynamicType" FullName = "MyDynamicType"}
+    Assembly: {MyDynamicAssembly, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null}
+    AssemblyQualifiedName: "MyDynamicType, MyDynamicAssembly, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    Attributes: Sealed | BeforeFieldInit
+    BaseType: {Name = "Object" FullName = "System.Object"}
+    ContainsGenericParameters: false
+    CustomAttributes: Count = 2
+    DeclaredConstructors: {System.Reflection.ConstructorInfo[1]}
+    DeclaredEvents: {System.Reflection.EventInfo[0]}
+    DeclaredFields: {System.Reflection.FieldInfo[2]}
+    DeclaredMembers: {System.Reflection.MemberInfo[9]}
+    DeclaredMethods: {System.Reflection.MethodInfo[4]}
+    DeclaredNestedTypes: {System.Reflection.TypeInfo.<get_DeclaredNestedTypes>d__23}
+    DeclaredProperties: {System.Reflection.PropertyInfo[2]}
+    DeclaringMethod: '((System.RuntimeType)objectValue.GetType()).DeclaringMethod' threw an exception of type 'System.InvalidOperationException'
+    DeclaringType: null
+    FullName: "MyDynamicType"
+    GUID: {f0a84d91-5664-34f2-aaa9-ad824142e4ce}
+    GenericParameterAttributes: '((System.RuntimeType)objectValue.GetType()).GenericParameterAttributes' threw an exception of type 'System.InvalidOperationException'
+    GenericParameterPosition: '((System.RuntimeType)objectValue.GetType()).GenericParameterPosition' threw an exception of type 'System.InvalidOperationException'
+    GenericTypeArguments: {System.Type[0]}
+    GenericTypeParameters: {System.Type[0]}
+    HasElementType: false
+    ImplementedInterfaces: {System.Type[0]}
+    IsAbstract: false
+    IsAnsiClass: true
+    IsArray: false
+    IsAutoClass: false
+    IsAutoLayout: true
+    IsByRef: false
+    IsCOMObject: false
+    IsClass: true
+    IsConstructedGenericType: false
+    IsContextful: false
+    IsEnum: false
+    IsExplicitLayout: false
+    IsGenericParameter: false
+    IsGenericType: false
+    IsGenericTypeDefinition: false
+    IsImport: false
+    IsInterface: false
+    IsLayoutSequential: false
+    IsMarshalByRef: false
+    IsNested: false
+    IsNestedAssembly: false
+    IsNestedFamANDAssem: false
+    IsNestedFamORAssem: false
+    IsNestedFamily: false
+    IsNestedPrivate: false
+    IsNestedPublic: false
+    IsNotPublic: true
+    IsPointer: false
+    IsPrimitive: false
+    IsPublic: false
+    IsSealed: true
+    IsSecurityCritical: true
+    IsSecuritySafeCritical: false
+    IsSecurityTransparent: false
+    IsSerializable: false
+    IsSpecialName: false
+    IsUnicodeClass: false
+    IsValueType: false
+    IsVisible: false
+    MemberType: TypeInfo
+    MetadataToken: 33554434
+    Module (System.Reflection.MemberInfo): {MyDynamicAssemblyModule}
+    Module: {MyDynamicAssemblyModule}
+    Name: "MyDynamicType"
+    Namespace: null
+    ReflectedType: null
+    StructLayoutAttribute: {System.Runtime.InteropServices.StructLayoutAttribute}
+    TypeHandle: {System.RuntimeTypeHandle}
+    TypeInitializer: null
+    UnderlyingSystemType: {Name = "MyDynamicType" FullName = "MyDynamicType"}

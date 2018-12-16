@@ -29,11 +29,13 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ServicesShared", "ServicesS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartDose.WcfLib", "SmartDose.WcfLib\SmartDose.WcfLib.csproj", "{A27CAFC8-3634-45E4-AB2E-480546F3A0B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartDose.WcfMasterData10000", "SmartDose.WcfMasterData10000\SmartDose.WcfMasterData10000.csproj", "{98EC7B4C-439A-4347-B24B-BF467C31F0AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartDose.WcfMasterData10000", "SmartDose.WcfMasterData10000\SmartDose.WcfMasterData10000.csproj", "{98EC7B4C-439A-4347-B24B-BF467C31F0AC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Old", "Old", "{581F603F-BB13-45BD-B73D-3B51D699E30E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{C7924603-CB53-4A18-8800-7998D5A0C574}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{C7924603-CB53-4A18-8800-7998D5A0C574}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp3", "ConsoleApp3\ConsoleApp3.csproj", "{6A89B036-0F87-41E7-9D35-8EF53B4F32AA}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -80,6 +82,10 @@ Global
 		{C7924603-CB53-4A18-8800-7998D5A0C574}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7924603-CB53-4A18-8800-7998D5A0C574}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7924603-CB53-4A18-8800-7998D5A0C574}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A89B036-0F87-41E7-9D35-8EF53B4F32AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A89B036-0F87-41E7-9D35-8EF53B4F32AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A89B036-0F87-41E7-9D35-8EF53B4F32AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A89B036-0F87-41E7-9D35-8EF53B4F32AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,6 +4,7 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Text;
 using System.Threading.Tasks;
+using RowaMore.Extensions;
 using SmartDose.WcfLib;
 
 namespace SmartDose.WcfMasterData10000
@@ -141,7 +142,8 @@ namespace SmartDose.WcfMasterData10000
                 {
                     Name = buildValues.SelectType?.Name ?? "",
                     Namespace = buildValues.SelectType?.Namespace ?? "",
-                    Module = buildValues.SelectType?.Module?.Name ?? ""
+                    Module = buildValues.SelectType?.Module?.Name ?? "",
+                    TypeAsJson = buildValues.SelectType?.ToJson()
                 },
                 Page = buildValues.Page,
                 PageSize = buildValues.PageSize,

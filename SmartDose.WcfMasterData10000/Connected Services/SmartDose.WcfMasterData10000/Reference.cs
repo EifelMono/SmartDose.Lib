@@ -1858,6 +1858,8 @@ namespace SmartDose.WcfMasterData10000
         
         private string NamespaceField;
         
+        private string TypeAsJsonField;
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Module
         {
@@ -1894,6 +1896,19 @@ namespace SmartDose.WcfMasterData10000
             set
             {
                 this.NamespaceField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TypeAsJson
+        {
+            get
+            {
+                return this.TypeAsJsonField;
+            }
+            set
+            {
+                this.TypeAsJsonField = value;
             }
         }
     }

@@ -1,0 +1,96 @@
+"<>f__AnonymousType0`2[
+    [System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089], 
+    [System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], 
+    SmartDose.DynamicClasses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+
+GetMembers()    
+[0]: {Int64 get_A()}
+[1]: {Void set_A(Int64)}
+[2]: {System.String get_B()}
+[3]: {Void set_B(System.String)}
+[4]: {System.String ToString()}
+[5]: {Boolean Equals(System.Object)}
+[6]: {Int32 GetHashCode()}
+[7]: {System.Type GetType()}
+[8]: {Void .ctor()}
+[9]: {Void .ctor(Int64, System.String)}
+[10]: {Int64 A}
+[11]: {System.String B} 
+
+
+objectValue.GetType()
+    {Name = "<>f__AnonymousType0`2" FullName = "<>f__AnonymousType0`2[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}
+        Assembly: {SmartDose.DynamicClasses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}
+        AssemblyQualifiedName: "<>f__AnonymousType0`2[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], SmartDose.DynamicClasses, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+        Attributes: Sealed | Serializable | BeforeFieldInit
+        BaseType: {Name = "Object" FullName = "System.Object"}
+        ContainsGenericParameters: false
+        CustomAttributes: Count = 2
+        DeclaredConstructors: {System.Reflection.ConstructorInfo[2]}
+        DeclaredEvents: {System.Reflection.EventInfo[0]}
+        DeclaredFields: {System.Reflection.FieldInfo[2]}
+        DeclaredMembers: {System.Reflection.MemberInfo[13]}
+        DeclaredMethods: {System.Reflection.MethodInfo[7]}
+        DeclaredNestedTypes: {System.Reflection.TypeInfo.<get_DeclaredNestedTypes>d__23}
+        DeclaredProperties: {System.Reflection.PropertyInfo[2]}
+        DeclaringMethod: '((System.RuntimeType)objectValue.GetType()).DeclaringMethod' threw an exception of type 'System.InvalidOperationException'
+        DeclaringType: null
+        FullName: "<>f__AnonymousType0`2[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+        GUID: {88050819-561e-34ca-8cc0-c8a90910ba92}
+        GenericParameterAttributes: '((System.RuntimeType)objectValue.GetType()).GenericParameterAttributes' threw an exception of type 'System.InvalidOperationException'
+        GenericParameterPosition: '((System.RuntimeType)objectValue.GetType()).GenericParameterPosition' threw an exception of type 'System.InvalidOperationException'
+        GenericTypeArguments: {System.Type[2]}
+        GenericTypeParameters: {System.Type[0]}
+        HasElementType: false
+        ImplementedInterfaces: {System.Type[0]}
+        IsAbstract: false
+        IsAnsiClass: true
+        IsArray: false
+        IsAutoClass: false
+        IsAutoLayout: true
+        IsByRef: false
+        IsCOMObject: false
+        IsClass: true
+        IsConstructedGenericType: true
+        IsContextful: false
+        IsEnum: false
+        IsExplicitLayout: false
+        IsGenericParameter: false
+        IsGenericType: true
+        IsGenericTypeDefinition: false
+        IsImport: false
+        IsInterface: false
+        IsLayoutSequential: false
+        IsMarshalByRef: false
+        IsNested: false
+        IsNestedAssembly: false
+        IsNestedFamANDAssem: false
+        IsNestedFamORAssem: false
+        IsNestedFamily: false
+        IsNestedPrivate: false
+        IsNestedPublic: false
+        IsNotPublic: true
+        IsPointer: false
+        IsPrimitive: false
+        IsPublic: false
+        IsSealed: true
+        IsSecurityCritical: true
+        IsSecuritySafeCritical: false
+        IsSecurityTransparent: false
+        IsSerializable: true
+        IsSpecialName: false
+        IsUnicodeClass: false
+        IsValueType: false
+        IsVisible: false
+        MemberType: TypeInfo
+        MetadataToken: 33554434
+        Module (System.Reflection.MemberInfo): {SmartDose.DynamicClasses}
+        Module: {SmartDose.DynamicClasses}
+        Name: "<>f__AnonymousType0`2"
+        Namespace: null
+        ReflectedType: null
+        StructLayoutAttribute: {System.Runtime.InteropServices.StructLayoutAttribute}
+        TypeHandle: {System.RuntimeTypeHandle}
+        TypeInitializer: null
+        UnderlyingSystemType: {Name = "<>f__AnonymousType0`2" FullName = "<>f__AnonymousType0`2[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}
+    

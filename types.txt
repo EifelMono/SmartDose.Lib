@@ -1,0 +1,16 @@
+"{\r\n  \"Name\": \"JsonExpressionToEntitiyExpression\",\r\n  \"AssemblyName\": \"SmartDose.BusinessConnectors, 
+Version=1.0.0.210, Culture=neutral, PublicKeyToken=null\",\r\n  \"ClassName\": \"Rowa.SmartDose.BusinessConnectors.Services.MedicinesService\",\r\n
+  \"Signature\": \"System.Linq.Expressions.Expression`1[System.Func`2[Rowa.SmartDose.Entities.Medicines.Medicine,
+  <>f__AnonymousType0`2[System.Int64,System.String]]] JsonExpressionToEntitiyExpression[<>f__AnonymousType0`2](System.String, 
+  Rowa.SmartDose.WcfInterfaces.ModelReadRequest)\",\r\n  \"Signature2\": \"System.Linq.Expressions.Expression`1[[System.Func`2[[Rowa.SmartDose.Entities.Medicines.Medicine,
+   SmartDose.Entities, Version=1.0.0.210, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType0`2[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, 
+   PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], 
+   SmartDose.BusinessConnectors, Version=1.0.0.210, Culture=neutral, Public
+KeyToken=null]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] 
+JsonExpressionToEntitiyExpression[[<>f__AnonymousType0`2[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral,
+ PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], 
+ SmartDose.BusinessConnectors, Version=1.0.0.210, Culture=neutral, PublicKeyToken=null]](System.String, 
+ Rowa.SmartDose.WcfInterfaces.ModelReadRequest)\",\r\n  \"MemberType\": 8,\r\n
+   \"GenericArguments\": [\r\n    \"<>f__AnonymousType0`2[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, 
+   PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, 
+   PublicKeyToken=b77a5c561934e089]], SmartDose.BusinessConnectors, Version=1.0.0.210, Culture=neutral, PublicKeyToken=null\"\r\n  ]\r\n}"

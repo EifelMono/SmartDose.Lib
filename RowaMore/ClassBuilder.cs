@@ -80,6 +80,7 @@ namespace RowaMore
             return this;
         }
 
+
         public ClassBuilderDefinition AddPropertyByType(string name, Type type, ClassBuilderPropertyCustomAttribute customAttributes = ClassBuilderPropertyCustomAttribute.None)
         {
             Properties.Add(new ClassBuilderProperty { Name = name, Type = type, CustomAttributes= customAttributes});
