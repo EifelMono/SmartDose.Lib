@@ -66,10 +66,9 @@ namespace ConsoleApp1
                     .Model<Medicine>()
                     .Read()
                     .TableOnly()
-                    // .Where(m => m.Name.Contains("a"))
-                    .Select(m => new { MedicineId = m.Id, ManufacturerName = m.Manufacturer.Name })
-                    // .OrderBy(m=> m.Identifier)
-                    // .Select(m => m)
+                    .Where(m => m.Name.Contains("a"))
+                    .OrderByDescending(m => m.Id)
+                    .Select(m => new { MedicineName= m.Name, MedicineId = m.Id, MedicineIdentifier = m.Identifier, ManufacturerName = m.Manufacturer.Name })
                     .ExceuteToListAsync() is var x && x.IsOk())
                     {
                         Console.WriteLine(x.Data.ToJson());
