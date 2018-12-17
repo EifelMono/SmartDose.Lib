@@ -63,23 +63,16 @@ namespace ConsoleApp1
                 if (i == 1)
                 {
                     if (await serviceClient
-                    .Model<Medicine>()
-                    .Read()
-                    .TableOnly()
-                    .Where(m => m.Name.Contains("a"))
-                    .OrderByDescending(m => m.Id)
-                    .Select(m => new { MedicineName= m.Name, MedicineId = m.Id, MedicineIdentifier = m.Identifier, ManufacturerName = m.Manufacturer.Name })
-                    .ExceuteToListAsync() is var x && x.IsOk())
-                    {
-                        Console.WriteLine(x.Data.ToJson());
-                        //foreach (var xx in x.Data)
-                        //{
-                        //    //Console.WriteLine(xx.ToJson());
-                        //    Console.WriteLine($"A={xx.A}, B={xx.B}");
-                        //}
-                    }
-                    else
-                        Console.WriteLine("Error");
+                        .Model<Medicine>()
+                        .Read()
+                        .TableOnly()
+                        .Where(m => m.Name.Contains("a"))
+                        .OrderByDescending(m => m.Id)
+                        .Select(m => new { MedicineName= m.Name, MedicineId = m.Id, MedicineIdentifier = m.Identifier, ManufacturerName = m.Manufacturer.Name })
+                        .ExceuteToListAsync() is var x && x.IsOk())
+                            Console.WriteLine(x.Data.ToJson());
+                        else
+                            Console.WriteLine("Error");
                 }
                 Console.ReadLine();
             }
