@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MasterData9002
+namespace SmartDose.WcfMasterData9002
 {
     using System.Runtime.Serialization;
     
@@ -19,16 +19,16 @@ namespace MasterData9002
     public partial class SearchFilter : object
     {
         
-        private MasterData9002.ComparisonType ComparisonTypeField;
+        private SmartDose.WcfMasterData9002.ComparisonType ComparisonTypeField;
         
-        private MasterData9002.ConcatenationType ConcatenationTypeField;
+        private SmartDose.WcfMasterData9002.ConcatenationType ConcatenationTypeField;
         
         private string NameField;
         
         private string ValueField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.ComparisonType ComparisonType
+        public SmartDose.WcfMasterData9002.ComparisonType ComparisonType
         {
             get
             {
@@ -41,7 +41,7 @@ namespace MasterData9002
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.ConcatenationType ConcatenationType
+        public SmartDose.WcfMasterData9002.ConcatenationType ConcatenationType
         {
             get
             {
@@ -130,7 +130,7 @@ namespace MasterData9002
         
         private string AttributeNameField;
         
-        private MasterData9002.SortType SortTypeField;
+        private SmartDose.WcfMasterData9002.SortType SortTypeField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string AttributeName
@@ -146,7 +146,7 @@ namespace MasterData9002
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.SortType SortType
+        public SmartDose.WcfMasterData9002.SortType SortType
         {
             get
             {
@@ -214,12 +214,12 @@ namespace MasterData9002
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Customer", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
         "odel.Customers")]
-    public partial class Customer : MasterData9002.BaseData
+    public partial class Customer : SmartDose.WcfMasterData9002.BaseData
     {
         
-        private MasterData9002.ContactAddress ContactAddressField;
+        private SmartDose.WcfMasterData9002.ContactAddress ContactAddressField;
         
-        private MasterData9002.ContactPerson ContactPersonField;
+        private SmartDose.WcfMasterData9002.ContactPerson ContactPersonField;
         
         private long CustomerIdField;
         
@@ -236,7 +236,7 @@ namespace MasterData9002
         private string WebsiteField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.ContactAddress ContactAddress
+        public SmartDose.WcfMasterData9002.ContactAddress ContactAddress
         {
             get
             {
@@ -249,7 +249,7 @@ namespace MasterData9002
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.ContactPerson ContactPerson
+        public SmartDose.WcfMasterData9002.ContactPerson ContactPerson
         {
             get
             {
@@ -357,28 +357,28 @@ namespace MasterData9002
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BaseData", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
         "odel.Common")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData9002.PrintDataRequest))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData9002.Manufacturer))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData9002.ContactAddress))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData9002.ContactPerson))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData9002.Tray))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData9002.GlobalConfiguration))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData9002.DestinationFacility))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData9002.Patient))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData9002.PouchSchemaDesign))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData9002.LabelDesign))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData9002.Canister))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData9002.Location))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData9002.Position))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData9002.Medicine))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData9002.MedicinePicture))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData9002.MedicinePillDetail))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData9002.MedicinePrintDetail))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData9002.MedicineSpecialHandling))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData9002.MedicineSynonym))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData9002.MedicineContent))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData9002.MedicineOverview))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MasterData9002.Customer))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData9002.PrintDataRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData9002.Manufacturer))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData9002.ContactAddress))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData9002.ContactPerson))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData9002.Tray))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData9002.GlobalConfiguration))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData9002.Canister))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData9002.Location))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData9002.Position))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData9002.Medicine))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData9002.MedicinePicture))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData9002.MedicinePillDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData9002.MedicinePrintDetail))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData9002.MedicineSpecialHandling))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData9002.MedicineSynonym))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData9002.MedicineContent))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData9002.DestinationFacility))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData9002.Patient))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData9002.PouchSchemaDesign))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData9002.LabelDesign))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData9002.MedicineOverview))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SmartDose.WcfMasterData9002.Customer))]
     public partial class BaseData : object
     {
         
@@ -402,12 +402,12 @@ namespace MasterData9002
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PrintDataRequest", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
         "odel.PrintRequest")]
-    public partial class PrintDataRequest : MasterData9002.BaseData
+    public partial class PrintDataRequest : SmartDose.WcfMasterData9002.BaseData
     {
         
         private string IdentifierField;
         
-        private MasterData9002.PrintType PrintTypeField;
+        private SmartDose.WcfMasterData9002.PrintType PrintTypeField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Identifier
@@ -423,7 +423,7 @@ namespace MasterData9002
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.PrintType PrintType
+        public SmartDose.WcfMasterData9002.PrintType PrintType
         {
             get
             {
@@ -440,10 +440,10 @@ namespace MasterData9002
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Manufacturer", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
         "odel.Manufacturers")]
-    public partial class Manufacturer : MasterData9002.BaseData
+    public partial class Manufacturer : SmartDose.WcfMasterData9002.BaseData
     {
         
-        private MasterData9002.ContactAddress AddressField;
+        private SmartDose.WcfMasterData9002.ContactAddress AddressField;
         
         private string CommentField;
         
@@ -452,7 +452,7 @@ namespace MasterData9002
         private string NameField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.ContactAddress Address
+        public SmartDose.WcfMasterData9002.ContactAddress Address
         {
             get
             {
@@ -508,7 +508,7 @@ namespace MasterData9002
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ContactAddress", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
         "odel.Customers")]
-    public partial class ContactAddress : MasterData9002.BaseData
+    public partial class ContactAddress : SmartDose.WcfMasterData9002.BaseData
     {
         
         private string Addressline1Field;
@@ -519,7 +519,7 @@ namespace MasterData9002
         
         private string CommentField;
         
-        private System.Collections.Generic.List<MasterData9002.ContactPerson> ContactPersonsField;
+        private System.Collections.Generic.List<SmartDose.WcfMasterData9002.ContactPerson> ContactPersonsField;
         
         private string CountryField;
         
@@ -584,7 +584,7 @@ namespace MasterData9002
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<MasterData9002.ContactPerson> ContactPersons
+        public System.Collections.Generic.List<SmartDose.WcfMasterData9002.ContactPerson> ContactPersons
         {
             get
             {
@@ -666,7 +666,7 @@ namespace MasterData9002
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ContactPerson", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
         "odel.Customers")]
-    public partial class ContactPerson : MasterData9002.BaseData
+    public partial class ContactPerson : SmartDose.WcfMasterData9002.BaseData
     {
         
         private string EmailField;
@@ -719,14 +719,14 @@ namespace MasterData9002
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Tray", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
         "odel.Trays")]
-    public partial class Tray : MasterData9002.BaseData
+    public partial class Tray : SmartDose.WcfMasterData9002.BaseData
     {
         
         private string BarcodeField;
         
         private string DescriptionField;
         
-        private MasterData9002.ReleaseStatus ReleaseStatusField;
+        private SmartDose.WcfMasterData9002.ReleaseStatus ReleaseStatusField;
         
         private string RfidField;
         
@@ -759,7 +759,7 @@ namespace MasterData9002
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.ReleaseStatus ReleaseStatus
+        public SmartDose.WcfMasterData9002.ReleaseStatus ReleaseStatus
         {
             get
             {
@@ -802,14 +802,14 @@ namespace MasterData9002
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GlobalConfiguration", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
         "odel.Settings")]
-    public partial class GlobalConfiguration : MasterData9002.BaseData
+    public partial class GlobalConfiguration : SmartDose.WcfMasterData9002.BaseData
     {
         
         private int MaxValueLimiterField;
         
         private int MinValueLimiterField;
         
-        private MasterData9002.GlobalSettingType SettingTypeField;
+        private SmartDose.WcfMasterData9002.GlobalSettingType SettingTypeField;
         
         private string ValueField;
         
@@ -842,7 +842,7 @@ namespace MasterData9002
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.GlobalSettingType SettingType
+        public SmartDose.WcfMasterData9002.GlobalSettingType SettingType
         {
             get
             {
@@ -883,611 +883,39 @@ namespace MasterData9002
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DestinationFacility", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
-        "odel.DestinationFacilities")]
-    public partial class DestinationFacility : MasterData9002.BaseData
-    {
-        
-        private MasterData9002.ContactAddress ContactAddressField;
-        
-        private long CustomerIdField;
-        
-        private string DepartmentCodeField;
-        
-        private string DepartmentNameField;
-        
-        private string DescriptionField;
-        
-        private string IdentifierField;
-        
-        private byte[] LogoField;
-        
-        private System.Collections.Generic.List<MasterData9002.Patient> PatientsField;
-        
-        private MasterData9002.PouchSchemaDesign PouchSchemaDesignField;
-        
-        private bool StatusField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.ContactAddress ContactAddress
-        {
-            get
-            {
-                return this.ContactAddressField;
-            }
-            set
-            {
-                this.ContactAddressField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long CustomerId
-        {
-            get
-            {
-                return this.CustomerIdField;
-            }
-            set
-            {
-                this.CustomerIdField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DepartmentCode
-        {
-            get
-            {
-                return this.DepartmentCodeField;
-            }
-            set
-            {
-                this.DepartmentCodeField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DepartmentName
-        {
-            get
-            {
-                return this.DepartmentNameField;
-            }
-            set
-            {
-                this.DepartmentNameField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description
-        {
-            get
-            {
-                return this.DescriptionField;
-            }
-            set
-            {
-                this.DescriptionField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Identifier
-        {
-            get
-            {
-                return this.IdentifierField;
-            }
-            set
-            {
-                this.IdentifierField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public byte[] Logo
-        {
-            get
-            {
-                return this.LogoField;
-            }
-            set
-            {
-                this.LogoField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<MasterData9002.Patient> Patients
-        {
-            get
-            {
-                return this.PatientsField;
-            }
-            set
-            {
-                this.PatientsField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.PouchSchemaDesign PouchSchemaDesign
-        {
-            get
-            {
-                return this.PouchSchemaDesignField;
-            }
-            set
-            {
-                this.PouchSchemaDesignField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool Status
-        {
-            get
-            {
-                return this.StatusField;
-            }
-            set
-            {
-                this.StatusField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Patient", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
-        "odel.DestinationFacilities")]
-    public partial class Patient : MasterData9002.BaseData
-    {
-        
-        private string BedNumberField;
-        
-        private System.DateTime BirthdayField;
-        
-        private MasterData9002.ContactAddress CareLocationField;
-        
-        private string CareLocationNameField;
-        
-        private string CommentField;
-        
-        private string ExternalPatientNumberField;
-        
-        private string FirstNameField;
-        
-        private MasterData9002.Gender GenderField;
-        
-        private string LanguageField;
-        
-        private string LastNameField;
-        
-        private string MiddleNameField;
-        
-        private string RoomNumberField;
-        
-        private string WardNameField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BedNumber
-        {
-            get
-            {
-                return this.BedNumberField;
-            }
-            set
-            {
-                this.BedNumberField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime Birthday
-        {
-            get
-            {
-                return this.BirthdayField;
-            }
-            set
-            {
-                this.BirthdayField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.ContactAddress CareLocation
-        {
-            get
-            {
-                return this.CareLocationField;
-            }
-            set
-            {
-                this.CareLocationField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CareLocationName
-        {
-            get
-            {
-                return this.CareLocationNameField;
-            }
-            set
-            {
-                this.CareLocationNameField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Comment
-        {
-            get
-            {
-                return this.CommentField;
-            }
-            set
-            {
-                this.CommentField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ExternalPatientNumber
-        {
-            get
-            {
-                return this.ExternalPatientNumberField;
-            }
-            set
-            {
-                this.ExternalPatientNumberField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FirstName
-        {
-            get
-            {
-                return this.FirstNameField;
-            }
-            set
-            {
-                this.FirstNameField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.Gender Gender
-        {
-            get
-            {
-                return this.GenderField;
-            }
-            set
-            {
-                this.GenderField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Language
-        {
-            get
-            {
-                return this.LanguageField;
-            }
-            set
-            {
-                this.LanguageField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LastName
-        {
-            get
-            {
-                return this.LastNameField;
-            }
-            set
-            {
-                this.LastNameField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MiddleName
-        {
-            get
-            {
-                return this.MiddleNameField;
-            }
-            set
-            {
-                this.MiddleNameField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string RoomNumber
-        {
-            get
-            {
-                return this.RoomNumberField;
-            }
-            set
-            {
-                this.RoomNumberField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string WardName
-        {
-            get
-            {
-                return this.WardNameField;
-            }
-            set
-            {
-                this.WardNameField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PouchSchemaDesign", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
-        "odel.DestinationFacilities")]
-    public partial class PouchSchemaDesign : MasterData9002.BaseData
-    {
-        
-        private string DescriptionField;
-        
-        private bool IsFromDestinationFacilityField;
-        
-        private bool IsFromFullFillmentCenterField;
-        
-        private System.Collections.Generic.List<MasterData9002.LabelDesign> LabelDesignsField;
-        
-        private string NameField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description
-        {
-            get
-            {
-                return this.DescriptionField;
-            }
-            set
-            {
-                this.DescriptionField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsFromDestinationFacility
-        {
-            get
-            {
-                return this.IsFromDestinationFacilityField;
-            }
-            set
-            {
-                this.IsFromDestinationFacilityField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsFromFullFillmentCenter
-        {
-            get
-            {
-                return this.IsFromFullFillmentCenterField;
-            }
-            set
-            {
-                this.IsFromFullFillmentCenterField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<MasterData9002.LabelDesign> LabelDesigns
-        {
-            get
-            {
-                return this.LabelDesignsField;
-            }
-            set
-            {
-                this.LabelDesignsField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name
-        {
-            get
-            {
-                return this.NameField;
-            }
-            set
-            {
-                this.NameField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="LabelDesign", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
-        "odel.DestinationFacilities")]
-    public partial class LabelDesign : MasterData9002.BaseData
-    {
-        
-        private string DescriptionField;
-        
-        private MasterData9002.LabelType LabelTypeField;
-        
-        private string NameField;
-        
-        private long OriginalIdField;
-        
-        private string SerializedLabelDesignField;
-        
-        private float SizeLimitXField;
-        
-        private float SizeLimitYField;
-        
-        private bool SystemTemplateField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description
-        {
-            get
-            {
-                return this.DescriptionField;
-            }
-            set
-            {
-                this.DescriptionField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.LabelType LabelType
-        {
-            get
-            {
-                return this.LabelTypeField;
-            }
-            set
-            {
-                this.LabelTypeField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name
-        {
-            get
-            {
-                return this.NameField;
-            }
-            set
-            {
-                this.NameField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long OriginalId
-        {
-            get
-            {
-                return this.OriginalIdField;
-            }
-            set
-            {
-                this.OriginalIdField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SerializedLabelDesign
-        {
-            get
-            {
-                return this.SerializedLabelDesignField;
-            }
-            set
-            {
-                this.SerializedLabelDesignField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public float SizeLimitX
-        {
-            get
-            {
-                return this.SizeLimitXField;
-            }
-            set
-            {
-                this.SizeLimitXField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public float SizeLimitY
-        {
-            get
-            {
-                return this.SizeLimitYField;
-            }
-            set
-            {
-                this.SizeLimitYField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool SystemTemplate
-        {
-            get
-            {
-                return this.SystemTemplateField;
-            }
-            set
-            {
-                this.SystemTemplateField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Canister", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
         "odel.Canisters")]
-    public partial class Canister : MasterData9002.BaseData
+    public partial class Canister : SmartDose.WcfMasterData9002.BaseData
     {
         
-        private MasterData9002.CanisterActivityStatus ActivityStatusField;
+        private SmartDose.WcfMasterData9002.CanisterActivityStatus ActivityStatusField;
         
         private string BarcodeField;
         
-        private MasterData9002.CanisterType CanisterTypeField;
+        private SmartDose.WcfMasterData9002.CanisterType CanisterTypeField;
         
         private string DescriptionField;
         
         private string IdentifierField;
         
-        private MasterData9002.Location LocationField;
+        private SmartDose.WcfMasterData9002.Location LocationField;
         
-        private MasterData9002.Medicine MedicineField;
+        private SmartDose.WcfMasterData9002.Medicine MedicineField;
         
-        private MasterData9002.MedicineContent MedicineContentField;
+        private SmartDose.WcfMasterData9002.MedicineContent MedicineContentField;
         
         private string ReasonField;
         
-        private MasterData9002.ReleaseStatus ReleaseStatusField;
+        private SmartDose.WcfMasterData9002.ReleaseStatus ReleaseStatusField;
         
         private string RfidField;
         
         private string RotorIdField;
         
-        private MasterData9002.CanisterSize SizeField;
+        private SmartDose.WcfMasterData9002.CanisterSize SizeField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.CanisterActivityStatus ActivityStatus
+        public SmartDose.WcfMasterData9002.CanisterActivityStatus ActivityStatus
         {
             get
             {
@@ -1513,7 +941,7 @@ namespace MasterData9002
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.CanisterType CanisterType
+        public SmartDose.WcfMasterData9002.CanisterType CanisterType
         {
             get
             {
@@ -1552,7 +980,7 @@ namespace MasterData9002
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.Location Location
+        public SmartDose.WcfMasterData9002.Location Location
         {
             get
             {
@@ -1565,7 +993,7 @@ namespace MasterData9002
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.Medicine Medicine
+        public SmartDose.WcfMasterData9002.Medicine Medicine
         {
             get
             {
@@ -1578,7 +1006,7 @@ namespace MasterData9002
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.MedicineContent MedicineContent
+        public SmartDose.WcfMasterData9002.MedicineContent MedicineContent
         {
             get
             {
@@ -1604,7 +1032,7 @@ namespace MasterData9002
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.ReleaseStatus ReleaseStatus
+        public SmartDose.WcfMasterData9002.ReleaseStatus ReleaseStatus
         {
             get
             {
@@ -1643,7 +1071,7 @@ namespace MasterData9002
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.CanisterSize Size
+        public SmartDose.WcfMasterData9002.CanisterSize Size
         {
             get
             {
@@ -1660,18 +1088,18 @@ namespace MasterData9002
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Location", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
         "odel.Canisters")]
-    public partial class Location : MasterData9002.BaseData
+    public partial class Location : SmartDose.WcfMasterData9002.BaseData
     {
         
         private string LocationNameField;
         
-        private MasterData9002.LocationType LocationTypeField;
+        private SmartDose.WcfMasterData9002.LocationType LocationTypeField;
         
         private int MachineNumberField;
         
         private long NumberOfContentsInWasteField;
         
-        private MasterData9002.Position PositionInMachineField;
+        private SmartDose.WcfMasterData9002.Position PositionInMachineField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string LocationName
@@ -1687,7 +1115,7 @@ namespace MasterData9002
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.LocationType LocationType
+        public SmartDose.WcfMasterData9002.LocationType LocationType
         {
             get
             {
@@ -1726,7 +1154,7 @@ namespace MasterData9002
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.Position PositionInMachine
+        public SmartDose.WcfMasterData9002.Position PositionInMachine
         {
             get
             {
@@ -1743,7 +1171,7 @@ namespace MasterData9002
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Position", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
         "odel.Canisters")]
-    public partial class Position : MasterData9002.BaseData
+    public partial class Position : SmartDose.WcfMasterData9002.BaseData
     {
         
         private long BayField;
@@ -1781,7 +1209,7 @@ namespace MasterData9002
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Medicine", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
         "odel.Medicines")]
-    public partial class Medicine : MasterData9002.BaseData
+    public partial class Medicine : SmartDose.WcfMasterData9002.BaseData
     {
         
         private string CommentField;
@@ -1790,25 +1218,25 @@ namespace MasterData9002
         
         private string IdentifierField;
         
-        private MasterData9002.Manufacturer ManufacturerField;
+        private SmartDose.WcfMasterData9002.Manufacturer ManufacturerField;
         
-        private System.Collections.Generic.List<MasterData9002.MedicinePicture> MedicinePicturesField;
+        private System.Collections.Generic.List<SmartDose.WcfMasterData9002.MedicinePicture> MedicinePicturesField;
         
         private string NameField;
         
-        private MasterData9002.MedicinePillDetail PillDetailField;
+        private SmartDose.WcfMasterData9002.MedicinePillDetail PillDetailField;
         
-        private MasterData9002.PouchMode PouchModeField;
+        private SmartDose.WcfMasterData9002.PouchMode PouchModeField;
         
-        private System.Collections.Generic.List<MasterData9002.MedicinePrintDetail> PrintDetailsField;
+        private System.Collections.Generic.List<SmartDose.WcfMasterData9002.MedicinePrintDetail> PrintDetailsField;
         
         private string ReasonField;
         
-        private MasterData9002.ReleaseStatus ReleaseStatusField;
+        private SmartDose.WcfMasterData9002.ReleaseStatus ReleaseStatusField;
         
-        private MasterData9002.MedicineSpecialHandling SpecialHandlingField;
+        private SmartDose.WcfMasterData9002.MedicineSpecialHandling SpecialHandlingField;
         
-        private System.Collections.Generic.List<MasterData9002.MedicineSynonym> SynonymIdsField;
+        private System.Collections.Generic.List<SmartDose.WcfMasterData9002.MedicineSynonym> SynonymIdsField;
         
         private bool TrayFillOnlyField;
         
@@ -1852,7 +1280,7 @@ namespace MasterData9002
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.Manufacturer Manufacturer
+        public SmartDose.WcfMasterData9002.Manufacturer Manufacturer
         {
             get
             {
@@ -1865,7 +1293,7 @@ namespace MasterData9002
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<MasterData9002.MedicinePicture> MedicinePictures
+        public System.Collections.Generic.List<SmartDose.WcfMasterData9002.MedicinePicture> MedicinePictures
         {
             get
             {
@@ -1891,7 +1319,7 @@ namespace MasterData9002
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.MedicinePillDetail PillDetail
+        public SmartDose.WcfMasterData9002.MedicinePillDetail PillDetail
         {
             get
             {
@@ -1904,7 +1332,7 @@ namespace MasterData9002
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.PouchMode PouchMode
+        public SmartDose.WcfMasterData9002.PouchMode PouchMode
         {
             get
             {
@@ -1917,7 +1345,7 @@ namespace MasterData9002
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<MasterData9002.MedicinePrintDetail> PrintDetails
+        public System.Collections.Generic.List<SmartDose.WcfMasterData9002.MedicinePrintDetail> PrintDetails
         {
             get
             {
@@ -1943,7 +1371,7 @@ namespace MasterData9002
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.ReleaseStatus ReleaseStatus
+        public SmartDose.WcfMasterData9002.ReleaseStatus ReleaseStatus
         {
             get
             {
@@ -1956,7 +1384,7 @@ namespace MasterData9002
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MasterData9002.MedicineSpecialHandling SpecialHandling
+        public SmartDose.WcfMasterData9002.MedicineSpecialHandling SpecialHandling
         {
             get
             {
@@ -1969,7 +1397,7 @@ namespace MasterData9002
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.List<MasterData9002.MedicineSynonym> SynonymIds
+        public System.Collections.Generic.List<SmartDose.WcfMasterData9002.MedicineSynonym> SynonymIds
         {
             get
             {
@@ -1999,7 +1427,7 @@ namespace MasterData9002
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MedicinePicture", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
         "odel.Medicines")]
-    public partial class MedicinePicture : MasterData9002.BaseData
+    public partial class MedicinePicture : SmartDose.WcfMasterData9002.BaseData
     {
         
         private byte[] PictureField;
@@ -2022,7 +1450,7 @@ namespace MasterData9002
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MedicinePillDetail", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
         "odel.Medicines")]
-    public partial class MedicinePillDetail : MasterData9002.BaseData
+    public partial class MedicinePillDetail : SmartDose.WcfMasterData9002.BaseData
     {
         
         private float HeightField;
@@ -2120,7 +1548,7 @@ namespace MasterData9002
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MedicinePrintDetail", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
         "odel.Medicines")]
-    public partial class MedicinePrintDetail : MasterData9002.BaseData
+    public partial class MedicinePrintDetail : SmartDose.WcfMasterData9002.BaseData
     {
         
         private string AdditionalAdviceField;
@@ -2278,7 +1706,7 @@ namespace MasterData9002
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MedicineSpecialHandling", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
         "odel.Medicines")]
-    public partial class MedicineSpecialHandling : MasterData9002.BaseData
+    public partial class MedicineSpecialHandling : SmartDose.WcfMasterData9002.BaseData
     {
         
         private int ExpiryTimeInDaysField;
@@ -2391,7 +1819,7 @@ namespace MasterData9002
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MedicineSynonym", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
         "odel.Medicines")]
-    public partial class MedicineSynonym : MasterData9002.BaseData
+    public partial class MedicineSynonym : SmartDose.WcfMasterData9002.BaseData
     {
         
         private int ContentField;
@@ -2459,7 +1887,7 @@ namespace MasterData9002
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MedicineContent", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
         "odel.Canisters")]
-    public partial class MedicineContent : MasterData9002.BaseData
+    public partial class MedicineContent : SmartDose.WcfMasterData9002.BaseData
     {
         
         private long ContainerIdField;
@@ -2705,9 +2133,581 @@ namespace MasterData9002
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DestinationFacility", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        "odel.DestinationFacilities")]
+    public partial class DestinationFacility : SmartDose.WcfMasterData9002.BaseData
+    {
+        
+        private SmartDose.WcfMasterData9002.ContactAddress ContactAddressField;
+        
+        private long CustomerIdField;
+        
+        private string DepartmentCodeField;
+        
+        private string DepartmentNameField;
+        
+        private string DescriptionField;
+        
+        private string IdentifierField;
+        
+        private byte[] LogoField;
+        
+        private System.Collections.Generic.List<SmartDose.WcfMasterData9002.Patient> PatientsField;
+        
+        private SmartDose.WcfMasterData9002.PouchSchemaDesign PouchSchemaDesignField;
+        
+        private bool StatusField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SmartDose.WcfMasterData9002.ContactAddress ContactAddress
+        {
+            get
+            {
+                return this.ContactAddressField;
+            }
+            set
+            {
+                this.ContactAddressField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long CustomerId
+        {
+            get
+            {
+                return this.CustomerIdField;
+            }
+            set
+            {
+                this.CustomerIdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DepartmentCode
+        {
+            get
+            {
+                return this.DepartmentCodeField;
+            }
+            set
+            {
+                this.DepartmentCodeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DepartmentName
+        {
+            get
+            {
+                return this.DepartmentNameField;
+            }
+            set
+            {
+                this.DepartmentNameField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description
+        {
+            get
+            {
+                return this.DescriptionField;
+            }
+            set
+            {
+                this.DescriptionField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Identifier
+        {
+            get
+            {
+                return this.IdentifierField;
+            }
+            set
+            {
+                this.IdentifierField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] Logo
+        {
+            get
+            {
+                return this.LogoField;
+            }
+            set
+            {
+                this.LogoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<SmartDose.WcfMasterData9002.Patient> Patients
+        {
+            get
+            {
+                return this.PatientsField;
+            }
+            set
+            {
+                this.PatientsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SmartDose.WcfMasterData9002.PouchSchemaDesign PouchSchemaDesign
+        {
+            get
+            {
+                return this.PouchSchemaDesignField;
+            }
+            set
+            {
+                this.PouchSchemaDesignField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Status
+        {
+            get
+            {
+                return this.StatusField;
+            }
+            set
+            {
+                this.StatusField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Patient", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        "odel.DestinationFacilities")]
+    public partial class Patient : SmartDose.WcfMasterData9002.BaseData
+    {
+        
+        private string BedNumberField;
+        
+        private System.DateTime BirthdayField;
+        
+        private SmartDose.WcfMasterData9002.ContactAddress CareLocationField;
+        
+        private string CareLocationNameField;
+        
+        private string CommentField;
+        
+        private string ExternalPatientNumberField;
+        
+        private string FirstNameField;
+        
+        private SmartDose.WcfMasterData9002.Gender GenderField;
+        
+        private string LanguageField;
+        
+        private string LastNameField;
+        
+        private string MiddleNameField;
+        
+        private string RoomNumberField;
+        
+        private string WardNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BedNumber
+        {
+            get
+            {
+                return this.BedNumberField;
+            }
+            set
+            {
+                this.BedNumberField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Birthday
+        {
+            get
+            {
+                return this.BirthdayField;
+            }
+            set
+            {
+                this.BirthdayField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SmartDose.WcfMasterData9002.ContactAddress CareLocation
+        {
+            get
+            {
+                return this.CareLocationField;
+            }
+            set
+            {
+                this.CareLocationField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CareLocationName
+        {
+            get
+            {
+                return this.CareLocationNameField;
+            }
+            set
+            {
+                this.CareLocationNameField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Comment
+        {
+            get
+            {
+                return this.CommentField;
+            }
+            set
+            {
+                this.CommentField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ExternalPatientNumber
+        {
+            get
+            {
+                return this.ExternalPatientNumberField;
+            }
+            set
+            {
+                this.ExternalPatientNumberField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FirstName
+        {
+            get
+            {
+                return this.FirstNameField;
+            }
+            set
+            {
+                this.FirstNameField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SmartDose.WcfMasterData9002.Gender Gender
+        {
+            get
+            {
+                return this.GenderField;
+            }
+            set
+            {
+                this.GenderField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Language
+        {
+            get
+            {
+                return this.LanguageField;
+            }
+            set
+            {
+                this.LanguageField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastName
+        {
+            get
+            {
+                return this.LastNameField;
+            }
+            set
+            {
+                this.LastNameField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MiddleName
+        {
+            get
+            {
+                return this.MiddleNameField;
+            }
+            set
+            {
+                this.MiddleNameField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RoomNumber
+        {
+            get
+            {
+                return this.RoomNumberField;
+            }
+            set
+            {
+                this.RoomNumberField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string WardName
+        {
+            get
+            {
+                return this.WardNameField;
+            }
+            set
+            {
+                this.WardNameField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PouchSchemaDesign", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        "odel.DestinationFacilities")]
+    public partial class PouchSchemaDesign : SmartDose.WcfMasterData9002.BaseData
+    {
+        
+        private string DescriptionField;
+        
+        private bool IsFromDestinationFacilityField;
+        
+        private bool IsFromFullFillmentCenterField;
+        
+        private System.Collections.Generic.List<SmartDose.WcfMasterData9002.LabelDesign> LabelDesignsField;
+        
+        private string NameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description
+        {
+            get
+            {
+                return this.DescriptionField;
+            }
+            set
+            {
+                this.DescriptionField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsFromDestinationFacility
+        {
+            get
+            {
+                return this.IsFromDestinationFacilityField;
+            }
+            set
+            {
+                this.IsFromDestinationFacilityField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsFromFullFillmentCenter
+        {
+            get
+            {
+                return this.IsFromFullFillmentCenterField;
+            }
+            set
+            {
+                this.IsFromFullFillmentCenterField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<SmartDose.WcfMasterData9002.LabelDesign> LabelDesigns
+        {
+            get
+            {
+                return this.LabelDesignsField;
+            }
+            set
+            {
+                this.LabelDesignsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name
+        {
+            get
+            {
+                return this.NameField;
+            }
+            set
+            {
+                this.NameField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LabelDesign", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        "odel.DestinationFacilities")]
+    public partial class LabelDesign : SmartDose.WcfMasterData9002.BaseData
+    {
+        
+        private string DescriptionField;
+        
+        private SmartDose.WcfMasterData9002.LabelType LabelTypeField;
+        
+        private string NameField;
+        
+        private long OriginalIdField;
+        
+        private string SerializedLabelDesignField;
+        
+        private float SizeLimitXField;
+        
+        private float SizeLimitYField;
+        
+        private bool SystemTemplateField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description
+        {
+            get
+            {
+                return this.DescriptionField;
+            }
+            set
+            {
+                this.DescriptionField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SmartDose.WcfMasterData9002.LabelType LabelType
+        {
+            get
+            {
+                return this.LabelTypeField;
+            }
+            set
+            {
+                this.LabelTypeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name
+        {
+            get
+            {
+                return this.NameField;
+            }
+            set
+            {
+                this.NameField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long OriginalId
+        {
+            get
+            {
+                return this.OriginalIdField;
+            }
+            set
+            {
+                this.OriginalIdField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SerializedLabelDesign
+        {
+            get
+            {
+                return this.SerializedLabelDesignField;
+            }
+            set
+            {
+                this.SerializedLabelDesignField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float SizeLimitX
+        {
+            get
+            {
+                return this.SizeLimitXField;
+            }
+            set
+            {
+                this.SizeLimitXField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float SizeLimitY
+        {
+            get
+            {
+                return this.SizeLimitYField;
+            }
+            set
+            {
+                this.SizeLimitYField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool SystemTemplate
+        {
+            get
+            {
+                return this.SystemTemplateField;
+            }
+            set
+            {
+                this.SystemTemplateField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MedicineOverview", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
         "odel.Medicines")]
-    public partial class MedicineOverview : MasterData9002.BaseData
+    public partial class MedicineOverview : SmartDose.WcfMasterData9002.BaseData
     {
         
         private string DescriptionField;
@@ -2937,65 +2937,6 @@ namespace MasterData9002
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Gender", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
-        "odel.DestinationFacilities")]
-    public enum Gender : int
-    {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Undefined = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Undifferentiated = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Male = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Female = 3,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="LabelType", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
-        "odel.DestinationFacilities")]
-    public enum LabelType : int
-    {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        None = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        EmptyRun = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        JobHeader = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        JobFooter = 3,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        PatientHeader = 4,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        PatientFooter = 5,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        PatientDetail = 6,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Canister = 7,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Tray = 8,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        StockBottle = 9,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Pack = 10,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CanisterActivityStatus", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
         "odel.Canisters")]
     public enum CanisterActivityStatus : int
@@ -3088,6 +3029,65 @@ namespace MasterData9002
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ignore = 4,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Gender", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        "odel.DestinationFacilities")]
+    public enum Gender : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Undefined = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Undifferentiated = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Male = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Female = 3,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LabelType", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        "odel.DestinationFacilities")]
+    public enum LabelType : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        None = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EmptyRun = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        JobHeader = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        JobFooter = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PatientHeader = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PatientFooter = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PatientDetail = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Canister = 7,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Tray = 8,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        StockBottle = 9,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Pack = 10,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3250,7 +3250,7 @@ namespace MasterData9002
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MasterData9002.IMasterDataService", CallbackContract=typeof(MasterData9002.IMasterDataServiceCallback))]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SmartDose.WcfMasterData9002.IMasterDataService", CallbackContract=typeof(SmartDose.WcfMasterData9002.IMasterDataServiceCallback))]
     public interface IMasterDataService
     {
         
@@ -3261,200 +3261,200 @@ namespace MasterData9002
         System.Threading.Tasks.Task UnsubscribeForCallbacksAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/GetCustomers", ReplyAction="http://tempuri.org/IMasterDataService/GetCustomersResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetCustomersArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetCustomersArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MasterData9002.Customer>> GetCustomersAsync(System.Collections.Generic.List<MasterData9002.SearchFilter> searchFilter, MasterData9002.SortFilter sortFilter, MasterData9002.PageFilter pageFilter);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<SmartDose.WcfMasterData9002.Customer>> GetCustomersAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.SearchFilter> searchFilter, SmartDose.WcfMasterData9002.SortFilter sortFilter, SmartDose.WcfMasterData9002.PageFilter pageFilter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/AddOrUpdateCustomer", ReplyAction="http://tempuri.org/IMasterDataService/AddOrUpdateCustomerResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateCustomerArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateCustomerArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateCustomerEntitySaveFaultFault", Name="EntitySaveFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateCustomerEntitySaveFaultFault", Name="EntitySaveFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        System.Threading.Tasks.Task<MasterData9002.Customer> AddOrUpdateCustomerAsync(MasterData9002.Customer customer);
+        System.Threading.Tasks.Task<SmartDose.WcfMasterData9002.Customer> AddOrUpdateCustomerAsync(SmartDose.WcfMasterData9002.Customer customer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/DeleteCustomer", ReplyAction="http://tempuri.org/IMasterDataService/DeleteCustomerResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/DeleteCustomerEntitySaveFaultFault", Name="EntitySaveFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/DeleteCustomerEntitySaveFaultFault", Name="EntitySaveFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
         System.Threading.Tasks.Task DeleteCustomerAsync(long customerId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/GetCustomerCount", ReplyAction="http://tempuri.org/IMasterDataService/GetCustomerCountResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetCustomerCountArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetCustomerCountArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        System.Threading.Tasks.Task<int> GetCustomerCountAsync(System.Collections.Generic.List<MasterData9002.SearchFilter> searchFilter);
+        System.Threading.Tasks.Task<int> GetCustomerCountAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.SearchFilter> searchFilter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/GetMedicines", ReplyAction="http://tempuri.org/IMasterDataService/GetMedicinesResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetMedicinesArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetMedicinesArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MasterData9002.Medicine>> GetMedicinesAsync(System.Collections.Generic.List<MasterData9002.SearchFilter> searchFilter, MasterData9002.SortFilter sortFilter, MasterData9002.PageFilter pageFilter);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<SmartDose.WcfMasterData9002.Medicine>> GetMedicinesAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.SearchFilter> searchFilter, SmartDose.WcfMasterData9002.SortFilter sortFilter, SmartDose.WcfMasterData9002.PageFilter pageFilter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/GetMedicineOverview", ReplyAction="http://tempuri.org/IMasterDataService/GetMedicineOverviewResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetMedicineOverviewArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetMedicineOverviewArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MasterData9002.MedicineOverview>> GetMedicineOverviewAsync(System.Collections.Generic.List<MasterData9002.SearchFilter> searchFilter, MasterData9002.SortFilter sortFilter, MasterData9002.PageFilter pageFilter);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<SmartDose.WcfMasterData9002.MedicineOverview>> GetMedicineOverviewAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.SearchFilter> searchFilter, SmartDose.WcfMasterData9002.SortFilter sortFilter, SmartDose.WcfMasterData9002.PageFilter pageFilter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/GetMedicinesMissingIdentifiers", ReplyAction="http://tempuri.org/IMasterDataService/GetMedicinesMissingIdentifiersResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetMedicinesMissingIdentifiersArgumentFault" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetMedicinesMissingIdentifiersArgumentFault" +
             "Fault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<string>> GetMedicinesMissingIdentifiersAsync(System.Collections.Generic.List<string> requestedMedicineIdentifiers, bool withSynonyms);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/GetMedicineCount", ReplyAction="http://tempuri.org/IMasterDataService/GetMedicineCountResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetMedicineCountArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetMedicineCountArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        System.Threading.Tasks.Task<int> GetMedicineCountAsync(System.Collections.Generic.List<MasterData9002.SearchFilter> searchFilter);
+        System.Threading.Tasks.Task<int> GetMedicineCountAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.SearchFilter> searchFilter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/AddOrUpdateMedicine", ReplyAction="http://tempuri.org/IMasterDataService/AddOrUpdateMedicineResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateMedicineArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateMedicineArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateMedicineEntitySaveFaultFault", Name="EntitySaveFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateMedicineEntitySaveFaultFault", Name="EntitySaveFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        System.Threading.Tasks.Task<MasterData9002.Medicine> AddOrUpdateMedicineAsync(MasterData9002.Medicine medicine);
+        System.Threading.Tasks.Task<SmartDose.WcfMasterData9002.Medicine> AddOrUpdateMedicineAsync(SmartDose.WcfMasterData9002.Medicine medicine);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/DeleteMedicine", ReplyAction="http://tempuri.org/IMasterDataService/DeleteMedicineResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/DeleteMedicineEntitySaveFaultFault", Name="EntitySaveFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/DeleteMedicineEntitySaveFaultFault", Name="EntitySaveFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
         System.Threading.Tasks.Task DeleteMedicineAsync(long medicineId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/GetCanisterAllowedMedicines", ReplyAction="http://tempuri.org/IMasterDataService/GetCanisterAllowedMedicinesResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetCanisterAllowedMedicinesArgumentFaultFau" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetCanisterAllowedMedicinesArgumentFaultFau" +
             "lt", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MasterData9002.Medicine>> GetCanisterAllowedMedicinesAsync(System.Collections.Generic.List<MasterData9002.SearchFilter> searchFilter, MasterData9002.SortFilter sortFilter, MasterData9002.PageFilter pageFilter);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<SmartDose.WcfMasterData9002.Medicine>> GetCanisterAllowedMedicinesAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.SearchFilter> searchFilter, SmartDose.WcfMasterData9002.SortFilter sortFilter, SmartDose.WcfMasterData9002.PageFilter pageFilter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/ReleaseMedicine", ReplyAction="http://tempuri.org/IMasterDataService/ReleaseMedicineResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/ReleaseMedicineArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/ReleaseMedicineArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        System.Threading.Tasks.Task<MasterData9002.Medicine> ReleaseMedicineAsync(string identifier);
+        System.Threading.Tasks.Task<SmartDose.WcfMasterData9002.Medicine> ReleaseMedicineAsync(string identifier);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/CheckIfMedicineCanBeDeleted", ReplyAction="http://tempuri.org/IMasterDataService/CheckIfMedicineCanBeDeletedResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/CheckIfMedicineCanBeDeletedArgumentFaultFau" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/CheckIfMedicineCanBeDeletedArgumentFaultFau" +
             "lt", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        System.Threading.Tasks.Task<MasterData9002.MedicineUseInformation> CheckIfMedicineCanBeDeletedAsync(long medId);
+        System.Threading.Tasks.Task<SmartDose.WcfMasterData9002.MedicineUseInformation> CheckIfMedicineCanBeDeletedAsync(long medId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/GetManufacturers", ReplyAction="http://tempuri.org/IMasterDataService/GetManufacturersResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetManufacturersArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetManufacturersArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MasterData9002.Manufacturer>> GetManufacturersAsync(System.Collections.Generic.List<MasterData9002.SearchFilter> searchFilter, MasterData9002.SortFilter sortFilter, MasterData9002.PageFilter pageFilter);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<SmartDose.WcfMasterData9002.Manufacturer>> GetManufacturersAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.SearchFilter> searchFilter, SmartDose.WcfMasterData9002.SortFilter sortFilter, SmartDose.WcfMasterData9002.PageFilter pageFilter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/AddOrUpdateManufacturer", ReplyAction="http://tempuri.org/IMasterDataService/AddOrUpdateManufacturerResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateManufacturerArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateManufacturerArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateManufacturerEntitySaveFaultFault" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateManufacturerEntitySaveFaultFault" +
             "", Name="EntitySaveFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        System.Threading.Tasks.Task<MasterData9002.Manufacturer> AddOrUpdateManufacturerAsync(MasterData9002.Manufacturer manufacturer);
+        System.Threading.Tasks.Task<SmartDose.WcfMasterData9002.Manufacturer> AddOrUpdateManufacturerAsync(SmartDose.WcfMasterData9002.Manufacturer manufacturer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/DeleteManufacturer", ReplyAction="http://tempuri.org/IMasterDataService/DeleteManufacturerResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/DeleteManufacturerEntitySaveFaultFault", Name="EntitySaveFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/DeleteManufacturerEntitySaveFaultFault", Name="EntitySaveFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
         System.Threading.Tasks.Task DeleteManufacturerAsync(long manufacturerId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/GetDestinationFacilities", ReplyAction="http://tempuri.org/IMasterDataService/GetDestinationFacilitiesResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetDestinationFacilitiesArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetDestinationFacilitiesArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MasterData9002.DestinationFacility>> GetDestinationFacilitiesAsync(System.Collections.Generic.List<MasterData9002.SearchFilter> searchFilter, MasterData9002.SortFilter sortFilter, MasterData9002.PageFilter pageFilter);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<SmartDose.WcfMasterData9002.DestinationFacility>> GetDestinationFacilitiesAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.SearchFilter> searchFilter, SmartDose.WcfMasterData9002.SortFilter sortFilter, SmartDose.WcfMasterData9002.PageFilter pageFilter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/AddOrUpdateDestinationFacility", ReplyAction="http://tempuri.org/IMasterDataService/AddOrUpdateDestinationFacilityResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateDestinationFacilityArgumentFault" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateDestinationFacilityArgumentFault" +
             "Fault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateDestinationFacilityEntitySaveFau" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateDestinationFacilityEntitySaveFau" +
             "ltFault", Name="EntitySaveFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        System.Threading.Tasks.Task<MasterData9002.DestinationFacility> AddOrUpdateDestinationFacilityAsync(MasterData9002.DestinationFacility destinationFacility);
+        System.Threading.Tasks.Task<SmartDose.WcfMasterData9002.DestinationFacility> AddOrUpdateDestinationFacilityAsync(SmartDose.WcfMasterData9002.DestinationFacility destinationFacility);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/DeleteDestinationFacility", ReplyAction="http://tempuri.org/IMasterDataService/DeleteDestinationFacilityResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/DeleteDestinationFacilityEntitySaveFaultFau" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/DeleteDestinationFacilityEntitySaveFaultFau" +
             "lt", Name="EntitySaveFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
         System.Threading.Tasks.Task DeleteDestinationFacilityAsync(long destinationFacilityId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/GetCanisters", ReplyAction="http://tempuri.org/IMasterDataService/GetCanistersResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetCanistersArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetCanistersArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MasterData9002.Canister>> GetCanistersAsync(System.Collections.Generic.List<MasterData9002.SearchFilter> searchFilter, MasterData9002.SortFilter sortFilter, MasterData9002.PageFilter pageFilter);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<SmartDose.WcfMasterData9002.Canister>> GetCanistersAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.SearchFilter> searchFilter, SmartDose.WcfMasterData9002.SortFilter sortFilter, SmartDose.WcfMasterData9002.PageFilter pageFilter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/GetCanisterCount", ReplyAction="http://tempuri.org/IMasterDataService/GetCanisterCountResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetCanisterCountArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetCanisterCountArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        System.Threading.Tasks.Task<int> GetCanisterCountAsync(System.Collections.Generic.List<MasterData9002.SearchFilter> searchFilter);
+        System.Threading.Tasks.Task<int> GetCanisterCountAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.SearchFilter> searchFilter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/AddOrUpdateCanister", ReplyAction="http://tempuri.org/IMasterDataService/AddOrUpdateCanisterResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateCanisterArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateCanisterArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateCanisterEntitySaveFaultFault", Name="EntitySaveFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateCanisterEntitySaveFaultFault", Name="EntitySaveFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        System.Threading.Tasks.Task<MasterData9002.Canister> AddOrUpdateCanisterAsync(MasterData9002.Canister canister);
+        System.Threading.Tasks.Task<SmartDose.WcfMasterData9002.Canister> AddOrUpdateCanisterAsync(SmartDose.WcfMasterData9002.Canister canister);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/DeleteCanister", ReplyAction="http://tempuri.org/IMasterDataService/DeleteCanisterResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/DeleteCanisterEntitySaveFaultFault", Name="EntitySaveFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/DeleteCanisterEntitySaveFaultFault", Name="EntitySaveFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
         System.Threading.Tasks.Task DeleteCanisterAsync(long canisterId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/ReleaseCanister", ReplyAction="http://tempuri.org/IMasterDataService/ReleaseCanisterResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/ReleaseCanisterArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/ReleaseCanisterArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        System.Threading.Tasks.Task<MasterData9002.Canister> ReleaseCanisterAsync(long id);
+        System.Threading.Tasks.Task<SmartDose.WcfMasterData9002.Canister> ReleaseCanisterAsync(long id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/GetTrays", ReplyAction="http://tempuri.org/IMasterDataService/GetTraysResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetTraysArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetTraysArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MasterData9002.Tray>> GetTraysAsync(System.Collections.Generic.List<MasterData9002.SearchFilter> searchFilter, MasterData9002.SortFilter sortFilter, MasterData9002.PageFilter pageFilter);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<SmartDose.WcfMasterData9002.Tray>> GetTraysAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.SearchFilter> searchFilter, SmartDose.WcfMasterData9002.SortFilter sortFilter, SmartDose.WcfMasterData9002.PageFilter pageFilter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/AddOrUpdateTray", ReplyAction="http://tempuri.org/IMasterDataService/AddOrUpdateTrayResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateTrayArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateTrayArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateTrayEntitySaveFaultFault", Name="EntitySaveFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateTrayEntitySaveFaultFault", Name="EntitySaveFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        System.Threading.Tasks.Task<MasterData9002.Tray> AddOrUpdateTrayAsync(MasterData9002.Tray tray);
+        System.Threading.Tasks.Task<SmartDose.WcfMasterData9002.Tray> AddOrUpdateTrayAsync(SmartDose.WcfMasterData9002.Tray tray);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/DeleteTray", ReplyAction="http://tempuri.org/IMasterDataService/DeleteTrayResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/DeleteTrayEntitySaveFaultFault", Name="EntitySaveFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/DeleteTrayEntitySaveFaultFault", Name="EntitySaveFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
         System.Threading.Tasks.Task DeleteTrayAsync(long trayId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/ReleaseTray", ReplyAction="http://tempuri.org/IMasterDataService/ReleaseTrayResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/ReleaseTrayArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/ReleaseTrayArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        System.Threading.Tasks.Task<MasterData9002.Tray> ReleaseTrayAsync(string identifier);
+        System.Threading.Tasks.Task<SmartDose.WcfMasterData9002.Tray> ReleaseTrayAsync(string identifier);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/GetLabelDesigns", ReplyAction="http://tempuri.org/IMasterDataService/GetLabelDesignsResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetLabelDesignsArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetLabelDesignsArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MasterData9002.LabelDesign>> GetLabelDesignsAsync(System.Collections.Generic.List<MasterData9002.SearchFilter> searchFilter, MasterData9002.SortFilter sortFilter, MasterData9002.PageFilter pageFilter);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<SmartDose.WcfMasterData9002.LabelDesign>> GetLabelDesignsAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.SearchFilter> searchFilter, SmartDose.WcfMasterData9002.SortFilter sortFilter, SmartDose.WcfMasterData9002.PageFilter pageFilter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/AddOrUpdateLabelDesign", ReplyAction="http://tempuri.org/IMasterDataService/AddOrUpdateLabelDesignResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateLabelDesignArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateLabelDesignArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateLabelDesignEntitySaveFaultFault", Name="EntitySaveFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/AddOrUpdateLabelDesignEntitySaveFaultFault", Name="EntitySaveFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        System.Threading.Tasks.Task<MasterData9002.LabelDesign> AddOrUpdateLabelDesignAsync(MasterData9002.LabelDesign labelDesign);
+        System.Threading.Tasks.Task<SmartDose.WcfMasterData9002.LabelDesign> AddOrUpdateLabelDesignAsync(SmartDose.WcfMasterData9002.LabelDesign labelDesign);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/DeleteLabelDesign", ReplyAction="http://tempuri.org/IMasterDataService/DeleteLabelDesignResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/DeleteLabelDesignEntitySaveFaultFault", Name="EntitySaveFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.EntitySaveFault), Action="http://tempuri.org/IMasterDataService/DeleteLabelDesignEntitySaveFaultFault", Name="EntitySaveFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
         System.Threading.Tasks.Task DeleteLabelDesignAsync(long labelDesignId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/PrintLabel", ReplyAction="http://tempuri.org/IMasterDataService/PrintLabelResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/PrintLabelArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/PrintLabelArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        System.Threading.Tasks.Task PrintLabelAsync(MasterData9002.PrintDataRequest printRequest);
+        System.Threading.Tasks.Task PrintLabelAsync(SmartDose.WcfMasterData9002.PrintDataRequest printRequest);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/IsRfidUnique", ReplyAction="http://tempuri.org/IMasterDataService/IsRfidUniqueResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/IsRfidUniqueArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/IsRfidUniqueArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
         System.Threading.Tasks.Task<bool> IsRfidUniqueAsync(string rfid);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/IsTrayFree", ReplyAction="http://tempuri.org/IMasterDataService/IsTrayFreeResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/IsTrayFreeArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/IsTrayFreeArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
         System.Threading.Tasks.Task<bool> IsTrayFreeAsync(long id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/GetGlobalConfiguration", ReplyAction="http://tempuri.org/IMasterDataService/GetGlobalConfigurationResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(MasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetGlobalConfigurationArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
+        [System.ServiceModel.FaultContractAttribute(typeof(SmartDose.WcfMasterData9002.ArgumentFault), Action="http://tempuri.org/IMasterDataService/GetGlobalConfigurationArgumentFaultFault", Name="ArgumentFault", Namespace="http://schemas.datacontract.org/2004/07/Rowa.SmartDose.WcfInterfaces.MasterData.M" +
             "odel.Faults")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<MasterData9002.GlobalConfiguration>> GetGlobalConfigurationAsync(System.Collections.Generic.List<MasterData9002.GlobalSettingType> globalSettings);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<SmartDose.WcfMasterData9002.GlobalConfiguration>> GetGlobalConfigurationAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.GlobalSettingType> globalSettings);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
@@ -3462,62 +3462,62 @@ namespace MasterData9002
     {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/SetCustomers", ReplyAction="http://tempuri.org/IMasterDataService/SetCustomersResponse")]
-        void SetCustomers(System.Collections.Generic.List<MasterData9002.Customer> customers, bool initialSyncronization);
+        void SetCustomers(System.Collections.Generic.List<SmartDose.WcfMasterData9002.Customer> customers, bool initialSyncronization);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMasterDataService/DeleteCustomers")]
         void DeleteCustomers(System.Collections.Generic.List<long> customerIds);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/SetCanisters", ReplyAction="http://tempuri.org/IMasterDataService/SetCanistersResponse")]
-        void SetCanisters(System.Collections.Generic.List<MasterData9002.Canister> canisters, bool initialSyncronization);
+        void SetCanisters(System.Collections.Generic.List<SmartDose.WcfMasterData9002.Canister> canisters, bool initialSyncronization);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMasterDataService/DeleteCanisters")]
         void DeleteCanisters(System.Collections.Generic.List<long> canisterIds);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMasterDataService/CanisterLocationChanged")]
-        void CanisterLocationChanged(string canisterRfid, MasterData9002.Location location);
+        void CanisterLocationChanged(string canisterRfid, SmartDose.WcfMasterData9002.Location location);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/SetManufacturers", ReplyAction="http://tempuri.org/IMasterDataService/SetManufacturersResponse")]
-        void SetManufacturers(System.Collections.Generic.List<MasterData9002.Manufacturer> manufacturers, bool initialSyncronization);
+        void SetManufacturers(System.Collections.Generic.List<SmartDose.WcfMasterData9002.Manufacturer> manufacturers, bool initialSyncronization);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMasterDataService/DeleteManufacturers")]
         void DeleteManufacturers(System.Collections.Generic.List<long> manufacturerIds);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/SetDestinationFacilities", ReplyAction="http://tempuri.org/IMasterDataService/SetDestinationFacilitiesResponse")]
-        void SetDestinationFacilities(System.Collections.Generic.List<MasterData9002.DestinationFacility> destinationFacilitys, bool initialSyncronization);
+        void SetDestinationFacilities(System.Collections.Generic.List<SmartDose.WcfMasterData9002.DestinationFacility> destinationFacilitys, bool initialSyncronization);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMasterDataService/DeleteDestinationFacilities")]
         void DeleteDestinationFacilities(System.Collections.Generic.List<long> destinationFacilityIds);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/SetMedicines", ReplyAction="http://tempuri.org/IMasterDataService/SetMedicinesResponse")]
-        void SetMedicines(System.Collections.Generic.List<MasterData9002.Medicine> medicines, bool initialSyncronization);
+        void SetMedicines(System.Collections.Generic.List<SmartDose.WcfMasterData9002.Medicine> medicines, bool initialSyncronization);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMasterDataService/DeleteMedicines")]
         void DeleteMedicines(System.Collections.Generic.List<long> medicineIds);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/SetTrays", ReplyAction="http://tempuri.org/IMasterDataService/SetTraysResponse")]
-        void SetTrays(System.Collections.Generic.List<MasterData9002.Tray> trays, bool initialSyncronization);
+        void SetTrays(System.Collections.Generic.List<SmartDose.WcfMasterData9002.Tray> trays, bool initialSyncronization);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMasterDataService/DeleteTrays")]
         void DeleteTrays(System.Collections.Generic.List<long> trayIds);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMasterDataService/SetLabelDesigns", ReplyAction="http://tempuri.org/IMasterDataService/SetLabelDesignsResponse")]
-        void SetLabelDesigns(System.Collections.Generic.List<MasterData9002.LabelDesign> labelDesigns, bool initialSyncronization);
+        void SetLabelDesigns(System.Collections.Generic.List<SmartDose.WcfMasterData9002.LabelDesign> labelDesigns, bool initialSyncronization);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMasterDataService/DeleteLabelDesigns")]
         void DeleteLabelDesigns(System.Collections.Generic.List<long> labelDesignIds);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMasterDataService/SetGlobalSettings")]
-        void SetGlobalSettings(System.Collections.Generic.List<MasterData9002.GlobalConfiguration> masterDataHandlingSettings);
+        void SetGlobalSettings(System.Collections.Generic.List<SmartDose.WcfMasterData9002.GlobalConfiguration> masterDataHandlingSettings);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    public interface IMasterDataServiceChannel : MasterData9002.IMasterDataService, System.ServiceModel.IClientChannel
+    public interface IMasterDataServiceChannel : SmartDose.WcfMasterData9002.IMasterDataService, System.ServiceModel.IClientChannel
     {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
-    public partial class MasterDataServiceClientBase : System.ServiceModel.DuplexClientBase<MasterData9002.IMasterDataService>, MasterData9002.IMasterDataService
+    public partial class MasterDataServiceClientBase : System.ServiceModel.DuplexClientBase<SmartDose.WcfMasterData9002.IMasterDataService>, SmartDose.WcfMasterData9002.IMasterDataService
     {
         
     /// <summary>
@@ -3570,12 +3570,12 @@ namespace MasterData9002
             return base.Channel.UnsubscribeForCallbacksAsync();
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MasterData9002.Customer>> GetCustomersAsync(System.Collections.Generic.List<MasterData9002.SearchFilter> searchFilter, MasterData9002.SortFilter sortFilter, MasterData9002.PageFilter pageFilter)
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<SmartDose.WcfMasterData9002.Customer>> GetCustomersAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.SearchFilter> searchFilter, SmartDose.WcfMasterData9002.SortFilter sortFilter, SmartDose.WcfMasterData9002.PageFilter pageFilter)
         {
             return base.Channel.GetCustomersAsync(searchFilter, sortFilter, pageFilter);
         }
         
-        public System.Threading.Tasks.Task<MasterData9002.Customer> AddOrUpdateCustomerAsync(MasterData9002.Customer customer)
+        public System.Threading.Tasks.Task<SmartDose.WcfMasterData9002.Customer> AddOrUpdateCustomerAsync(SmartDose.WcfMasterData9002.Customer customer)
         {
             return base.Channel.AddOrUpdateCustomerAsync(customer);
         }
@@ -3585,17 +3585,17 @@ namespace MasterData9002
             return base.Channel.DeleteCustomerAsync(customerId);
         }
         
-        public System.Threading.Tasks.Task<int> GetCustomerCountAsync(System.Collections.Generic.List<MasterData9002.SearchFilter> searchFilter)
+        public System.Threading.Tasks.Task<int> GetCustomerCountAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.SearchFilter> searchFilter)
         {
             return base.Channel.GetCustomerCountAsync(searchFilter);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MasterData9002.Medicine>> GetMedicinesAsync(System.Collections.Generic.List<MasterData9002.SearchFilter> searchFilter, MasterData9002.SortFilter sortFilter, MasterData9002.PageFilter pageFilter)
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<SmartDose.WcfMasterData9002.Medicine>> GetMedicinesAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.SearchFilter> searchFilter, SmartDose.WcfMasterData9002.SortFilter sortFilter, SmartDose.WcfMasterData9002.PageFilter pageFilter)
         {
             return base.Channel.GetMedicinesAsync(searchFilter, sortFilter, pageFilter);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MasterData9002.MedicineOverview>> GetMedicineOverviewAsync(System.Collections.Generic.List<MasterData9002.SearchFilter> searchFilter, MasterData9002.SortFilter sortFilter, MasterData9002.PageFilter pageFilter)
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<SmartDose.WcfMasterData9002.MedicineOverview>> GetMedicineOverviewAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.SearchFilter> searchFilter, SmartDose.WcfMasterData9002.SortFilter sortFilter, SmartDose.WcfMasterData9002.PageFilter pageFilter)
         {
             return base.Channel.GetMedicineOverviewAsync(searchFilter, sortFilter, pageFilter);
         }
@@ -3605,12 +3605,12 @@ namespace MasterData9002
             return base.Channel.GetMedicinesMissingIdentifiersAsync(requestedMedicineIdentifiers, withSynonyms);
         }
         
-        public System.Threading.Tasks.Task<int> GetMedicineCountAsync(System.Collections.Generic.List<MasterData9002.SearchFilter> searchFilter)
+        public System.Threading.Tasks.Task<int> GetMedicineCountAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.SearchFilter> searchFilter)
         {
             return base.Channel.GetMedicineCountAsync(searchFilter);
         }
         
-        public System.Threading.Tasks.Task<MasterData9002.Medicine> AddOrUpdateMedicineAsync(MasterData9002.Medicine medicine)
+        public System.Threading.Tasks.Task<SmartDose.WcfMasterData9002.Medicine> AddOrUpdateMedicineAsync(SmartDose.WcfMasterData9002.Medicine medicine)
         {
             return base.Channel.AddOrUpdateMedicineAsync(medicine);
         }
@@ -3620,27 +3620,27 @@ namespace MasterData9002
             return base.Channel.DeleteMedicineAsync(medicineId);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MasterData9002.Medicine>> GetCanisterAllowedMedicinesAsync(System.Collections.Generic.List<MasterData9002.SearchFilter> searchFilter, MasterData9002.SortFilter sortFilter, MasterData9002.PageFilter pageFilter)
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<SmartDose.WcfMasterData9002.Medicine>> GetCanisterAllowedMedicinesAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.SearchFilter> searchFilter, SmartDose.WcfMasterData9002.SortFilter sortFilter, SmartDose.WcfMasterData9002.PageFilter pageFilter)
         {
             return base.Channel.GetCanisterAllowedMedicinesAsync(searchFilter, sortFilter, pageFilter);
         }
         
-        public System.Threading.Tasks.Task<MasterData9002.Medicine> ReleaseMedicineAsync(string identifier)
+        public System.Threading.Tasks.Task<SmartDose.WcfMasterData9002.Medicine> ReleaseMedicineAsync(string identifier)
         {
             return base.Channel.ReleaseMedicineAsync(identifier);
         }
         
-        public System.Threading.Tasks.Task<MasterData9002.MedicineUseInformation> CheckIfMedicineCanBeDeletedAsync(long medId)
+        public System.Threading.Tasks.Task<SmartDose.WcfMasterData9002.MedicineUseInformation> CheckIfMedicineCanBeDeletedAsync(long medId)
         {
             return base.Channel.CheckIfMedicineCanBeDeletedAsync(medId);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MasterData9002.Manufacturer>> GetManufacturersAsync(System.Collections.Generic.List<MasterData9002.SearchFilter> searchFilter, MasterData9002.SortFilter sortFilter, MasterData9002.PageFilter pageFilter)
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<SmartDose.WcfMasterData9002.Manufacturer>> GetManufacturersAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.SearchFilter> searchFilter, SmartDose.WcfMasterData9002.SortFilter sortFilter, SmartDose.WcfMasterData9002.PageFilter pageFilter)
         {
             return base.Channel.GetManufacturersAsync(searchFilter, sortFilter, pageFilter);
         }
         
-        public System.Threading.Tasks.Task<MasterData9002.Manufacturer> AddOrUpdateManufacturerAsync(MasterData9002.Manufacturer manufacturer)
+        public System.Threading.Tasks.Task<SmartDose.WcfMasterData9002.Manufacturer> AddOrUpdateManufacturerAsync(SmartDose.WcfMasterData9002.Manufacturer manufacturer)
         {
             return base.Channel.AddOrUpdateManufacturerAsync(manufacturer);
         }
@@ -3650,12 +3650,12 @@ namespace MasterData9002
             return base.Channel.DeleteManufacturerAsync(manufacturerId);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MasterData9002.DestinationFacility>> GetDestinationFacilitiesAsync(System.Collections.Generic.List<MasterData9002.SearchFilter> searchFilter, MasterData9002.SortFilter sortFilter, MasterData9002.PageFilter pageFilter)
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<SmartDose.WcfMasterData9002.DestinationFacility>> GetDestinationFacilitiesAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.SearchFilter> searchFilter, SmartDose.WcfMasterData9002.SortFilter sortFilter, SmartDose.WcfMasterData9002.PageFilter pageFilter)
         {
             return base.Channel.GetDestinationFacilitiesAsync(searchFilter, sortFilter, pageFilter);
         }
         
-        public System.Threading.Tasks.Task<MasterData9002.DestinationFacility> AddOrUpdateDestinationFacilityAsync(MasterData9002.DestinationFacility destinationFacility)
+        public System.Threading.Tasks.Task<SmartDose.WcfMasterData9002.DestinationFacility> AddOrUpdateDestinationFacilityAsync(SmartDose.WcfMasterData9002.DestinationFacility destinationFacility)
         {
             return base.Channel.AddOrUpdateDestinationFacilityAsync(destinationFacility);
         }
@@ -3665,17 +3665,17 @@ namespace MasterData9002
             return base.Channel.DeleteDestinationFacilityAsync(destinationFacilityId);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MasterData9002.Canister>> GetCanistersAsync(System.Collections.Generic.List<MasterData9002.SearchFilter> searchFilter, MasterData9002.SortFilter sortFilter, MasterData9002.PageFilter pageFilter)
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<SmartDose.WcfMasterData9002.Canister>> GetCanistersAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.SearchFilter> searchFilter, SmartDose.WcfMasterData9002.SortFilter sortFilter, SmartDose.WcfMasterData9002.PageFilter pageFilter)
         {
             return base.Channel.GetCanistersAsync(searchFilter, sortFilter, pageFilter);
         }
         
-        public System.Threading.Tasks.Task<int> GetCanisterCountAsync(System.Collections.Generic.List<MasterData9002.SearchFilter> searchFilter)
+        public System.Threading.Tasks.Task<int> GetCanisterCountAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.SearchFilter> searchFilter)
         {
             return base.Channel.GetCanisterCountAsync(searchFilter);
         }
         
-        public System.Threading.Tasks.Task<MasterData9002.Canister> AddOrUpdateCanisterAsync(MasterData9002.Canister canister)
+        public System.Threading.Tasks.Task<SmartDose.WcfMasterData9002.Canister> AddOrUpdateCanisterAsync(SmartDose.WcfMasterData9002.Canister canister)
         {
             return base.Channel.AddOrUpdateCanisterAsync(canister);
         }
@@ -3685,17 +3685,17 @@ namespace MasterData9002
             return base.Channel.DeleteCanisterAsync(canisterId);
         }
         
-        public System.Threading.Tasks.Task<MasterData9002.Canister> ReleaseCanisterAsync(long id)
+        public System.Threading.Tasks.Task<SmartDose.WcfMasterData9002.Canister> ReleaseCanisterAsync(long id)
         {
             return base.Channel.ReleaseCanisterAsync(id);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MasterData9002.Tray>> GetTraysAsync(System.Collections.Generic.List<MasterData9002.SearchFilter> searchFilter, MasterData9002.SortFilter sortFilter, MasterData9002.PageFilter pageFilter)
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<SmartDose.WcfMasterData9002.Tray>> GetTraysAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.SearchFilter> searchFilter, SmartDose.WcfMasterData9002.SortFilter sortFilter, SmartDose.WcfMasterData9002.PageFilter pageFilter)
         {
             return base.Channel.GetTraysAsync(searchFilter, sortFilter, pageFilter);
         }
         
-        public System.Threading.Tasks.Task<MasterData9002.Tray> AddOrUpdateTrayAsync(MasterData9002.Tray tray)
+        public System.Threading.Tasks.Task<SmartDose.WcfMasterData9002.Tray> AddOrUpdateTrayAsync(SmartDose.WcfMasterData9002.Tray tray)
         {
             return base.Channel.AddOrUpdateTrayAsync(tray);
         }
@@ -3705,17 +3705,17 @@ namespace MasterData9002
             return base.Channel.DeleteTrayAsync(trayId);
         }
         
-        public System.Threading.Tasks.Task<MasterData9002.Tray> ReleaseTrayAsync(string identifier)
+        public System.Threading.Tasks.Task<SmartDose.WcfMasterData9002.Tray> ReleaseTrayAsync(string identifier)
         {
             return base.Channel.ReleaseTrayAsync(identifier);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MasterData9002.LabelDesign>> GetLabelDesignsAsync(System.Collections.Generic.List<MasterData9002.SearchFilter> searchFilter, MasterData9002.SortFilter sortFilter, MasterData9002.PageFilter pageFilter)
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<SmartDose.WcfMasterData9002.LabelDesign>> GetLabelDesignsAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.SearchFilter> searchFilter, SmartDose.WcfMasterData9002.SortFilter sortFilter, SmartDose.WcfMasterData9002.PageFilter pageFilter)
         {
             return base.Channel.GetLabelDesignsAsync(searchFilter, sortFilter, pageFilter);
         }
         
-        public System.Threading.Tasks.Task<MasterData9002.LabelDesign> AddOrUpdateLabelDesignAsync(MasterData9002.LabelDesign labelDesign)
+        public System.Threading.Tasks.Task<SmartDose.WcfMasterData9002.LabelDesign> AddOrUpdateLabelDesignAsync(SmartDose.WcfMasterData9002.LabelDesign labelDesign)
         {
             return base.Channel.AddOrUpdateLabelDesignAsync(labelDesign);
         }
@@ -3725,7 +3725,7 @@ namespace MasterData9002
             return base.Channel.DeleteLabelDesignAsync(labelDesignId);
         }
         
-        public System.Threading.Tasks.Task PrintLabelAsync(MasterData9002.PrintDataRequest printRequest)
+        public System.Threading.Tasks.Task PrintLabelAsync(SmartDose.WcfMasterData9002.PrintDataRequest printRequest)
         {
             return base.Channel.PrintLabelAsync(printRequest);
         }
@@ -3740,7 +3740,7 @@ namespace MasterData9002
             return base.Channel.IsTrayFreeAsync(id);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<MasterData9002.GlobalConfiguration>> GetGlobalConfigurationAsync(System.Collections.Generic.List<MasterData9002.GlobalSettingType> globalSettings)
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<SmartDose.WcfMasterData9002.GlobalConfiguration>> GetGlobalConfigurationAsync(System.Collections.Generic.List<SmartDose.WcfMasterData9002.GlobalSettingType> globalSettings)
         {
             return base.Channel.GetGlobalConfigurationAsync(globalSettings);
         }
@@ -3806,12 +3806,12 @@ namespace MasterData9002
             this.results = results;
         }
         
-        public System.Collections.Generic.List<MasterData9002.Customer> customers
+        public System.Collections.Generic.List<SmartDose.WcfMasterData9002.Customer> customers
         {
             get
             {
                 base.RaiseExceptionIfNecessary();
-                return ((System.Collections.Generic.List<MasterData9002.Customer>)(this.results[0]));
+                return ((System.Collections.Generic.List<SmartDose.WcfMasterData9002.Customer>)(this.results[0]));
             }
         }
         
@@ -3857,12 +3857,12 @@ namespace MasterData9002
             this.results = results;
         }
         
-        public System.Collections.Generic.List<MasterData9002.Canister> canisters
+        public System.Collections.Generic.List<SmartDose.WcfMasterData9002.Canister> canisters
         {
             get
             {
                 base.RaiseExceptionIfNecessary();
-                return ((System.Collections.Generic.List<MasterData9002.Canister>)(this.results[0]));
+                return ((System.Collections.Generic.List<SmartDose.WcfMasterData9002.Canister>)(this.results[0]));
             }
         }
         
@@ -3917,12 +3917,12 @@ namespace MasterData9002
             }
         }
         
-        public MasterData9002.Location location
+        public SmartDose.WcfMasterData9002.Location location
         {
             get
             {
                 base.RaiseExceptionIfNecessary();
-                return ((MasterData9002.Location)(this.results[1]));
+                return ((SmartDose.WcfMasterData9002.Location)(this.results[1]));
             }
         }
     }
@@ -3938,12 +3938,12 @@ namespace MasterData9002
             this.results = results;
         }
         
-        public System.Collections.Generic.List<MasterData9002.Manufacturer> manufacturers
+        public System.Collections.Generic.List<SmartDose.WcfMasterData9002.Manufacturer> manufacturers
         {
             get
             {
                 base.RaiseExceptionIfNecessary();
-                return ((System.Collections.Generic.List<MasterData9002.Manufacturer>)(this.results[0]));
+                return ((System.Collections.Generic.List<SmartDose.WcfMasterData9002.Manufacturer>)(this.results[0]));
             }
         }
         
@@ -3989,12 +3989,12 @@ namespace MasterData9002
             this.results = results;
         }
         
-        public System.Collections.Generic.List<MasterData9002.DestinationFacility> destinationFacilitys
+        public System.Collections.Generic.List<SmartDose.WcfMasterData9002.DestinationFacility> destinationFacilitys
         {
             get
             {
                 base.RaiseExceptionIfNecessary();
-                return ((System.Collections.Generic.List<MasterData9002.DestinationFacility>)(this.results[0]));
+                return ((System.Collections.Generic.List<SmartDose.WcfMasterData9002.DestinationFacility>)(this.results[0]));
             }
         }
         
@@ -4040,12 +4040,12 @@ namespace MasterData9002
             this.results = results;
         }
         
-        public System.Collections.Generic.List<MasterData9002.Medicine> medicines
+        public System.Collections.Generic.List<SmartDose.WcfMasterData9002.Medicine> medicines
         {
             get
             {
                 base.RaiseExceptionIfNecessary();
-                return ((System.Collections.Generic.List<MasterData9002.Medicine>)(this.results[0]));
+                return ((System.Collections.Generic.List<SmartDose.WcfMasterData9002.Medicine>)(this.results[0]));
             }
         }
         
@@ -4091,12 +4091,12 @@ namespace MasterData9002
             this.results = results;
         }
         
-        public System.Collections.Generic.List<MasterData9002.Tray> trays
+        public System.Collections.Generic.List<SmartDose.WcfMasterData9002.Tray> trays
         {
             get
             {
                 base.RaiseExceptionIfNecessary();
-                return ((System.Collections.Generic.List<MasterData9002.Tray>)(this.results[0]));
+                return ((System.Collections.Generic.List<SmartDose.WcfMasterData9002.Tray>)(this.results[0]));
             }
         }
         
@@ -4142,12 +4142,12 @@ namespace MasterData9002
             this.results = results;
         }
         
-        public System.Collections.Generic.List<MasterData9002.LabelDesign> labelDesigns
+        public System.Collections.Generic.List<SmartDose.WcfMasterData9002.LabelDesign> labelDesigns
         {
             get
             {
                 base.RaiseExceptionIfNecessary();
-                return ((System.Collections.Generic.List<MasterData9002.LabelDesign>)(this.results[0]));
+                return ((System.Collections.Generic.List<SmartDose.WcfMasterData9002.LabelDesign>)(this.results[0]));
             }
         }
         
@@ -4193,12 +4193,12 @@ namespace MasterData9002
             this.results = results;
         }
         
-        public System.Collections.Generic.List<MasterData9002.GlobalConfiguration> masterDataHandlingSettings
+        public System.Collections.Generic.List<SmartDose.WcfMasterData9002.GlobalConfiguration> masterDataHandlingSettings
         {
             get
             {
                 base.RaiseExceptionIfNecessary();
-                return ((System.Collections.Generic.List<MasterData9002.GlobalConfiguration>)(this.results[0]));
+                return ((System.Collections.Generic.List<SmartDose.WcfMasterData9002.GlobalConfiguration>)(this.results[0]));
             }
         }
     }
@@ -4425,7 +4425,7 @@ namespace MasterData9002
                 this.proxy = proxy;
             }
             
-            public void SetCustomers(System.Collections.Generic.List<MasterData9002.Customer> customers, bool initialSyncronization)
+            public void SetCustomers(System.Collections.Generic.List<SmartDose.WcfMasterData9002.Customer> customers, bool initialSyncronization)
             {
                 this.proxy.OnSetCustomersReceived(new object[] {
                             customers,
@@ -4438,7 +4438,7 @@ namespace MasterData9002
                             customerIds});
             }
             
-            public void SetCanisters(System.Collections.Generic.List<MasterData9002.Canister> canisters, bool initialSyncronization)
+            public void SetCanisters(System.Collections.Generic.List<SmartDose.WcfMasterData9002.Canister> canisters, bool initialSyncronization)
             {
                 this.proxy.OnSetCanistersReceived(new object[] {
                             canisters,
@@ -4451,14 +4451,14 @@ namespace MasterData9002
                             canisterIds});
             }
             
-            public void CanisterLocationChanged(string canisterRfid, MasterData9002.Location location)
+            public void CanisterLocationChanged(string canisterRfid, SmartDose.WcfMasterData9002.Location location)
             {
                 this.proxy.OnCanisterLocationChangedReceived(new object[] {
                             canisterRfid,
                             location});
             }
             
-            public void SetManufacturers(System.Collections.Generic.List<MasterData9002.Manufacturer> manufacturers, bool initialSyncronization)
+            public void SetManufacturers(System.Collections.Generic.List<SmartDose.WcfMasterData9002.Manufacturer> manufacturers, bool initialSyncronization)
             {
                 this.proxy.OnSetManufacturersReceived(new object[] {
                             manufacturers,
@@ -4471,7 +4471,7 @@ namespace MasterData9002
                             manufacturerIds});
             }
             
-            public void SetDestinationFacilities(System.Collections.Generic.List<MasterData9002.DestinationFacility> destinationFacilitys, bool initialSyncronization)
+            public void SetDestinationFacilities(System.Collections.Generic.List<SmartDose.WcfMasterData9002.DestinationFacility> destinationFacilitys, bool initialSyncronization)
             {
                 this.proxy.OnSetDestinationFacilitiesReceived(new object[] {
                             destinationFacilitys,
@@ -4484,7 +4484,7 @@ namespace MasterData9002
                             destinationFacilityIds});
             }
             
-            public void SetMedicines(System.Collections.Generic.List<MasterData9002.Medicine> medicines, bool initialSyncronization)
+            public void SetMedicines(System.Collections.Generic.List<SmartDose.WcfMasterData9002.Medicine> medicines, bool initialSyncronization)
             {
                 this.proxy.OnSetMedicinesReceived(new object[] {
                             medicines,
@@ -4497,7 +4497,7 @@ namespace MasterData9002
                             medicineIds});
             }
             
-            public void SetTrays(System.Collections.Generic.List<MasterData9002.Tray> trays, bool initialSyncronization)
+            public void SetTrays(System.Collections.Generic.List<SmartDose.WcfMasterData9002.Tray> trays, bool initialSyncronization)
             {
                 this.proxy.OnSetTraysReceived(new object[] {
                             trays,
@@ -4510,7 +4510,7 @@ namespace MasterData9002
                             trayIds});
             }
             
-            public void SetLabelDesigns(System.Collections.Generic.List<MasterData9002.LabelDesign> labelDesigns, bool initialSyncronization)
+            public void SetLabelDesigns(System.Collections.Generic.List<SmartDose.WcfMasterData9002.LabelDesign> labelDesigns, bool initialSyncronization)
             {
                 this.proxy.OnSetLabelDesignsReceived(new object[] {
                             labelDesigns,
@@ -4523,7 +4523,7 @@ namespace MasterData9002
                             labelDesignIds});
             }
             
-            public void SetGlobalSettings(System.Collections.Generic.List<MasterData9002.GlobalConfiguration> masterDataHandlingSettings)
+            public void SetGlobalSettings(System.Collections.Generic.List<SmartDose.WcfMasterData9002.GlobalConfiguration> masterDataHandlingSettings)
             {
                 this.proxy.OnSetGlobalSettingsReceived(new object[] {
                             masterDataHandlingSettings});

@@ -7,23 +7,10 @@ using SmartDose.WcfMasterData10000;
 
 namespace ConsoleApp1
 {
-
-
-
-
     class Program
     {
-        static void CreateClass()
-        {
-            var x = ClassBuilder.NewType(new ClassBuilderDefinition()
-                                                .AddProperty<long>("A")
-                                                .AddProperty<string>("B"));
-            var s = x.ToJson();
-        }
-
         static async Task Main(string[] args)
         {
-            CreateClass();
             var endPoint = "net.tcp://localhost:10000/MasterData/";
             Console.WriteLine(endPoint);
             using (var serviceClient = new ServiceClientMasterData100000(endPoint))

@@ -5,8 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="RowaLog" Version="1.3.0.8" />
-    <PackageReference Include="RowaMore" Version="1.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
     <PackageReference Include="Serialize.Linq" Version="1.7.3.1" />
     <PackageReference Include="System.ServiceModel.Duplex" Version="4.5.3" />
@@ -16,6 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RowaLog\RowaLog\RowaLog.csproj" />
+    <ProjectReference Include="..\RowaMore\RowaMore.csproj" />
     <ProjectReference Include="..\SmartDose.WcfLib\SmartDose.WcfLib.csproj" />
   </ItemGroup>
 

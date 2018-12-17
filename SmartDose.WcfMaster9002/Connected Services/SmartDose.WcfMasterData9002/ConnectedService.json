@@ -1,9 +1,12 @@
 ﻿{
   "ProviderId": "Microsoft.VisualStudio.ConnectedService.Wcf",
   "Version": "15.0.20628.921",
+  "GettingStartedDocument": {
+    "Uri": "https://go.microsoft.com/fwlink/?linkid=858517"
+  },
   "ExtendedData": {
     "Uri": "net.tcp://localhost:9002/MasterData/",
-    "Namespace": "MasterData9002",
+    "Namespace": "SmartDose.WcfMasterData9002",
     "SelectedAccessLevelForGeneratedClass": "Public",
     "GenerateMessageContract": false,
     "ReuseTypesinReferencedAssemblies": true,
@@ -18,7 +21,7 @@
     },
     "CheckedReferencedAssemblies": [],
     "InstanceId": null,
-    "Name": "MasterData9002",
+    "Name": "SmartDose.WcfMasterData9002",
     "Metadata": {}
   }
 }

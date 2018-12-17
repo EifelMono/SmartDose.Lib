@@ -47,7 +47,7 @@ namespace SmartDose.WcfMasterData10000
         }
 
         #region IServiceClient
-        // Down in SmartDose.WcfLib by Reflection
+        // Done in SmartDose.WcfLib by Reflection
         #endregion
 
         #region ServiceClientModel

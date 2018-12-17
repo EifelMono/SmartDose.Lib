@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
+using System.Text;
 using System.Threading.Tasks;
+using RowaMore.Extensions;
+using SmartDose.WcfLib;
 
-namespace MasterData9002
+namespace SmartDose.WcfMasterData9002
 {
-    public class ServiceClient : ServiceClientBase, IMasterDataService, IMasterDataServiceCallback
+    public class ServiceClientMasterData9002 : ServiceClient, IMasterDataService, IMasterDataServiceCallback
     {
-        public ServiceClient(string endpointAddress, SecurityMode securityMode = SecurityMode.None) : base(endpointAddress, securityMode)
+        public ServiceClientMasterData9002(string endpointAddress, SecurityMode securityMode = SecurityMode.None) : base(endpointAddress, securityMode)
         {
         }
 
@@ -29,52 +32,30 @@ namespace MasterData9002
             Client = new MasterDataServiceClient(binding, new EndpointAddress(EndpointAddress));
         }
 
-        #region Wrapped abstract Client Calls
-
-        public async override Task OpenAsync()
-        {
-            await (CatcherAsyncIgnore(() => Client.OpenAsync()).ConfigureAwait(false));
-        }
-
-        public async override Task CloseAsync()
-        {
-            await (CatcherAsyncIgnore(() => Client.CloseAsync()).ConfigureAwait(false));
-        }
-
-        public async override Task SubscribeForCallbacksAsync()
-        {
-            await (CatcherAsyncIgnore(() => Client.SubscribeForCallbacksAsync()).ConfigureAwait(false));
-        }
-
-        public async override Task UnsubscribeForCallbacksAsync()
-        {
-            await (CatcherAsyncIgnore(() => Client.UnsubscribeForCallbacksAsync()).ConfigureAwait(false));
-        }
-
-        protected override void AssignClientCallbacks(bool on)
-        {
-            switch (on)
-            {
-                case true:
-                    break;
-                case false:
-                    break;
-            }
-        }
-
+        #region IServiceClient
+        // Done in SmartDose.WcfLib by Reflection
         #endregion
 
-        #region Wrapped Client Callbacks
-
-        public void CanisterLocationChanged(string canisterRfid, Location location)
+        #region Client CallBacks
+        protected override void AssignClientCallbacks(bool on)
         {
-            throw new NotImplementedException();
+            //switch (on)
+            //{
+            //    case true:
+            //        Client.MedicinesChangedReceived += MedicinesChanged;
+            //        Client.MedicinesDeletedReceived += MedicinesDeleted;
+
+            //        break;
+            //    case false:
+            //        Client.MedicinesChangedReceived -= MedicinesChanged;
+            //        Client.MedicinesDeletedReceived -= MedicinesDeleted;
+            //        break;
+            //}
         }
 
-        public event Action<List<Customer>, bool> OnSetCustomer;
         public void SetCustomers(List<Customer> customers, bool initialSyncronization)
         {
-            OnSetCustomer?.Invoke(customers, initialSyncronization);
+            throw new NotImplementedException();
         }
 
         public void DeleteCustomers(List<long> customerIds)
@@ -92,7 +73,10 @@ namespace MasterData9002
             throw new NotImplementedException();
         }
 
-
+        public void CanisterLocationChanged(string canisterRfid, Location location)
+        {
+            throw new NotImplementedException();
+        }
 
         public void SetManufacturers(List<Manufacturer> manufacturers, bool initialSyncronization)
         {
@@ -114,10 +98,9 @@ namespace MasterData9002
             throw new NotImplementedException();
         }
 
-        public event Action<List<Medicine>, bool> OnSetMedicines;
         public void SetMedicines(List<Medicine> medicines, bool initialSyncronization)
         {
-            OnSetMedicines?.Invoke(medicines, initialSyncronization);
+            throw new NotImplementedException();
         }
 
         public void DeleteMedicines(List<long> medicineIds)
@@ -150,9 +133,11 @@ namespace MasterData9002
             throw new NotImplementedException();
         }
 
+
         #endregion
 
-        #region Wrapped Client Methods
+        #region Client Methods 
+
         public Task<List<Customer>> GetCustomersAsync(List<SearchFilter> searchFilter, SortFilter sortFilter, PageFilter pageFilter)
         {
             throw new NotImplementedException();
@@ -173,12 +158,9 @@ namespace MasterData9002
             throw new NotImplementedException();
         }
 
-        public List<Medicine> GetMedicines(List<SearchFilter> searchFilter, SortFilter sortFilter = null, PageFilter pageFilter = null)
-            => GetMedicinesAsync(searchFilter, sortFilter, pageFilter).Result;
-
-        public async Task<List<Medicine>> GetMedicinesAsync(List<SearchFilter> searchFilter, SortFilter sortFilter = null, PageFilter pageFilter = null)
+        public Task<List<Medicine>> GetMedicinesAsync(List<SearchFilter> searchFilter, SortFilter sortFilter, PageFilter pageFilter)
         {
-            return await Client.GetMedicinesAsync(searchFilter, sortFilter, pageFilter).ConfigureAwait(false);
+            throw new NotImplementedException();
         }
 
         public Task<List<MedicineOverview>> GetMedicineOverviewAsync(List<SearchFilter> searchFilter, SortFilter sortFilter, PageFilter pageFilter)
@@ -331,9 +313,6 @@ namespace MasterData9002
             throw new NotImplementedException();
         }
 
-
-
         #endregion
-
     }
 }
