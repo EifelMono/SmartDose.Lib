@@ -69,7 +69,7 @@ namespace SmartDose.WcfMasterData10000
                 {
                     Name = buildValues.ModelType?.Name ?? "",
                     Namespace = buildValues.ModelType?.Namespace ?? "",
-                    Module = buildValues.ModelType?.Module?.Name ?? ""
+                    AssemblyName = buildValues.ModelType?.Assembly?.GetName()?.Name?? ""
                 },
                 DebugInfoFlag = buildValues.DebugInfoFlag,
                 TableOnlyFlag = buildValues.TableOnlyFlag
@@ -98,7 +98,7 @@ namespace SmartDose.WcfMasterData10000
                 {
                     Name = buildValues.ModelType?.Name ?? "",
                     Namespace = buildValues.ModelType?.Namespace ?? "",
-                    Module = buildValues.ModelType?.Module?.Name ?? ""
+                    AssemblyName = buildValues.ModelType?.Assembly?.GetName()?.Name ?? ""
                 },
                 DebugInfoFlag = buildValues.DebugInfoFlag,
                 TableOnlyFlag = buildValues.TableOnlyFlag,
@@ -124,7 +124,7 @@ namespace SmartDose.WcfMasterData10000
                 {
                     Name = buildValues.ModelType?.Name ?? "",
                     Namespace = buildValues.ModelType?.Namespace ?? "",
-                    Module = buildValues.ModelType?.Module?.Name ?? ""
+                    AssemblyName = buildValues.ModelType?.Assembly?.GetName()?.Name ?? ""
                 },
                 DebugInfoFlag = buildValues.DebugInfoFlag,
                 TableOnlyFlag = buildValues.TableOnlyFlag,
@@ -134,7 +134,7 @@ namespace SmartDose.WcfMasterData10000
                 {
                     Name = buildValues.OrderByType?.Name ?? "",
                     Namespace = buildValues.OrderByType?.Namespace ?? "",
-                    Module = buildValues.OrderByType?.Module?.Name ?? ""
+                    AssemblyName = buildValues.OrderByType?.Assembly?.GetName()?.Name ?? ""
                 },
                 OrderByAsc = buildValues.OrderByAsc,
                 SelectAsJson = buildValues.SelectAsJson,
@@ -142,7 +142,7 @@ namespace SmartDose.WcfMasterData10000
                 {
                     Name = buildValues.SelectType?.Name ?? "",
                     Namespace = buildValues.SelectType?.Namespace ?? "",
-                    Module = buildValues.SelectType?.Module?.Name ?? "",
+                    AssemblyName = buildValues.SelectType?.Assembly?.GetName()?.Name ?? "",
                     TypeAsJson = buildValues.SelectType?.ToJson()
                 },
                 Page = buildValues.Page,
@@ -151,7 +151,7 @@ namespace SmartDose.WcfMasterData10000
                 {
                     Name = buildValues.ResutType?.Name ?? "",
                     Namespace = buildValues.ResutType?.Namespace ?? "",
-                    Module = buildValues.ResutType?.Module?.Name ?? ""
+                    AssemblyName = buildValues.ResutType?.Assembly?.GetName()?.Name ?? ""
                 },
             };
             var serviceResult = await ModelReadAsync(request).ConfigureAwait(false);
@@ -177,7 +177,7 @@ namespace SmartDose.WcfMasterData10000
                 {
                     Name = buildValues.ModelType?.Name ?? "",
                     Namespace = buildValues.ModelType?.Namespace ?? "",
-                    Module = buildValues.ModelType?.Module?.Name ?? ""
+                    AssemblyName = buildValues.ModelType?.Assembly?.GetName()?.Name ?? ""
                 },
                 DebugInfoFlag = buildValues.DebugInfoFlag,
                 Identifier = buildValues.Identifier,
@@ -203,7 +203,7 @@ namespace SmartDose.WcfMasterData10000
                 {
                     Name = buildValues.ModelType.Name,
                     Namespace = buildValues.ModelType.Namespace,
-                    Module = buildValues.ModelType.Module.Name
+                    AssemblyName = buildValues.ModelType?.Assembly?.GetName()?.Name ?? ""
                 },
                 DebugInfoFlag = buildValues.DebugInfoFlag,
                 TableOnlyFlag = buildValues.TableOnlyFlag

@@ -8,7 +8,7 @@ using SmartDose.WcfMasterData10000;
 namespace ConsoleApp1
 {
 
-    
+
 
 
     class Program
@@ -67,7 +67,7 @@ namespace ConsoleApp1
                     .Read()
                     .TableOnly()
                     // .Where(m => m.Name.Contains("a"))
-                    .Select(m => new { A = m.Id, B = m.Manufacturer.Name })
+                    .Select(m => new { MedicineId = m.Id, ManufacturerName = m.Manufacturer.Name })
                     // .OrderBy(m=> m.Identifier)
                     // .Select(m => m)
                     .ExceuteToListAsync() is var x && x.IsOk())
@@ -80,7 +80,6 @@ namespace ConsoleApp1
                         //}
                     }
                     else
-
                         Console.WriteLine("Error");
                 }
                 Console.ReadLine();

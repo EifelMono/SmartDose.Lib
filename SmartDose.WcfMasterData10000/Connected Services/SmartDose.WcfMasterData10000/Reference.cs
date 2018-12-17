@@ -1852,7 +1852,7 @@ namespace SmartDose.WcfMasterData10000
     public partial class ModelClassType : object
     {
         
-        private string ModuleField;
+        private string AssemblyNameField;
         
         private string NameField;
         
@@ -1861,15 +1861,15 @@ namespace SmartDose.WcfMasterData10000
         private string TypeAsJsonField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Module
+        public string AssemblyName
         {
             get
             {
-                return this.ModuleField;
+                return this.AssemblyNameField;
             }
             set
             {
-                this.ModuleField = value;
+                this.AssemblyNameField = value;
             }
         }
         

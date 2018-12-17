@@ -95,11 +95,11 @@ namespace ConsoleApp3
             {
                 var options = ScriptOptions.Default.AddReferences(typeof(Program).Assembly);
 
-                var a = CSharpScript.EvaluateAsync("new {A=(long)0, B=\"test\"}");
-                var b = CSharpScript.EvaluateAsync("new {A=(long)0, B=\"test\"}");
-                var c = CSharpScript.EvaluateAsync("new {A=(long)0, B=\"test\"}");
-                var d = CSharpScript.EvaluateAsync("new {A=(long)0, B=\"test\"}");
-                var e = CSharpScript.EvaluateAsync("new {A=(long)0, B=\"test\"}");
+                var a = CSharpScript.EvaluateAsync("new {A=(long)0, B=\"test\"}", options);
+                var b = CSharpScript.EvaluateAsync("new {A=(long)0, B=\"test\"}", options);
+                var c = CSharpScript.EvaluateAsync("new {A=(long)0, B=\"test\"}", options);
+                var d = CSharpScript.EvaluateAsync("new {A=(long)0, B=\"test\"}", options);
+                var e = CSharpScript.EvaluateAsync("new {A=(long)0, B=\"test\"}", options);
                 a.Wait();
                 dynType = a.Result.GetType();
 
