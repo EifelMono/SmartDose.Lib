@@ -119,4 +119,19 @@ SELECT [Extent1].[Id] AS[Id]
     WHERE '4711' = [Extent1].[Identifier]
 ```
 
-
+### Select Id of Identifier (Tray)
+result.Data = long here the Id of Tray
+```csharp
+if (await serviceClient.ModelRead<Tray>()
+    .Where(m => m.Identifier == "4711")
+    .Select(m => m.Id)
+    .ExecuteFirstOrDefaultAsync() is var result && result.IsOk())
+    Console.WriteLine(result.Data.ToJson());
+else
+    Console.WriteLine(result.ToErrorString());
+```
+```sql
+SELECT [Extent1].[Id] AS[Id]
+    FROM[Tray] AS[Extent1]
+    WHERE '4711' = [Extent1].[VisibleIdentifier]
+```
