@@ -68,7 +68,7 @@ Create, Delete, Update throw a not implement exception
 
 ## Samples
 
-### FirstOrDefault for one item
+### ExecuteFirstOrDefault for one item
 result.Data = Model here Medicine
 ```csharp
 if (await serviceClient.ModelRead<Medicine>()
@@ -79,7 +79,7 @@ else
     Console.WriteLine(result.ToErrorString());
 ```
 
-### ToList for a list
+### ExecuteToList for a list
 result.Data = List&lt;Model&gt; here List&lt;Medicine&gt;
 ```csharp
 if (await serviceClient.ModelRead<Medicine>()
@@ -90,7 +90,7 @@ else
     Console.WriteLine(result.ToErrorString());
 ```
 
-### ToList with paging
+### ExecuteToList with paging
 result.Data = List&lt;Model&gt; here List&lt;Medicine&gt;
 ```csharp
 if (await serviceClient.ModelRead<Medicine>()
@@ -100,6 +100,23 @@ if (await serviceClient.ModelRead<Medicine>()
     Console.WriteLine(result.Data.ToJson());
 else
     Console.WriteLine(result.ToErrorString());
+```
+
+### Select Id of Identifier
+result.Data = long here the Id of Medicine
+```csharp
+if (await serviceClient.ModelRead<Medicine>()
+    .Where(m => m.Identifier == "4711")
+    .Select(m => m.Id)
+    .ExecuteFirstOrDefaultAsync() is var result && result.IsOk())
+    Console.WriteLine(result.Data.ToJson());
+else
+    Console.WriteLine(result.ToErrorString());
+```
+```sql
+SELECT [Extent1].[Id] AS[Id]
+    FROM[Medicine] AS[Extent1]
+    WHERE '4711' = [Extent1].[Identifier]
 ```
 
 
