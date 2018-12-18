@@ -5,7 +5,7 @@ using System.Xml;
 var target = Argument("target", "Default");
 var configuration = Argument("configuration", "Release");
 
-var nuget= "../";
+var nuget= "./NuGet";
 
 void DotNet(string args)
 {
@@ -28,6 +28,7 @@ void BuildCsproj(string root, string csproj)
    });
    DotNetCorePack(csproj);
 
+   EnsureDirectoryExists(nuget);
    foreach(var file in System.IO.Directory.GetFiles(artifacts, "*.nupkg"))
       CopyFiles(file, nuget);
 }
