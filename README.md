@@ -62,7 +62,7 @@ On exception or connection error the Status will be change.
 
 ## Info
 Read Works<br>
-Create, Delete, Update throw a not implement exception
+Create, Delete, Update set the status of the ServiceResult to  a not implemented
 
 
 
