@@ -158,7 +158,8 @@ else
 This is slow because it needs 200ms to create a anonymous object on the server side.
 
 ### Enum does not work on the server side
-at this time for Where, OrderBy, Orderby, Select
+It does not work for Where, OrderBy, Orderby, Select<br>
+But on the result.
 ```csharp
 if (await serviceClient.ModelRead<Patient>()
     .Where(p => p.Gender == Gender.Male)
