@@ -50,5 +50,19 @@ serviceClient. ... .ExecuteToListAsync()
 ```
 
 ## Info
-Read Works
+Read Works<br>
 Create, Delete, Update throw a not implement exception
+
+## Samples
+
+### FirstOrDefault for one item
+result.Data is Model here Medicine
+```csharp
+ if (await serviceClient.ModelRead<Medicine>()
+    .Where(m => m.Name.Contains("a"))
+    .ExecuteFirstOrDefaultAsync() is var result && result.IsOk())
+    Console.WriteLine(result.Data.ToJson());
+ else
+    Console.WriteLine(result.ToErrorString());
+```
+
