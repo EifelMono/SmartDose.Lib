@@ -135,3 +135,24 @@ SELECT [Extent1].[Id] AS[Id]
     FROM[Tray] AS[Extent1]
     WHERE '4711' = [Extent1].[VisibleIdentifier]
 ```
+
+### select with new object
+result.Data = a anonymous object with the properties of the select
+```csharp
+if (await serviceClient
+    .Model<Medicine>().Read()
+    .Where(m => m.Name.Contains("a"))
+    .OrderByDescending(m => m.Id)
+    .Select(m => new
+    {
+        MedicineName = m.Name,
+        MedicineId = m.Id,
+        MedicineIdentifier = m.Identifier,
+        ManufacturerName = m.Manufacturer.Name
+    })
+    .ExecuteToListAsync() is var result && result.IsOk())
+    Console.WriteLine(result.Data.ToJson());
+else
+    Console.WriteLine(result.ToErrorString());
+```
+this is slow because it needs 200ms to create a anonymous object on the server side.
