@@ -1,12 +1,12 @@
 # WcfLinq
 
-Create a ServiceClient
+## Create a ServiceClient
 
 ```csharp
 var serviceClient = new ServiceClientMasterData100000("net.tcp://localhost:10000/MasterData/"))
 ```
 
-Select the model with a CRUD action
+## Select the model with a CRUD action
 ```csharp
 serviceClient.ModelCreate<Model>()
 serviceClient.ModelDelete<Model>()
@@ -21,13 +21,22 @@ serviceClient.Model<Model>().Read()
 serviceClient.Model<Model>().Update()
 ```
 
-Execute with Model as result
-* ExceuteFirstOrDefault()
-* ExceuteFirstOrDefaultAsync()
+## Execute 
 
-Execute with List<Model> as result
-* ExceuteToList()
-* ExceuteToList()
+### Execute with Model as result
+```csharp
+serviceClient. ... .ExecuteFirstOrDefault()
+serviceClient. ... .ExecuteFirstOrDefaultAsync()
+```
+### Execute with List<Model> as result
+```csharp
+serviceClient. ... .ExecuteToList()
+serviceClient. ... .ExecuteToListAsync()
+```
+
+
+
+    
 
 
 
