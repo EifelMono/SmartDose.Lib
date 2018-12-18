@@ -21,7 +21,8 @@ namespace SmartDose.WcfLib
         public bool IsOkPlus => Status >= ServiceResultStatus.Ok;
 
         public bool IsError => Status < ServiceResultStatus.Ok;
-    }
+
+     }
 
     public class ServiceResult<TData> : ServiceResult, IServiceResult<TData>
     {

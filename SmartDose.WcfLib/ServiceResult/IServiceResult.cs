@@ -17,7 +17,7 @@ namespace SmartDose.WcfLib
         object Data { get; set; }
     }
 
-    public interface IServiceResult<T>: IServiceResult
+    public interface IServiceResult<T> : IServiceResult
     {
         new T Data { get; set; }
     }

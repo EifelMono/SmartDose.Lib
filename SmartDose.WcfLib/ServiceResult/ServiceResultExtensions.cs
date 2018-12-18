@@ -13,6 +13,9 @@ namespace SmartDose.WcfLib
         public static bool IsError(this IServiceResult thisValue)
             => thisValue == null ? false : thisValue.Status < 0;
 
+        public static string ToErrorString(this IServiceResult thisValue)
+            => $"Status= {thisValue.Status}[{thisValue.StatusAsString}]";
+
         public static T CastByClone<T>(this IServiceResult thisValue, bool withData = true) where T : IServiceResult, new()
            => new T
            {
