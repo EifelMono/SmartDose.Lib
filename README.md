@@ -32,7 +32,7 @@ serviceClient. ... .Paging(page: 2, pageSize: 10)
 ```csharp
 serviceClient. ... .Where(select function)
 ```
-select manipluates the result of the requesrt<br>
+select manipluates the result of the request<br>
 see later in this document
 
 ## Execute 
@@ -57,7 +57,8 @@ serviceClient. ... .ExecuteToListAsync()
 | Debug  | Contains debug infos of the execution<br> ModelBuilder.DebugInfoAll(on: true) switch's this on for all |
 | ....   | |
 
-Exceptions, including connection errors, are handeld by the execution function on setting the status.
+Exceptions, including connection errors, are handeld by the execution function.
+On exception or connection error the Status will be change.
 
 ## Info
 Read Works<br>
