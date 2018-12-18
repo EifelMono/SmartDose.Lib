@@ -53,8 +53,9 @@ serviceClient. ... .ExecuteToListAsync()
 
 | Name |  |
 |------|--|
-| Data | the result value |
+| Data |  result value of the execution |
 | Status | integer value of the execution |
+| Debug  | Contains debug infos of the execution<br> ModelBuilder.DebugInfoAll(on: true) switch's this on for all |
 
 ## Info
 Read Works<br>
