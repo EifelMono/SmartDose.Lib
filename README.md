@@ -69,7 +69,7 @@ Create, Delete, Update throw a not implement exception
 ## Samples
 
 ### FirstOrDefault for one item
-result.Data is Model here Medicine
+result.Data = Model here Medicine
 ```csharp
 if (await serviceClient.ModelRead<Medicine>()
     .Where(m => m.Name.Contains("a"))
@@ -80,7 +80,7 @@ else
 ```
 
 ### ToList for a list
-result.Data is List&lt;Model&gt; here List&lt;Medicine&gt;
+result.Data = List&lt;Model&gt; here List&lt;Medicine&gt;
 ```csharp
 if (await serviceClient.ModelRead<Medicine>()
     .Where(m => m.Name.Contains("a"))
@@ -88,3 +88,18 @@ if (await serviceClient.ModelRead<Medicine>()
     Console.WriteLine(result.Data.ToJson());
 else
     Console.WriteLine(result.ToErrorString());
+```
+
+### ToList with paging
+result.Data = List&lt;Model&gt; here List&lt;Medicine&gt;
+```csharp
+if (await serviceClient.ModelRead<Medicine>()
+    .Where(m => m.Name.Contains("a"))
+    .Paging(page: 2, pageSize: 10)
+    .ExecuteToListAsync() is var result && result.IsOk())
+    Console.WriteLine(result.Data.ToJson());
+else
+    Console.WriteLine(result.ToErrorString());
+```
+
+
