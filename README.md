@@ -151,11 +151,34 @@ if (await serviceClient
         ManufacturerName = m.Manufacturer.Name
     })
     .ExecuteToListAsync() is var result && result.IsOk())
-    Console.WriteLine(result.Data.ToJson());
+    {
+        Console.WriteLine(result.Data.ToJson());
+        foreach(var d in result.Data)
+            Console.WriteLine($"{d.MedicineName} {d.MedicineId} {d.MedicineIdentifier} {d.ManufacturerName}");
+    }
 else
     Console.WriteLine(result.ToErrorString());
 ```
-This is slow because it needs 200ms to create a anonymous object on the server side.
+It works but this is slow because it needs 200ms to create a anonymous object on the server side.
+```sql
+SELECT 
+[Project1].[C1] AS [C1], 
+[Project1].[Name] AS [Name], 
+[Project1].[Id] AS [Id], 
+[Project1].[Identifier] AS [Identifier], 
+[Project1].[Name1] AS [Name1]
+FROM ( SELECT 
+	[Extent1].[Id] AS [Id], 
+	[Extent1].[Name] AS [Name], 
+	[Extent1].[Identifier] AS [Identifier], 
+	[Extent2].[Name] AS [Name1], 
+	1 AS [C1]
+	FROM  [Medicine] AS [Extent1]
+	LEFT OUTER JOIN [Manufacturer] AS [Extent2] ON [Extent1].[Manufacturer_Id] = [Extent2].[Id]
+	WHERE (CHARINDEX('a', [Extent1].[Name])) > 0
+)  AS [Project1]
+ORDER BY [Project1].[Id] DESC
+```
 
 ### Enum does not work on the server side
 It does not work for Where, OrderBy, Orderby, Select<br>
