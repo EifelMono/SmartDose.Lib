@@ -103,7 +103,7 @@ else
 ```
 
 ### Select Id of Identifier
-result.Data = long here the Id of Medicine
+result.Data = long here the Id of the Medicine
 ```csharp
 if (await serviceClient.ModelRead<Medicine>()
     .Where(m => m.Identifier == "4711")
@@ -120,7 +120,7 @@ SELECT [Extent1].[Id] AS[Id]
 ```
 
 ### Select Id of Identifier (Tray)
-result.Data = long here the Id of Tray
+result.Data = long here the Id of the Tray
 ```csharp
 if (await serviceClient.ModelRead<Tray>()
     .Where(m => m.Identifier == "4711")
