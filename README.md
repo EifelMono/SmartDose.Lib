@@ -49,9 +49,18 @@ serviceClient. ... .ExecuteToList()
 serviceClient. ... .ExecuteToListAsync()
 ```
 
+### ServiceResult 
+
+| Name |  |
+|------|--|
+| Data | the result value |
+| Status | integer value of the execution |
+
 ## Info
 Read Works<br>
 Create, Delete, Update throw a not implement exception
+
+
 
 ## Samples
 
