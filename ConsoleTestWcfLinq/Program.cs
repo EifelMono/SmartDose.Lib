@@ -14,9 +14,8 @@ namespace ConsoleTestWcfLinq
             Console.WriteLine(endPoint);
             using (var serviceClient = new ServiceClientMasterData100000(endPoint))
             {
-                ModelBuilder.DebugInfoAll(on: true); // Sql trace for all in ServiceResult.Debug
-                // in the the sample
-                // result.Debug contains the sql!
+                ModelBuilder.DebugInfoAll(on: true);  // Sql trace for all in property ServiceResult.Debug
+                // in the the sample result.Debug contains the sql!
 
                 serviceClient.OnClientEvent += (e) => Console.WriteLine($"event=>{e.ToString()}");
                 serviceClient.OnMedicinesChanged += (listOfMedicines) => Console.WriteLine("Medicine changed");
@@ -32,6 +31,7 @@ namespace ConsoleTestWcfLinq
                 var selection = 4;
                 switch (selection)
                 {
+                    #region short intro
                     // How to Start
                     // serviceClient
                     /// .ModelCreate<ModelName>()
@@ -51,7 +51,7 @@ namespace ConsoleTestWcfLinq
                     //      ExecuteFirstOrDefault, ExecuteFirstOrDefaultAsync for a model Item 
                     //      ExecuteToList, ExecuteToListAsync for a list with models
                     //      with select the item is the select
-
+                    #endregion
                     case 0:
                         {
                             // FirstOrDefault for one Item
@@ -81,7 +81,7 @@ namespace ConsoleTestWcfLinq
                             // ToList with OrderBy or OrderByDescending
                             if (await serviceClient.ModelRead<Medicine>()
                                 .Where(m => m.Name.Contains("a"))
-                                .OrderByDescending(m=> m.Manufacturer.Name)
+                                .OrderByDescending(m => m.Manufacturer.Name)
                                 .ExceuteToListAsync() is var result && result.IsOk())
                                 Console.WriteLine(result.Data.ToJson());
                             else
@@ -93,7 +93,7 @@ namespace ConsoleTestWcfLinq
                             // ToList with paging
                             if (await serviceClient.ModelRead<Medicine>()
                                 .Where(m => m.Name.Contains("a"))
-                                .Paging(page: 2, pageSize:10)
+                                .Paging(page: 2, pageSize: 10)
                                 .ExceuteToListAsync() is var result && result.IsOk())
                                 Console.WriteLine(result.Data.ToJson());
                             else
@@ -112,6 +112,9 @@ namespace ConsoleTestWcfLinq
                                     Console.WriteLine(result.Data.ToJson());
                                 else
                                     Console.WriteLine(result.ToErrorString());
+                                // SELECT [Extent1].[Id] AS[Id]
+                                // FROM[Medicine] AS[Extent1]
+                                // WHERE '4711' = [Extent1].[Identifier]
                             }
                             {
                                 // select Id of Identifier
