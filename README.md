@@ -28,7 +28,7 @@ serviceClient.Model<Model>().Update()
 serviceClient. ... .ExecuteFirstOrDefault()
 serviceClient. ... .ExecuteFirstOrDefaultAsync()
 ```
-### Execute with List<Model> as result
+### Execute with List&lt;Model&gt; as result
 ```csharp
 serviceClient. ... .ExecuteToList()
 serviceClient. ... .ExecuteToListAsync()
