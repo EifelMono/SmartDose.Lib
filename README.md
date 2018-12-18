@@ -155,4 +155,16 @@ if (await serviceClient
 else
     Console.WriteLine(result.ToErrorString());
 ```
-this is slow because it needs 200ms to create a anonymous object on the server side.
+This is slow because it needs 200ms to create a anonymous object on the server side.
+
+### Enum does not work on the server side
+at this time for Where, OrderBy, Orderby, Select
+```csharp
+if (await serviceClient.ModelRead<Patient>()
+    .Where(p => p.Gender == Gender.Male)
+    .OrderBy(p => p.Id)
+    .ExecuteFirstOrDefaultAsync() is var result && result.IsOk())
+    Console.WriteLine(result.Data.ToJson());
+else
+    Console.WriteLine(result.ToErrorString());
+```
