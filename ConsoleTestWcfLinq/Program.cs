@@ -54,8 +54,8 @@ namespace ConsoleTestWcfLinq
                     #endregion
                     case 0:
                         {
-                            // FirstOrDefault for one Item
-                            // result.Data is Model here Medicine
+                            // FirstOrDefault for one item
+                            // result.Data = Model here Medicine
                             if (await serviceClient.ModelRead<Medicine>()
                                 .Where(m => m.Name.Contains("a"))
                                 .ExecuteFirstOrDefaultAsync() is var result && result.IsOk())
@@ -67,7 +67,7 @@ namespace ConsoleTestWcfLinq
                     case 1:
                         {
                             // ToList for a list
-                            // result.Data is List<Model> here List<Medicine>
+                            // result.Data = List<Model> here List<Medicine>
                             if (await serviceClient.ModelRead<Medicine>()
                                 .Where(m => m.Name.Contains("a"))
                                 .ExecuteToListAsync() is var result && result.IsOk())
@@ -104,7 +104,7 @@ namespace ConsoleTestWcfLinq
                         {
                             {
                                 // select Id of Identifier
-                                // result.Data is long here the Id of Medicine
+                                // result.Data = long here the Id of Medicine
                                 if (await serviceClient.ModelRead<Medicine>()
                                     .Where(m => m.Identifier == "4711")
                                     .Select(m => m.Id)
@@ -118,7 +118,7 @@ namespace ConsoleTestWcfLinq
                             }
                             {
                                 // select Id of Identifier
-                                // result.Data is long here the Id of Tray
+                                // result.Data = long here the Id of Tray
                                 if (await serviceClient.ModelRead<Tray>()
                                     .Where(m => m.Identifier == "4711")
                                     .Select(m => m.Id)
@@ -137,7 +137,7 @@ namespace ConsoleTestWcfLinq
                             // select with new object
                             // this is slow because it needs 200ms 
                             // to create a anonymous object on the server side
-                            // result.Data is a anonymous object with the properties of the select
+                            // result.Data = a anonymous object with the properties of the select
                             if (await serviceClient
                                 .Model<Medicine>().Read()
                                 .Where(m => m.Name.Contains("a"))
