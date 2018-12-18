@@ -58,7 +58,7 @@ namespace ConsoleTestWcfLinq
                             // result.Data is Model here Medicine
                             if (await serviceClient.ModelRead<Medicine>()
                                 .Where(m => m.Name.Contains("a"))
-                                .ExceuteFirstOrDefaultAsync() is var result && result.IsOk())
+                                .ExecuteFirstOrDefaultAsync() is var result && result.IsOk())
                                 Console.WriteLine(result.Data.ToJson());
                             else
                                 Console.WriteLine(result.ToErrorString());
@@ -70,7 +70,7 @@ namespace ConsoleTestWcfLinq
                             // result.Data is List<Model> here List<Medicine>
                             if (await serviceClient.ModelRead<Medicine>()
                                 .Where(m => m.Name.Contains("a"))
-                                .ExceuteToListAsync() is var result && result.IsOk())
+                                .ExecuteToListAsync() is var result && result.IsOk())
                                 Console.WriteLine(result.Data.ToJson());
                             else
                                 Console.WriteLine(result.ToErrorString());
@@ -82,7 +82,7 @@ namespace ConsoleTestWcfLinq
                             if (await serviceClient.ModelRead<Medicine>()
                                 .Where(m => m.Name.Contains("a"))
                                 .OrderByDescending(m => m.Manufacturer.Name)
-                                .ExceuteToListAsync() is var result && result.IsOk())
+                                .ExecuteToListAsync() is var result && result.IsOk())
                                 Console.WriteLine(result.Data.ToJson());
                             else
                                 Console.WriteLine(result.ToErrorString());
@@ -94,7 +94,7 @@ namespace ConsoleTestWcfLinq
                             if (await serviceClient.ModelRead<Medicine>()
                                 .Where(m => m.Name.Contains("a"))
                                 .Paging(page: 2, pageSize: 10)
-                                .ExceuteToListAsync() is var result && result.IsOk())
+                                .ExecuteToListAsync() is var result && result.IsOk())
                                 Console.WriteLine(result.Data.ToJson());
                             else
                                 Console.WriteLine(result.ToErrorString());
@@ -108,7 +108,7 @@ namespace ConsoleTestWcfLinq
                                 if (await serviceClient.ModelRead<Medicine>()
                                     .Where(m => m.Identifier == "4711")
                                     .Select(m => m.Id)
-                                    .ExceuteFirstOrDefaultAsync() is var result && result.IsOk())
+                                    .ExecuteFirstOrDefaultAsync() is var result && result.IsOk())
                                     Console.WriteLine(result.Data.ToJson());
                                 else
                                     Console.WriteLine(result.ToErrorString());
@@ -122,7 +122,7 @@ namespace ConsoleTestWcfLinq
                                 if (await serviceClient.ModelRead<Tray>()
                                     .Where(m => m.Identifier == "4711")
                                     .Select(m => m.Id)
-                                    .ExceuteFirstOrDefaultAsync() is var result && result.IsOk())
+                                    .ExecuteFirstOrDefaultAsync() is var result && result.IsOk())
                                     Console.WriteLine(result.Data.ToJson());
                                 else
                                     Console.WriteLine(result.ToErrorString());
@@ -149,7 +149,7 @@ namespace ConsoleTestWcfLinq
                                     MedicineIdentifier = m.Identifier,
                                     ManufacturerName = m.Manufacturer.Name
                                 })
-                                .ExceuteToListAsync() is var result && result.IsOk())
+                                .ExecuteToListAsync() is var result && result.IsOk())
                                 Console.WriteLine(result.Data.ToJson());
                             else
                                 Console.WriteLine(result.ToErrorString());
@@ -164,7 +164,7 @@ namespace ConsoleTestWcfLinq
                             if (await serviceClient.ModelRead<Patient>()
                                 .Where(p => p.Gender == Gender.Male)
                                 .OrderBy(p => p.Id)
-                                .ExceuteFirstOrDefaultAsync() is var result && result.IsOk())
+                                .ExecuteFirstOrDefaultAsync() is var result && result.IsOk())
                                 Console.WriteLine(result.Data.ToJson());
                             else
                                 Console.WriteLine(result.ToErrorString());

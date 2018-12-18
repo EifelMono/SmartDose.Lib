@@ -141,19 +141,19 @@ namespace SmartDose.WcfLib
             return returnResult;
         }
 
-        public IServiceResult<List<TModel>> ExceuteToList()
-            => ExceuteToListAsync().Result;
+        public IServiceResult<List<TModel>> ExecuteToList()
+            => ExecuteToListAsync().Result;
 
-        public async Task<IServiceResult<List<TModel>>> ExceuteToListAsync()
+        public async Task<IServiceResult<List<TModel>>> ExecuteToListAsync()
         {
             ResultType = typeof(List<TModel>);
             return await ExecuteAsync<List<TModel>>().ConfigureAwait(false);
         }
 
-        public IServiceResult<TModel> ExceuteFirstOrDefault(Expression<Func<TModel, bool>> whereExpression = null)
-            => ExceuteFirstOrDefaultAsync(whereExpression).Result;
+        public IServiceResult<TModel> ExecuteFirstOrDefault(Expression<Func<TModel, bool>> whereExpression = null)
+            => ExecuteFirstOrDefaultAsync(whereExpression).Result;
 
-        public async Task<IServiceResult<TModel>> ExceuteFirstOrDefaultAsync(Expression<Func<TModel, bool>> whereExpression = null)
+        public async Task<IServiceResult<TModel>> ExecuteFirstOrDefaultAsync(Expression<Func<TModel, bool>> whereExpression = null)
         {
             Where(whereExpression);
             ResultType = typeof(TModel);
