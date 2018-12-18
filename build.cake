@@ -5,7 +5,7 @@ using System.Xml;
 var target = Argument("target", "Default");
 var configuration = Argument("configuration", "Release");
 
-var nuget= "./NuGet";
+var nuget= "./nuget";
 
 void DotNet(string args)
 {
