@@ -151,7 +151,11 @@ if (await serviceClient
         ManufacturerName = m.Manufacturer.Name
     })
     .ExecuteToListAsync() is var result && result.IsOk())
-    Console.WriteLine(result.Data.ToJson());
+    {
+        Console.WriteLine(result.Data.ToJson());
+        foreach(var d in result.Data)
+            Console.WriteLine($"{d.MedicineName} {d.MedicineId} {d.MedicineIdentifier} {d.ManufacturerName}");
+    }
 else
     Console.WriteLine(result.ToErrorString());
 ```
