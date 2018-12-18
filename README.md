@@ -21,15 +21,20 @@ serviceClient.Model<Model>().Read()
 serviceClient.Model<Model>().Update()
 ```
 
-## Filter, Sort, Padding
-
+## Filter, Sort, Paging
 ```csharp
-serviceClient. ... .Where(model => model function)
-serviceClient. ... .OrderBy(model => model function)
-serviceClient. ... .OrderByDescending(model => model function)
+serviceClient. ... .Where(where function)
+serviceClient. ... .OrderBy(orderby function)
+serviceClient. ... .OrderByDescending(orderbydescending function)
 serviceClient. ... .Paging(page: 2, pageSize: 10)
 ```
 
+## Select 
+```csharp
+serviceClient. ... .Where(select function)
+```
+select manipluates the result linq
+see late in this document
 
 ## Execute 
 
@@ -43,6 +48,7 @@ serviceClient. ... .ExecuteFirstOrDefaultAsync()
 serviceClient. ... .ExecuteToList()
 serviceClient. ... .ExecuteToListAsync()
 ```
+
 
 
 
