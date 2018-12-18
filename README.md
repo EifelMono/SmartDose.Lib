@@ -33,8 +33,8 @@ serviceClient. ... .Paging(page: 2, pageSize: 10)
 ```csharp
 serviceClient. ... .Where(select function)
 ```
-select manipluates the result linq
-see late in this document
+select manipluates the result of the requesrt<br>
+see later in this document
 
 ## Execute 
 
@@ -48,22 +48,6 @@ serviceClient. ... .ExecuteFirstOrDefaultAsync()
 serviceClient. ... .ExecuteToList()
 serviceClient. ... .ExecuteToListAsync()
 ```
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
 
 ## Info
 Read Works
