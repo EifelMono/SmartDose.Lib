@@ -56,6 +56,9 @@ serviceClient. ... .ExecuteToListAsync()
 | Data |  result value of the execution |
 | Status | integer value of the execution |
 | Debug  | Contains debug infos of the execution<br> ModelBuilder.DebugInfoAll(on: true) switch's this on for all |
+| ....   | |
+
+Exceptions, including connection errors, are handeld by the execution function on setting the status.
 
 ## Info
 Read Works<br>
@@ -68,11 +71,20 @@ Create, Delete, Update throw a not implement exception
 ### FirstOrDefault for one item
 result.Data is Model here Medicine
 ```csharp
- if (await serviceClient.ModelRead<Medicine>()
+if (await serviceClient.ModelRead<Medicine>()
     .Where(m => m.Name.Contains("a"))
     .ExecuteFirstOrDefaultAsync() is var result && result.IsOk())
     Console.WriteLine(result.Data.ToJson());
- else
+else
     Console.WriteLine(result.ToErrorString());
 ```
 
+### ToList for a list
+result.Data is List&lt;Model&gt; here List&lt;Medicine&gt;
+```csharp
+if (await serviceClient.ModelRead<Medicine>()
+    .Where(m => m.Name.Contains("a"))
+    .ExecuteToListAsync() is var result && result.IsOk())
+    Console.WriteLine(result.Data.ToJson());
+else
+    Console.WriteLine(result.ToErrorString());
