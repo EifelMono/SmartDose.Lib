@@ -1,5 +1,4 @@
-# WcfLinq
-
+# SmartDose WcfLinq
 ## Create a ServiceClient
 
 ```csharp
