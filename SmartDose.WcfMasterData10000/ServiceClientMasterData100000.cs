@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
-using System.Text;
 using System.Threading.Tasks;
 using RowaMore.Extensions;
 using SmartDose.WcfLib;
+using static RowaMore.Globals.SafeInvokeGlobals;
+using static SmartDose.WcfLib.ServiceResultGlobals;
 
 namespace SmartDose.WcfMasterData10000
 {
@@ -32,20 +33,6 @@ namespace SmartDose.WcfMasterData10000
             Client = new MasterDataServiceClient(binding, new EndpointAddress(EndpointAddress));
         }
 
-        protected async Task<TResult> CatcherServiceResultAsync<TResult>(Func<Task<TResult>> func) where TResult : ServiceResult, new()
-        {
-            try
-            {
-                return await func().ConfigureAwait(false);
-            }
-            catch (Exception ex)
-            {
-                if (ThrowOnConnectionError)
-                    throw ex;
-                return new TResult { Exception = ex, Status = ServiceResultStatus.ErrorConnection };
-            }
-        }
-
         #region IServiceClient
         // Done in SmartDose.WcfLib by Reflection
         #endregion
@@ -58,7 +45,7 @@ namespace SmartDose.WcfMasterData10000
             => ModelCreateAsync(modelCreateRequest).Result;
 
         public async Task<ServiceResultModelCreateResponse> ModelCreateAsync(ModelCreateRequest modelCreateRequest)
-            => await CatcherServiceResultAsync(() => Client.ModelCreateAsync(modelCreateRequest)).ConfigureAwait(false);
+            => await ServiceResultInvokeAsync(Client.ModelCreateAsync, modelCreateRequest).ConfigureAwait(false);
 
         public async override Task<WcfLib.IServiceResult> ExecuteModelCreateAsync(CreateBuilder createBuilder)
         {
@@ -69,7 +56,7 @@ namespace SmartDose.WcfMasterData10000
                 {
                     Name = buildValues.ModelType?.Name ?? "",
                     Namespace = buildValues.ModelType?.Namespace ?? "",
-                    AssemblyName = buildValues.ModelType?.Assembly?.GetName()?.Name?? ""
+                    AssemblyName = buildValues.ModelType?.Assembly?.GetName()?.Name ?? ""
                 },
                 DebugInfoFlag = buildValues.DebugInfoFlag,
                 TableOnlyFlag = buildValues.TableOnlyFlag
@@ -87,7 +74,7 @@ namespace SmartDose.WcfMasterData10000
             => ModelDeleteAsync(modelDeleteRequest).Result;
 
         public async Task<ServiceResultBool> ModelDeleteAsync(ModelDeleteRequest modelDeleteRequest)
-            => await CatcherServiceResultAsync(() => Client.ModelDeleteAsync(modelDeleteRequest)).ConfigureAwait(false);
+            => await ServiceResultInvokeAsync(Client.ModelDeleteAsync, modelDeleteRequest).ConfigureAwait(false);
 
         public async override Task<IServiceResult<bool>> ExecuteModelDeleteAsync(DeleteBuilder deleteBuilder)
         {
@@ -113,7 +100,7 @@ namespace SmartDose.WcfMasterData10000
             => ModelReadAsync(modelReadRequest).Result;
 
         public async Task<ServiceResultModelReadResponse> ModelReadAsync(ModelReadRequest modelReadRequest)
-            => await CatcherServiceResultAsync(() => Client.ModelReadAsync(modelReadRequest)).ConfigureAwait(false);
+            => await ServiceResultInvokeAsync(Client.ModelReadAsync, modelReadRequest).ConfigureAwait(false);
 
         public async override Task<IServiceResult> ExecuteModelReadAsync(ReadBuilder readBuilder)
         {
@@ -166,7 +153,7 @@ namespace SmartDose.WcfMasterData10000
             => ModelReadIdOverIdentifierAsync(modelReadIdOverIdentifierRequest).Result;
 
         public async Task<ServiceResultLong> ModelReadIdOverIdentifierAsync(ModelReadIdOverIdentifierRequest modelReadIdOverIdentifierRequest)
-               => await CatcherServiceResultAsync(() => Client.ModelReadIdOverIdentifierAsync(modelReadIdOverIdentifierRequest)).ConfigureAwait(false);
+               => await ServiceResultInvokeAsync(Client.ModelReadIdOverIdentifierAsync, modelReadIdOverIdentifierRequest).ConfigureAwait(false);
 
         public async override Task<WcfLib.IServiceResult<long>> ExecuteModelReadIdOverIdentifierAsync(ReadIdOverIdentifierBuilder readIdOverIdentifierBuilder)
         {
@@ -192,7 +179,7 @@ namespace SmartDose.WcfMasterData10000
             => ModelUpdateAsync(modelUpdateRequest).Result;
 
         public async Task<ServiceResultModelUpdateResponse> ModelUpdateAsync(ModelUpdateRequest modelUpdateRequest)
-            => await CatcherServiceResultAsync(() => Client.ModelUpdateAsync(modelUpdateRequest)).ConfigureAwait(false);
+            => await ServiceResultInvokeAsync(Client.ModelUpdateAsync, modelUpdateRequest).ConfigureAwait(false);
 
         public async override Task<WcfLib.IServiceResult> ExecuteModelUpdateAsync(UpdateBuilder updateBuilder)
         {
@@ -256,106 +243,91 @@ namespace SmartDose.WcfMasterData10000
         public Medicine GetMedicineByIdentifierA(string medicineIdentifier)
             => GetMedicineByIdentifierAsync(medicineIdentifier).Result;
         public async Task<Medicine> GetMedicineByIdentifierAsync(string medicineIdentifier)
-            => await CatcherAsync(() => Client.GetMedicineByIdentifierAsync(medicineIdentifier))
-                    .ConfigureAwait(false);
+            => (await SafeInvokeAsync(Client.GetMedicineByIdentifierAsync, medicineIdentifier).ConfigureAwait(false)).Data;
         #endregion
 
         #region Medicine
         public ServiceResultBool MedicinesDeleteByIdentifier(string medicineIdentifier)
              => MedicinesDeleteByIdentifierAsync(medicineIdentifier).Result;
         public async Task<ServiceResultBool> MedicinesDeleteByIdentifierAsync(string medicineIdentifier)
-             => await CatcherServiceResultAsync(() => Client.MedicinesDeleteByIdentifierAsync(medicineIdentifier))
-                    .ConfigureAwait(false);
+             => await ServiceResultInvokeAsync(Client.MedicinesDeleteByIdentifierAsync, medicineIdentifier).ConfigureAwait(false);
 
         public ServiceResultMedicine MedicinesGetMedcineByIdentifier(string medicineIdentifier)
             => MedicinesGetMedcineByIdentifierAsync(medicineIdentifier).Result;
         public async Task<ServiceResultMedicine> MedicinesGetMedcineByIdentifierAsync(string medicineIdentifier)
-            => await CatcherServiceResultAsync(() => Client.MedicinesGetMedcineByIdentifierAsync(medicineIdentifier))
-                    .ConfigureAwait(false);
+            => await ServiceResultInvokeAsync(Client.MedicinesGetMedcineByIdentifierAsync, medicineIdentifier).ConfigureAwait(false);
         #endregion
 
         #region Canister
         public ServiceResultBool CanistersDeleteByIdentifier(string CanisterIdentifier)
             => CanistersDeleteByIdentifierAsync(CanisterIdentifier).Result;
         public async Task<ServiceResultBool> CanistersDeleteByIdentifierAsync(string CanisterIdentifier)
-             => await CatcherServiceResultAsync(() => Client.CanistersDeleteByIdentifierAsync(CanisterIdentifier))
-                    .ConfigureAwait(false);
+             => await ServiceResultInvokeAsync(Client.CanistersDeleteByIdentifierAsync, CanisterIdentifier).ConfigureAwait(false);
 
         public ServiceResultCanister CanistersGetCanisterByIdentifier(string CanisterIdentifier)
             => CanistersGetCanisterByIdentifierAsync(CanisterIdentifier).Result;
         public async Task<ServiceResultCanister> CanistersGetCanisterByIdentifierAsync(string CanisterIdentifier)
-            => await CatcherServiceResultAsync(() => Client.CanistersGetCanisterByIdentifierAsync(CanisterIdentifier))
-                    .ConfigureAwait(false);
+            => await ServiceResultInvokeAsync(Client.CanistersGetCanisterByIdentifierAsync, CanisterIdentifier).ConfigureAwait(false);
         #endregion
 
         #region Customer
         public ServiceResultBool CustomersDeleteByIdentifier(string CustomerIdentifier)
             => CustomersDeleteByIdentifierAsync(CustomerIdentifier).Result;
         public async Task<ServiceResultBool> CustomersDeleteByIdentifierAsync(string CustomerIdentifier)
-             => await CatcherServiceResultAsync(() => Client.CustomersDeleteByIdentifierAsync(CustomerIdentifier))
-                    .ConfigureAwait(false);
+             => await ServiceResultInvokeAsync(Client.CustomersDeleteByIdentifierAsync, CustomerIdentifier).ConfigureAwait(false);
 
         public ServiceResultCustomer CustomersGetCustomerByIdentifier(string CustomerIdentifier)
             => CustomersGetCustomerByIdentifierAsync(CustomerIdentifier).Result;
         public async Task<ServiceResultCustomer> CustomersGetCustomerByIdentifierAsync(string CustomerIdentifier)
-            => await CatcherServiceResultAsync(() => Client.CustomersGetCustomerByIdentifierAsync(CustomerIdentifier))
-                    .ConfigureAwait(false);
+            => await ServiceResultInvokeAsync(Client.CustomersGetCustomerByIdentifierAsync, CustomerIdentifier).ConfigureAwait(false);
         #endregion
 
         #region DestinationFacilities
         public ServiceResultBool DestinationFacilitiesDeleteByIdentifier(string DestinationFacilityIdentifier)
            => DestinationFacilitiesDeleteByIdentifierAsync(DestinationFacilityIdentifier).Result;
         public async Task<ServiceResultBool> DestinationFacilitiesDeleteByIdentifierAsync(string DestinationFacilityIdentifier)
-            => await CatcherServiceResultAsync(() => Client.DestinationFacilitiesDeleteByIdentifierAsync(DestinationFacilityIdentifier))
-                    .ConfigureAwait(false);
+            => await ServiceResultInvokeAsync(Client.DestinationFacilitiesDeleteByIdentifierAsync, DestinationFacilityIdentifier).ConfigureAwait(false);
 
         public ServiceResultDestinationFacility DestinationFacilitiesGetDestinationFacilityByIdentifier(string DestinationFacilityIdentifier)
             => DestinationFacilitiesGetDestinationFacilityByIdentifierAsync(DestinationFacilityIdentifier).Result;
         public async Task<ServiceResultDestinationFacility> DestinationFacilitiesGetDestinationFacilityByIdentifierAsync(string DestinationFacilityIdentifier)
-            => await CatcherServiceResultAsync(() => Client.DestinationFacilitiesGetDestinationFacilityByIdentifierAsync(DestinationFacilityIdentifier))
-                    .ConfigureAwait(false);
+            => await ServiceResultInvokeAsync(Client.DestinationFacilitiesGetDestinationFacilityByIdentifierAsync, DestinationFacilityIdentifier).ConfigureAwait(false);
         #endregion
 
         #region Manufacturers
         public ServiceResultBool ManufacturersDeleteByIdentifier(string ManufacturerIdentifier)
                  => ManufacturersDeleteByIdentifierAsync(ManufacturerIdentifier).Result;
         public async Task<ServiceResultBool> ManufacturersDeleteByIdentifierAsync(string ManufacturerIdentifier)
-             => await CatcherServiceResultAsync(() => Client.ManufacturersDeleteByIdentifierAsync(ManufacturerIdentifier))
-                    .ConfigureAwait(false);
+             => await ServiceResultInvokeAsync(Client.ManufacturersDeleteByIdentifierAsync, ManufacturerIdentifier).ConfigureAwait(false);
 
         public ServiceResultManufacturer ManufacturersGetManufacturerByIdentifier(string ManufacturerIdentifier)
             => ManufacturersGetManufacturerByIdentifierAsync(ManufacturerIdentifier).Result;
         public async Task<ServiceResultManufacturer> ManufacturersGetManufacturerByIdentifierAsync(string ManufacturerIdentifier)
-            => await CatcherServiceResultAsync(() => Client.ManufacturersGetManufacturerByIdentifierAsync(ManufacturerIdentifier))
-                    .ConfigureAwait(false);
+            => await ServiceResultInvokeAsync(Client.ManufacturersGetManufacturerByIdentifierAsync, ManufacturerIdentifier).ConfigureAwait(false);
         #endregion
 
         #region Patients
         public ServiceResultBool PatientsDeleteByIdentifier(string PatientIdentifier)
               => PatientsDeleteByIdentifierAsync(PatientIdentifier).Result;
         public async Task<ServiceResultBool> PatientsDeleteByIdentifierAsync(string PatientIdentifier)
-             => await CatcherServiceResultAsync(() => Client.PatientsDeleteByIdentifierAsync(PatientIdentifier))
-                    .ConfigureAwait(false);
+             => await ServiceResultInvokeAsync(Client.PatientsDeleteByIdentifierAsync, PatientIdentifier).ConfigureAwait(false);
 
         public ServiceResultPatient PatientsGetPatientByIdentifier(string PatientIdentifier)
             => PatientsGetPatientByIdentifierAsync(PatientIdentifier).Result;
         public async Task<ServiceResultPatient> PatientsGetPatientByIdentifierAsync(string PatientIdentifier)
-            => await CatcherServiceResultAsync(() => Client.PatientsGetPatientByIdentifierAsync(PatientIdentifier))
-                    .ConfigureAwait(false);
+            => await ServiceResultInvokeAsync(Client.PatientsGetPatientByIdentifierAsync, PatientIdentifier).ConfigureAwait(false);
         #endregion
 
         #region Trays
         public ServiceResultBool TraysDeleteByIdentifier(string TrayIdentifier)
               => TraysDeleteByIdentifierAsync(TrayIdentifier).Result;
         public async Task<ServiceResultBool> TraysDeleteByIdentifierAsync(string TrayIdentifier)
-             => await CatcherServiceResultAsync(() => Client.TraysDeleteByIdentifierAsync(TrayIdentifier))
-                    .ConfigureAwait(false);
+             => await ServiceResultInvokeAsync(Client.TraysDeleteByIdentifierAsync, TrayIdentifier).ConfigureAwait(false);
 
         public ServiceResultTray TraysGetTrayByIdentifier(string TrayIdentifier)
             => TraysGetTrayByIdentifierAsync(TrayIdentifier).Result;
         public async Task<ServiceResultTray> TraysGetTrayByIdentifierAsync(string TrayIdentifier)
-            => await CatcherServiceResultAsync(() => Client.TraysGetTrayByIdentifierAsync(TrayIdentifier))
-                    .ConfigureAwait(false);
+            => await ServiceResultInvokeAsync(Client.TraysGetTrayByIdentifierAsync, TrayIdentifier).ConfigureAwait(false);
         #endregion
 
         #endregion

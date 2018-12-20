@@ -23,10 +23,10 @@ namespace RowaMore
 
         public Type Type { get; set; }
 
-        object _Value;
+        object _value;
         public object Value
         {
-            get => _Value; set { _Value = value; InitializePropertyWithValue = true; }
+            get => _value; set { _value = value; InitializePropertyWithValue = true; }
         }
 
         public ClassBuilderPropertyCustomAttribute CustomAttributes { get; set; }
@@ -61,11 +61,11 @@ namespace RowaMore
         public string Id { get; set; } = Guid.NewGuid().ToString();
         public string ModuleName { get; set; } = $"MainModule";
 
-        string _ClassName = null;
-        public string ClassName { get => _ClassName ?? (_ClassName = $"Class_{Id}"); set => _ClassName = value; }
+        string _className = null;
+        public string ClassName { get => _className ?? (_className = $"Class_{Id}"); set => _className = value; }
 
-        string _AssemblyName = null;
-        public string AssemblyName { get => _AssemblyName ?? (_AssemblyName = $"Assembly_{Id}"); set => _AssemblyName = value; }
+        string _assemblyName = null;
+        public string AssemblyName { get => _assemblyName ?? (_assemblyName = $"Assembly_{Id}"); set => _assemblyName = value; }
 
         public List<ClassBuilderProperty> Properties { get; set; } = new List<ClassBuilderProperty>();
 
