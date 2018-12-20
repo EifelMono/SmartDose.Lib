@@ -108,16 +108,18 @@ namespace SmartDose.WcfLib
         #region Select
         public ReadBuilder<T> Select<T>(Expression<Func<TModel, T>> selectExpression)
         {
-            var readSelectBuilder = new ReadBuilder<T>(Client);
-            readSelectBuilder.DebugInfoFlag = DebugInfoFlag;
-            readSelectBuilder.TableOnlyFlag = TableOnlyFlag;
-            readSelectBuilder.ModelType = ModelType;
-            readSelectBuilder.WhereAsJson = WhereAsJson;
-            readSelectBuilder.OrderByAsJson = OrderByAsJson;
-            readSelectBuilder.OrderByType = OrderByType;
-            readSelectBuilder.OrderByAsc = OrderByAsc;
-            readSelectBuilder.SelectAsJson = selectExpression.ToJson();
-            readSelectBuilder.SelectType = typeof(T);
+            var readSelectBuilder = new ReadBuilder<T>(Client)
+            {
+                DebugInfoFlag = DebugInfoFlag,
+                TableOnlyFlag = TableOnlyFlag,
+                ModelType = ModelType,
+                WhereAsJson = WhereAsJson,
+                OrderByAsJson = OrderByAsJson,
+                OrderByType = OrderByType,
+                OrderByAsc = OrderByAsc,
+                SelectAsJson = selectExpression.ToJson(),
+                SelectType = typeof(T)
+            };
             return readSelectBuilder;
         }
         #endregion

@@ -257,7 +257,7 @@ namespace SmartDose.WcfLib
             {
                 if (ThrowOnConnectionError)
                     throw ex;
-                return default(TResult);
+                return default;
             }
         }
 

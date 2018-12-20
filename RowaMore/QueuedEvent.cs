@@ -73,8 +73,7 @@ namespace RowaMore
 
         public async Task<(bool Ok, TEvent Value)> Next()
         {
-            var value = default(TEvent);
-            if (!Queue.TryDequeue(out value))
+            if (!Queue.TryDequeue(out var value))
             {
                 try
                 {
