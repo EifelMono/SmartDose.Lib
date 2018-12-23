@@ -52,7 +52,7 @@ namespace SmartDose.WcfLib
 
         public async Task<IServiceResult> ExecuteAsync()
         {
-            return await Client.ExecuteModelCreateAsync(this).ConfigureAwait(false);
+            return await Client.ExecModelCreateAsync(this).ConfigureAwait(false);
         }
 
         #endregion

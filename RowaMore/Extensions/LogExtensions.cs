@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using RowaMore.Globals;
 
 namespace RowaMore.Extensions
 {
@@ -17,9 +15,9 @@ namespace RowaMore.Extensions
             {
                 lock (s_logObject)
                 {
-                    if (!File.Exists(CoreGlobals.Log.LogFileName))
-                        File.AppendAllText(CoreGlobals.Log.LogFileName, $"Time;Info;Message\r\n");
-                    File.AppendAllText(CoreGlobals.Log.LogFileName, $"{timeStamp};{type};{message}\r\n");
+                    if (!File.Exists(MoreGlobals.Log.LogFileName))
+                        File.AppendAllText(MoreGlobals.Log.LogFileName, $"Time;Info;Message\r\n");
+                    File.AppendAllText(MoreGlobals.Log.LogFileName, $"{timeStamp};{type};{message}\r\n");
                 }
             });
         }

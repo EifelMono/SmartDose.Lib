@@ -133,33 +133,56 @@ namespace SmartDose.WcfLib
         }
         #endregion
 
-        #region Execute
-        protected async Task<IServiceResult<TResult>> ExecuteAsync<TResult>()
+        #region Exe
+        protected async Task<IServiceResult<TResult>> ExecAsync<TResult>()
         {
-            var executeServiceResult = await Client.ExecuteModelReadAsync(this).ConfigureAwait(false);
-            var returnResult = executeServiceResult.CastByClone<ServiceResult<TResult>>(withData: false);
-            if (executeServiceResult.Status == 0)
-                returnResult.Data = (executeServiceResult.Data as string).UnZipString().ToObjectFromJson<TResult>();
+            var execServiceResult = await Client.ExecModelReadAsync(this).ConfigureAwait(false);
+            var returnResult = execServiceResult.CastByClone<ServiceResult<TResult>>(withData: false);
+            if (execServiceResult.Status == 0)
+                returnResult.Data = (execServiceResult.Data as string).UnZipString().ToObjectFromJson<TResult>();
             return returnResult;
         }
 
-        public IServiceResult<List<TModel>> ExecuteToList()
-            => ExecuteToListAsync().Result;
+        public IServiceResult<List<TModel>> ExecToList()
+            => ExecToListAsync().Result;
 
-        public async Task<IServiceResult<List<TModel>>> ExecuteToListAsync()
+        public async Task<IServiceResult<List<TModel>>> ExecToListAsync()
         {
             ResultType = typeof(List<TModel>);
-            return await ExecuteAsync<List<TModel>>().ConfigureAwait(false);
+            return await ExecAsync<List<TModel>>().ConfigureAwait(false);
         }
 
-        public IServiceResult<TModel> ExecuteFirstOrDefault(Expression<Func<TModel, bool>> whereExpression = null)
-            => ExecuteFirstOrDefaultAsync(whereExpression).Result;
+        public IServiceResult<TModel> ExecFirstOrDefault(Expression<Func<TModel, bool>> whereExpression = null)
+            => ExecFirstOrDefaultAsync(whereExpression).Result;
 
-        public async Task<IServiceResult<TModel>> ExecuteFirstOrDefaultAsync(Expression<Func<TModel, bool>> whereExpression = null)
+        public async Task<IServiceResult<TModel>> ExecFirstOrDefaultAsync(Expression<Func<TModel, bool>> whereExpression = null)
         {
             Where(whereExpression);
             ResultType = typeof(TModel);
-            return await ExecuteAsync<TModel>().ConfigureAwait(false);
+            return await ExecAsync<TModel>().ConfigureAwait(false);
+        }
+
+        public IServiceResult<int> ExecCount(Expression<Func<TModel, bool>> whereExpression = null)
+            => ExecCountAsync(whereExpression).Result;
+
+        public async Task<IServiceResult<int>> ExecCountAsync(Expression<Func<TModel, bool>> whereExpression = null)
+        {
+            Where(whereExpression);
+            ResultType = typeof(int);
+            var readSelectBuilder = new ReadBuilder<int>(Client)
+            {
+                DebugInfoFlag = DebugInfoFlag,
+                TableOnlyFlag = TableOnlyFlag,
+                ModelType = ModelType,
+                WhereAsJson = WhereAsJson,
+                OrderByAsJson = OrderByAsJson,
+                OrderByType = OrderByType,
+                OrderByAsc = OrderByAsc,
+                SelectAsJson = SelectAsJson,
+                SelectType = SelectType,
+                ResultType= ResultType
+            };
+            return await readSelectBuilder.ExecAsync<int>().ConfigureAwait(false);
         }
 
         #endregion
