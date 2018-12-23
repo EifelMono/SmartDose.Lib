@@ -69,7 +69,7 @@ namespace SmartDose.WcfLib
         public async Task<IServiceResult> ExecuteAsync(Expression<Func<TModel, bool>> whereExpression = null)
         {
             Where(whereExpression);
-            return await Client.ExecuteModelUpdateAsync(this).ConfigureAwait(false);
+            return await Client.ExecModelUpdateAsync(this).ConfigureAwait(false);
         }
 
         #endregion

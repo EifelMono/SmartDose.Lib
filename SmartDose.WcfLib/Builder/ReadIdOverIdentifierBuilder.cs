@@ -68,7 +68,7 @@ namespace SmartDose.WcfLib
         public async Task<IServiceResult<long>> ExecuteFirstOrDefaultAsync(string identifier = null)
         {
             Where(identifier);
-            return await Client.ExecuteModelReadIdOverIdentifierAsync(this).ConfigureAwait(false);
+            return await Client.ExecModelReadIdOverIdentifierAsync(this).ConfigureAwait(false);
         }
 
         #endregion
