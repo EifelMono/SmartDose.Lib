@@ -2,6 +2,6 @@
 
 Linq over Wcf
 
-See the [wiki](https://github.com/EifelMono/SmartDose.Lib/wiki) for documentation
+See the [Wiki](https://github.com/EifelMono/SmartDose.Lib/wiki) for documentation
 
 
