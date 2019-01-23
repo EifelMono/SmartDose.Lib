@@ -15,7 +15,14 @@ namespace SmartDose.WcfLib
             => thisValue == null ? false : thisValue.Status < 0;
 
         public static string ToErrorString(this IServiceResult thisValue)
-            => $"Status= {thisValue.Status}[{thisValue.StatusAsString}]";
+        {
+            var result = $"Status={thisValue.Status}[{thisValue.StatusAsString}]";
+            if (thisValue.Message != null)
+                result += $"{Environment.NewLine}Message={thisValue.Message}";
+            if (thisValue.Exception != null)
+                result += $"{Environment.NewLine}Exception={thisValue.Exception.ToString()}";
+            return result;
+        }
 
         public static T CastByClone<T>(this IServiceResult thisValue, bool withData = true) where T : IServiceResult, new()
            => new T

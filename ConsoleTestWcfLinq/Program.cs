@@ -134,6 +134,10 @@ namespace ConsoleTestWcfLinq
                         }
                     case 5:
                         {
+                            // ATTENTION
+                            // Select with new object is removed on the Serverside
+                            // #undef SELECTWITHANONYMOUSTYPE in 
+                            // Rowa.SmartDose.BusinessConnectors.Services.ModelsService
                             // select with new object
                             // this is slow because it needs 200ms 
                             // to create a anonymous object on the server side

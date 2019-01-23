@@ -49,7 +49,9 @@ namespace SmartDose.WcfMasterData10000
 
         public async override Task<WcfLib.IServiceResult> ExecModelCreateAsync(CreateBuilder createBuilder)
         {
+#pragma warning disable IDE0042 // Deconstruct variable declaration
             var buildValues = createBuilder.GetValues();
+#pragma warning restore IDE0042 // Deconstruct variable declaration
             var request = new ModelCreateRequest
             {
                 ModelType = new ModelClassType
@@ -79,7 +81,9 @@ namespace SmartDose.WcfMasterData10000
 
         public async override Task<IServiceResult<bool>> ExecModelDeleteAsync(DeleteBuilder deleteBuilder)
         {
+#pragma warning disable IDE0042 // Deconstruct variable declaration
             var buildValues = deleteBuilder.GetValues();
+#pragma warning restore IDE0042 // Deconstruct variable declaration
             var request = new ModelDeleteRequest
             {
                 ModelType = new ModelClassType
@@ -106,7 +110,9 @@ namespace SmartDose.WcfMasterData10000
 
         public async override Task<IServiceResult> ExecModelReadAsync(ReadBuilder readBuilder)
         {
+#pragma warning disable IDE0042 // Deconstruct variable declaration
             var buildValues = readBuilder.GetValues();
+#pragma warning restore IDE0042 // Deconstruct variable declaration
             var request = new ModelReadRequest
             {
                 ModelType = new ModelClassType
@@ -160,7 +166,9 @@ namespace SmartDose.WcfMasterData10000
 
         public async override Task<WcfLib.IServiceResult<long>> ExecModelReadIdOverIdentifierAsync(ReadIdOverIdentifierBuilder readIdOverIdentifierBuilder)
         {
+#pragma warning disable IDE0042 // Deconstruct variable declaration
             var buildValues = readIdOverIdentifierBuilder.GetValues();
+#pragma warning restore IDE0042 // Deconstruct variable declaration
             var request = new ModelReadIdOverIdentifierRequest
             {
                 ModelType = new ModelClassType
@@ -187,7 +195,9 @@ namespace SmartDose.WcfMasterData10000
 
         public async override Task<WcfLib.IServiceResult> ExecModelUpdateAsync(UpdateBuilder updateBuilder)
         {
+#pragma warning disable IDE0042 // Deconstruct variable declaration
             var buildValues = updateBuilder.GetValues();
+#pragma warning restore IDE0042 // Deconstruct variable declaration
             var request = new ModelUpdateRequest
             {
                 ModelType = new ModelClassType
